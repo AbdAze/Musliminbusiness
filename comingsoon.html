@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8 flex justify-center">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muslims in Business - Coming Soon</title>
+    <link rel="shortcut icon" href="Gallery/logo.png" type="image">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #173F3F;
+            --secondary-color: #E8C07D;
+            --accent-color: #9BCC93;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .construction-worker {
+            position: absolute;
+            width: 80px;
+            height: 120px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><rect x="30" y="20" width="40" height="30" rx="5" fill="%23173F3F"/><circle cx="50" cy="15" r="15" fill="%23E8C07D"/><rect x="25" y="50" width="50" height="60" fill="%23173F3F"/><rect x="20" y="110" width="15" height="40" fill="%23173F3F"/><rect x="65" y="110" width="15" height="40" fill="%23173F3F"/><rect x="35" y="60" width="30" height="20" fill="%23E8C07D"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 10;
+            animation: workerMove 8s infinite;
+        }
+        
+        .worker-1 {
+            bottom: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .worker-2 {
+            bottom: 15%;
+            right: 15%;
+            animation-delay: 2s;
+            transform: scaleX(-1);
+        }
+        
+        .worker-3 {
+            bottom: 8%;
+            left: 50%;
+            animation-delay: 1s;
+        }
+        
+        @keyframes workerMove {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .crane {
+            position: absolute;
+            width: 200px;
+            height: 300px;
+            right: 10%;
+            top: -50px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><rect x="90" y="0" width="20" height="250" fill="%23173F3F"/><rect x="0" y="250" width="200" height="20" fill="%23173F3F"/><rect x="50" y="270" width="100" height="30" fill="%23173F3F"/><circle cx="100" cy="290" r="10" fill="%23333"/><circle cx="140" cy="290" r="10" fill="%23333"/><rect x="180" y="50" width="20" height="100" fill="%23173F3F"/><rect x="160" y="50" width="40" height="20" fill="%23173F3F"/><circle cx="190" cy="170" r="10" fill="%23333"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 5;
+            animation: craneMove 10s infinite;
+        }
+        
+        @keyframes craneMove {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+        }
+        
+        .brick {
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            background-color: var(--primary-color);
+            opacity: 0;
+            animation: brickFall 3s infinite;
+        }
+        
+        @keyframes brickFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(300px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 65%;
+            animation: progressPulse 2s infinite;
+        }
+        
+        @keyframes progressPulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+        
+        .islamic-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,20 C60,20 60,40 100,40 L100,60 C60,60 60,80 100,80 L100,100 L0,100 Z" fill="%23173F3F" opacity="0.1"/></svg>');
+            background-size: 100px 100px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+    <!-- Construction Elements -->
+    <div class="crane"></div>
+    <div class="construction-worker worker-1"></div>
+    <div class="construction-worker worker-2"></div>
+    <div class="construction-worker worker-3"></div>
+    
+    <!-- Random falling bricks -->
+    <div class="brick" style="left: 15%; animation-delay: 0.5s;"></div>
+    <div class="brick" style="left: 30%; animation-delay: 1.2s;"></div>
+    <div class="brick" style="left: 45%; animation-delay: 0.8s;"></div>
+    <div class="brick" style="left: 60%; animation-delay: 1.5s;"></div>
+    <div class="brick" style="left: 75%; animation-delay: 0.3s;"></div>
+    
+    <!-- Islamic pattern at bottom -->
+    <div class="islamic-pattern"></div>
+    
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-12 z-20 text-center">
+        <div class="mb-8 flex flex-col items-center">
+            <img src="Gallery/logo.png" alt="Muslims in Business Logo" class="h-16 mb-4">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4" style="color: #173F3F;">Muslims in Business</h1>
+            <p class="text-xl md:text-2xl mb-6">Building a platform for ethical entrepreneurship</p>
+        </div>
+        
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg mb-8 relative">
+            <div class="absolute -top-4 -left-4 w-16 h-16 bg-[#173F3F] rounded-full flex items-center justify-center text-white text-2xl">
+                <i class="fas fa-hammer"></i>
+            </div>
+            <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-[#E8C07D] rounded-full flex items-center justify-center text-[#173F3F] text-2xl">
+                <i class="fas fa-hard-hat"></i>
+            </div>
+            
+            <h2 class="text-3xl font-bold mb-4" style="color: #173F3F;">Under Construction</h2>
+            <p class="mb-6">We're building something special for the Muslim business community. Our platform will connect entrepreneurs, provide resources, and foster ethical business practices according to Islamic principles.</p>
+            
+            <div class="mb-6">
+                <div class="progress-bar mb-2">
+                    <div class="progress"></div>
+                </div>
+                <p class="text-sm">Construction progress: 65%</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-6">
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle mr-2" style="color: #9BCC93;"></i>
+                    <span>Ethical Business Resources</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle mr-2" style="color: #9BCC93;"></i>
+                    <span>Muslim Entrepreneur Network</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle mr-2" style="color: #9BCC93;"></i>
+                    <span>Halal Investment Guidance</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-md mx-auto">
+            <h3 class="text-xl font-semibold mb-4" style="color: #173F3F;">Notify me when we launch</h3>
+            <form class="flex flex-col sm:flex-row gap-2">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#173F3F]">
+                <button type="submit" class="px-6 py-2 rounded text-white font-medium" style="background-color: #173F3F;">Subscribe</button>
+            </form>
+        </div>
+        
+        <div class="mt-8 flex justify-center gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-[#173F3F] text-white flex items-center justify-center hover:bg-[#0E2A2A] transition">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-[#173F3F] text-white flex items-center justify-center hover:bg-[#0E2A2A] transition">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-[#173F3F] text-white flex items-center justify-center hover:bg-[#0E2A2A] transition">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-[#173F3F] text-white flex items-center justify-center hover:bg-[#0E2A2A] transition">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // Add more dynamic bricks
+        function createBricks() {
+            const container = document.body;
+            for (let i = 0; i < 10; i++) {
+                const brick = document.createElement('div');
+                brick.className = 'brick';
+                brick.style.left = Math.random() * 100 + '%';
+                brick.style.animationDelay = Math.random() * 5 + 's';
+                brick.style.animationDuration = 2 + Math.random() * 4 + 's';
+                container.appendChild(brick);
+            }
+        }
+        
+        // Initialize on load
+        window.addEventListener('load', function() {
+            createBricks();
+            
+            // Animate progress bar
+            const progress = document.querySelector('.progress');
+            let width = 65;
+            const progressInterval = setInterval(() => {
+                width += 0.5;
+                if (width >= 100) {
+                    width = 65;
+                }
+                progress.style.width = width + '%';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

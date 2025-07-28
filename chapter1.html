@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIB Chapter - الف۔"ا"</title>
+  <link rel="shortcut icon" href="Gallery/logo.png" type="image">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+       html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .container-steps {
+      background-color: #173F3F;
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+      margin-bottom: 2rem;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 12%;
+      right: 12%;
+      height: 4px;
+      background-color: white;
+      z-index: 0;
+    }
+
+    .step {
+      position: relative;
+      flex: 1;
+      max-width: 300px;
+      z-index: 1;
+    }
+
+    .circle {
+      background-color: white;
+      color: #173F3F;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin: 0 auto 1rem;
+    }
+
+    .button {
+      margin-top: 2rem;
+    }
+
+    .button a {
+      background-color: #173F3F;
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .button a:hover {
+      background-color: #d6eae9;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .steps::before {
+        display: none;
+      }
+
+      .step {
+        margin-bottom: 2rem;
+      }
+    }
+
+    /* Custom CSS for additional styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #173F3F 0%, #0f2e2e 100%);
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-left: 4px solid #173F3F;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #173F3F;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .bg-mib {
+      background-color: #173F3F;
+      background-image: url('member/chapter-bg.png'); /* change to your file path */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      font-family: 'Poppins', sans-serif; /* Optional */
+    }
+    
+    .text-mib {
+      color: #173F3F;
+    }
+    
+    .btn-primary {
+      background-color: #173F3F;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #0f2e2e;
+      transform: translateY(-2px);
+    }
+    
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: white;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+
+     h3 {
+      font-family: 'Poppins', sans-serif;  
+      margin-bottom: 40px;
+      color: white;
+    }
+
+     h1 {
+      font-family: 'Poppins', sans-serif;  
+      text-align: center;
+      margin-bottom: 40px;
+      color: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .member {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .member:hover {
+      transform: scale(1.03);
+    }
+
+    .member img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .info {
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: #fff;
+      width: 100%;
+      padding: 15px;
+    }
+
+    .info h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .info p {
+      margin: 5px 0 0;
+      font-size: 14px;
+    }
+
+    /* Popup modal */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .popup img {
+      max-width: auto;
+      max-height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #000;
+    }
+
+    .popup:target {
+      display: flex;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 30px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .bg-mib {
+      background-color: #173F3F;
+    }
+    
+    .container-steps {
+      background-color: #173F3F;
+      color: white;
+      text-align: left;
+      padding: 1rem 1rem;
+      position: relative;
+      border-color: white;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="home%20page.html" class="flex items-center">
+          <img src="Gallery/logo.png" alt="MIB Logo" class="h-10 mr-3">
+          <span class="text-xl font-bold text-mib">MIB - Muslim In Business</span>
+        </a>
+      </div>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="home%20page.html" class="nav-link text-gray-700 hover:text-mib font-medium transition-colors">Home</a>
+        <a href="about.html" class="nav-link text-gray-700 hover:text-mib font-medium transition-colors">About</a>
+        <a href="membership.html" class="nav-link text-gray-700 hover:text-mib font-medium transition-colors">Membership</a>
+        <a href="benefits.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
+        <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
+        <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium transition-colors">Events</a>
+        <a href="contact.html" class="nav-link text-mib font-medium">Contact</a>
+      </div>
+      
+      <div class="hidden md:block">
+        <a href="join.html" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
+      </div>
+      
+      <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="flex flex-col space-y-4">
+        <a href="home%20page.html" class="block py-2 text-gray-700 hover:text-mib font-medium">Home</a>
+        <a href="about.html" class="block py-2 text-gray-700 hover:text-mib font-medium">About</a>
+        <a href="Benefits.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
+        <a href="membership.html" class="block py-2 text-gray-700 hover:text-mib font-medium">Membership</a>
+        <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
+        <a href="events.html" class="block py-2 text-gray-700 hover:text-mib font-medium">Events</a>
+        <a href="contact.html" class="block py-2 text-mib font-medium">Contact</a>
+        <a href="join.html" class="btn-primary px-6 py-2 rounded-full font-medium text-center">Join Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+        mobileMenu.classList.remove('active');
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MIB - Members</title>
+  </head>
+  
+<body>
+
+  <section class="bg-mib text-white py-20 md:py-28">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Members of Chapter - Alif "ا"</h1>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto">Building a overall net of Muslim entrepreneurs committed to honest business and common success.</p>
+    </div>
+  </section>
+  <br>
+  <br>
+  <div class="grid">
+    <!-- Member Card Template -->
+    <a href="#popup1" class="member">
+      <img src="Gallery/Mehboob.jpeg" alt="Member 1">
+      <div class="info">
+        <h3>Mehboob Malek</h3>
+        <p>President – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup2" class="member">
+      <img src="Gallery/afzal.png" alt="Member 2">
+      <div class="info">
+        <h3>Afzal Malek</h3>
+        <p>VP – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup3" class="member">
+      <img src="Gallery/agm.jpeg" alt="Member 3">
+      <div class="info">
+        <h3>A.Gafoor Maniar</h3>
+        <p>Secretary – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup4" class="member">
+      <img src="Gallery/amin.jpg" alt="Member 4">
+      <div class="info">
+        <h3>Amin Chandiwala</h3>
+        <p>Growth Coordinator – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup5" class="member">
+      <img src="Gallery/almas.jpeg" alt="Member 5">
+      <div class="info">
+        <h3>Almas Shaikh</h3>
+        <p>Face-to-Face Co-ordinator – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup6" class="member">
+      <img src="Gallery/raheman.jpg" alt="Member 6">
+      <div class="info">
+        <h3>A.Raheman Khan</h3>
+        <p>Event Co-ordinator – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup7" class="member">
+      <img src="Gallery/inam.jpeg" alt="Member 7">
+      <div class="info">
+        <h3>Inamulhasan Maniar</h3>
+        <p>Growth Coordinator – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup8" class="member">
+      <img src="Gallery/abd.jpeg" alt="Member 8">
+      <div class="info">
+        <h3>A.Azeez Hakeem</h3>
+        <p>Digital Co-ordinator – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup9" class="member">
+      <img src="Gallery/tahir.png" alt="Member 9">
+      <div class="info">
+        <h3>Tahir Hakeem</h3>
+        <p>Member – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup10" class="member">
+      <img src="Gallery/faizan%20patel.jpg" alt="Member 10">
+      <div class="info">
+        <h3>Faizan Patel</h3>
+        <p>Member – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup11" class="member">
+      <img src="Gallery/Imran%20Merchant.jpg" alt="Member 11">
+      <div class="info">
+        <h3>Imran Merchant</h3>
+        <p>Member – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup12" class="member">
+      <img src="Gallery/asif%20memon.png" alt="Member 12">
+      <div class="info">
+        <h3>Asif Memon</h3>
+        <p>Member – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup13" class="member">
+      <img src="Gallery/huzefa%20multani.jpeg" alt="Member 13">
+      <div class="info">
+        <h3>Huzefa Multani</h3>
+        <p>Member – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup14" class="member">
+      <img src="Gallery/Abid%20choksi.jpeg" alt="Member 14">
+      <div class="info">
+        <h3>Abid Choksi</h3>
+        <p>Member – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup15" class="member">
+      <img src="Gallery/sohel%20memon.jpg" alt="Member 15">
+      <div class="info">
+        <h3>Sohel Memon</h3>
+        <p>Member – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup16" class="member">
+      <img src="Gallery/Talha%20Katlariwala.jpg" alt="Member 16">
+      <div class="info">
+        <h3>Talha Katlariwala</h3>
+        <p>Member – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup17" class="member">
+      <img src="Gallery/A.jabbar%20shaikh.jpg" alt="Member 17">
+      <div class="info">
+        <h3>A.Jabbar Shaikh</h3>
+        <p>Member – Alif Chapter</p>
+      </div>
+    </a>
+    <a href="#popup18" class="member">
+      <img src="Gallery/mohammad%20ghadiyali.png" alt="Member 18">
+      <div class="info">
+        <h3>Mohammad Ghadiyali</h3>
+        <p>Member – Alif Chapter</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Popups for each member -->
+  <div id="popup1" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/2.png" alt="Member 1 Full">
+  </div>
+  <div id="popup2" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/3.png" alt="Member 2 Full">
+  </div>
+  <div id="popup3" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/4.png" alt="Member 3 Full">
+  </div>
+  <div id="popup4" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/5.png" alt="Member 4 Full">
+  </div>
+  <div id="popup5" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/7.png" alt="Member 5 Full">
+  </div>
+  <div id="popup6" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/1.png" alt="Member 6 Full">
+  </div>
+  <div id="popup7" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/6.png" alt="Member 7 Full">
+  </div>
+  <div id="popup8" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/18.png" alt="Member 8 Full">
+  </div> 
+  <div id="popup9" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/9.png" alt="Member 9 Full">
+  </div> 
+  <div id="popup10" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/8.png" alt="Member 10 Full">
+  </div>
+  <div id="popup11" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/10.png" alt="Member 11 Full">
+  </div>
+  <div id="popup12" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/11.png" alt="Member 12 Full">
+  </div>
+  <div id="popup13" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/12.png" alt="Member 13 Full">
+  </div>
+  <div id="popup14" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/13.png" alt="Member 14 Full">
+  </div>
+  <div id="popup15" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/14.png" alt="Member 15 Full">
+  </div>
+  <div id="popup16" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/15.png" alt="Member 16 Full">
+  </div>
+  <div id="popup17" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/16.png" alt="Member 17 Full">
+  </div> 
+  <div id="popup18" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="Gallery/Profile/17.png" alt="Member 18 Full">
+  </div> 
+   <div id="popup19" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="member/detial.jpg" alt="Member 19 Full">
+  </div>
+  <div id="popup20" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="member/detial.jpg" alt="Member 20 Full">
+  </div>
+  <div id="popup21" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="member/detial.jpg" alt="Member 21 Full">
+  </div>
+  <div id="popup22" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="https://via.placeholder.com/600x600.png?text=Member+5+Details" alt="Member 22 Full">
+  </div>
+  <!----
+  <div id="popup23" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="https://via.placeholder.com/600x600.png?text=Member+6+Details" alt="Member 23 Full">
+  </div>
+  <div id="popup24" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="https://via.placeholder.com/600x600.png?text=Member+7+Details" alt="Member 24 Full">
+  </div>
+  <div id="popup25" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="https://via.placeholder.com/600x600.png?text=Member+8+Details" alt="Member 25 Full">
+  </div> 
+  <div id="popup26" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="https://via.placeholder.com/600x600.png?text=Member+8+Details" alt="Member 26 Full">
+  </div> 
+<div id="popup27" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="https://via.placeholder.com/600x600.png?text=Member+6+Details" alt="Member 27 Full">
+  </div>
+  <div id="popup28" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="https://via.placeholder.com/600x600.png?text=Member+7+Details" alt="Member 28 Full">
+  </div>
+  <div id="popup29" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="https://via.placeholder.com/600x600.png?text=Member+8+Details" alt="Member 29 Full">
+  </div> 
+  <div id="popup30" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="https://via.placeholder.com/600x600.png?text=Member+8+Details" alt="Member 30 Full">
+  </div> 
+</div> 
+  <div id="popup31" class="popup">
+    <a href="#" class="popup-close">&times;</a>
+    <img src="https://via.placeholder.com/600x600.png?text=Member+8+Details" alt="Member 31 Full">
+  </div> 
+---->
+<br>
+<br>
+  <div class="hidden md:block">
+        <a href="membership.html" class="btn-primary px-6 py-2 rounded-full font-medium"><i class="fas fa-arrow-left"></i> Back </a>
+  </div>
+<br>
+</body>
+</html>

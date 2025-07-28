@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIB - Benefits</title>
+    <link rel="shortcut icon" href="Gallery/logo.png" type="image">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#173F3F',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .benefit-slider {
+            height: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .benefit-item {
+            transition: all 0.5s ease;
+            position: absolute;
+        }
+        .benefit-item.active {
+            left: 50%;
+            transform: translateX(-50%) scale(1);
+            z-index: 10;
+            width: 60%;
+            opacity: 1;
+        }
+        .benefit-item.next {
+            right: 5%;
+            transform: scale(0.8);
+            z-index: 5;
+            width: 30%;
+            opacity: 0.8;
+        }
+        .benefit-item.prev {
+            left: 5%;
+            transform: scale(0.8);
+            z-index: 5;
+            width: 30%;
+            opacity: 0.8;
+        }
+        .benefit-item.hidden {
+            opacity: 0;
+            z-index: 1;
+        }
+        .benefit-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link:hover {
+            color: #173F3F;
+        }
+        .join-section {
+            background: linear-gradient(rgba(23, 63, 63, 0.9), rgba(23, 63, 63, 0.9)), url('https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+   html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+    }
+    
+    .container-steps {
+      background-color: #173F3F;
+      color: white;
+      text-align: center;
+      padding: 400px 200px;
+      position: relative;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+      margin-bottom: 2rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 12%;
+      right: 12%;
+      height: 4px;
+      background-color: white;
+      z-index: 0;
+    }
+
+    .step {
+      position: relative;
+      flex: 1;
+      max-width: 300px;
+      z-index: 1;
+    }
+
+    .circle {
+      background-color: white;
+      color: #173F3F;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin: 0 auto 1rem;
+    }
+
+    .button {
+      margin-top: 2rem;
+    }
+
+    .button a {
+      background-color: white;
+      color: #173F3F;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .button a:hover {
+      background-color: #d6eae9;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .steps::before {
+        display: none;
+      }
+
+      .step {
+        margin-bottom: 2rem;
+      }
+    }
+
+    /* Custom CSS for additional styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #173F3F 0%, #0f2e2e 100%);
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-left: 4px solid #173F3F;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #173F3F;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-primary {
+      background-color: #173F3F;
+      color: white;
+      transition: all 0.8s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #0f2e2e;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 2px solid #173F3F;
+      color: #173F3F;
+      transition: all 0.8s ease;
+    }
+
+    .btn-outline:hover {
+      background-color: #173F3F;
+      color: white;
+    }
+
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .join-button {
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: #004d40; /* your color */
+      color: white;
+      display: inline-block;
+      line-height: 1.2;
+      white-space: nowrap; /* Keep text in one line */
+      overflow: hidden;     /* Prevent overflow */
+      text-align: center;
+    }
+
+    .text-mib{
+        color: #173F3F;
+    }
+
+    /* Prevent button being cropped */
+    .join-button-container {
+        overflow: visible;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+ <nav class="bg-white shadow-md sticky top-0 z-50 text-mib">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="index.html" class="flex items-center text-mib">
+          <img src="Gallery/logo.png" alt="MIB Logo" class="h-10 mr-3">
+          <span class="text-xl font-bold text-mib">MIB - Muslim In Business</span>
+        </a>
+      </div>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="home%20page.html" class="nav-link text-gray-700 hover:text-mib font-medium">Home</a>
+        <a href="about.html" class="nav-link text-gray-700 hover:text-mib font-medium">About</a>
+        <a href="Benefits.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
+        <a href="membership.html" class="nav-link text-gray-700 hover:text-mib font-medium">Membership</a>
+        <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
+        <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium">Events</a>
+        <a href="contact.html" class="nav-link text-gray-700 hover:text-mib font-medium">Contact</a>
+      </div>
+      
+      <div class="join-button-container">
+        <a href="join.html" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
+      </div>
+      
+      <button class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-primary text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Membership Benefits</h1>
+            <p class="text-xl max-w-2xl mx-auto">Discover the exclusive advantages of being part of the MIB community</p>
+        </div>
+    </header>
+
+    <!-- Benefits Slider -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-primary mb-12">Why Join MIB?</h2>
+        </div>
+            </section>
+        
+        
+        <section class="py-16 bg-gray-50">
+             <div class="container mx-auto px-4">
+            <div class="benefit-slider relative">
+                <!-- Benefit Items will be added by JavaScript -->
+                <div id="benefits-container" class="h-full relative">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <button id="prev-btn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md z-20 hover:bg-gray-100 transition">
+                    <i class="fas fa-chevron-left text-primary text-xl"></i>
+                </button>
+                <button id="next-btn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md z-20 hover:bg-gray-100 transition">
+                    <i class="fas fa-chevron-right text-primary text-xl"></i>
+                </button>
+            </div>
+            <br>
+            <br>
+        </div>
+    </section>
+
+    <!-- Ready to Join Section -->
+    <section class="join-section py-20 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Join MIB?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Become part of a thriving community of Muslim professionals and business owners</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition">
+                    Join Now
+                </button>
+                <button class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-90">
+        <div>
+          <a href="home%20page.html" class="flex items-center">
+          <img src="Gallery/logo.png" alt="MIB Logo" class="h-10 mr-3">
+          <span class="text-xl font-bold text-white">MIB</span></a>
+          <p class="mb-4">Empowering Muslim entrepreneurs worldwide through ethical business networking.</p>
+          <div class="flex space-x-5">
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/musliminbusiness/" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="home%20page.html" class="hover:text-gray-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-gray-300">About</a></li>
+            <li><a href="benefits.html" class="hover:text-gray-300">Benefits</a></li>
+            <li><a href="membership.html" class="hover:text-gray-300">Membership</a></li>
+            <li><a href="WE.html" class="hover:text-gray-300">WE</a></li>
+            <li><a href="events.html" class="hover:text-gray-300">Events</a></li>
+            <li><a href="contact.html" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-gray-300">Business Tools</a></li>
+            <li><a href="#" class="hover:text-gray-300">Islamic Finance Guide</a></li>
+            <li><a href="#" class="hover:text-gray-300">Member Success Stories</a></li>
+            <li><a href="#" class="hover:text-gray-300">FAQs</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Contact Us</h4>
+          <address class="not-italic">
+            <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> G-52, Avadh Arena, VIP Road, Vesu, Surat</p>
+            <p class="mb-2"><i class="fas fa-phone mr-2"></i> +91 77779 95799</p>
+            <p class="mb-2"><i class="fas fa-envelope mr-2"></i> mibindiaoffice@gmail.com</p>
+          </address>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Muslims in Business (MIB). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const benefits = [
+                {
+                    title: "Scalability",
+                    description: "Grow your business with access to a network that scales with your ambitions.",
+                    image: "Gallery/benefits/Scalability 01.avif"
+                },
+                {
+                    title: "Flexibility",
+                    description: "Adapt to market changes with flexible solutions tailored for Muslim entrepreneurs.",
+                    image: "Gallery/benefits/flexibility 02.jpg"
+                },
+                {
+                    title: "Increased Efficiency",
+                    description: "Streamline your operations with proven strategies from successful Muslim businesses.",
+                    image: "Gallery/benefits/increased-efficiency 03.jpg"
+                },
+                {
+                    title: "Optimized Convenience",
+                    description: "Access resources and services designed specifically for your business needs.",
+                    image: "Gallery/benefits/Optimaze 04.jpg"
+                },
+                {
+                    title: "Easy Information Sharing",
+                    description: "Connect and collaborate with like-minded professionals in our exclusive network.",
+                    image: "Gallery/benefits/sharing.info 05.jpg"
+                },
+                {
+                    title: "Streamline Communication",
+                    description: "Enhance your business communications with our specialized tools and platforms.",
+                    image: "Gallery/benefits/Steamline 06.jpeg"
+                },
+                {
+                    title: "Cost-efficient",
+                    description: "Reduce expenses with group discounts and shared resources available to members.",
+                    image: "Gallery/benefits/cost-efficience 07.jpg"
+                },
+                {
+                    title: "Overcome Geographic Separation",
+                    description: "Connect with Muslim businesses worldwide through our global network.",
+                    image: "Gallery/benefits/global 08.jpg"
+                },
+                {
+                    title: "Improve Storage Efficiency and Volume",
+                    description: "Access cloud solutions and storage options tailored for Muslim businesses.",
+                    image: "Galery/benefits/Improve_Storage 09.jpg"
+                },
+                {
+                    title: "Cut Back on Hardware and Software Costs",
+                    description: "Benefit from group purchasing power for essential business tools and technology.",
+                    image: "Gallery/benefits/Cut_of 10.jpg"
+                }
+            ];
+
+            const container = document.getElementById('benefits-container');
+            let currentIndex = 0;
+            let interval;
+
+            function createBenefitItems() {
+                container.innerHTML = '';
+                
+                benefits.forEach((benefit, index) => {
+                    const item = document.createElement('div');
+                    item.className = `benefit-item ${index === 0 ? 'active' : 
+                                      index === 1 ? 'next' : 
+                                      index === benefits.length - 1 ? 'prev' : 'hidden'}`;
+                    
+                    item.innerHTML = `
+                        <div class="benefit-content h-full p-6 flex flex-col">
+                            <div class="flex-grow overflow-hidden rounded-lg mb-4">
+                                <img src="${benefit.image}" alt="${benefit.title}" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-2xl font-bold text-primary mb-2">${benefit.title}</h3>
+                            <p class="text-gray-600">${benefit.description}</p>
+                        </div>
+                    `;
+                    
+                    container.appendChild(item);
+                });
+            }
+
+            function updateSlider(direction = 1) {
+                const items = document.querySelectorAll('.benefit-item');
+                
+                // Remove all classes first
+                items.forEach(item => {
+                    item.classList.remove('active', 'next', 'prev', 'hidden');
+                });
+                
+                // Calculate new indexes
+                let prevIndex = (currentIndex - 1 + benefits.length) % benefits.length;
+                let nextIndex = (currentIndex + 1) % benefits.length;
+                
+                // Update classes based on new positions
+                items[currentIndex].classList.add('active');
+                items[nextIndex].classList.add('next');
+                items[prevIndex].classList.add('prev');
+                
+                // Hide all other items
+                items.forEach((item, index) => {
+                    if(index !== currentIndex && index !== nextIndex && index !== prevIndex) {
+                        item.classList.add('hidden');
+                    }
+                });
+                
+                // Update current index
+                currentIndex = (currentIndex + direction + benefits.length) % benefits.length;
+            }
+
+            function startAutoSlide() {
+                interval = setInterval(() => {
+                    updateSlider(1);
+                }, 30000); // 30 seconds
+            }
+
+            // Initialize
+            createBenefitItems();
+            startAutoSlide();
+
+            // Navigation buttons
+            document.getElementById('prev-btn').addEventListener('click', () => {
+                clearInterval(interval);
+                updateSlider(-1);
+                startAutoSlide();
+            });
+
+            document.getElementById('next-btn').addEventListener('click', () => {
+                clearInterval(interval);
+                updateSlider(1);
+                startAutoSlide();
+            });
+
+            // Responsive adjustments
+            function handleResize() {
+                const slider = document.querySelector('.benefit-slider');
+                if (window.innerWidth < 768) {
+                    slider.style.height = '400px';
+                } else {
+                    slider.style.height = '500px';
+                }
+            }
+
+            window.addEventListener('resize', handleResize);
+            handleResize();
+        });
+    </script>
+</body>
+</html>

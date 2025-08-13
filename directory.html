@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organization Members Directory</title>
+  <link rel="shortcut icon" href="Gallery/logo.png" type="image">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .member-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .search-input:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+    .category-chip {
+      transition: all 0.2s ease;
+    }
+    .category-chip:hover {
+      background-color: #6366f1;
+      color: white;
+    }
+    .btn-primary {
+      background-color: #173F3F;
+      color: white; 
+    }
+    .bg-mib {
+      background-color: #173F3F;
+      color: white;
+    }
+    .category-chip.active {
+      background-color: #6366f1;
+      color: white;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+    .pagination a {
+      margin: 0 4px;
+      padding: 8px 16px;
+      text-decoration: none;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      color: #555;
+      transition: background-color .3s;
+    }
+    .pagination a:hover {
+      background-color: #f3f4f6;
+    }
+    .pagination a.active {
+      background-color: dodgerblue;
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="index.html" class="flex items-center">
+          <img src="Gallery/logo.png" alt="MIB Logo" class="h-10 mr-3">
+          <span class="text-xl font-bold text-mib">MIB - Muslim In Business</span>
+        </a>
+      </div>
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="nav-link text-gray-700 hover:text-[#173F3F] font-medium">Home</a>
+        <a href="about.html" class="nav-link text-gray-700 hover:text-[#173F3F] font-medium">About</a>
+        <a href="benefit.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
+        <a href="membership.html" class="nav-link text-gray-700 hover:text-mib font-medium">Membership</a>
+        <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
+        <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium">Events</a>
+        <a href="contact.html" class="nav-link text-gray-700 hover:text-mib font-medium">Contact</a>
+      </div>
+      <div class="hidden md:block">
+        <a href="join.html" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
+      </div>
+      <button class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <section class="bg-mib py-40 md:py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Members</h1>
+        <p class="text-xl md:text-2xl max-w-3xl mx-auto">
+          Discover the talented professionals and businesses that make up our organization.
+        </p>
+      </div>
+    </section>
+
+    <!-- Search & Filter -->
+    <div class="mb-8 bg-white rounded-xl shadow-md p-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="relative flex-grow">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <i class="fas fa-search text-gray-400"></i>
+          </div>
+          <input type="text" id="search" placeholder="Search members..."
+            class="search-input pl-10 pr-4 py-2 w-full border border-gray-300 rounded-lg focus:border-indigo-500">
+        </div>
+        <div class="flex items-center">
+          <span class="mr-3 text-gray-600 hidden md:block">Filter by:</span>
+          <select id="industry-filter" class="border border-gray-300 rounded-lg px-3 py-2 focus:border-indigo-500">
+            <option value="all">All Industries</option>
+            <option value="technology">Technology</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="finance">Finance</option>
+            <option value="education">Education</option>
+            <option value="retail">Retail</option>
+            <option value="manufacturing">Manufacturing</option>
+            <option value="consulting">Consulting</option>
+            <option value="logistics">Logistics</option>
+            <option value="construction">Construction</option>
+            <option value="food">Food</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Members Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="members-grid">
+</div>
+
+    <!-- Simple Pagination -->
+    <div class="mt-12 flex justify-center">
+      <div class="pagination">
+        <a href="directory.html">&laquo;</a>
+        <a href="directory.html" class="active">1</a>
+        <a href="directory2.html">2</a>
+        <a href="directory3.html">3</a>
+        <a href="directory4.html">4</a>
+        <a href="directory2.html">&raquo;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Modal -->
+  <div id="profileModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
+      <button id="closeModal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="text-center">
+        <img id="modalImage" class="w-24 h-24 rounded-full mx-auto mb-4" src="" alt="Profile">
+        <h3 id="modalName" class="text-xl font-bold text-indigo-700"></h3>
+        <h4 id="modalBusiness" class="text-md font-semibold text-gray-800 mt-2"></h4>
+        <p id="modalDescription" class="text-gray-600 mt-2"></p>
+        <div class="mt-4 text-gray-700">
+          <p id="modalPhone" class="mb-2"></p>
+          <p id="modalEmail"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const members = [
+      { 
+          id: 1,
+          name: "Mehboob Malek",
+          business: "Silicone Enterprise",
+          description: "Cutting-edge 3D hologram fans, LED boards & badges, delivering innovative display solutions.",
+          industry: "technology",
+          category: "Chapter Surat",
+          image: "Gallery/Mehboob.jpeg",
+          phone: "+91 99133 81959",
+          email: "siliconembrog@gmail.com"
+      },
+      { 
+          id: 2,
+          name: "Afzal Malek",
+          business: "AICS Logistics Pvt. Ltd.",
+          description: "Expert in international logistics, ensuring safe, timely, and reliable global deliveries.",
+          industry: "logistics",
+          category: "Chapter Surat",
+          image: "Gallery/afzal.png",
+          phone: "+91 75750 55668",
+          email: "afzalmalek01@gmail.com"
+      },
+      { 
+          id: 3,
+          name: "A.Gafoor Maniar",
+          business: "A.B. Traders",
+          description: "Premium khajoors & reliable skin ointments, bringing health and wellness to every home.",
+          industry: "retail",
+          category: "Chapter Surat",
+          image: "Gallery/agm.jpeg",
+          phone: "+91 96386 37676",
+          email: "agmaniar002@gmail.com"
+      },
+      {
+          id: 4,
+          name: "Amin Chandiwala",
+          business: "Western Seekh Paratha",
+          description: "Delicious seekh parathas crafted with authentic flavors, ensuring taste in every single bite.",
+          industry: "food",
+          category: "Chapter Surat",
+          image: "Gallery/amin.jpeg",
+          phone: "+91 96874 14138",
+          email: "aminchandiwala.ac@gmail.com"
+      },
+      { 
+          id: 5,
+          name: "Inamulhasan Maniar",
+          business: "Katib & Co.",
+          description: "High-quality ball pens, crafted for smooth writing, ensuring comfort and style in every stroke.",
+          industry: "manufacturing",
+          category: "Chapter Surat",
+          image: "Gallery/inam.jpeg",
+          phone: "+91 90992 92088",
+          email: "ishmaniar00@gmail.com"
+      },
+        { 
+          id: 6,
+          name: "A.Raheman Khan",
+          business: "The ARK Training and Consulting",
+          description: "Professional training & expert consulting, empowering growth and ensuring lasting success.",
+          industry: "consulting",
+          category: "Chapter Surat",
+          image: "Gallery/raheman.jpg",
+          phone: "+91 94271 67148",
+          email: "vcreatorseventz@gmail.com"
+      },
+        { 
+          id: 7,
+          name: "Almas Shaikh",
+          business: "Elite Interior Studio",
+          description: "Creative interior designs, blending elegance and comfort, ensuring stylish spaces for every home.",
+          industry: "construction",
+          category: "Chapter Surat",
+          image: "Gallery/almas.jpeg",
+          phone: "+91 99782 44556",
+          email: "shaikhalmas823@gmail.com"
+      },
+        { 
+          id: 8,
+          name: "Asif Memon",
+          business: "M.K.Textile",
+          description: "Premium silk & quality textiles, crafted with care, ensuring elegance and comfort in every wear.",
+          industry: "manufacturing",
+          category: "Chapter Surat",
+          image: "Gallery/asif memon.png",
+          phone: "+91 98253 80068",
+          email: "asif937538@gmail.com"
+      },
+        { 
+          id: 9,
+          name: "Tahir Hakeem",
+          business: "Healthy Wealthy Life",
+          description: "Biomagnetic wellness products, enhancing health naturally, ensuring balance and vitality daily.",
+          industry: "retail",
+          category: "Chapter Surat",
+          image: "Gallery/tahir.png",
+          phone: "+91 99782 99001",
+          email: "tnhakeem@gmail.com"
+      },
+        { 
+          id: 10,
+          name: "Abid Choksi",
+          business: "A.N.Jewellers",
+          description: "Exquisite gold & diamond jewelry, crafted with precision, ensuring elegance for every occasion.",
+          industry: "jewellers",
+          category: "Chapter Surat",
+          image: "Gallery/Abid choksi.jpeg",
+          phone: "+91 97241 98101",
+          email: "choksiabid313@gmail.com"
+      },
+        { 
+          id: 11,
+          name: "Huzefa Multani",
+          business: "Mehboob Home Decor",
+          description: "Stylish home décor essentials, from tiles to furniture, ensuring elegance and comfort in living.",
+          industry: "retail",
+          category: "Chapter Surat",
+          image: "Gallery/huzefa multani.jpeg",
+          phone: "+91 70962 58117",
+          email: "huzefamultani93@gmail.com"
+      },
+        { 
+          id: 12,
+          name: "Faizan Patel",
+          business: "Al-Faiz Fast Food & Chinese",
+          description: "Tasty fast food & authentic Chinese dishes, served fresh and hot, ensuring delight every bite.",
+          industry: "food",
+          category: "Chapter Surat",
+          image: "Gallery/faizan patel.jpg",
+          phone: "+91 93281 55598",
+          email: "faizanpatel659@gmail.com"
+      }
+    ];
+
+    const membersGrid = document.getElementById('members-grid');
+    const searchInput = document.getElementById('search');
+    const industryFilter = document.getElementById('industry-filter');
+
+    function renderMembers(list) {
+      membersGrid.innerHTML = '';
+      list.forEach((member, index) => {
+        const card = document.createElement('div');
+        card.className = "member-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 animate-fade-in";
+        card.style.animationDelay = `${index * 0.05}s`;
+        card.innerHTML = `
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <img class="w-16 h-16 rounded-full object-cover mr-4" src="${member.image}" alt="${member.name}">
+              <div>
+                <h3 class="text-xl font-bold text-indigo-700">${member.name}</h3>
+              </div>
+            </div>
+            <div class="mb-4">
+              <h4 class="font-semibold text-gray-800">${member.business}</h4>
+              <p class="text-gray-600 text-sm mt-1">${member.description}</p>
+            </div>
+            <button onclick="openProfile(${member.id})" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium flex items-center">
+              View Profile <i class="fas fa-arrow-right ml-1 text-xs"></i>
+            </button>
+          </div>
+        `;
+        membersGrid.appendChild(card);
+      });
+    }
+
+    function filterMembers() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const industry = industryFilter.value;
+      const filtered = members.filter(member =>
+        (member.name.toLowerCase().includes(searchTerm) ||
+        member.business.toLowerCase().includes(searchTerm) ||
+        member.description.toLowerCase().includes(searchTerm)) &&
+        (industry === 'all' || member.industry === industry)
+      );
+      renderMembers(filtered);
+    }
+
+    function openProfile(id) {
+      const member = members.find(m => m.id === id);
+      document.getElementById('modalImage').src = member.image;
+      document.getElementById('modalName').textContent = member.name;
+      document.getElementById('modalBusiness').textContent = member.business;
+      document.getElementById('modalDescription').textContent = member.description;
+      document.getElementById('modalPhone').innerHTML = `<i class="fas fa-phone mr-2"></i><a href="tel:${member.phone}">${member.phone}</a>`;
+      document.getElementById('modalEmail').innerHTML = `<i class="fas fa-envelope mr-2"></i><a href="mailto:${member.email}">${member.email}</a>`;
+      document.getElementById('profileModal').classList.remove('hidden');
+    }
+
+    document.getElementById('closeModal').addEventListener('click', () => {
+      document.getElementById('profileModal').classList.add('hidden');
+    });
+
+    document.getElementById('profileModal').addEventListener('click', (e) => {
+      if (e.target.id === 'profileModal') {
+        document.getElementById('profileModal').classList.add('hidden');
+      }
+    });
+
+    searchInput.addEventListener('input', filterMembers);
+    industryFilter.addEventListener('change', filterMembers);
+    renderMembers(members);
+  </script>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <a href="index.html" class="flex items-center">
+          <img src="Gallery/logo.png" alt="MIB Logo" class="h-10 mr-3">
+            <br>
+          <span class="text-xl font-bold text-white">MIB</span></a>
+          <br>
+          <p class="mb-4">Empowering Muslim entrepreneurs worldwide through Ethical Business Networking.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/musliminbusiness/" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="home page.html" class="hover:text-gray-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-gray-300">About</a></li>
+            <li><a href="membership.html" class="hover:text-gray-300">Membership</a></li>
+            <li><a href="events.html" class="hover:text-gray-300">Events</a></li>
+            <li><a href="contact.html" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Contact Us</h4>
+          <address class="not-italic">
+            <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> 123 Business Ave, London, UK</p>
+            <p class="mb-2"><a href="tel:917777995799"><i class="fas fa-phone mr-2"></i> +91 77 77 99 57 99</a></p>
+            <p class="mb-2"><i class="fas fa-envelope mr-2"></i> musliminbusiness@gmail.com</p>
+          </address>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Muslims in Business (MIB). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

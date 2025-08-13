@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIB - Membership Benefits</title>
+    <link rel="shortcut icon" href="Gallery/logo.png" type="image">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mib: '#173F3F',
+                        miblight: '#2a5e5e',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom CSS for additional styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #173F3F 0%, #0f2e2e 100%);
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-left: 4px solid #173F3F;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #173F3F;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-primary {
+      background-color: #173F3F;
+      color: white;
+      transition: all 0.8s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #0f2e2e;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 2px solid #173F3F;
+      color: #173F3F;
+      transition: all 0.8s ease;
+    }
+
+    .btn-outline:hover {
+      background-color: #173F3F;
+      color: white;
+    }
+
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+
+        .flip-card {
+            perspective: 1000px;
+            height: 300px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner, 
+        .flip-card.active .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background-color: white;
+        }
+        .benefit-bg {
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(23, 63, 63, 0.7);
+        }
+        .nav-white-bg {
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .hero-section {
+            background: linear-gradient(rgba(23, 63, 63, 0.8), rgba(23, 63, 63, 0.8)), 
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+         .bg-mib {
+      background-color: #173F3F;
+      background-image: url('Member-bg.jpg'); /* change to your file path */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      font-family: 'Poppins', sans-serif; /* Optional */
+    }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation Bar -->
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="index.html" class="flex items-center">
+          <img src="Gallery/logo.png" alt="MIB Logo" class="h-10 mr-3">
+          <span class="text-xl font-bold text-mib">MIB - Muslim In Business</span>
+        </a>
+      </div>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="nav-link text-gray-700 hover:text-mib font-medium">Home</a>
+        <a href="about.html" class="nav-link text-gray-700 hover:text-mib font-medium">About</a>
+        <a href="Benefits.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
+        <a href="membership.html" class="nav-link text-gray-700 text-mib font-medium">Membership</a>
+        <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
+        <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium">Events</a>
+        <a href="contact.html" class="nav-link text-gray-700 hover:text-mib font-medium">Contact</a>
+      </div>
+      
+      <div class="hidden md:block">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScz0I1Z0efEOScIjZIQnXJf4edOn0hYpARVchVLA9Ewxtc_WA/viewform?usp=sharing&ouid=100013194255721768831" target="_blank" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
+      </div>
+      
+      <button class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-mib text-white py-20 md:py-28">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">MIB<br>Membership-Benefits</h1>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto">join with Muslim custom professionals in your zone and worldwide</p>
+    </div>
+  </section>
+
+  <!-- Tabs Navigation -->
+   <nav class="bg-white shadow-md sticky top-0 z-50 container mx-auto px-4 mt-8">
+    <div class="container mx-auto px-4  mt-8 flex justify-between items-center">
+      
+      <div class="hidden md:flex space-x-8 flex border-b border-gray-200">
+        <a href="membership.html" class="nav-link text-gray-700 hover:text-mib font-medium tab-btn py-4 px-6 text-mib">Chapters</a>
+        <a href="directory.html" class="nav-link text-gray-700 hover:text-mib font-medium tab-btn py-4 px-6 text-mib">Member Directory</a>
+        <a href="membershipbenefits.html" class="nav-link text-gray-700 hover:text-mib font-medium tab-btn py-4 px-6 text-mib">Membership Benefits</a>
+      </div>
+      
+    </div>
+  </nav>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-gray-50">
+         <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-mib mb-4">Explore Our Exclusive Benefits</h2>
+            <div class="w-20 h-1 bg-mib mx-auto mb-6"></div>
+        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Benefit 1 -->
+                <div class="flip-card" onclick="this.classList.toggle('active')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front benefit-bg" style="background-image: url('https://plus.unsplash.com/premium_vector-1682310703468-80b49ebd750e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bWVtYmVyc2hpcHxlbnwwfHwwfHx8MA%3D%3D');">
+                            <div class="h-full flex flex-col justify-end p-6 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Membership of 1 year</h3>
+                                <p class="text-lg">Click to learn more</p>
+                                <div class="mt-4 flex justify-center">
+                                    <i class="fas fa-rotate text-2xl animate-bounce"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back p-6">
+                            <h3 class="text-2xl font-bold text-mib mb-4">Networking Opportunities</h3>
+                            <p class="text-gray-700 mb-4">Connect with like-minded Muslim professionals and entrepreneurs through our exclusive events and online platforms.</p>
+                            <div class="flex space-x-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Networking event" class="w-1/2 h-32 object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Business meeting" class="w-1/2 h-32 object-cover rounded">
+                            </div>
+                            <a href="#" class="text-mib font-semibold hover:underline">Watch video <i class="fas fa-play ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="flip-card" onclick="this.classList.toggle('active')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front benefit-bg" style="background-image: url('https://plus.unsplash.com/premium_vector-1733269901651-01485694b6c4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c21hbGwlMjBjb2xvcmZ1bCUyMHJvc3RlciUyMHNoZWV0c3xlbnwwfHwwfHx8MA%3D%3D');">
+                            <div class="h-full flex flex-col justify-end p-6 text-white">
+                                <h3 class="text-2xl font-bold mb-2">4x6 Roster sheet branding</h3>
+                                <p class="text-lg">Click to learn more</p>
+                                <div class="mt-4 flex justify-center">
+                                    <i class="fas fa-rotate text-2xl animate-bounce"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back p-6">
+                            <h3 class="text-2xl font-bold text-mib mb-4">Business Mentorship</h3>
+                            <p class="text-gray-700 mb-4">Gain access to experienced business leaders who can guide you through challenges and help grow your enterprise.</p>
+                            <div class="flex space-x-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mentorship" class="w-1/2 h-32 object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Workshop" class="w-1/2 h-32 object-cover rounded">
+                            </div>
+                            <a href="#" class="text-mib font-semibold hover:underline">Watch video <i class="fas fa-play ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="flip-card" onclick="this.classList.toggle('active')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front benefit-bg" style="background-image: url('https://plus.unsplash.com/premium_photo-1721080251113-6da8c18b2992?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHx8');">
+                            <div class="h-full flex flex-col justify-end p-6 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Promotion on social media</h3>
+                                <p class="text-lg">Click to learn more</p>
+                                <div class="mt-4 flex justify-center">
+                                    <i class="fas fa-rotate text-2xl animate-bounce"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back p-6">
+                            <h3 class="text-2xl font-bold text-mib mb-4">Halal Investment Opportunities</h3>
+                            <p class="text-gray-700 mb-4">Access exclusive Sharia-compliant investment opportunities and financial advisory services.</p>
+                            <div class="flex space-x-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1511&q=80" alt="Investment" class="w-1/2 h-32 object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1604597465317-49e7b698ef54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Finance" class="w-1/2 h-32 object-cover rounded">
+                            </div>
+                            <a href="#" class="text-mib font-semibold hover:underline">Watch video <i class="fas fa-play ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="flip-card" onclick="this.classList.toggle('active')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front benefit-bg" style="background-image: url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2lmdHxlbnwwfHwwfHx8MA%3D%3D');">
+                            <div class="h-full flex flex-col justify-end p-6 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Joinig Kit</h3>
+                                <p class="text-lg">Click to learn more</p>
+                                <div class="mt-4 flex justify-center">
+                                    <i class="fas fa-rotate text-2xl animate-bounce"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back p-6">
+                            <h3 class="text-2xl font-bold text-mib mb-4">Educational Workshops</h3>
+                            <p class="text-gray-700 mb-4">Participate in specialized workshops covering business development, Islamic finance, and professional skills.</p>
+                            <div class="flex space-x-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1422&q=80" alt="Workshop" class="w-1/2 h-32 object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1524179091875-bccc990d4223?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Seminar" class="w-1/2 h-32 object-cover rounded">
+                            </div>
+                            <a href="#" class="text-mib font-semibold hover:underline">Watch video <i class="fas fa-play ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="flip-card" onclick="this.classList.toggle('active')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front benefit-bg" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2Vic2l0ZXxlbnwwfHwwfHx8MA%3D%3D');">
+                            <div class="h-full flex flex-col justify-end p-6 text-white">
+                                <h3 class="text-2xl font-bold mb-2">1 Full information of your + your business on website</h3>
+                                <p class="text-lg">Click to learn more</p>
+                                <div class="mt-4 flex justify-center">
+                                    <i class="fas fa-rotate text-2xl animate-bounce"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back p-6">
+                            <h3 class="text-2xl font-bold text-mib mb-4">Business Directory Listing</h3>
+                            <p class="text-gray-700 mb-4">Get featured in our exclusive Muslim business directory to increase visibility among potential customers.</p>
+                            <div class="flex space-x-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Directory" class="w-1/2 h-32 object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Marketing" class="w-1/2 h-32 object-cover rounded">
+                            </div>
+                            <a href="#" class="text-mib font-semibold hover:underline">Watch video <i class="fas fa-play ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 6 -->
+                <div class="flip-card" onclick="this.classList.toggle('active')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front benefit-bg" style="background-image: url('https://plus.unsplash.com/premium_photo-1661503228332-03778ab6d6a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWVldGluZ3N8ZW58MHx8MHx8fDA%3D');">
+                            <div class="h-full flex flex-col justify-end p-6 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Monthly 2 free online meetings and 2 paid offline meetings</h3>
+                                <p class="text-lg">Click to learn more</p>
+                                <div class="mt-4 flex justify-center">
+                                    <i class="fas fa-rotate text-2xl animate-bounce"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back p-6">
+                            <h3 class="text-2xl font-bold text-mib mb-4">Discounts & Partnerships</h3>
+                            <p class="text-gray-700 mb-4">Enjoy exclusive discounts from partner businesses and services across various industries.</p>
+                            <div class="flex space-x-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Discounts" class="w-1/2 h-32 object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Partnerships" class="w-1/2 h-32 object-cover rounded">
+                            </div>
+                            <a href="#" class="text-mib font-semibold hover:underline">Watch video <i class="fas fa-play ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 7 -->
+                <div class="flip-card" onclick="this.classList.toggle('active')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front benefit-bg" style="background-image: url('https://plus.unsplash.com/premium_photo-1661762857872-77960f34d91b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJlc2VudGF0aW9ufGVufDB8fDB8fHww');">
+                            <div class="h-full flex flex-col justify-end p-6 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Will get 30 sec business presentation in every meeting</h3>
+                                <p class="text-lg">Click to learn more</p>
+                                <div class="mt-4 flex justify-center">
+                                    <i class="fas fa-rotate text-2xl animate-bounce"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back p-6">
+                            <h3 class="text-2xl font-bold text-mib mb-4">Career Development</h3>
+                            <p class="text-gray-700 mb-4">Access job opportunities, career coaching, and professional development resources.</p>
+                            <div class="flex space-x-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Career" class="w-1/2 h-32 object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Development" class="w-1/2 h-32 object-cover rounded">
+                            </div>
+                            <a href="#" class="text-mib font-semibold hover:underline">Watch video <i class="fas fa-play ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 8 -->
+                <div class="flip-card" onclick="this.classList.toggle('active')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front benefit-bg" style="background-image: url('https://plus.unsplash.com/premium_photo-1705267936187-aceda1a6c1a6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmVhdHVyZSUyMHByZXNlbnRhdGlvbnxlbnwwfHwwfHx8MA%3D%3D');">
+                            <div class="h-full flex flex-col justify-end p-6 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Chance for Feature presentation</h3>
+                                <p class="text-lg">Click to learn more</p>
+                                <div class="mt-4 flex justify-center">
+                                    <i class="fas fa-rotate text-2xl animate-bounce"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back p-6">
+                            <h3 class="text-2xl font-bold text-mib mb-4">Community Support</h3>
+                            <p class="text-gray-700 mb-4">Be part of a supportive Muslim business community that shares values and helps each other succeed.</p>
+                            <div class="flex space-x-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Community" class="w-1/2 h-32 object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Support" class="w-1/2 h-32 object-cover rounded">
+                            </div>
+                            <a href="#" class="text-mib font-semibold hover:underline">Watch video <i class="fas fa-play ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefit 9 -->
+                <div class="flip-card" onclick="this.classList.toggle('active')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front benefit-bg" style="background-image: url('https://media.istockphoto.com/id/1388580714/photo/instagram-reels-in-mobile-reels-icon-3d-render-illustration-image.webp?a=1&b=1&s=612x612&w=0&k=20&c=9XoGZ89S2qY8eqy9HC7MFVqt5AHxds35OHELqIhjVLM=');">
+                            <div class="h-full flex flex-col justify-end p-6 text-white">
+                                <h3 class="text-2xl font-bold mb-2">30 to 50sec reel of your brand/ service</h3>
+                        <p class="text-lg">Click to learn more</p>
+                        <div class="mt-4 flex justify-center">
+                            <i class="fas fa-rotate text-2xl animate-bounce"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card-back p-6">
+                    <h3 class="text-2xl font-bold text-mib mb-4">Global Connections</h3>
+                    <p class="text-gray-700 mb-4">Connect with Muslim business communities worldwide through our international chapters and partnerships.</p>
+                    <div class="flex space-x-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Global" class="w-1/2 h-32 object-cover rounded">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Network" class="w-1/2 h-32 object-cover rounded">
+                    </div>
+                    <a href="#" class="text-mib font-semibold hover:underline">Watch video <i class="fas fa-play ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefit 10 -->
+        <div class="flip-card" onclick="this.classList.toggle('active')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front benefit-bg" style="background-image: url('https://images.unsplash.com/photo-1639763832833-242273ded085?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                    <div class="h-full flex flex-col justify-end p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">and Many More..</h3>
+                        <p class="text-lg">Click to learn more</p>
+                        <div class="mt-4 flex justify-center">
+                            <i class="fas fa-rotate text-2xl animate-bounce"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card-back p-6">
+                            <h3 class="text-2xl font-bold text-mib mb-4">Islamic Business Resources</h3>
+                            <p class="text-gray-700 mb-4">Access a library of Islamic business ethics materials, case studies, and research papers.</p>
+                            <div class="flex space-x-4 mb-4">
+                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Resources" class="w-1/2 h-32 object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Library" class="w-1/2 h-32 object-cover rounded">
+                            </div>
+                            <a href="#" class="text-mib font-semibold hover:underline">Watch video <i class="fas fa-play ml-1"></i></a>
+                        </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-mib text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-6">Ready to Join MIB?</h2>
+        <p class="text-xl mb-8 max-w-3xl mx-auto">Become part of the fastest growing network of Muslim professionals and entrepreneurs</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <button class="bg-white text-mib px-8 py-3 rounded-md font-bold hover:bg-gray-100 transition">Join Now</button>
+            <button class="border-2 border-white text-white px-8 py-3 rounded-md font-bold hover:bg-miblight transition">Learn More</button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-90">
+        <div>
+          <a href="ex.html" class="flex items-center">
+          <img src="Gallery/logo.png" alt="MIB Logo" class="h-10 mr-3">
+          <span class="text-xl font-bold text-white">MIB</span></a>
+          <p class="mb-4">Empowering Muslim entrepreneurs worldwide through ethical business networking.</p>
+          <div class="flex space-x-5">
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/musliminbusiness/" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <br>
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="home%20page.html" class="hover:text-gray-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-gray-300">About</a></li>
+            <li><a href="benefit.html" class="hover:text-gray-300">Benefits</a></li>
+            <li><a href="membership.html" class="hover:text-gray-300">Membership</a></li>
+            <li><a href="WE.html" class="hover:text-gray-300">WE</a></li>
+            <li><a href="events.html" class="hover:text-gray-300">Events</a></li>
+            <li><a href="contact.html" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+        </div>
+        <!---
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-gray-300">Business Tools</a></li>
+            <li><a href="#" class="hover:text-gray-300">Islamic Finance Guide</a></li>
+            <li><a href="#" class="hover:text-gray-300">Member Success Stories</a></li>
+            <li><a href="#" class="hover:text-gray-300">FAQs</a></li>
+          </ul>
+        </div>
+        ---->
+          <br>
+        <div>
+          <h4 class="font-bold mb-4">Contact Us</h4>
+          <address class="not-italic">
+            <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> G-52, Avadh Arena, VIP Road, Vesu, Surat</p>
+            <p class="mb-2"><i class="fas fa-phone mr-2"></i> +91 7777 99 57 99</p>
+            <p class="mb-2"><i class="fas fa-envelope mr-2"></i> mibindiaoffice@gmail.com</p>
+          </address>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Muslims in Business (MIB). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+    // Mobile menu toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.querySelector('.md\\:hidden');
+        const mobileMenu = document.querySelector('.hidden.md\\:flex');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            mobileMenu.classList.toggle('flex-col');
+            mobileMenu.classList.toggle('absolute');
+            mobileMenu.classList.toggle('top-16');
+            mobileMenu.classList.toggle('left-0');
+            mobileMenu.classList.toggle('right-0');
+            mobileMenu.classList.toggle('bg-mib');
+            mobileMenu.classList.toggle('p-4');
+            mobileMenu.classList.toggle('space-y-4');
+        });
+        
+        // Flip card functionality
+        const flipCards = document.querySelectorAll('.flip-card');
+        flipCards.forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+    });
+</script>
+</body>
+</html>

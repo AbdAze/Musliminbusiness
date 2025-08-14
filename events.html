@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIB – Muslim in Business</title>
+    <link rel="shortcut icon" href="Gallery/logo.png" type="image">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      background-image: url('pr11.jpg'); /* change to your file path */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: 'Poppins', sans-serif; /* Optional */
+    }
+
+    .container-steps {
+      background-color: #173F3F;
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+      margin-bottom: 2rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 12%;
+      right: 12%;
+      height: 4px;
+      background-color: white;
+      z-index: 0;
+    }
+
+    .step {
+      position: relative;
+      flex: 1;
+      max-width: 300px;
+      z-index: 1;
+    }
+
+    .circle {
+      background-color: white;
+      color: #173F3F;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin: 0 auto 1rem;
+    }
+
+    .button {
+      margin-top: 2rem;
+    }
+
+    .button a {
+      background-color: white;
+      color: #173F3F;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .button a:hover {
+      background-color: #d6eae9;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .steps::before {
+        display: none;
+      }
+
+      .step {
+        margin-bottom: 2rem;
+      }
+    }
+
+    /* Custom CSS for additional styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #173F3F 0%, #0f2e2e 100%);
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-left: 4px solid #173F3F;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #173F3F;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-primary {
+      border: 2px solid white;
+      background-color: #173F3F;
+      color: white;
+    
+    }
+
+    .btn-primary:hover {
+      background-color: #0f2e2e;
+     
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: #173F3F;
+    }
+
+    .btn-outline:hover {
+      background-color: #173F3F;
+      color: white;
+    }
+
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+
+    .bg-mib {
+      background-color: #173F3F;
+    }
+
+    .button a {
+      background-color: white;
+      color: #173F3F;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .button a:hover {
+      background-color: #d6eae9;
+    }
+
+    .container-steps {
+      background-color: #173F3F;
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+.register
+      {
+          background-color: #173F3F;
+          color: white;
+          border-radius: circle;
+          border: 10px solid #173F3F;
+          padding: 1.5px;
+      }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="home%20page.html" class="flex items-center">
+          <img src="Gallery/logo.png" alt="MIB Logo" class="h-10 mr-3">
+          <span class="text-xl font-bold text-[#173F3F]">MIB - Muslim In Business</span>
+        </a>
+      </div>
+
+      <div class="hidden md:flex space-x-8">
+        <a href="home%20page.html" class="nav-link text-gray-700 hover:text-[#173F3F] font-medium">Home</a>
+        <a href=about.html class="nav-link text-gray-700 hover:text-[#173F3F] font-medium">About</a>
+        <a href="benefits.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
+        <a href="membership.html" class="nav-link text-gray-700 hover:text-mib font-medium">Membership</a>
+         <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
+        <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium">Events</a>
+        <a href="contact.html" class="nav-link text-gray-700 hover:text-mib font-medium">Contact</a>      </div>
+
+      <div class="hidden md:block">
+        <a href="join.html" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
+      </div>
+
+      <button class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </nav>
+
+ <!-- Hero Section -->
+   <section class="bg-mib py-40 md:py-20 text-white">
+        <div class="body mx-auto px-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">MIB Events</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8">Connect, learn and grow with fellow Muslim business professionals through our exclusive events</p>
+            <!----
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#upcoming-events" class="btn-primary px-8 py-3 rounded-full font-medium text-center">Upcoming event</a>
+               <a href="#past-events" class="btn-primary px-8 py-3 rounded-full font-medium text-center">Past event</a>
+          </div>
+----->
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section id="upcoming-events" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Upcoming Events</h2>
+                <div class="w-24 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event Card 1 -->
+                <div class="event-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Business Networking" class="w-full h-48 object-cover">
+                        <div class="bg-yellow-500 absolute top-4 right-4 bg-accent text-primary px-3 py-1 rounded-full text-sm font-bold">
+                            Aug 15, 2025
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Maktab'25</h3>
+                        <p class="text-gray-600 mb-4">Join us for our flagship event featuring keynote speakers, workshops, and networking opportunities.</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Sigdi Restaurant, Lajpore, Surat</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>6:00 PM - 11:00 PM</span>
+                        </div>
+                        <button class="view-members-btn btn-primary px-4 py-2 rounded-full text-sm" data-chapter="london">
+                            <a href="2022.html">Register Now </a> <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Event Card 2 -->
+                <div class="event-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                             alt="Workshop" class="w-full h-48 object-cover">
+                        <div class="bg-yellow-500 absolute top-4 right-4 bg-accent text-primary px-3 py-1 rounded-full text-sm font-bold">
+                            Upcoming
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Coming Soon</h3>
+                        <p class="text-gray-600 mb-4">Coming Soon</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>N/A</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>N/A</span>
+                        </div>
+                       <button class="view-members-btn btn-primary px-4 py-2 rounded-full text-sm" data-chapter="london">
+                            <a href="events.html">Coming Soon </a> <!--<i class="fas fa-chevron-right ml-1"></i> --->
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Event Card 3 -->
+                <div class="event-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Networking" class="w-full h-48 object-cover">
+                       <div class="bg-yellow-500 absolute top-4 right-4 bg-accent text-primary px-3 py-1 rounded-full text-sm font-bold">
+                            Upcoming
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Coming Soon</h3>
+                        <p class="text-gray-600 mb-4">Stay tuned for the upcoming events</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>N/A</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>N/A</span>
+                        </div>
+                        <button class="view-members-btn btn-primary px-4 py-2 rounded-full text-sm" data-chapter="london">
+                            <a href="events.html">Coming Soon </a> <!--- <i class="fas fa-chevron-right ml-1"></i> ---->
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-mib text-white py-20 md:py-28">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class=".bg-mib md:text-4xl font-bold mb-6 ">Become an MIB Member</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-8">Join our growing network of Muslim professionals and gain access to exclusive events, resources, and business opportunities.</p>
+            <a href="about.html" class="inline-block btn-primary text-primary font-bold py-3 px-8 rounded-full hover:bg-yellow-500 transition">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Past Events Gallery -->
+    <section id="past-events" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Past Events Gallery</h2>
+                <div class="w-24 h-1 bg-accent mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Relive the memorable moments from our previous events that brought together the Muslim business community.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="MIB Conference 2022" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-primary">MIB Conference 2022</h3>
+                        <p class="text-sm text-gray-600">June 15, 2022</p>
+                        <button class="view-members-btn btn-primary px-4 py-2 rounded-full text-sm" data-chapter="london">
+                            <a href="2022.html">View </a> <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1412&q=80" 
+                         alt="Entrepreneur Workshop" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-primary">Entrepreneur Workshop</h3>
+                        <p class="text-sm text-gray-600">March 8, 2023</p>
+                        <button class="view-members-btn btn-primary px-4 py-2 rounded-full text-sm" data-chapter="london">
+                            <a href="option.html">View </a> <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Networking Dinner" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-primary">Annual Networking Dinner</h3>
+                        <p class="text-sm text-gray-600">December 5, 2022</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Business Expo" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-primary">Halal Business Expo</h3>
+                        <p class="text-sm text-gray-600">October 22, 2022</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Leadership Summit" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-primary">Leadership Summit</h3>
+                        <p class="text-sm text-gray-600">May 18, 2023</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Startup Pitch" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-primary">Startup Pitch Competition</h3>
+                        <p class="text-sm text-gray-600">February 12, 2023</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                         alt="Charity Gala" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-primary">Charity Gala Dinner</h3>
+                        <p class="text-sm text-gray-600">November 20, 2022</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Tech Conference" class="w-full h-48 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-primary">Islamic Tech Conference</h3>
+                        <p class="text-sm text-gray-6 00">July 7, 2023</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-primary text-white py-3 px-8 rounded-full hover:bg-secondary transition">View More Photos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">What Members Say</h2>
+                <div class="w-24 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-accent text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The MIB events have transformed my business network. I've met incredible Muslim professionals who have become both clients and friends."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ahmed Khan" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-primary">Ahmed Khan</h4>
+                            <p class="text-gray-600 text-sm">CEO, HalalTech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-8 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-accent text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"As a female entrepreneur, the Women in Business events have provided me with invaluable mentorship and support from like-minded professionals."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Fatima Al-Mansoori" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-primary">Fatima Al-Mansoori</h4>
+                            <p class="text-gray-600 text-sm">Founder, Modest Fashion Hub</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-8 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-accent text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The quality of speakers at MIB events is exceptional. I always leave with actionable insights that help grow my business in an Islamically compliant way."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Omar Farooq" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-primary">Omar Farooq</h4>
+                            <p class="text-gray-600 text-sm">Director, Green Crescent Investments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-mib text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MIB</h3>
+                    <p class="mb-4">Muslims in Business is a global network connecting Muslim professionals and entrepreneurs for mutual growth and success.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-accent transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-accent transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-accent transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/musliminbusiness/" class="hover:text-accent transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="home%20page.html" class="hover:text-accent transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-accent transition">About Us</a></li>
+                        <li><a href="events.html" class="hover:text-accent transition">Events</a></li>
+                        <li><a href="membership.html" class="hover:text-accent transition">Membership</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition">Contact</a></li>
+                    </ul>
+                </div>
+                <!---
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Events</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-accent transition">Upcoming Events</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Past Events</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Event Calendar</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Speaker Series</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Workshops</a></li>
+                    </ul>
+                </div>
+----->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>G-52, Avadh Arena, VIP Road, Vesu, Surat</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>+91 7777 99 57 99</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>mibindiaoffice@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-center text-sm">
+                <p>&copy; 2025 Muslims in Business (MIB). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

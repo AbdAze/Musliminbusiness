@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - MIB Muslims in Business</title>
+   <link rel="shortcut icon" href="Gallery/logo.png" type="image">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+      html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .container-steps {
+      background-color: #173F3F;
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+      margin-bottom: 2rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 12%;
+      right: 12%;
+      height: 4px;
+      background-color: white;
+      z-index: 0;
+    }
+
+    .step {
+      position: relative;
+      flex: 1;
+      max-width: 300px;
+      z-index: 1;
+    }
+
+    .circle {
+      background-color: white;
+      color: #173F3F;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin: 0 auto 1rem;
+    }
+
+    .button {
+      margin-top: 2rem;
+    }
+
+    .button a {
+      background-color: white;
+      color: #173F3F;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .button a:hover {
+      background-color: #d6eae9;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .steps::before {
+        display: none;
+      }
+
+      .step {
+        margin-bottom: 2rem;
+      }
+    }
+
+    /* Custom CSS for additional styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #173F3F 0%, #0f2e2e 100%);
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-left: 4px solid #173F3F;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #173F3F;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .bg-mib {
+      background-color: #173F3F;
+    }
+    
+    .text-mib {
+      color: #173F3F;
+    }
+    
+    .border-mib {
+      border-color: #173F3F;
+    }
+    
+    .btn-primary {
+      background-color: #173F3F;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #0f2e2e;
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      border: 2px solid #173F3F;
+      color: #173F3F;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+      background-color: #173F3F;
+      color: white;
+    }
+    
+    .contact-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .input-field:focus {
+      outline: none;
+      border-color: #173F3F;
+      box-shadow: 0 0 0 3px rgba(23, 63, 63, 0.2);
+    }
+    
+    .map-container {
+      height: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .success-message {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="home page.html" class="flex items-center">
+          <img src="Gallery/logo.png"MIB Logo class="h-10 mr-3">
+          <span class="text-xl font-bold text-mib">MIB - Muslim In Business</span>
+        </a>
+      </div>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="home page.html" class="nav-link text-gray-700 hover:text-mib font-medium">Home</a>
+        <a href="about.html" class="nav-link text-gray-700 hover:text-mib font-medium">About</a>
+        <a href="benefit.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
+        <a href="membership.html" class="nav-link text-gray-700 hover:text-mib font-medium">Membership</a>
+         <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
+        <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium">Events</a>
+        <a href="contact.html" class="nav-link text-mib font-medium">Contact</a>
+      </div>
+      
+      <div class="hidden md:block">
+        <a href="join.html" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
+      </div>
+      
+      <button class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-mib text-white py-20 md:py-28">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Contact MIB</h1>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto">Connect with our team to learn more about our network and how we can support your business</p>
+    </div>
+  </section>
+
+  <!-- Contact Options -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- General Inquiries -->
+        <div class="bg-gray-50 p-8 rounded-xl shadow-sm contact-card">
+          <div class="bg-mib text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-envelope text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-mib text-center mb-4">General Inquiries</h3>
+          <p class="text-gray-600 text-center mb-6">Have questions about MIB? Our team is here to help.</p>
+          <div class="text-center">
+            <a href="mailto:mibindiaoffice@gmail.com" class="text-mib font-medium hover:underline">mibindiaoffice@gmail.com</a>
+          </div>
+        </div>
+        
+        <!-- Membership Support -->
+        <div class="bg-gray-50 p-8 rounded-xl shadow-sm contact-card">
+          <div class="bg-mib text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-users text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-mib text-center mb-4">Membership Support</h3>
+          <p class="text-gray-600 text-center mb-6">Questions about joining or your current membership?</p>
+          <div class="text-center">
+            <a href="mailto:mibindiaoffice@gmail.com" class="text-mib font-medium hover:underline">mibindiaoffice@gmail.com</a>
+             <a href="tel:+917777995799"><p class="text-gray-600 mt-2">+91 7777 99 57 99</p></a>
+          </div>
+        </div>
+        
+        <!-- Chapter Development -->
+        <div class="bg-gray-50 p-8 rounded-xl shadow-sm contact-card">
+          <div class="bg-mib text-white w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fas fa-globe text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-mib text-center mb-4">Chapter Development</h3>
+          <p class="text-gray-600 text-center mb-6">Interested in starting a new MIB chapter in your area?</p>
+          <div class="text-center">
+            <a href="mailto:mibindiaoffice@gmail.com" class="text-mib font-medium hover:underline">mibindiaoffice@gmail.com</a>
+            <a href="tel:+917777995799"><p class="text-gray-600 mt-2">+91 7777 99 57 99</p></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-sm overflow-hidden">
+        <div class="md:flex">
+
+          <!-- Form Column -->
+        <form id="contact-form" class="space-y-4"></form>
+          <div class="p-8 md:p-10 md:w-1/2">
+            <h2 class="text-2xl font-bold text-mib mb-6">Send Us a Message</h2>
+            
+            <form action="https://formspree.io/f/mnnvaovv" method="POST" id="contact-form" class="space-y-4">
+              <div>
+                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg input-field focus:border-mib" required>
+              </div>
+              
+              <div>
+                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg input-field focus:border-mib" required>
+              </div>
+              
+              <div>
+                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg input-field focus:border-mib">
+              </div>
+              
+              <div>
+                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                <select id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg input-field focus:border-mib" required>
+                  <option value="" disabled selected>Select a subject</option>
+                  <option value="membership">Membership Inquiry</option>
+                  <option value="chapter">Chapter Development</option>
+                  <option value="event">Event Information</option>
+                  <option value="partnership">Partnership Opportunities</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div>
+                <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg input-field focus:border-mib" required></textarea>
+              </div>
+              
+              <button type="submit" class="btn-primary w-full py-3 rounded-lg font-medium mt-4">
+                Send Message <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+              <div id="success-message" class="success-message bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+              Thank you! Your message has been sent successfully. We'll get back to you soon.
+            </div>
+            </form>
+          </div>
+          
+          <!-- Info Column -->
+          <div class="bg-mib text-white p-8 md:p-10 md:w-1/2">
+            <h2 class="text-2xl font-bold mb-6">Contact Information</h2>
+            
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold mb-1">Headquarters</h3>
+                  <p> Surat, Gujarat, India</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold mb-1">Phone</h3>
+                  <a href="tel:+917777995799"><p>+91 77 77 99 57 99<br>Mon-Sat, 9am-5pm GMT</p></a>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold mb-1">Email</h3>
+                  <p>mibindiaoffice@gmail<br>response within 24 hours</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold mb-1">Office Hours</h3>
+                  <p>Monday - Friday: 9:00 - 17:00<br>Saturday - Sunday: Closed</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8">
+              <h3 class="font-bold mb-4">Follow Us</h3>
+              <div class="flex space-x-4">
+                <a href="#" class="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/musliminbusiness/" class="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-mib mb-4">Find Our Offices</h2>
+        <div class="w-20 h-1 bg-mib mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Visit us at our headquarters or connect with one of our regional offices</p>
+      </div>
+      
+      <div class="map-container">
+      <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.41709451063!2d72.73988483609048!3d21.15934029880327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e59411d1563%3A0xfe4558290938b042!2sSurat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1750247219004!5m2!1sen!2sin"
+         width="100%" 
+         height="100%" 
+         style="border:0;" 
+         allowfullscreen="" 
+         loading="lazy" 
+         referrerpolicy="no-referrer-when-downgrade">
+       </iframe>
+    </div>
+  </div>
+</section>
+
+
+ <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">MIB</h3>
+          <p class="mb-4">Empowering Muslim entrepreneurs worldwide through ethical business networking.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/musliminbusiness/" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="home page.html" class="hover:text-gray-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-gray-300">About</a></li>
+            <li><a href="membership.html" class="hover:text-gray-300">Membership</a></li>
+            <li><a href="events.html" class="hover:text-gray-300">Events</a></li>
+            <li><a href="contact.html" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-gray-300">Business Tools</a></li>
+            <li><a href="#" class="hover:text-gray-300">Islamic Finance Guide</a></li>
+            <li><a href="#" class="hover:text-gray-300">Member Success Stories</a></li>
+            <li><a href="#" class="hover:text-gray-300">FAQs</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Contact Us</h4>
+          <address class="not-italic">
+            <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> 123 Business Ave, London, UK</p>
+            <p class="mb-2">
+              <a href="tel:917777995799" <i class="fas fa-phone mr-2"> +91 77 77 99 57 99</p></a></i>
+            <p class="mb-2"><i class="fas fa-envelope mr-2"></i> musliminbusiness@gmail.com</p>
+          </address>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Muslims in Business (MIB). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -5,17 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Membership - MIB Muslims in Business</title>
-  <link rel="shortcut icon" href="Membership Images/logo.png" type="image">
-  <script src="https://cdn.tailwindcss.com">
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      const overlay = document.getElementById('overlay');
-      menu.classList.toggle('translate-x-full');
-      overlay.classList.toggle('hidden');
-    }
-    // Attach event to hamburger button
-    document.querySelector('nav button').addEventListener('click', toggleMenu);  
-  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -315,16 +305,16 @@
   <nav class="bg-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center">
-        <a href="index.html" class="flex items-center">
-          <img src="Membership Images/logo.png" alt="MIB Logo" class="h-10 mr-3">
+        <a href="home%20page.html" class="flex items-center">
+          <img src="Gallery/logo.png" alt="MIB Logo" class="h-10 mr-3">
           <span class="text-xl font-bold text-mib">MIB - Muslim In Business</span>
         </a>
       </div>
       
       <div class="hidden md:flex space-x-8">
-        <a href="index.html" class="nav-link text-gray-700 hover:text-mib font-medium">Home</a>
+        <a href="home%20page.html" class="nav-link text-gray-700 hover:text-mib font-medium">Home</a>
         <a href="about.html" class="nav-link text-gray-700 hover:text-mib font-medium">About</a>
-        <a href="benefits.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
+        <a href="Benefits.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
         <a href="membership.html" class="nav-link text-gray-700 text-mib font-medium">Membership</a>
          <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
         <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium">Events</a>
@@ -332,31 +322,14 @@
       </div>
       
       <div class="hidden md:block">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScz0I1Z0efEOScIjZIQnXJf4edOn0hYpARVchVLA9Ewxtc_WA/viewform?usp=sharing&ouid=100013194255721768831" target="_blank" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
+        <a href="join.html" target="_blank" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
       </div>
       
-     <!-- Mobile Sidebar -->
-<div id="mobileMenu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
-  <div class="p-4 flex justify-between items-center border-b">
-    <h2 class="text-xl font-bold text-[#173F3F]">Menu</h2>
-    <button onclick="toggleMenu()" class="text-gray-700 text-2xl">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-  <nav class="flex flex-col p-4 space-y-4">
-    <a href="index.html" class="text-gray-700 hover:text-[#173F3F]">Home</a>
-    <a href="about.html" class="text-gray-700 hover:text-[#173F3F]">About</a>
-    <a href="benefits.html" class="text-gray-700 hover:text-[#173F3F]">Benefits</a>
-    <a href="membership.html" class="text-gray-700 hover:text-[#173F3F]">Membership</a>
-    <a href="WE.html" class="text-gray-700 hover:text-[#173F3F]">WE</a>
-    <a href="events.html" class="text-gray-700 hover:text-[#173F3F]">Events</a>
-    <a href="contact.html" class="text-gray-700 hover:text-[#173F3F]">Contact</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScz0I1Z0efEOScIjZIQnXJf4edOn0hYpARVchVLA9Ewxtc_WA/viewform?usp=sharing&ouid=100013194255721768831" target="_blank" class="btn-primary text-center px-4 py-2 rounded-full font-medium">Join Now</a>
+      <button class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
   </nav>
-</div>
-
-<!-- Overlay -->
-<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="toggleMenu()"></div>
 
   <!-- Hero Section -->
   <section class="bg-mib text-white py-20 md:py-28">
@@ -391,18 +364,18 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Chapter 1 -->
         <div class="bg-white rounded-xl shadow-md overflow-hidden chapter-card">
-          <img src="Membership Images/surat.jpg" alt="Chapter Alif" class="w-full h-48 object-cover">
+          <img src="Gallery/members/surat.jpg" alt="Chapter Alif" class="w-full h-48 object-cover">
           <div class="p-6">
             <h3 class="text-xl font-bold text-mib mb-2">Chapter - الف۔"ا"</h3>
             <h6 class="text-lg font-bold text-mib mb-2">Surat</h6>
-            <p class="text-gray-600 mb-4">Established 2024 with 44 members</p>
+            <p class="text-gray-600 mb-4">Established 2024 with 18 members</p>
             <div class="flex justify-between items-center">
               <div>
                 <p class="text-sm text-gray-500">Meeting Day:</p>
                 <p class="font-medium">Every Wednesday</p>
               </div>
               <button class="view-members-btn btn-primary px-4 py-2 rounded-full text-sm" data-chapter="london">
-              <a href="chapter1.html">View Members</a> <i class="fas fa-chevron-right ml-1"></i>
+              <a href="Chapter1.html">View Members</a> <i class="fas fa-chevron-right ml-1"></i>
               </button>
             </div>
           </div>
@@ -410,7 +383,7 @@
         
         <!-- Chapter 2 -->
         <div class="bg-white rounded-xl shadow-md overflow-hidden chapter-card">
-          <img src="Membership Images/Bhavnagar.png" alt="Dubai Chapter" class="w-full h-48 object-cover">
+          <img src="Gallery/members/Bhavnagar.png" alt="Dubai Chapter" class="w-full h-48 object-cover">
           <div class="p-6">
             <h3 class="text-xl font-bold text-mib mb-2">Chapter - با۔"ب"</h3>
             <h6 class="text-lg font-bold text-mib mb-2">Bhavnagar</h6>
@@ -421,7 +394,7 @@
                 <p class="font-medium">Coming Soon</p>
               </div>
               <button class="view-members-btn btn-primary px-4 py-2 rounded-full text-sm" data-chapter="dubai">
-              <a href="chapter2.html">View Members</a> <i class="fas fa-chevron-right ml-1"></i>
+              <a href="Chapter1.html">View Members</a> <i class="fas fa-chevron-right ml-1"></i>
               </button>
             </div>
           </div>
@@ -429,7 +402,7 @@
         
         <!-- Chapter 3 -->
         <div class="bg-white rounded-xl shadow-md overflow-hidden chapter-card">
-          <img src="Membership Images/k%20(2).png">
+          <img src="Gallery/members/k%20(2).png">
           <div class="p-6">
             <h3 class="text-xl font-bold text-mib mb-2">Chapter -ٹا"ت"</h3>
             <h6 class="text-lg font-bold text-mib mb-2">Khasmir</h6>
@@ -455,7 +428,7 @@
       <div class="grid md:grid-cols-4 gap-90">
         <div>
           <a href="index.html" class="flex items-center">
-          <img src="Membership Images/logo.png" alt="MIB Logo" class="h-10 mr-3">
+          <img src="Gallery/logo.png" alt="MIB Logo" class="h-10 mr-3">
           <span class="text-xl font-bold text-white">MIB</span></a>
           <p class="mb-4">Empowering Muslim entrepreneurs worldwide through ethical business networking.</p>
           <div class="flex space-x-5">
@@ -508,12 +481,6 @@
       </div>
     </div>
   </footer>
-  
+
 </body>
-
 </html>
-
-
-
-
-

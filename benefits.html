@@ -251,58 +251,36 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-<!-- Desktop Menu -->
-    <nav class="hidden md:flex space-x-6 items-center">
-      <a href="index.html" class="text-gray-700 hover:text-[#173F3F]">Home</a>
-      <a href="about.html" class="text-gray-700 hover:text-[#173F3F]">About</a>
-      <a href="benefits.html" class="text-gray-700 hover:text-[#173F3F]">Benefits</a>
-      <a href="membership.html" class="text-gray-700 hover:text-[#173F3F]">Membership</a>
-      <a href="WE.html" class="text-gray-700 hover:text-[#173F3F]">WE</a>
-      <a href="events.html" class="text-gray-700 hover:text-[#173F3F]">Events</a>
-      <a href="contact.html" class="text-gray-700 hover:text-[#173F3F]">Contact</a>
-      <a href="https://forms.gle/urhz2eUZz8JjrmLB6" target="_blank" class="btn-primary px-4 py-2 rounded-full font-medium">Join Now</a>
-    </nav>
-
-    <!-- Mobile Hamburger -->
-    <button class="md:hidden text-2xl text-gray-700" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i>
-    </button>
-  </div>
-</header>
-
-<!-- Mobile Sidebar (Right Side) -->
-<div id="mobileMenu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-  <div class="p-4 flex justify-between items-center border-b">
-    <h2 class="text-xl font-bold text-[#173F3F]">Menu</h2>
-    <button onclick="toggleMenu()" class="text-gray-700 text-2xl">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-  <nav class="flex flex-col p-4 space-y-4">
-    <a href="index.html" class="text-gray-700 hover:text-[#173F3F]">Home</a>
-    <a href="about.html" class="text-gray-700 hover:text-[#173F3F]">About</a>
-    <a href="benefits.html" class="text-gray-700 hover:text-[#173F3F]">Benefits</a>
-    <a href="membership.html" class="text-gray-700 hover:text-[#173F3F]">Membership</a>
-    <a href="WE.html" class="text-gray-700 hover:text-[#173F3F]">WE</a>
-    <a href="events.html" class="text-gray-700 hover:text-[#173F3F]">Events</a>
-    <a href="contact.html" class="text-gray-700 hover:text-[#173F3F]">Contact</a>
-    <a href="https://forms.gle/urhz2eUZz8JjrmLB6" target="_blank" class="btn-primary text-center px-4 py-2 rounded-full font-medium">Join Now</a>
+ <!-- Navigation -->
+ <nav class="bg-white shadow-md sticky top-0 z-50 text-mib">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="index.html" class="flex items-center text-mib">
+          <img src="Gallery/logo.png" alt="MIB Logo" class="h-10 mr-3">
+          <span class="text-xl font-bold text-mib">MIB - Muslim In Business</span>
+        </a>
+      </div>
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="home%20page.html" class="nav-link text-gray-700 hover:text-mib font-medium">Home</a>
+        <a href="about.html" class="nav-link text-gray-700 hover:text-mib font-medium">About</a>
+        <a href="Benefits.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
+        <a href="membership.html" class="nav-link text-gray-700 hover:text-mib font-medium">Membership</a>
+        <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
+        <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium">Events</a>
+        <a href="contact.html" class="nav-link text-gray-700 hover:text-mib font-medium">Contact</a>
+      </div>
+      
+      <div class="join-button-container">
+        <a href="join.html" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
+      </div>
+      
+      <button class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
   </nav>
-</div>
 
-<!-- Overlay -->
-<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="toggleMenu()"></div>
-
-<!-- Script -->
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('overlay');
-    menu.classList.toggle('translate-x-full');
-    overlay.classList.toggle('hidden');
-  }
-</script>
 
     <!-- Hero Section -->
     <header class="bg-primary text-white py-20">
@@ -564,3 +542,4 @@
     </script>
 </body>
 </html>
+

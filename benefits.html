@@ -252,31 +252,27 @@
 </head>
 <body>
   <!-- Navigation -->
- <nav class="bg-white shadow-md sticky top-0 z-50 text-mib">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center">
-        <a href="index.html" class="flex items-center text-mib">
-          <img src="benefits images/logo.png" alt="MIB Logo" class="h-10 mr-3">
-          <span class="text-xl font-bold text-mib">MIB - Muslim In Business</span>
-        </a>
-      </div>
-      
-      <div class="hidden md:flex space-x-8">
-        <a href="index.html" class="nav-link text-gray-700 hover:text-mib font-medium">Home</a>
-        <a href="about.html" class="nav-link text-gray-700 hover:text-mib font-medium">About</a>
-        <a href="Benefits.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
-        <a href="membership.html" class="nav-link text-gray-700 hover:text-mib font-medium">Membership</a>
-        <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
-        <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium">Events</a>
-        <a href="contact.html" class="nav-link text-gray-700 hover:text-mib font-medium">Contact</a>
-      </div>
-      
-      <div class="join-button-container">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScz0I1Z0efEOScIjZIQnXJf4edOn0hYpARVchVLA9Ewxtc_WA/viewform?usp=sharing&ouid=100013194255721768831" target="_blank" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
-      </div>
-      
-     <!-- Mobile Sidebar -->
-<div id="mobileMenu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
+<!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-6 items-center">
+      <a href="index.html" class="text-gray-700 hover:text-[#173F3F]">Home</a>
+      <a href="about.html" class="text-gray-700 hover:text-[#173F3F]">About</a>
+      <a href="benefits.html" class="text-gray-700 hover:text-[#173F3F]">Benefits</a>
+      <a href="membership.html" class="text-gray-700 hover:text-[#173F3F]">Membership</a>
+      <a href="WE.html" class="text-gray-700 hover:text-[#173F3F]">WE</a>
+      <a href="events.html" class="text-gray-700 hover:text-[#173F3F]">Events</a>
+      <a href="contact.html" class="text-gray-700 hover:text-[#173F3F]">Contact</a>
+      <a href="https://forms.gle/urhz2eUZz8JjrmLB6" target="_blank" class="btn-primary px-4 py-2 rounded-full font-medium">Join Now</a>
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button class="md:hidden text-2xl text-gray-700" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Sidebar (Right Side) -->
+<div id="mobileMenu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
   <div class="p-4 flex justify-between items-center border-b">
     <h2 class="text-xl font-bold text-[#173F3F]">Menu</h2>
     <button onclick="toggleMenu()" class="text-gray-700 text-2xl">
@@ -291,13 +287,22 @@
     <a href="WE.html" class="text-gray-700 hover:text-[#173F3F]">WE</a>
     <a href="events.html" class="text-gray-700 hover:text-[#173F3F]">Events</a>
     <a href="contact.html" class="text-gray-700 hover:text-[#173F3F]">Contact</a>
-    <a href="join.html" class="btn-primary text-center px-4 py-2 rounded-full font-medium">Join Now</a>
+    <a href="https://forms.gle/urhz2eUZz8JjrmLB6" target="_blank" class="btn-primary text-center px-4 py-2 rounded-full font-medium">Join Now</a>
   </nav>
 </div>
 
 <!-- Overlay -->
 <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="toggleMenu()"></div>
 
+<!-- Script -->
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    menu.classList.toggle('translate-x-full');
+    overlay.classList.toggle('hidden');
+  }
+</script>
 
     <!-- Hero Section -->
     <header class="bg-primary text-white py-20">
@@ -342,16 +347,12 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Join MIB?</h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto">Become part of a thriving community of Muslim professionals and business owners</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScz0I1Z0efEOScIjZIQnXJf4edOn0hYpARVchVLA9Ewxtc_WA/viewform?usp=sharing&ouid=100013194255721768831" target="_blank">
                 <button class="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition">
                     Join Now
                 </button>
-                </a>
-                <a href="about.html" target="blank">
                 <button class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">
                     Learn More
                 </button>
-                </a>
             </div>
         </div>
     </section>
@@ -420,52 +421,52 @@
                 {
                     title: "Scalability",
                     description: "Grow your business with access to a network that scales with your ambitions.",
-                    image: "benefits images/Scalability 01.avif"
+                    image: "benefits images/benefits/Scalability 01.avif"
                 },
                 {
                     title: "Flexibility",
                     description: "Adapt to market changes with flexible solutions tailored for Muslim entrepreneurs.",
-                    image: "benefits images/flexibility 02.jpg"
+                    image: "benefits images/benefits/flexibility 02.jpg"
                 },
                 {
                     title: "Increased Efficiency",
                     description: "Streamline your operations with proven strategies from successful Muslim businesses.",
-                    image: "benefits images/increased-efficiency 03.jpg"
+                    image: "benefits images/benefits/increased-efficiency 03.jpg"
                 },
                 {
                     title: "Optimized Convenience",
                     description: "Access resources and services designed specifically for your business needs.",
-                    image: "benefits images/Optimaze 04.jpg"
+                    image: "benefits images/benefits/Optimaze 04.jpg"
                 },
                 {
                     title: "Easy Information Sharing",
                     description: "Connect and collaborate with like-minded professionals in our exclusive network.",
-                    image: "benefits images/sharing.info 05.jpg"
+                    image: "benefits images/benefits/sharing.info 05.jpg"
                 },
                 {
                     title: "Streamline Communication",
                     description: "Enhance your business communications with our specialized tools and platforms.",
-                    image: "benefits images/Steamline 06.jpeg"
+                    image: "benefits images/benefits/Steamline 06.jpeg"
                 },
                 {
                     title: "Cost-efficient",
                     description: "Reduce expenses with group discounts and shared resources available to members.",
-                    image: "benefits images/cost-efficience 07.jpg"
+                    image: "benefits images/benefits/cost-efficience 07.jpg"
                 },
                 {
                     title: "Overcome Geographic Separation",
                     description: "Connect with Muslim businesses worldwide through our global network.",
-                    image: "benefits images/global 08.jpg"
+                    image: "benefits images/benefits/global 08.jpg"
                 },
                 {
                     title: "Improve Storage Efficiency and Volume",
                     description: "Access cloud solutions and storage options tailored for Muslim businesses.",
-                    image: "benefits images/Improve_Storage 09.jpg"
+                    image: "Galery/benefits/Improve_Storage 09.jpg"
                 },
                 {
                     title: "Cut Back on Hardware and Software Costs",
                     description: "Benefit from group purchasing power for essential business tools and technology.",
-                    image: "benefits images/Cut_of 10.jpg"
+                    image: "benefits images/benefits/Cut_of 10.jpg"
                 }
             ];
 
@@ -560,21 +561,6 @@
             window.addEventListener('resize', handleResize);
             handleResize();
         });
-
- function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('overlay');
-    menu.classList.toggle('-translate-x-full');
-    overlay.classList.toggle('hidden');
-  }
-
-  // Attach event to hamburger button
-  document.querySelector('nav button').addEventListener('click', toggleMenu);
-        
     </script>
 </body>
-
 </html>
-
-
-

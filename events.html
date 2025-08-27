@@ -244,6 +244,30 @@
     </div>
   </nav>
 
+  <!-- Sidebar (Right) -->
+  <div id="mobileMenu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+    <div class="p-4 flex justify-between items-center border-b">
+      <h2 class="text-xl font-bold text-[#173F3F]">Menu</h2>
+      <button onclick="toggleMenu()" class="text-gray-700 text-2xl">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col p-4 space-y-4">
+      <a href="index.html" class="text-gray-700 hover:text-[#173F3F]">Home</a>
+      <a href="about.html" class="text-gray-700 hover:text-[#173F3F]">About</a>
+      <a href="benefits.html" class="text-gray-700 hover:text-[#173F3F]">Benefits</a>
+      <a href="membership.html" class="text-gray-700 hover:text-[#173F3F]">Membership</a>
+      <a href="WE.html" class="text-gray-700 hover:text-[#173F3F]">WE</a>
+      <a href="events.html" class="text-gray-700 hover:text-[#173F3F]">Events</a>
+      <a href="contact.html" class="text-gray-700 hover:text-[#173F3F]">Contact</a>
+      <a href="https://forms.gle/RgBo8s3K7zgRVEVAA" target="_blank" class="btn-primary text-center px-4 py-2 rounded-full font-medium">Join Now</a>
+    </nav>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="toggleMenu()"></div>
+
+
  <!-- Hero Section -->
    <section class="bg-mib py-40 md:py-20 text-white">
         <div class="body mx-auto px-10 text-center">
@@ -383,6 +407,7 @@
                     </div>
                 </div>
             </div>
+        </div>
                 <!-- Gallery Item 2 -->
   <!---
                 <div class="gallery-item rounded-lg overflow-hidden shadow-md">
@@ -634,8 +659,19 @@
         });
     </script>
 </body>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    menu.classList.toggle('translate-x-full');
+    overlay.classList.toggle('hidden');
+  }
 
+  // Attach event to hamburger button
+  document.querySelector('nav button').addEventListener('click', toggleMenu);
+</script>
 </html>
+
 
 
 

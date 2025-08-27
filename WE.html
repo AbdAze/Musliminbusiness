@@ -222,8 +222,8 @@
   <nav class="bg-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center">
-        <a href="#" class="flex items-center">
-          <img src="logo.png" alt="MIB Logo" class="h-10 mr-3">
+        <a href="index.html" class="flex items-center">
+          <img src="images/logo.png" alt="MIB Logo" class="h-10 mr-3">
           <span class="text-xl font-bold text-[#173F3F]">MIB - Muslims In Business</span><br>
          
         </a>
@@ -247,17 +247,28 @@
       </button>
     </div>
   </nav>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="index.html" class="block py-2 hover:bg-miblight px-2 rounded">Home</a>
-                <a href="about.html" class="block py-2 hover:bg-miblight px-2 rounded">About</a>
-                <a href="members.html" class="block py-2 hover:bg-miblight px-2 rounded">Members</a>
-                <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
-                <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium">Events</a>
-                <a href="contact.html" class="block py-2 hover:bg-miblight px-2 rounded">Contact</a>
-            </div>
-        </div>
+    <!-- Sidebar (Right) -->
+  <div id="mobileMenu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+    <div class="p-4 flex justify-between items-center border-b">
+      <h2 class="text-xl font-bold text-[#173F3F]">Menu</h2>
+      <button onclick="toggleMenu()" class="text-gray-700 text-2xl">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col p-4 space-y-4">
+      <a href="index.html" class="text-gray-700 hover:text-[#173F3F]">Home</a>
+      <a href="about.html" class="text-gray-700 hover:text-[#173F3F]">About</a>
+      <a href="benefits.html" class="text-gray-700 hover:text-[#173F3F]">Benefits</a>
+      <a href="membership.html" class="text-gray-700 hover:text-[#173F3F]">Membership</a>
+      <a href="WE.html" class="text-gray-700 hover:text-[#173F3F]">WE</a>
+      <a href="events.html" class="text-gray-700 hover:text-[#173F3F]">Events</a>
+      <a href="contact.html" class="text-gray-700 hover:text-[#173F3F]">Contact</a>
+      <a href="https://forms.gle/RgBo8s3K7zgRVEVAA" target="_blank" class="btn-primary text-center px-4 py-2 rounded-full font-medium">Join Now</a>
     </nav>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="toggleMenu()"></div>
 
     <!-- Hero Section -->
     <section class="body py-20 md:py-52">
@@ -591,4 +602,16 @@
         window.addEventListener('load', animateOnScroll);
     </script>
 </body>
+    <script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    menu.classList.toggle('translate-x-full');
+    overlay.classList.toggle('hidden');
+  }
+
+  // Attach event to hamburger button
+  document.querySelector('nav button').addEventListener('click', toggleMenu);
+</script>
 </html>
+

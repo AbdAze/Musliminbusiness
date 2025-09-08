@@ -3,903 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MIB Chapter - الف۔"ا"</title>
-  <link rel="shortcut icon" href="images/logo.png" type="image">
+  <title>MIB Chapter – Alif "ا"</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-    
-       html {
-      scroll-behavior: smooth;
-    }
+    /* MIB Branding */
+    .bg-mib { background-color: #0d9488; } /* teal */
+    .text-mib { color: #0d9488; }
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #f9f9f9;
-    }
-
-    .container-steps {
-      background-color: #173F3F;
-      color: white;
-      text-align: center;
-      padding: 4rem 2rem;
-      position: relative;
-    }
-
-    .steps {
-      display: flex;
-      justify-content: space-around;
-      position: relative;
-      margin-bottom: 2rem;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .steps::before {
-      content: "";
-      position: absolute;
-      top: 30px;
-      left: 12%;
-      right: 12%;
-      height: 4px;
-      background-color: white;
-      z-index: 0;
-    }
-
-    .step {
-      position: relative;
-      flex: 1;
-      max-width: 300px;
-      z-index: 1;
-    }
-
-    .circle {
-      background-color: white;
-      color: #173F3F;
-      width: 60px;
-      height: 60px;
-      line-height: 60px;
-      border-radius: 50%;
-      font-weight: bold;
-      font-size: 1.5rem;
-      margin: 0 auto 1rem;
-    }
-
-    .button {
-      margin-top: 2rem;
-    }
-
-    .button a {
-      background-color: #173F3F;
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 2rem;
-      font-weight: bold;
-      border-radius: 30px;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-
-    .button a:hover {
-      background-color: #d6eae9;
-    }
-
-    @media (max-width: 768px) {
-      .steps {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .steps::before {
-        display: none;
-      }
-
-      .step {
-        margin-bottom: 2rem;
-      }
-    }
-
-    /* Custom CSS for additional styling */
-    .hero-gradient {
-      background: linear-gradient(135deg, #173F3F 0%, #0f2e2e 100%);
-    }
-
-    .feature-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .testimonial-card {
-      background-color: rgba(255, 255, 255, 0.9);
-      border-left: 4px solid #173F3F;
-    }
-
-    .nav-link {
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -2px;
-      left: 0;
-      background-color: #173F3F;
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .floating {
-      animation: floating 3s ease-in-out infinite;
-    }
-
-    @keyframes floating {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-
-    .bg-mib {
-      background-color: #173F3F;
-      background-image: url('member/chapter-bg.png'); /* change to your file path */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: fixed;
-      font-family: 'Poppins', sans-serif; /* Optional */
-    }
-    
-    .text-mib {
-      color: #173F3F;
-    }
-    
-    .btn-primary {
-      background-color: #173F3F;
-      color: white;
-      transition: all 0.3s ease;
-    }
-    
-    .btn-primary:hover {
-      background-color: #0f2e2e;
-      transform: translateY(-2px);
-    }
-    
-    .mobile-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: white;
-      padding: 1rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    
-    .mobile-menu.active {
-      display: block;
-    }
-
-     h3 {
-      font-family: 'Poppins', sans-serif;  
-      margin-bottom: 40px;
-      color: white;
-    }
-
-     h1 {
-      font-family: 'Poppins', sans-serif;  
-      text-align: center;
-      margin-bottom: 40px;
-      color: white;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .member {
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .member:hover {
-      transform: scale(1.03);
-    }
-
-    .member img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .info {
-      position: absolute;
-      bottom: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-      color: #fff;
-      width: 100%;
-      padding: 15px;
-    }
-
-    .info h3 {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .info p {
-      margin: 5px 0 0;
-      font-size: 14px;
-    }
-
-    /* Popup modal */
+    /* Popup Modal (kept as in your code) */
     .popup {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.8);
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 50;
       display: none;
-      align-items: center;
       justify-content: center;
-      z-index: 1000;
+      align-items: center;
+      padding: 1rem;
     }
-
-    .popup img {
-      max-width: auto;
-      max-height: auto;
-      border-radius: 15px;
-      box-shadow: 0 0 15px #000;
-    }
-
     .popup:target {
       display: flex;
     }
-
+    .popup-content {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
     .popup-close {
       position: absolute;
-      top: 30px;
-      right: 40px;
-      font-size: 30px;
-      color: white;
+      top: 0.5rem;
+      right: 0.5rem;
+      font-size: 1.5rem;
       text-decoration: none;
-      font-weight: bold;
+      color: #333;
     }
-
-    .bg-mib {
-      background-color: #173F3F;
-    }
-    
-    .container-steps {
-      background-color: #173F3F;
-      color: white;
-      text-align: left;
-      padding: 1rem 1rem;
-      position: relative;
-      border-color: white;
-    }
-
   </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100 font-sans">
 
-  <!-- Navigation -->
-  <nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center">
-        <a href="index.html" class="flex items-center">
-          <img src="images/logo.png" alt="MIB Logo" class="h-10 mr-3">
-          <span class="text-xl font-bold text-mib">MIB - Muslim In Business</span>
-        </a>
-      </div>
-      
-      <div class="hidden md:flex space-x-8">
-        <a href="index.html" class="nav-link text-gray-700 hover:text-mib font-medium transition-colors">Home</a>
-        <a href="about.html" class="nav-link text-gray-700 hover:text-mib font-medium transition-colors">About</a>
-        <a href="membership.html" class="nav-link text-gray-700 hover:text-mib font-medium transition-colors">Membership</a>
-        <a href="benefits.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
-        <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
-        <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium transition-colors">Events</a>
-        <a href="contact.html" class="nav-link text-mib font-medium">Contact</a>
-      </div>
-      
-      <div class="hidden md:block">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScz0I1Z0efEOScIjZIQnXJf4edOn0hYpARVchVLA9Ewxtc_WA/viewform?usp=sharing&ouid=100013194255721768831" targe="_blank" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
-      </div>
-    
+  <!-- Navbar -->
+  <nav class="bg-mib text-white sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 flex justify-between items-center p-4">
+      <a href="#" class="text-2xl sm:text-3xl font-bold">MIB Chapter – Alif "ا"</a>
+      <ul class="flex space-x-4 sm:space-x-6 text-sm sm:text-base">
+        <li><a href="#members" class="hover:underline">Members</a></li>
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
+  <!-- Hero -->
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-12 text-center">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-mib">Welcome to MIB Chapter – Alif "ا"</h1>
+      <p class="mt-4 text-gray-600 text-sm sm:text-base">Connecting Muslim Entrepreneurs for Growth & Collaboration</p>
+    </div>
+  </header>
 
-  <section class="bg-mib text-white py-20 md:py-28">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Members of Chapter - Alif "ا"</h1>
-      <p class="text-xl md:text-2xl max-w-3xl mx-auto">Building a overall net of Muslim entrepreneurs committed to honest business and common success.</p>
+  <!-- Members Grid -->
+  <section id="members" class="container mx-auto px-4 py-12">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center text-mib mb-8">Our Members</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      <!-- Example Member Card -->
+      <a href="#popup-john" class="bg-white shadow-md rounded-lg p-4 text-center block">
+        <img src="profile images/john.jpg" alt="Profile picture of John Doe" loading="lazy" class="w-24 h-24 mx-auto rounded-full object-cover max-w-full">
+        <h3 class="mt-4 font-semibold text-lg">John Doe</h3>
+        <p class="text-gray-500 text-sm">Founder & CEO</p>
+      </a>
+
+      <a href="#popup-fatima" class="bg-white shadow-md rounded-lg p-4 text-center block">
+        <img src="profile images/fatima.jpg" alt="Profile picture of Fatima Ali" loading="lazy" class="w-24 h-24 mx-auto rounded-full object-cover max-w-full">
+        <h3 class="mt-4 font-semibold text-lg">Fatima Ali</h3>
+        <p class="text-gray-500 text-sm">Marketing Head</p>
+      </a>
+
+      <!-- Add more members here -->
     </div>
   </section>
 
-    <!-- Tabs Navigation -->
-   <nav class="bg-white shadow-md sticky top-0 z-50 container mx-auto px-4 mt-8">
-    <div class="container mx-auto px-4  mt-8 flex justify-between items-center">
-      
-      <div class="hidden md:flex space-x-8 flex border-b border-gray-200">
-        <a href="membership.html" class="nav-link text-gray-700 hover:text-mib font-medium tab-btn py-4 px-6 text-mib">Chapters</a>
-        <a href="directory.html" class="nav-link text-gray-700 hover:text-mib font-medium tab-btn py-4 px-6 text-mib">Member Directory</a>
-        <a href="membershipbenefits.html" class="nav-link text-gray-700 hover:text-mib font-medium tab-btn py-4 px-6 text-mib">Membership Benefits</a>
-      </div>
-      
+  <!-- About -->
+  <section id="about" class="bg-white py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-mib">About MIB Chapter – Alif "ا"</h2>
+      <p class="mt-4 text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+        MIB (Muslims in Business) is a platform dedicated to empowering Muslim entrepreneurs by fostering connections, sharing opportunities, and generating collaborations.
+      </p>
     </div>
-  </nav>
-  <!-- Sidebar (Right) -->
-  <div id="mobileMenu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-    <div class="p-4 flex justify-between items-center border-b">
-      <h2 class="text-xl font-bold text-[#173F3F]">Menu</h2>
-      <button onclick="toggleMenu()" class="text-gray-700 text-2xl">
-        <i class="fas fa-times"></i>
-      </button>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container mx-auto px-4 py-12 text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold text-mib">Get in Touch</h2>
+    <p class="mt-4 text-gray-600 text-sm sm:text-base">
+      Email us at <a href="mailto:info@mibchapter.com" class="text-mib underline">info@mibchapter.com</a>
+    </p>
+  </section>
+
+  <!-- Popup John -->
+  <div id="popup-john" class="popup">
+    <div class="popup-content">
+      <a href="#" class="popup-close">&times;</a>
+      <img src="profile images/john.jpg" alt="Profile picture of John Doe" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 max-w-full">
+      <h3 class="text-xl font-bold">John Doe</h3>
+      <p class="text-gray-500 mb-2">Founder & CEO</p>
+      <p class="text-gray-700 text-sm sm:text-base">John is an experienced entrepreneur focusing on technology and business growth.</p>
     </div>
-    <nav class="flex flex-col p-4 space-y-4">
-      <a href="index.html" class="text-gray-700 hover:text-[#173F3F]">Home</a>
-      <a href="about.html" class="text-gray-700 hover:text-[#173F3F]">About</a>
-      <a href="benefits.html" class="text-gray-700 hover:text-[#173F3F]">Benefits</a>
-      <a href="membership.html" class="text-gray-700 hover:text-[#173F3F]">Membership</a>
-      <a href="WE.html" class="text-gray-700 hover:text-[#173F3F]">WE</a>
-      <a href="events.html" class="text-gray-700 hover:text-[#173F3F]">Events</a>
-      <a href="contact.html" class="text-gray-700 hover:text-[#173F3F]">Contact</a>
-      <a href="https://forms.gle/RgBo8s3K7zgRVEVAA" target="_blank" class="btn-primary text-center px-4 py-2 rounded-full font-medium">Join Now</a>
-    </nav>
   </div>
 
-  <!-- Overlay -->
-  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="toggleMenu()"></div>
-  <br>
-  <br>
-  <div class="grid">
-    <!-- Member Card Template -->
-    <a href="#popup1" class="member">
-      <img src="chapter1 images/Mehboob.jpeg" alt="Member 1">
-      <div class="info">
-        <h3>Mehboob Malek</h3>
-        <p>President – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup2" class="member">
-      <img src="chapter1 images/afzal.png" alt="Member 2">
-      <div class="info">
-        <h3>Afzal Malek</h3>
-        <p>VP – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup3" class="member">
-      <img src="chapter1 images/agm.jpeg" alt="Member 3">
-      <div class="info">
-        <h3>A.Gafoor Maniar</h3>
-        <p>Secretary – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup4" class="member">
-      <img src="chapter1 images/amin.jpg" alt="Member 4">
-      <div class="info">
-        <h3>Amin Chandiwala</h3>
-        <p>Growth Coordinator – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup5" class="member">
-      <img src="chapter1 images/almas.jpeg" alt="Member 5">
-      <div class="info">
-        <h3>Almas Shaikh</h3>
-        <p>Face-to-Face Co-ordinator – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup6" class="member">
-      <img src="chapter1 images/raheman.jpg" alt="Member 6">
-      <div class="info">
-        <h3>A.Raheman Khan</h3>
-        <p>Event Co-ordinator – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup7" class="member">
-      <img src="chapter1 images/inam.jpeg" alt="Member 7">
-      <div class="info">
-        <h3>Inamulhasan Maniar</h3>
-        <p>Growth Coordinator – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup8" class="member">
-      <img src="chapter1 images/abd.jpeg" alt="Member 8">
-      <div class="info">
-        <h3>A.Azeez Hakeem</h3>
-        <p>Digital Co-ordinator – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup9" class="member">
-      <img src="chapter1 images/tahir.png" alt="Member 9">
-      <div class="info">
-        <h3>Tahir Hakeem</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup10" class="member">
-      <img src="chapter1 images/faizan%20patel.jpg" alt="Member 10">
-      <div class="info">
-        <h3>Faizan Patel</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup11" class="member">
-      <img src="chapter1 images/Imran%20Merchant.jpg" alt="Member 11">
-      <div class="info">
-        <h3>Imran Merchant</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup12" class="member">
-      <img src="chapter1 images/asif%20memon.png" alt="Member 12">
-      <div class="info">
-        <h3>Asif Memon</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup13" class="member">
-      <img src="chapter1 images/huzefa%20multani.jpeg" alt="Member 13">
-      <div class="info">
-        <h3>Huzefa Multani</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup14" class="member">
-      <img src="chapter1 images/Abid%20choksi.jpeg" alt="Member 14">
-      <div class="info">
-        <h3>Abid Choksi</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup15" class="member">
-      <img src="chapter1 images/sohel%20memon.jpg" alt="Member 15">
-      <div class="info">
-        <h3>Sohel Memon</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup16" class="member">
-      <img src="chapter1 images/Talha%20Katlariwala.jpg" alt="Member 16">
-      <div class="info">
-        <h3>Talha Katlariwala</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup17" class="member">
-      <img src="chapter1 images/A.jabbar%20shaikh.jpg" alt="Member 17">
-      <div class="info">
-        <h3>A.Jabbar Shaikh</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup18" class="member">
-      <img src="chapter1 images/mohammad%20ghadiyali.png" alt="Member 18">
-      <div class="info">
-        <h3>Mohammad Ghadiyali</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup19" class="member">
-      <img src="chapter1 images/Abu%20Wadiwala.jpg" alt="Member 19">
-      <div class="info">
-        <h3>Abubakar Wadiwala</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup20" class="member">
-      <img src="chapter1 images/ali%20choksi.jpeg" alt="Member 20">
-      <div class="info">
-        <h3>Ali Choksi</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup21" class="member">
-      <img src="chapter1 images/Ahmed%20Tumbi.jpg" alt="Member 21">
-      <div class="info">
-        <h3>Ahmed Tumbi</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup22" class="member">
-      <img src="chapter1 images/Abrar%20Sopariwala.jpg" alt="Member 22">
-      <div class="info">
-        <h3>Abrar Sopariwala</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup23" class="member">
-      <img src="chapter1 images/faizal%20qureshi.jpg" alt="Member 23">
-      <div class="info">
-        <h3>Faizal Qureshi</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup24" class="member">
-      <img src="chapter1 images/Javed Nirban.jpeg" alt="Member 24">
-      <div class="info">
-        <h3>Javed Nirban</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup25" class="member">
-      <img src="chapter1 images/Imran Maniar.jpg" alt="Member 25">
-      <div class="info">
-        <h3>Imran Maniar</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup26" class="member">
-      <img src="chapter1 images/Ayaz Mansuri.jpeg" alt="Member 26">
-      <div class="info">
-        <h3>Ayazuddin Mansuri</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup27" class="member">
-      <img src="chapter1 images/zahid choksi.jpeg" alt="Member 27">
-      <div class="info">
-        <h3>Zahid Choksi</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup28" class="member">
-      <img src="chapter1 images/Ammar Ghaswala.jpeg" alt="Member 28">
-      <div class="info">
-        <h3>Ammar Ghaswala</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup29" class="member">
-      <img src="chapter1 images/Fazlur Rehman Mistry.jpg" alt="Member 29">
-      <div class="info">
-        <h3>Fazlur Rahman Mistry</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup30" class="member">
-      <img src="chapter1 images/Kagzi Burhan.jpeg" alt="Member 30">
-      <div class="info">
-        <h3>Burhan Kagzi</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup31" class="member">
-      <img src="chapter1 images/Abdullah Memon.jpg" alt="Member 31">
-      <div class="info">
-        <h3>Abdullah Memon</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup32" class="member">
-      <img src="chapter1 images/ALI NAVSARIWALA.jpg" alt="Member 32">
-      <div class="info">
-        <h3>Ali Navsariwala</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup33" class="member">
-      <img src="chapter1 images/Mohammad Saiyed.jpeg" alt="Member 33">
-      <div class="info">
-        <h3>Mohammad Saiyed</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup34" class="member">
-      <img src="chapter1 images/Zakariya Lakhani.jpg" alt="Member 34">
-      <div class="info">
-        <h3>Zakariya Lakhani</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup35" class="member">
-      <img src="chapter1 images/Ismail Hakeem.jpg" alt="Member 35">
-      <div class="info">
-        <h3>Ismail Hakeem</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup36" class="member">
-      <img src="chapter1 images/Uzair Kolsawala.jpeg" alt="Member 36">
-      <div class="info">
-        <h3>Uzair Kolsawala</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup37" class="member">
-      <img src="chapter1 images/Fahim Memon.jpeg" alt="Member 37">
-      <div class="info">
-        <h3>Fahim Memon</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup38" class="member">
-      <img src="chapter1 images/Mohsin Pathan.jpg" alt="Member 38">
-      <div class="info">
-        <h3>Mohsin Pathan</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-     <a href="#popup39" class="member">
-      <img src="chapter1 images/Suhel Memon.jpg" alt="Member 39">
-      <div class="info">
-        <h3>Suhel Memon</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-    <a href="#popup40" class="member">
-      <img src="chapter1 images/Fuzail Bharuchi.jpg" alt="Member 40">
-      <div class="info">
-        <h3>Fuzail Bharuchi</h3>
-        <p>Member – Alif Chapter</p>
-      </div>
-    </a>
-  </div>
-  
-  <div class="hidden md:block">
-        <a href="membership.html" class="btn-primary px-6 py-2 rounded-full font-medium"><i class="fas fa-arrow-left"></i> Back </a>
-  </div>
-
-  <!-- Popups for each member -->
-  <div id="popup1" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/2.png" alt="Member 1 Full">
-  </div>
-  <div id="popup2" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/3.png" alt="Member 2 Full">
-  </div>
-  <div id="popup3" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/4.png" alt="Member 3 Full">
-  </div>
-  <div id="popup4" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/5.png" alt="Member 4 Full">
-  </div>
-  <div id="popup5" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/7.png" alt="Member 5 Full">
-  </div>
-  <div id="popup6" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/1.png" alt="Member 6 Full">
-  </div>
-  <div id="popup7" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/6.png" alt="Member 7 Full">
-  </div>
-  <div id="popup8" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/18.png" alt="Member 8 Full">
-  </div> 
-  <div id="popup9" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/9.png" alt="Member 9 Full">
-  </div> 
-  <div id="popup10" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/8.png" alt="Member 10 Full">
-  </div>
-  <div id="popup11" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/10.png" alt="Member 11 Full">
-  </div>
-  <div id="popup12" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/11.png" alt="Member 12 Full">
-  </div>
-  <div id="popup13" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/12.png" alt="Member 13 Full">
-  </div>
-  <div id="popup14" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/13.png" alt="Member 14 Full">
-  </div>
-  <div id="popup15" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/14.png" alt="Member 15 Full">
-  </div>
-  <div id="popup16" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/15.png" alt="Member 16 Full">
-  </div>
-  <div id="popup17" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/16.png" alt="Member 17 Full">
-  </div> 
-  <div id="popup18" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/17.png" alt="Member 18 Full">
-  </div> 
-   <div id="popup19" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/21.png" alt="Member 19 Full">
-  </div>
-  <div id="popup20" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/22.png" alt="Member 20 Full">
-  </div>
-  <div id="popup21" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/23.png" alt="Member 21 Full">
-  </div>
-  <div id="popup22" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/24.png" alt="Member 22 Full">
-  </div>
-  <div id="popup23" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/25.png" alt="Member 23 Full">
-  </div>
-  <div id="popup24" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/26.png" alt="Member 24 Full">
-  </div>
-  <div id="popup25" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/27.png" alt="Member 25 Full">
-  </div> 
-  <div id="popup26" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/28.png" alt="Member 26 Full">
-  </div> 
-<div id="popup27" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/29.png" alt="Member 27 Full">
-  </div>
-  <div id="popup28" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/30.png" alt="Member 28 Full">
-  </div>
-  <div id="popup29" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/31.png" alt="Member 29 Full">
-  </div> 
-  <div id="popup30" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/32.png" alt="Member 30 Full">
-  </div> 
-  <div id="popup31" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/33.png" alt="Member 31 Full">
-  </div> 
-  <div id="popup32" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/34.png" alt="Member 32 Full">
-  </div> 
-  <div id="popup33" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/35.png" alt="Member 33 Full">
-  </div> 
-  <div id="popup34" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/36.png" alt="Member 34 Full">
-  </div> 
-  <div id="popup35" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/37.png" alt="Member 35 Full">
-  </div> 
-  <div id="popup36" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/38.png" alt="Member 36 Full">
-  </div> 
-  <div id="popup37" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/39.png" alt="Member 37 Full">
-  </div> 
-  <div id="popup38" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/40.png" alt="Member 38 Full">
-  </div> 
-  <div id="popup39" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/41.png" alt="Member 39 Full">
-  </div> 
-  <div id="popup40" class="popup">
-    <a href="#" class="popup-close">&times;</a>
-    <img src="profile images/42.png" alt="Member 40 Full">
-  </div> 
-<br>
-<br>
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <div>
-          <a href="index.html" class="flex items-center">
-          <img src="images/logo.png" alt="MIB Logo" class="h-10 mr-3">
-            <br>
-          <span class="text-xl font-bold text-white">MIB</span></a>
-          <br>
-          <p class="mb-4">Empowering Muslim entrepreneurs worldwide through Ethical Business Networking.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/musliminbusiness/" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-        
-        <div>
-          <h4 class="font-bold mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
-            <li><a href="about.html" class="hover:text-gray-300">About</a></li>
-            <li><a href="membership.html" class="hover:text-gray-300">Membership</a></li>
-            <li><a href="events.html" class="hover:text-gray-300">Events</a></li>
-            <li><a href="contact.html" class="hover:text-gray-300">Contact</a></li>
-          </ul>
-        </div>
-        <!----
-        <div>
-          <h4 class="font-bold mb-4">Resources</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:text-gray-300">Business Tools</a></li>
-            <li><a href="#" class="hover:text-gray-300">Islamic Finance Guide</a></li>
-            <li><a href="#" class="hover:text-gray-300">Member Success Stories</a></li>
-            <li><a href="#" class="hover:text-gray-300">FAQs</a></li>
-          </ul>
-        </div>
-        ----->
-        <div>
-          <h4 class="font-bold mb-4">Contact Us</h4>
-          <address class="not-italic">
-            <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> G-52, Avadh Arena, VIP Road, Vesu, Surat</p>
-            <p class="mb-2">
-              <a href="tel:+917777995799"><i class="fas fa-phone mr-2"> +91 77 77 99 57 99</i></a></p>
-            <p class="mb-2"><i class="fas fa-envelope mr-2"></i> mibindiaoffice@gmail.com</p>
-          </address>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-        <p>&copy; 2025 Muslims in Business (MIB). All rights reserved.</p>
-      </div>
+  <!-- Popup Fatima -->
+  <div id="popup-fatima" class="popup">
+    <div class="popup-content">
+      <a href="#" class="popup-close">&times;</a>
+      <img src="profile images/fatima.jpg" alt="Profile picture of Fatima Ali" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 max-w-full">
+      <h3 class="text-xl font-bold">Fatima Ali</h3>
+      <p class="text-gray-500 mb-2">Marketing Head</p>
+      <p class="text-gray-700 text-sm sm:text-base">Fatima specializes in branding, outreach, and community engagement.</p>
     </div>
-  </footer>
-  <script>
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('overlay');
-    menu.classList.toggle('-translate-x-full');
-    overlay.classList.toggle('hidden');
-  }
+  </div>
 
-  // Attach event to hamburger button
-  document.querySelector('nav button').addEventListener('click', toggleMenu);
-</script>
-    </body>
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('overlay');
-    menu.classList.toggle('translate-x-full');
-    overlay.classList.toggle('hidden');
-  }
-
-  // Attach event to hamburger button
-  document.querySelector('nav button').addEventListener('click', toggleMenu);
-</script>
-</html>    
+</body>
+</html>

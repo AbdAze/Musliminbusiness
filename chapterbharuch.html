@@ -6,7 +6,295 @@
   <title>MIB Chapter – Alif "ا"</title>
   <link rel="shortcut icon" href="images/logo.png" type="image">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+       html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .container-steps {
+      background-color: #173F3F;
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+      margin-bottom: 2rem;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 12%;
+      right: 12%;
+      height: 4px;
+      background-color: white;
+      z-index: 0;
+    }
+
+    .step {
+      position: relative;
+      flex: 1;
+      max-width: 300px;
+      z-index: 1;
+    }
+
+    .circle {
+      background-color: white;
+      color: #173F3F;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin: 0 auto 1rem;
+    }
+
+    .button {
+      margin-top: 2rem;
+    }
+
+    .button a {
+      background-color: #173F3F;
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .button a:hover {
+      background-color: #d6eae9;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .steps::before {
+        display: none;
+      }
+
+      .step {
+        margin-bottom: 2rem;
+      }
+    }
+
+    /* Custom CSS for additional styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #173F3F 0%, #0f2e2e 100%);
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-left: 4px solid #173F3F;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #173F3F;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .bg-mib {
+      background-color: #173F3F;
+      background-image: url('member/chapter-bg.png'); /* change to your file path */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      font-family: 'Poppins', sans-serif; /* Optional */
+    }
+    
+    .text-mib {
+      color: #173F3F;
+    }
+    
+    .btn-primary {
+      background-color: #173F3F;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #0f2e2e;
+      transform: translateY(-2px);
+    }
+    
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: white;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+
+     h3 {
+      font-family: 'Poppins', sans-serif;  
+      margin-bottom: 40px;
+      color: white;
+    }
+
+     h1 {
+      font-family: 'Poppins', sans-serif;  
+      text-align: center;
+      margin-bottom: 40px;
+      color: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .member {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .member:hover {
+      transform: scale(1.03);
+    }
+
+    .member img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .info {
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: #fff;
+      width: 100%;
+      padding: 15px;
+    }
+
+    .info h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .info p {
+      margin: 5px 0 0;
+      font-size: 14px;
+    }
+
+    /* Popup modal */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .popup img {
+      max-width: auto;
+      max-height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #000;
+    }
+
+    .popup:target {
+      display: flex;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 30px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .bg-mib {
+      background-color: #173F3F;
+    }
+    
+    .container-steps {
+      background-color: #173F3F;
+      color: white;
+      text-align: left;
+      padding: 1rem 1rem;
+      position: relative;
+      border-color: white;
+    }
     /* MIB Branding */
     .bg-mib { background-color: #0d9488; } /* teal */
     .text-mib { color: #0d9488; }

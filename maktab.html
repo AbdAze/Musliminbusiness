@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maktab MIB - Muslims in Business</title>
+  <link rel="shortcut icon" href="Gallery/logo.png" type="image">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ad8e62",
+                        secondary: "#173F3F"
+                    }
+                }
+            }
+        }
+    </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #173F3F;
+      color: white;
+    }
+
+    .container-steps {
+      background-color: #173F3F;
+      color: #ffffff;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+      margin-bottom: 2rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 12%;
+      right: 12%;
+      height: 4px;
+      background-color: white;
+      z-index: 0;
+    }
+
+    .step {
+      position: relative;
+      flex: 1;
+      max-width: 300px;
+      z-index: 1;
+    }
+
+    .circle {
+      background-color: white;
+      color: #173F3F;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin: 0 auto 1rem;
+    }
+
+    .button {
+      margin-top: 2rem;
+    }
+
+    .button a {
+      background-color: white;
+      color: #173F3F;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .button a:hover {
+      background-color: #d6eae9;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .steps::before {
+        display: none;
+      }
+
+      .step {
+        margin-bottom: 2rem;
+      }
+    }
+
+    /* Custom CSS for additional styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #173F3F 0%, #0f2e2e 100%);
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-left: 4px solid #173F3F;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #173F3F;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    
+    .btn-outline {
+      border: 2px solid #173F3F;
+      color: #173F3F;
+      transition: all 0.8s ease;
+    }
+
+    .btn-outline:hover {
+      background-color: #173F3F;
+      color: white;
+    }
+
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .bg-mib {
+      background-color: #173F3F;
+      color: white;
+    }
+    
+    .text-mib {
+      color: #173F3F;
+    }
+    
+    .border-mib {
+      border-color: #173F3F;
+    }
+    
+    .btn-primary {
+      background-color: #173F3F;
+      color: white;
+      
+    }
+    
+    .btn-primary:hover {
+      background-color: #173F3F ;
+      color: white;
+      
+    }
+    
+    .btn-outline {
+      border: solid #173F3F;
+      color: #173F3F;
+      
+    }
+    
+    .btn-outline:hover {
+      background-color: #173F3F;
+      color: white;
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .testimonial-card {
+      transition: transform 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: scale(1.03);
+    }
+    
+    .slider-container {
+    width: 100%; /* Or a fixed width */
+    overflow: hidden;
+    position: relative; /* If you want to position elements inside relative to this */
+    }
+    
+    .image-strip {
+    white-space: nowrap;
+    animation: slide-left 20s linear infinite; /* Adjust duration as needed */
+  }
+
+.image-strip img {
+    display: inline-block; /* Or float: left; */
+    width: 400px; /* Adjust image width as needed */
+    height: auto;
+    margin-right: 10px; /* Space between images */
+}
+
+@keyframes slide-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Adjust this percentage based on how many images you duplicated */
+        /* If you duplicated all images once, -50% will move the original set fully out of view */
+    }
+}
+
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-gray-50">
+    <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="index.html" class="flex items-center">
+          <img src="images/logo.png" alt="MIB Logo" class="h-10 mr-3">
+          <span class="text-xl font-bold text-[#173F3F]">MIB - Muslims In Business</span><br>
+         
+        </a>
+      </div>
+
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="nav-link text-gray-700 hover:text-[#173F3F] font-medium">Home</a>
+        <a href=about.html class="nav-link text-gray-700 hover:text-[#173F3F] font-medium">About</a>
+        <a href="benefit.html" class="nav-link text-gray-700 hover:text-mib font-medium">Benefits</a>
+        <a href="membership.html" class="nav-link text-gray-700 hover:text-mib font-medium">Membership</a>
+        <a href="WE.html" class="nav-link text-gray-700 hover:text-mib font-medium">WE</a>
+        <a href="events.html" class="nav-link text-gray-700 hover:text-mib font-medium">Events</a>
+        <a href="contact.html" class="nav-link text-gray-700 hover:text-mib font-medium">Contact</a>      </div>
+
+      <div class="hidden md:block">
+        <a href="https://forms.gle/uUvdcuS3XEMus1VK6" target="_blank" class="btn-primary px-6 py-2 rounded-full font-medium">Join Now</a>
+      </div>
+
+      <button class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </nav>
+    <!-- Sidebar (Right) -->
+  <div id="mobileMenu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+    <div class="p-4 flex justify-between items-center border-b">
+      <h2 class="text-xl font-bold text-[#173F3F]">Menu</h2>
+      <button onclick="toggleMenu()" class="text-gray-700 text-2xl">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col p-4 space-y-4">
+      <a href="index.html" class="text-gray-700 hover:text-[#173F3F]">Home</a>
+      <a href="about.html" class="text-gray-700 hover:text-[#173F3F]">About</a>
+      <a href="benefits.html" class="text-gray-700 hover:text-[#173F3F]">Benefits</a>
+      <a href="membership.html" class="text-gray-700 hover:text-[#173F3F]">Membership</a>
+      <a href="WE.html" class="text-gray-700 hover:text-[#173F3F]">WE</a>
+      <a href="events.html" class="text-gray-700 hover:text-[#173F3F]">Events</a>
+      <a href="contact.html" class="text-gray-700 hover:text-[#173F3F]">Contact</a>
+      <a href="https://forms.gle/RgBo8s3K7zgRVEVAA" target="_blank" class="btn-primary text-center px-4 py-2 rounded-full font-medium">Join Now</a>
+    </nav>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="toggleMenu()"></div>
+
+
+    <!-- Main Content with Grid Gallery -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">Photo Gallery</h1>
+        
+        <!-- Gallery Filter 
+        <div class="flex justify-center mb-8">
+            <div class="flex flex-wrap gap-2">
+                <button class="px-4 py-2 bg-primary text-white rounded-full hover:bg-secondary transition-colors" onclick="filterGallery('all')">
+                    All Photos
+                </button>
+                <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-colors" onclick="filterGallery('nature')">
+                    Maktab 
+                </button>
+                <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-colors" onclick="filterGallery('urban')">
+                    OBT Training 
+                </button>
+                <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-colors" onclick="filterGallery('portrait')">
+                    Portrait
+                </button>
+            </div>
+        </div>
+-->
+        <!-- Grid Gallery -->
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Gallery items will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12">
+            <button id="load-more" class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-secondary transition-colors">
+                Load More Photos
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-90">
+        <div>
+          <a href="index.html" class="flex items-center">
+          <img src="images/logo.png" alt="MIB Logo" class="h-10 mr-3">
+          <span class="text-xl font-bold text-white">MIB</span></a>
+          <p class="mb-4">Empowering Muslim entrepreneurs worldwide through ethical business networking.</p>
+          <div class="flex space-x-5">
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/musliminbusiness/" class="text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-gray-300">About</a></li>
+            <li><a href="benefits.html" class="hover:text-gray-300">Benefits</a></li>
+            <li><a href="membership.html" class="hover:text-gray-300">Membership</a></li>
+            <li><a href="WE.html" class="hover:text-gray-300">WE</a></li>
+            <li><a href="events.html" class="hover:text-gray-300">Events</a></li>
+            <li><a href="contact.html" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+        </div>
+        <!---
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-gray-300">Business Tools</a></li>
+            <li><a href="#" class="hover:text-gray-300">Islamic Finance Guide</a></li>
+            <li><a href="#" class="hover:text-gray-300">Member Success Stories</a></li>
+            <li><a href="#" class="hover:text-gray-300">FAQs</a></li>
+          </ul>
+        </div>
+        --->
+        <div>
+          <h4 class="font-bold mb-4">Contact Us</h4>
+          <address class="not-italic">
+            <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> G-52, Avadh Arena, VIP Road, Vesu, Surat</p>
+            <p class="mb-2"><i class="fas fa-phone mr-2"></i> +91 77779 95799</p>
+            <p class="mb-2"><i class="fas fa-envelope mr-2"></i> mibindiaoffice@gmail.com</p>
+          </address>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Muslims in Business (MIB). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+    <script>
+        // Gallery data
+        const galleryImages = [
+            {
+                "id": 1,
+                "src": "https://picsum.photos/400/300?random=1",
+                "alt": "Beautiful mountain landscape with sunset",
+                "category": "nature",
+                "title": "Mountain Sunset"
+            },
+            {
+                "id": 2,
+                "src": "https://picsum.photos/400/300?random=2",
+                "alt": "Ocean waves crashing on rocky shore",
+                "category": "nature",
+                "title": "Ocean Waves"
+            },
+            {
+                "id": 3,
+                "src": "https://picsum.photos/400/300?random=3",
+                "alt": "Colorful autumn forest path",
+                "category": "nature",
+                "title": "Autumn Forest"
+            },
+            {
+                "id": 4,
+                "src": "https://picsum.photos/400/300?random=4",
+                "alt": "Urban city skyline at night",
+                "category": "urban",
+                "title": "City Skyline"
+            },
+            {
+                "id": 5,
+                "src": "https://picsum.photos/400/300?random=5",
+                "alt": "Close-up of blooming flowers",
+                "category": "nature",
+                "title": "Blooming Flowers"
+            },
+            {
+                "id": 6,
+                "src": "https://picsum.photos/400/300?random=6",
+                "alt": "Modern architecture building",
+                "category": "urban",
+                "title": "Modern Architecture"
+            },
+            {
+                "id": 7,
+                "src": "https://picsum.photos/400/300?random=7",
+                "alt": "Portrait of a person smiling",
+                "category": "portrait",
+                "title": "Smiling Portrait"
+            },
+            {
+                "id": 8,
+                "src": "https://picsum.photos/400/300?random=8",
+                "alt": "Desert landscape with sand dunes",
+                "category": "nature",
+                "title": "Desert Dunes"
+            },
+            {
+                "id": 9,
+                "src": "https://picsum.photos/400/300?random=9",
+                "alt": "Street photography in the city",
+                "category": "urban",
+                "title": "Street Life"
+            },
+            {
+                "id": 10,
+                "src": "https://picsum.photos/400/300?random=10",
+                "alt": "Portrait with dramatic lighting",
+                "category": "portrait",
+                "title": "Dramatic Portrait"
+            },
+            {
+                "id": 11,
+                "src": "https://picsum.photos/400/300?random=11",
+                "alt": "Waterfall in the jungle",
+                "category": "nature",
+                "title": "Jungle Waterfall"
+            },
+            {
+                "id": 12,
+                "src": "https://picsum.photos/400/300?random=12",
+                "alt": "Urban graffiti art",
+                "category": "urban",
+                "title": "Street Art"
+            }
+        ];
+
+        // DOM elements
+        const galleryGrid = document.getElementById("gallery-grid");
+        const loadMoreButton = document.getElementById("load-more");
+        const filterButtons = document.querySelectorAll(".flex button");
+        
+        let currentFilter = "all";
+        let visibleItems = 8;
+
+        // Create gallery item
+        function createGalleryItem(image) {
+            const item = document.createElement("div");
+            item.className = "group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300";
+            item.innerHTML = `
+                <img 
+                    src="${image.src}" 
+                    alt="${image.alt}" 
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                >
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-end">
+                    <div class="p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="font-semibold">${image.title}</h3>
+                        <p class="text-sm">${image.category.charAt(0).toUpperCase() + image.category.slice(1)}</p>
+                    </div>
+                </div>
+            `;
+            return item;
+        }
+
+        // Render gallery
+        function renderGallery() {
+            galleryGrid.innerHTML = "";
+            const filteredImages = currentFilter === "all" 
+                ? galleryImages 
+                : galleryImages.filter(img => img.category === currentFilter);
+            
+            const imagesToShow = filteredImages.slice(0, visibleItems);
+            
+            imagesToShow.forEach(image => {
+                galleryGrid.appendChild(createGalleryItem(image));
+            });
+            
+            // Show/hide load more button
+            loadMoreButton.style.display = visibleItems < filteredImages.length ? "block" : "none";
+        }
+
+        // Filter gallery
+        function filterGallery(category) {
+            currentFilter = category;
+            visibleItems = 8;
+            
+            // Update active button
+            filterButtons.forEach(button => {
+                if (button.textContent.toLowerCase().includes(category)) {
+                    button.classList.replace("bg-gray-200", "bg-primary");
+                    button.classList.replace("text-gray-700", "text-white");
+                } else {
+                    button.classList.replace("bg-primary", "bg-gray-200");
+                    button.classList.replace("text-white", "text-gray-700");
+                }
+            });
+            
+            renderGallery();
+        }
+
+        // Load more items
+        function loadMore() {
+            visibleItems += 4;
+            renderGallery();
+        }
+
+        // Event listeners
+        loadMoreButton.addEventListener("click", loadMore);
+
+        // Initialize on load
+        document.addEventListener("DOMContentLoaded", () => {
+            renderGallery();
+            // Set initial active filter button
+            filterButtons[0].classList.replace("bg-gray-200", "bg-primary");
+            filterButtons[0].classList.replace("text-gray-700", "text-white");
+        });
+    </script>
+</body>
+    <script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    menu.classList.toggle('translate-x-full');
+    overlay.classList.toggle('hidden');
+  }
+
+  // Attach event to hamburger button
+  document.querySelector('nav button').addEventListener('click', toggleMenu);
+</script>
+</html>

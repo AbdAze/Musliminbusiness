@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Download PDF — Document</title>
+  <meta name="description" content="Preview and download PDF document" />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#0ea5a4;--muted:#94a3b8}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#071023);color:#e6eef6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .wrapper{width:100%;max-width:980px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:18px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    .header{display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .meta{display:flex;gap:12px;align-items:center}
+    .title{font-size:18px;font-weight:700}
+    .sub{color:var(--muted);font-size:13px}
+    .controls{display:flex;gap:10px}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:inherit;text-decoration:none;font-weight:600;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#06b6d4);color:#041018;border: none}
+    .viewer{margin-top:14px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);height:68vh;min-height:400px}
+    iframe,embed{width:100%;height:100%;display:block;border:0}
+    .fallback{padding:14px;background:rgba(255,255,255,0.02);border-radius:8px;margin-top:10px;color:var(--muted);font-size:14px}
+    footer{margin-top:12px;color:var(--muted);font-size:13px}
+    @media (max-width:600px){.header{flex-direction:column;align-items:flex-start}.viewer{height:56vh}}
+  </style>
+</head>
+<body>
+  <div class="wrapper" role="main">
+    <div class="header">
+      <div class="meta">
+        <div>
+          <div class="title" id="docTitle">Document Title (replace)</div>
+          <div class="sub" id="docSub">PDF preview and download</div>
+        </div>
+      </div>
+
+      <div class="controls" aria-hidden="false">
+        <a class="btn" id="openBtn" target="_blank" rel="noopener">Open in new tab</a>
+        <a class="btn primary" id="downloadBtn" download>Download PDF</a>
+      </div>
+    </div>
+
+    <div class="viewer" id="viewer">
+      <!-- PDF will load here using an <iframe>. If you prefer PDF.js or other viewers, swap this out. -->
+      <iframe id="pdfFrame" title="PDF preview"></iframe>
+    </div>
+
+    <div class="fallback" id="fallback">
+      If the preview doesn't load, use the download button above or <a id="directLink" href="#">click here</a> to open the PDF directly.
+    </div>
+
+    <footer>
+      <span id="fileInfo">File: unknown</span> • <span id="fileSize">Size: unknown</span>
+    </footer>
+  </div>
+
+  <script>
+    /*
+      USAGE:
+      1. Replace the PDF_URL constant below with the URL or relative path to your PDF file.
+      2. If you want the downloaded filename to be different, set DOWNLOAD_NAME.
+      3. For best behaviour (download attribute honored), host the PDF on the same domain or configure "Content-Disposition: attachment; filename=..." on your server.
+    */
+
+    const PDF_URL = 'assets/sample.pdf'; // <-- REPLACE this with your PDF path or absolute URL
+    const DOWNLOAD_NAME = 'document.pdf'; // filename suggested to users when downloading
+
+    const pdfFrame = document.getElementById('pdfFrame');
+    const openBtn = document.getElementById('openBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const directLink = document.getElementById('directLink');
+    const docTitle = document.getElementById('docTitle');
+    const docSub = document.getElementById('docSub');
+    const fileInfo = document.getElementById('fileInfo');
+    const fileSize = document.getElementById('fileSize');
+
+    // Set links and attributes
+    openBtn.href = PDF_URL;
+    openBtn.textContent = 'Open in new tab';
+
+    downloadBtn.href = PDF_URL;
+    downloadBtn.setAttribute('download', DOWNLOAD_NAME);
+    downloadBtn.textContent = 'Download PDF';
+
+    directLink.href = PDF_URL;
+
+    // Load preview
+    pdfFrame.src = PDF_URL;
+
+    // Optional: try to fetch Content-Length using HEAD request to show approximate file size (may be blocked by CORS)
+    async function fetchFileSize(url){
+      try{
+        const res = await fetch(url, { method: 'HEAD' });
+        if (!res.ok) throw new Error('HEAD request failed');
+        const len = res.headers.get('content-length');
+        const type = res.headers.get('content-type');
+        if(len) fileSize.textContent = 'Size: ' + formatBytes(parseInt(len, 10));
+        if(type) fileInfo.textContent = 'File: ' + (type.split('/')[1] || type);
+      }catch(e){
+        fileSize.textContent = 'Size: unknown (CORS or server may block HEAD requests)';
+      }
+    }
+
+    function formatBytes(bytes, decimals = 2) {
+      if (bytes === 0) return '0 B';
+      const k = 1024;
+      const dm = decimals < 0 ? 0 : decimals;
+      const sizes = ['B','KB','MB','GB','TB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+
+    // Initialize
+    (function init(){
+      // Update visible title from filename
+      try{
+        const name = DOWNLOAD_NAME || PDF_URL.split('/').pop();
+        docTitle.textContent = name;
+        docSub.textContent = 'Preview and download — ' + name;
+      }catch(e){}
+
+      fetchFileSize(PDF_URL);
+
+      // Accessibility: keyboard activation for download
+      downloadBtn.addEventListener('keydown', (e)=>{ if(e.key === 'Enter'|| e.key === ' ') downloadBtn.click(); });
+    })();
+  </script>
+</body>
+</html>

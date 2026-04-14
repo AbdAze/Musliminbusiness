@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon – MIB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .coming-soon-wrap {
+            min-height: calc(100vh - 70px);
+            padding-top: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .coming-soon-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cs-line {
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .cs-eyebrow {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 28px;
+        }
+
+        .cs-title {
+            font-family: var(--serif);
+            font-size: clamp(56px, 10vw, 120px);
+            font-weight: 700;
+            line-height: 1;
+            color: var(--off-white);
+            margin-bottom: 0;
+        }
+
+        .cs-title em {
+            display: block;
+            font-style: italic;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .cs-sub {
+            font-size: 15px;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-top: 24px;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a class="nav-logo" href="index.html">
+            <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+            <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="benefits.html">Benefits</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="coming-soon.html">WE</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="join.html" target="_blank" class="nav-cta">Join Now</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="benefits.html">Benefits</a>
+        <a href="membership.html">Membership</a>
+        <a href="coming-soon.html">WE</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+        <a href="join.html">Join Now →</a>
+    </div>
+
+    <!-- COMING SOON -->
+    <div class="coming-soon-wrap">
+        <div class="coming-soon-inner">
+            <div class="cs-line"></div>
+            <div class="cs-eyebrow">Muslims in Business</div>
+            <h1 class="cs-title">
+                Coming
+                <em>Soon</em>
+            </h1>
+            <p class="cs-sub">We're working on something. Check back shortly.</p>
+        </div>
+    </div>
+
+      <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+          <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+        </div>
+        <p>Empowering Muslim entrepreneurs worldwide through ethical business networking and community support.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="benefits.html">Benefits</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="coming-soon.html">WE</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+
+        </ul>
+      </div>
+      <div>
+        <h5>Chapters</h5>
+        <ul>
+          <li><a href="#">Surat Chapter</a></li>
+          <li><a href="#">Bharuch Chapter</a></li>
+          <li><a href="#">Bengaluru (Soon)</a></li>
+          <li><a href="#">Ahmedabad (Soon)</a></li>
+          <li><a href="#">Valsad (Soon)</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact Us</h5>
+        <p>G-52, Avadh Arena,<br>VIP Road, Vesu, Surat</p>
+        <p><a href="tel:+917777995799">+91 77 77 99 57 99</a></p>
+        <p><a href="mailto:mibindiaoffice@gmail.com">mibindiaoffice@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Muslims in Business (MIB). All rights reserved.</p>
+      <p style="font-size:12px; color:var(--text-muted);">
+        <a href="privacy.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.2s;"
+          onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Privacy &amp;
+          Policy</a>
+        &nbsp;·&nbsp; Ethical Commerce · Community · Growth
+      </p>
+    </div>
+  </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+    </script>
+
+</body>
+
+</html>

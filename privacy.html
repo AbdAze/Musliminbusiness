@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — MuslimInBusiness (MIB)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        /* ── PRIVACY PAGE SPECIFIC STYLES ── */
+
+        .pp-hero {
+            padding: 160px 5% 80px;
+            background: var(--dark2);
+            border-bottom: 1px solid rgba(158, 140, 103, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pp-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 100% at 0% 0%, rgba(158, 140, 103, 0.07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .pp-hero-inner {
+            max-width: 760px;
+        }
+
+        .pp-hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .pp-hero-meta span {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .pp-hero-meta span strong {
+            color: var(--gold);
+        }
+
+        .pp-hero-meta .dot {
+            width: 3px;
+            height: 3px;
+            background: var(--gold-dim);
+            border-radius: 50%;
+        }
+
+        .pp-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 60px;
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        /* ── TABLE OF CONTENTS (SIDEBAR) ── */
+        .pp-toc {
+            position: sticky;
+            top: 90px;
+        }
+
+        .pp-toc-title {
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pp-toc-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(158, 140, 103, 0.25);
+        }
+
+        .pp-toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .pp-toc-list li a {
+            display: block;
+            padding: 9px 14px;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            line-height: 1.4;
+        }
+
+        .pp-toc-list li a:hover,
+        .pp-toc-list li a.active {
+            color: var(--gold);
+            border-left-color: var(--gold);
+            background: rgba(158, 140, 103, 0.05);
+            padding-left: 18px;
+        }
+
+        /* ── CONTENT ── */
+        .pp-content {
+            min-width: 0;
+        }
+
+        .pp-section {
+            margin-bottom: 64px;
+            padding-bottom: 64px;
+            border-bottom: 1px solid rgba(252, 251, 251, 0.06);
+            scroll-margin-top: 90px;
+        }
+
+        .pp-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .pp-section-num {
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: var(--gold-dim);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .pp-section h2 {
+            font-family: var(--serif);
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--off-white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .pp-section p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.95;
+            margin-bottom: 16px;
+        }
+
+        .pp-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .pp-section p a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(158, 140, 103, 0.3);
+            transition: border-color 0.2s;
+        }
+
+        .pp-section p a:hover {
+            border-color: var(--gold);
+        }
+
+        .pp-list {
+            list-style: none;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pp-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .pp-list li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+
+        .pp-highlight-box {
+            background: var(--dark2);
+            border: 1px solid rgba(158, 140, 103, 0.2);
+            border-left: 3px solid var(--gold);
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .pp-highlight-box p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .pp-data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+        }
+
+        .pp-data-table th {
+            text-align: left;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(158, 140, 103, 0.25);
+        }
+
+        .pp-data-table td {
+            padding: 14px 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(252, 251, 251, 0.05);
+            vertical-align: top;
+            line-height: 1.7;
+        }
+
+        .pp-data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pp-data-table tr:hover td {
+            background: rgba(158, 140, 103, 0.04);
+        }
+
+        .pp-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(158, 140, 103, 0.12);
+            border: 1px solid rgba(158, 140, 103, 0.25);
+            font-size: 11px;
+            color: var(--gold);
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .pp-contact-card {
+            background: var(--dark2);
+            border: 1px solid rgba(158, 140, 103, 0.2);
+            padding: 32px;
+            margin-top: 24px;
+        }
+
+        .pp-contact-card-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .pp-contact-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(158, 140, 103, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .pp-contact-card-head h3 {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--off-white);
+        }
+
+        .pp-contact-card-head p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .pp-contact-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pp-contact-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pp-contact-row span:first-child {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-dim);
+            min-width: 70px;
+        }
+
+        .pp-contact-row a,
+        .pp-contact-row span:last-child {
+            font-size: 13px;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .pp-contact-row a:hover {
+            color: var(--gold);
+        }
+
+        .pp-rights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .pp-right-card {
+            background: var(--dark2);
+            border: 1px solid rgba(252, 251, 251, 0.07);
+            padding: 20px;
+            transition: border-color 0.2s;
+        }
+
+        .pp-right-card:hover {
+            border-color: rgba(158, 140, 103, 0.3);
+        }
+
+        .pp-right-card-icon {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .pp-right-card h4 {
+            font-family: var(--serif);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--off-white);
+            margin-bottom: 6px;
+        }
+
+        .pp-right-card p {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .pp-footer-banner {
+            background: var(--dark2);
+            border-top: 1px solid rgba(158, 140, 103, 0.15);
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .pp-footer-banner .section-eyebrow {
+            justify-content: center;
+        }
+
+        .pp-footer-banner h2 {
+            font-family: var(--serif);
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 700;
+            color: var(--off-white);
+            margin: 16px 0 12px;
+        }
+
+        .pp-footer-banner p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 500px;
+            margin: 0 auto 28px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .pp-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .pp-toc {
+                position: static;
+            }
+
+            .pp-rights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .pp-data-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── NAVIGATION ── -->
+    <nav>
+        <a class="nav-logo" href="index.html">
+            <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+            <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="benefits.html">Benefits</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="coming-soon.html">WE</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="join.html" target="_blank" class="nav-cta">Join Now</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="benefits.html">Benefits</a>
+        <a href="membership.html">Membership</a>
+        <a href="coming-soon.html">WE</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+        <a href="join.html">Join Now →</a>
+    </div>
+
+    <!-- ── HERO ── -->
+    <div class="pp-hero anim-1">
+        <div class="pp-hero-inner">
+            <div class="section-eyebrow">
+                <div class="section-eyebrow-line"></div>
+                <span>Legal</span>
+            </div>
+            <h1 class="section-title">Privacy &amp; <em class="gold-text">Policy</em></h1>
+            <p style="font-size:16px; color:var(--text-muted); line-height:1.8; max-width:600px; margin-top:12px;">
+                At MIB India Pvt. Ltd., your privacy is a trust we take seriously. This document explains what data we
+                collect, why we collect it, how we protect it, and the rights you hold over your own information.
+            </p>
+            <div class="pp-hero-meta">
+                <span>Effective Date: <strong>01 January 2025</strong></span>
+                <div class="dot"></div>
+                <span>Last Updated: <strong>01 April 2025</strong></span>
+                <div class="dot"></div>
+                <span>App: <strong>MuslimInBusiness (MIB)</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── MAIN LAYOUT ── -->
+    <div class="pp-layout">
+
+        <!-- Sidebar TOC -->
+        <aside class="pp-toc anim-2">
+            <div class="pp-toc-title">Contents</div>
+            <ul class="pp-toc-list">
+                <li><a href="#s1">1. About MIB</a></li>
+                <li><a href="#s2">2. Information We Collect</a></li>
+                <li><a href="#s3">3. How We Use Your Data</a></li>
+                <li><a href="#s4">4. Data Sharing &amp; Disclosure</a></li>
+                <li><a href="#s5">5. Data Storage &amp; Security</a></li>
+                <li><a href="#s6">6. Your Rights</a></li>
+                <li><a href="#s7">7. Cookies &amp; Tracking</a></li>
+                <li><a href="#s8">8. Third-Party Services</a></li>
+                <li><a href="#s9">9. Children's Privacy</a></li>
+                <li><a href="#s10">10. Retention Policy</a></li>
+                <li><a href="#s11">11. Changes to This Policy</a></li>
+                <li><a href="#s12">12. Contact &amp; Grievances</a></li>
+            </ul>
+        </aside>
+
+        <!-- Content -->
+        <main class="pp-content anim-3">
+
+            <!-- 1. About -->
+            <section class="pp-section" id="s1">
+                <div class="pp-section-num">Section 01</div>
+                <h2>About MIB &amp; This Policy</h2>
+                <p>
+                    <strong style="color:var(--off-white);">MuslimInBusiness (MIB)</strong> is a professional business
+                    networking platform operated by <strong style="color:var(--off-white);">MIB India Private
+                        Limited</strong>, a company registered under the Companies Act, 2013 in India. Our platform —
+                    available as a mobile application (Android) and accessible at <a
+                        href="https://www.muslimInbusiness.com">www.muslimInbusiness.com</a> — is designed to connect
+                    business owners, entrepreneurs, and professionals to foster growth, collaboration, communication,
+                    and community.
+                </p>
+                <p>
+                    This Privacy Policy governs the collection, use, storage, and disclosure of personal information
+                    submitted by users of the MIB mobile application and website. By registering on or using the MIB
+                    platform, you acknowledge that you have read, understood, and agree to be bound by this Privacy
+                    Policy.
+                </p>
+                <p>
+                    This policy is drafted in compliance with the <strong style="color:var(--off-white);">Information
+                        Technology (Amendment) Act, 2008</strong>, the <strong
+                        style="color:var(--off-white);">Information Technology (Reasonable Security Practices and
+                        Procedures and Sensitive Personal Data or Information) Rules, 2011</strong>, and applicable
+                    provisions of the <strong style="color:var(--off-white);">Digital Personal Data Protection Act, 2023
+                        (DPDPA)</strong> of India.
+                </p>
+            </section>
+
+            <!-- 2. Information We Collect -->
+            <section class="pp-section" id="s2">
+                <div class="pp-section-num">Section 02</div>
+                <h2>Information We Collect</h2>
+                <p>
+                    To provide you with a meaningful and effective networking experience, MIB collects different
+                    categories of information at the time of registration, profile completion, and ongoing platform use.
+                </p>
+
+                <table class="pp-data-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Examples</th>
+                            <th>Required?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="pp-tag">Personal Data</span></td>
+                            <td>Full name, date of birth, gender, phone number, email address, profile photograph</td>
+                            <td style="color:var(--gold);">Yes</td>
+                        </tr>
+                        <tr>
+                            <td><span class="pp-tag">Business Data</span></td>
+                            <td>Business name, industry/sector, business category, designation/role, years of
+                                experience, GST/trade details, business description</td>
+                            <td style="color:var(--gold);">Yes</td>
+                        </tr>
+                        <tr>
+                            <td><span class="pp-tag">Social Data</span></td>
+                            <td>LinkedIn profile, website URL, Twitter/X handle, other professional social links</td>
+                            <td style="color:var(--text-muted);">Optional</td>
+                        </tr>
+                        <tr>
+                            <td><span class="pp-tag">Location Data</span></td>
+                            <td>City, state, country, pin code; device GPS coordinates (only when location features are
+                                enabled)</td>
+                            <td style="color:var(--gold);">Yes</td>
+                        </tr>
+                        <tr>
+                            <td><span class="pp-tag">Images &amp; Media</span></td>
+                            <td>Profile pictures, business logos, product/service photographs uploaded by the user</td>
+                            <td style="color:var(--text-muted);">Optional</td>
+                        </tr>
+                        <tr>
+                            <td><span class="pp-tag">Device &amp; Usage Data</span></td>
+                            <td>Device type, OS version, IP address, app version, pages visited, session duration, crash
+                                reports</td>
+                            <td style="color:var(--text-muted);">Automatic</td>
+                        </tr>
+                        <tr>
+                            <td><span class="pp-tag">Communication Data</span></td>
+                            <td>Messages sent between members within the platform, connection requests, event RSVPs</td>
+                            <td style="color:var(--text-muted);">Activity-based</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pp-highlight-box">
+                    <p>📌 We do not collect sensitive financial information such as credit/debit card numbers or bank
+                        account details through the MIB app. Any payment-related processing is handled by certified
+                        third-party payment gateways.</p>
+                </div>
+            </section>
+
+            <!-- 3. How We Use -->
+            <section class="pp-section" id="s3">
+                <div class="pp-section-num">Section 03</div>
+                <h2>How We Use Your Data</h2>
+                <p>MIB uses the information collected solely for lawful, defined, and transparent purposes aligned with
+                    the services we offer:</p>
+                <ul class="pp-list">
+                    <li>To create, verify, and manage your MIB member profile and account</li>
+                    <li>To enable discovery between business owners and entrepreneurs within the MIB community</li>
+                    <li>To facilitate in-app messaging, connection requests, and collaboration features</li>
+                    <li>To display your business information in our member directory (based on your visibility settings)
+                    </li>
+                    <li>To send you platform notifications, event alerts, community updates, and relevant newsletters
+                    </li>
+                    <li>To personalise your experience and suggest relevant connections, events, or business
+                        opportunities</li>
+                    <li>To improve our platform features, fix technical issues, and conduct analytics on usage patterns
+                    </li>
+                    <li>To verify your identity and ensure the security and integrity of the MIB community</li>
+                    <li>To comply with applicable laws, regulations, and legal obligations in India</li>
+                    <li>To handle grievances, disputes, or support requests raised by you</li>
+                </ul>
+                <p>
+                    We will never use your personal data for purposes other than those described above without your
+                    prior consent. You may update your communication and visibility preferences at any time through your
+                    account settings.
+                </p>
+            </section>
+
+            <!-- 4. Data Sharing -->
+            <section class="pp-section" id="s4">
+                <div class="pp-section-num">Section 04</div>
+                <h2>Data Sharing &amp; Disclosure</h2>
+                <p>
+                    MIB does not sell, rent, or trade your personal data to any third party for commercial purposes.
+                    However, limited sharing may occur in the following circumstances:
+                </p>
+                <ul class="pp-list">
+                    <li><strong style="color:var(--off-white);">Within the Platform:</strong> Your profile information
+                        (name, business details, location, and profile picture) is visible to other verified MIB
+                        members, subject to your privacy settings.</li>
+                    <li><strong style="color:var(--off-white);">Service Providers:</strong> We may share data with
+                        trusted technology vendors (e.g., cloud hosting, push notification, analytics) who operate under
+                        strict confidentiality and data processing agreements.</li>
+                    <li><strong style="color:var(--off-white);">Payment Processors:</strong> Transaction-related data is
+                        shared only with licensed payment gateways to complete membership or service payments.</li>
+                    <li><strong style="color:var(--off-white);">Legal Obligations:</strong> We may disclose information
+                        when required by law, court orders, government authorities, or to protect MIB's legal rights and
+                        those of our members.</li>
+                    <li><strong style="color:var(--off-white);">Business Transfers:</strong> In the event of a merger,
+                        acquisition, or asset sale, user data may be transferred as part of the transaction, with notice
+                        provided to you.</li>
+                </ul>
+                <div class="pp-highlight-box">
+                    <p>🔒 Any third party with whom we share data is contractually obligated to protect it and may only
+                        use it for the specified purpose on behalf of MIB.</p>
+                </div>
+            </section>
+
+            <!-- 5. Data Storage & Security -->
+            <section class="pp-section" id="s5">
+                <div class="pp-section-num">Section 05</div>
+                <h2>Data Storage &amp; Security</h2>
+                <p>
+                    Your data is stored on secure servers located in India. We implement industry-standard technical and
+                    organisational measures to protect your personal information against unauthorised access,
+                    disclosure, alteration, and destruction.
+                </p>
+                <ul class="pp-list">
+                    <li>Encryption of data in transit using TLS (Transport Layer Security)</li>
+                    <li>Encrypted storage for sensitive fields such as passwords and contact information</li>
+                    <li>Access controls limiting data access to authorised personnel only</li>
+                    <li>Regular security audits and vulnerability assessments</li>
+                    <li>Secure backup protocols and disaster recovery procedures</li>
+                </ul>
+                <p>
+                    While we employ strong safeguards, no system can guarantee 100% security. In the event of a data
+                    breach that affects your rights, we will notify you and the appropriate regulatory authority as
+                    required under Indian law.
+                </p>
+            </section>
+
+            <!-- 6. Your Rights -->
+            <section class="pp-section" id="s6">
+                <div class="pp-section-num">Section 06</div>
+                <h2>Your Rights</h2>
+                <p>As a data principal under the Digital Personal Data Protection Act, 2023 and applicable Indian law,
+                    you are entitled to the following rights:</p>
+                <div class="pp-rights-grid">
+                    <div class="pp-right-card">
+                        <div class="pp-right-card-icon">👁️</div>
+                        <h4>Right to Access</h4>
+                        <p>Request a copy of the personal data MIB holds about you at any time.</p>
+                    </div>
+                    <div class="pp-right-card">
+                        <div class="pp-right-card-icon">✏️</div>
+                        <h4>Right to Correction</h4>
+                        <p>Update or correct inaccurate, incomplete, or outdated personal information.</p>
+                    </div>
+                    <div class="pp-right-card">
+                        <div class="pp-right-card-icon">🗑️</div>
+                        <h4>Right to Erasure</h4>
+                        <p>Request deletion of your account and associated personal data, subject to legal retention
+                            obligations.</p>
+                    </div>
+                    <div class="pp-right-card">
+                        <div class="pp-right-card-icon">🚫</div>
+                        <h4>Right to Withdraw Consent</h4>
+                        <p>Withdraw your consent for processing at any time; this may affect access to certain platform
+                            features.</p>
+                    </div>
+                    <div class="pp-right-card">
+                        <div class="pp-right-card-icon">⚠️</div>
+                        <h4>Right to Grievance Redressal</h4>
+                        <p>Raise a complaint with MIB's Grievance Officer or the Data Protection Board of India.</p>
+                    </div>
+                    <div class="pp-right-card">
+                        <div class="pp-right-card-icon">📦</div>
+                        <h4>Right to Data Portability</h4>
+                        <p>Request your data in a structured, commonly used, machine-readable format where applicable.
+                        </p>
+                    </div>
+                </div>
+                <p style="margin-top:16px;">
+                    To exercise any of these rights, please write to us at <a
+                        href="mailto:privacy@muslimInbusiness.com">privacy@muslimInbusiness.com</a>. We will respond
+                    within <strong style="color:var(--off-white);">30 days</strong> of receiving your verified request.
+                </p>
+            </section>
+
+            <!-- 7. Cookies -->
+            <section class="pp-section" id="s7">
+                <div class="pp-section-num">Section 07</div>
+                <h2>Cookies &amp; Tracking Technologies</h2>
+                <p>
+                    The MIB website (<a href="https://www.muslimInbusiness.com">www.muslimInbusiness.com</a>) uses
+                    cookies and similar tracking technologies to enhance your browsing experience, understand how users
+                    interact with our site, and deliver relevant information.
+                </p>
+                <ul class="pp-list">
+                    <li><strong style="color:var(--off-white);">Essential Cookies:</strong> Required for the website to
+                        function properly (e.g., session management, login state). These cannot be disabled.</li>
+                    <li><strong style="color:var(--off-white);">Analytics Cookies:</strong> Help us understand page
+                        visits, traffic sources, and user behaviour (e.g., Google Analytics). These are anonymised and
+                        aggregated.</li>
+                    <li><strong style="color:var(--off-white);">Preference Cookies:</strong> Remember your settings such
+                        as language or display preferences.</li>
+                </ul>
+                <p>
+                    The MIB mobile application does not use browser cookies but may use device identifiers and analytics
+                    SDKs (such as Firebase) to analyse in-app behaviour and improve the user experience. You can reset
+                    your device's advertising ID at any time via your device settings.
+                </p>
+            </section>
+
+            <!-- 8. Third-Party Services -->
+            <section class="pp-section" id="s8">
+                <div class="pp-section-num">Section 08</div>
+                <h2>Third-Party Services</h2>
+                <p>
+                    Our platform may integrate with or link to third-party services, including but not limited to:
+                </p>
+                <ul class="pp-list">
+                    <li>Payment gateways (e.g., Razorpay, PhonePe) for membership and transaction processing</li>
+                    <li>Firebase / Google Cloud for hosting, authentication, and real-time database services</li>
+                    <li>Google Maps API for location-based features</li>
+                    <li>WhatsApp / email integrations for event notifications and communications</li>
+                    <li>Social login providers (e.g., Google Sign-In) for streamlined onboarding</li>
+                </ul>
+                <p>
+                    Each of these third parties operates under their own privacy policies. MIB is not responsible for
+                    the data practices of these external services. We encourage you to review their respective policies
+                    before engaging with their services.
+                </p>
+            </section>
+
+            <!-- 9. Children's Privacy -->
+            <section class="pp-section" id="s9">
+                <div class="pp-section-num">Section 09</div>
+                <h2>Children's Privacy</h2>
+                <p>
+                    The MIB platform is designed exclusively for business owners, entrepreneurs, and professionals. We
+                    do not knowingly collect personal data from individuals under the age of <strong
+                        style="color:var(--off-white);">18 years</strong>. If we become aware that a person under 18 has
+                    provided us with personal information, we will promptly delete such data from our records.
+                </p>
+                <p>
+                    If you are a parent or guardian and believe your child has registered on MIB, please contact us
+                    immediately at <a href="mailto:privacy@muslimInbusiness.com">privacy@muslimInbusiness.com</a>.
+                </p>
+            </section>
+
+            <!-- 10. Retention -->
+            <section class="pp-section" id="s10">
+                <div class="pp-section-num">Section 10</div>
+                <h2>Data Retention Policy</h2>
+                <p>
+                    We retain your personal data for as long as your account remains active or as needed to provide our
+                    services. Specific retention periods are:
+                </p>
+                <ul class="pp-list">
+                    <li>Active account data is retained for the duration of your membership and up to 2 years after account deactivation or deletion
+                        request</li>
+                    <li>Transaction and payment records are retained for 7
+                            years in compliance with Indian financial regulations</li>
+                    <li>Communication logs and support tickets are retained for up to 3 years</li>
+                    <li>Aggregated, anonymised analytics data may be retained indefinitely as it cannot identify
+                        individual users</li>
+                </ul>
+                <p>
+                    Upon expiry of the applicable retention period, data is securely deleted or anonymised. You may
+                    request early deletion of your data by submitting a request as outlined in Section 06.
+                </p>
+            </section>
+
+            <!-- 11. Changes -->
+            <section class="pp-section" id="s11">
+                <div class="pp-section-num">Section 11</div>
+                <h2>Changes to This Policy</h2>
+                <p>
+                    MIB India Pvt. Ltd. reserves the right to update or modify this Privacy Policy at any time. When we
+                    make material changes, we will:
+                </p>
+                <ul class="pp-list">
+                    <li>Update the "Last Updated" date at the top of this page</li>
+                    <li>Send a push notification and/or email to all registered users</li>
+                    <li>Display a prominent notice on the MIB app and website for a minimum of 30 days</li>
+                </ul>
+                <p>
+                    Your continued use of the MIB platform after the effective date of any updated policy constitutes
+                    your acceptance of the revised terms. We encourage you to review this page periodically.
+                </p>
+            </section>
+
+            <!-- 12. Contact -->
+            <section class="pp-section" id="s12">
+                <div class="pp-section-num">Section 12</div>
+                <h2>Contact &amp; Grievance Officer</h2>
+                <p>
+                    If you have any questions, concerns, or complaints regarding this Privacy Policy or our data
+                    practices, please reach out to us. We are committed to resolving all grievances within <strong
+                        style="color:var(--off-white);">30 days</strong> of receipt.
+                </p>
+                <div class="pp-contact-card">
+                    <div class="pp-contact-card-head">
+                        <div class="pp-contact-icon">🛡️</div>
+                        <div>
+                            <h3>Grievance Officer</h3>
+                            <p>MIB India Private Limited</p>
+                        </div>
+                    </div>
+                    <div class="pp-contact-detail">
+                        <div class="pp-contact-row">
+                            <span>Email</span>
+                            <a href="mailto:privacy@muslimInbusiness.com">privacy@muslimInbusiness.com</a>
+                        </div>
+                        <div class="pp-contact-row">
+                            <span>Website</span>
+                            <a href="https://www.muslimInbusiness.com" target="_blank">www.muslimInbusiness.com</a>
+                        </div>
+                        <div class="pp-contact-row">
+                            <span>Entity</span>
+                            <span>MIB India Private Limited</span>
+                        </div>
+                        <div class="pp-contact-row">
+                            <span>Country</span>
+                            <span>India</span>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top:20px;">
+                    If you are unsatisfied with our response, you have the right to approach the <strong
+                        style="color:var(--off-white);">Data Protection Board of India</strong> as constituted under the
+                    Digital Personal Data Protection Act, 2023.
+                </p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ── FOOTER BANNER ── -->
+    <div class="pp-footer-banner">
+        <div class="section-eyebrow">
+            <div class="section-eyebrow-line"></div>
+            <span>Your Trust Matters</span>
+            <div class="section-eyebrow-line"></div>
+        </div>
+        <h2>Questions About Your <em class="gold-text">Privacy?</em></h2>
+        <p>Our team is here to address any concerns about how your data is handled. Reach out and we'll respond within
+            30 days.</p>
+        <a href="mailto:privacy@muslimInbusiness.com" class="btn-primary">Contact Our Privacy Team</a>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo" style="cursor:default">
+                    <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+                    <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+                </div>
+                <p>Empowering Muslim entrepreneurs worldwide through ethical business networking and community support.</p>
+            </div>
+            <div>
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="benefits.html">Benefits</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="coming-soon.html">WE</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Chapters</h5>
+                <ul>
+                    <li><a href="#">Surat Chapter</a></li>
+                    <li><a href="#">Bharuch Chapter</a></li>
+                    <li><a href="#">Bengaluru (Soon)</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h5>Contact Us</h5>
+                <p>G-52, Avadh Arena, VIP Road, Vesu, Surat</p>
+                <p><a href="tel:+917777995799">+91 77 77 99 57 99</a></p>
+                <p><a href="mailto:mibindiaoffice@gmail.com">mibindiaoffice@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Muslims in Business (MIB). All rights reserved.</p>
+            <p style="font-size:12px; color:var(--text-muted);">
+                <a href="privacy.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.2s;"
+                    onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Privacy &amp;
+                    Policy</a>
+                &nbsp;·&nbsp; Ethical Commerce · Community · Growth
+            </p>
+        </div>
+    </footer>
+
+    <!-- ── TOC ACTIVE HIGHLIGHTING ── -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+
+        const sections = document.querySelectorAll('.pp-section');
+        const links = document.querySelectorAll('.pp-toc-list li a');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    links.forEach(l => l.classList.remove('active'));
+                    const id = entry.target.id;
+                    const active = document.querySelector(`.pp-toc-list li a[href="#${id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+
+        sections.forEach(s => observer.observe(s));
+    </script>
+
+</body>
+
+</html>

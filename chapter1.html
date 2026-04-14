@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIB Surat Chapter – Member Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+      <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="benefits.html">Benefits</a></li>
+      <li><a href="membership.html" class="active">Membership</a></li>
+      <li><a href="coming-soon.html">WE</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="join.html" target="_blank" class="nav-cta">Join Now</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="benefits.html">Benefits</a>
+    <a href="membership.html">Membership</a>
+    <a href="coming-soon.html">WE</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html">Join Now →</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="dir-hero green-bg">
+    <div class="dir-hero-pattern"></div>
+    <div class="dir-monogram">SC</div>
+    <div class="dir-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span>
+        <a href="membership.html">Membership</a><span>/</span>
+        <span style="color:rgba(252,251,251,0.7)">Surat Chapter</span>
+      </div>
+      <div class="dir-tag">MIB Chapter</div>
+      <h1><em>Surat</em><br>Chapter</h1>
+      <div class="dir-meta">
+        <div class="meta-item-dir">
+          <div class="meta-lbl">Established</div>
+          <div class="meta-val">December <span>2024</span></div>
+        </div>
+        <div class="meta-item-dir">
+          <div class="meta-lbl">Weekly Meeting</div>
+          <div class="meta-val">Every <span>Wednesday</span></div>
+        </div>
+        <div class="meta-item-dir">
+          <div class="meta-lbl">Chapter Name</div>
+          <div class="meta-val"><span>Chapter</span>Surat</div>
+        </div>
+        <div class="meta-item-dir">
+          <div class="meta-lbl">Total Members</div>
+          <div class="meta-val" id="total-count"><span>46</span> Members</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP STRIP -->
+  <div class="leadership-strip-dir"
+    style="text-align: center; color: var(--off-white); font-family: var(--serif); font-size: 48px; letter-spacing: 1px; font-weight: bold;">
+    If you want to Become "City Admin" <a href="contact.html"
+      style="color: var(--gold); text-decoration: none; border-bottom: 2px solid rgba(158, 140, 103, 0.4); padding-bottom: 2px;">contact
+      us</a>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar-dir">
+    <div class="search-wrap-dir">
+      <span class="search-icon-dir">⌕</span>
+      <input type="text" id="search-input" placeholder="Search members…" oninput="filterMembers()">
+    </div>
+    <div class="filter-tags-dir">
+      <div class="filter-tag-dir active" onclick="setFilter('all',this)">All</div>
+      <div class="filter-tag-dir" onclick="setFilter('leadership',this)">Leadership</div>
+      <div class="filter-tag-dir" onclick="setFilter('member',this)">Members</div>
+    </div>
+    <div class="member-count-dir">Showing <strong id="visible-count">46</strong> members</div>
+  </div>
+
+  <!-- MEMBERS GRID -->
+  <section class="members-section-dir">
+    <div class="members-grid-dir" id="members-grid"></div>
+  </section>
+
+  <!-- JOIN CTA -->
+  <div class="cta-band-dir">
+    <h2>Ready to join the Surat <em>Chapter?</em></h2>
+    <a href="join.html" class="btn-primary">Apply for Membership</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+          <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+        </div>
+        <p>Empowering Muslim entrepreneurs worldwide through ethical business networking.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="coming-soon.html">WE</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="#">G-52, Avadh Arena, VIP Road, Vesu, Surat</a></li>
+          <li><a href="tel:+917777995799">+91 77 77 99 57 99</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#15787c777c7b717c747a73737c7670557278747c793b767a78"><span
+                class="__cf_email__"
+                data-cfemail="6e03070c07000a070f010808070d0b2e09030f0702400d0103">[email&#160;protected]</span></a></li>
+        </ul>
+      </div>
+      <div></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Muslims in Business (MIB). All rights reserved.</p>
+      <p style="font-size:12px; color:var(--text-muted);">
+        <a href="privacy.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.2s;"
+          onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Privacy &amp;
+          Policy</a>
+        &nbsp;·&nbsp; Ethical Commerce · Community · Growth
+      </p>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <style>
+    /* ── IMAGE-ONLY MODAL (for members with imgProfile) ── */
+    .modal-overlay-dir {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay-dir.open {
+      display: flex;
+    }
+
+    /* Standard two-column modal */
+    .modal-dir {
+      position: relative;
+      background: var(--dark2);
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      max-width: 780px;
+      width: 100%;
+      max-height: 90vh;
+      overflow: hidden;
+    }
+
+    /* Image-only modal — single column, auto width */
+    .modal-dir.image-only {
+      display: block;
+      background: transparent;
+      max-width: 480px;
+      width: auto;
+    }
+
+    .modal-dir.image-only .modal-content-dir {
+      display: none;
+    }
+
+    .modal-dir.image-only .modal-img-col-dir {
+      width: 100%;
+      height: auto;
+      max-height: 88vh;
+    }
+
+    .modal-dir.image-only .modal-img-col-dir img {
+      width: 100%;
+      height: auto;
+      max-height: 88vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Close button — fixed top-right of screen, always on top */
+    .modal-close-solo {
+      display: none;
+    }
+
+    .modal-dir.image-only .modal-close-solo {
+      display: flex;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      font-size: 22px;
+      font-weight: 700;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      z-index: 1100;
+      font-family: var(--sans);
+      line-height: 1;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-dir.image-only .modal-close-solo:hover {
+      background: var(--gold-light);
+      transform: scale(1.1);
+    }
+  </style>
+
+  <div class="modal-overlay-dir" id="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-dir" id="modal">
+
+      <!-- Close button for image-only mode -->
+      <button class="modal-close-solo" id="modal-close-solo" onclick="closeModal()">✕</button>
+
+      <!-- Image column (used in both modes) -->
+      <div class="modal-img-col-dir">
+        <img id="modal-img" src="" alt="">
+      </div>
+
+      <!-- Info panel (hidden in image-only mode) -->
+      <div class="modal-content-dir">
+        <button class="modal-close-dir" onclick="closeModal()">✕</button>
+        <div class="modal-tag-dir" id="modal-chapter">Alif Chapter · Surat</div>
+        <div class="modal-name-dir" id="modal-name"></div>
+        <div class="modal-role-dir" id="modal-role"></div>
+        <div class="modal-divider-dir"></div>
+        <div class="modal-detail-dir">
+          <div class="modal-detail-row-dir">
+            <span class="modal-detail-lbl">Business</span>
+            <span class="modal-detail-val" id="modal-biz">—</span>
+          </div>
+          <div class="modal-detail-row-dir">
+            <span class="modal-detail-lbl">Industry</span>
+            <span class="modal-detail-val" id="modal-industry">—</span>
+          </div>
+          <div class="modal-detail-row-dir">
+            <span class="modal-detail-lbl">About</span>
+            <span class="modal-detail-val" id="modal-about"
+              style="line-height:1.6;font-size:13px;color:var(--text-muted);">—</span>
+          </div>
+        </div>
+        <div class="modal-chapter-badge-dir" id="modal-badge">Alif Chapter · Surat</div>
+      </div>
+
+    </div>
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+
+    /*
+     * ═══════════════════════════════════════════════════
+     *  DUAL IMAGE SYSTEM — HOW TO USE
+     * ═══════════════════════════════════════════════════
+     *
+     *  Every member object supports TWO image fields:
+     *
+     *  img         → The photo shown on the member CARD (grid thumbnail).
+     *                Usually a headshot or casual photo.
+     *
+     *  imgProfile  → The image shown inside the MODAL popup when clicked.
+     *                Usually a full business profile card / banner image.
+     *                ⚠️ OPTIONAL — if you leave this out, the modal
+     *                will simply reuse the same img as the card.
+     *
+     *  Example:
+     *  { name:"John",
+     *    img:"photos/john.jpg",           ← shown on card
+     *    imgProfile:"profiles/john.png",  ← shown in modal popup
+     *    ... }
+     *
+     *  To add imgProfile to any member, just add the field.
+     *  No other code changes needed.
+     * ═══════════════════════════════════════════════════
+     */
+
+    const members = [
+      {
+        name: "Mehboob Malek",
+        role: "P.P. – President", type: "leadership",
+        img: "chapter1 images/Mehboob.jpeg",
+        imgProfile: "profile images/2.png",
+      },
+
+      {
+        name: "Afzal Malek",
+        role: "Vice President", type: "leadership",
+        img: "chapter1 images/afzal.png",
+        imgProfile: "profile images/3.png",
+      },
+
+      {
+        name: "Almas Shaikh",
+        role: "F2F Co-ordinator", type: "leadership",
+        img: "chapter1 images/almas.jpeg",
+        imgProfile: "profile images/7.png",
+      },
+
+      {
+        name: "A.Gafoor Maniar",
+        role: "Secretary", type: "leadership",
+        img: "chapter1 images/agm.jpeg",
+        imgProfile: "profile images/4.png",
+      },
+
+      {
+        name: "Abrar Sopariwala",
+        role: "Business & F2F Co-ordinator", type: "leadership",
+        img: "chapter1 images/Abrar Sopariwala.jpg",
+        imgProfile: "profile images/24.png",
+      },
+
+      {
+        name: "Burhan Kagzi",
+        role: "Growth Co-ordinator", type: "leadership",
+        img: "chapter1 images/Kagzi Burhan.jpeg",
+        imgProfile: "profile images/32.png",
+      },
+
+      {
+        name: "Inamulhasan Maniar",
+        role: "Educational Co-ordinator", type: "leadership",
+        img: "chapter1 images/inam.jpeg",
+        imgProfile: "profile images/6.png",
+      },
+
+      {
+        name: "Asif Memon",
+        role: "Event Co-ordinator", type: "leadership",
+        img: "chapter1 images/asif memon.png",
+        imgProfile: "profile images/11.png",
+      },
+
+      {
+        name: "Fazlur Rahman Mistry",
+        role: "Digital Co-ordinator", type: "leadership",
+        img: "chapter1 images/Fazlur Rehman Mistry.jpg",
+        imgProfile: "profile images/31.png",
+      },
+
+      {
+        name: "Suhel Memon",
+        role: "Event Co-ordinator", type: "leadership",
+        img: "chapter1 images/Suhel Memon.jpg",
+        modalImg: "profile images/41.png",
+      },
+
+      {
+        name: "A.Raheman Khan",
+        role: "Digital Co-ordinator", type: "leadership",
+        img: "chapter1 images/raheman.jpg",
+        modalImg: "profile images/1.png",
+      },
+
+      {
+        name: "A.Azeez Hakeem",
+        role: "Member", type: "member",
+        img: "chapter1 images/abd.jpeg",
+        modalImg: "profile images/18.png",
+      },
+
+      {
+        name: "Tahir Hakeem",
+        role: "Member", type: "member",
+        img: "chapter1 images/tahir.png",
+        modalImg: "profile images/9.png",
+      },
+
+      {
+        name: "Amin Chandiwala",
+        role: "Growth Co-ordinator", type: "leadership",
+        img: "chapter1 images/amin.jpeg",
+        modalImg: "profile images/5.png",
+      },
+
+      {
+        name: "Faizan Patel",
+        role: "Member", type: "member",
+        img: "chapter1 images/faizan patel.jpg",
+        modalImg: "profile images/8.png",
+      },
+
+      {
+        name: "Imran Merchant",
+        role: "Member", type: "member",
+        img: "chapter1 images/Imran Merchant.jpg",
+        modalImg: "profile images/10.png",
+      },
+
+      {
+        name: "Huzefa Multani",
+        role: "Member", type: "member",
+        img: "chapter1 images/huzefa multani.jpeg",
+        modalImg: "profile images/17.png",
+      },
+
+      {
+        name: "Abid Choksi",
+        role: "Member", type: "member",
+        img: "chapter1 images/abid choksi.jpeg",
+        modalImg: "profile images/13.png",
+      },
+
+      {
+        name: "Sohel Memon",
+        role: "Member", type: "member",
+        img: "chapter1 images/sohel memon.jpg",
+        modalImg: "profile images/14.png",
+      },
+
+      {
+        name: "Talha Katlariwala",
+        role: "Member", type: "member",
+        img: "chapter1 images/talha katlariwala.jpg",
+        modalImg: "profile images/15.png",
+      },
+
+      {
+        name: "A.Jabbar Shaikh",
+        role: "Member", type: "member",
+        img: "chapter1 images/a.jabbar shaikh.jpg",
+        modalImg: "profile images/16.png",
+      },
+
+      {
+        name: "Mohammad Ghadiyali",
+        role: "Member", type: "member",
+        img: "chapter1 images/mohammad ghadiyali.png",
+        modalImg: "profile images/17.png",
+      },
+
+      {
+        name: "Abubakar Wadiwala",
+        role: "Member", type: "member",
+        img: "chapter1 images/abu wadiwala.jpg",
+        modalImg: "profile images/21.png",
+      },
+
+      {
+        name: "Ali Choksi",
+        role: "Member", type: "member",
+        img: "chapter1 images/ali choksi.jpeg",
+        modalImg: "profile images/22.png",
+      },
+
+      {
+        name: "Ahmed Tumbi",
+        role: "Member", type: "member",
+        img: "chapter1 images/ahmed tumbi.jpg",
+        modalImg: "profile images/23.png",
+      },
+
+      {
+        name: "Faizal Qureshi",
+        role: "Member", type: "member",
+        img: "chapter1 images/faizal qureshi.jpg",
+        modalImg: "profile images/25.png",
+      },
+
+      {
+        name: "Javed Nirban",
+        role: "Member", type: "member",
+        img: "chapter1 images/javed nirban.jpeg",
+        modalImg: "profile images/26.png",
+      },
+
+      {
+        name: "Imran Maniar",
+        role: "Member", type: "member",
+        img: "chapter1 images/Imran Maniar.jpg",
+        modalImg: "profile images/27.png",
+      },
+
+      {
+        name: "Ayazuddin Mansuri",
+        role: "Member", type: "member",
+        img: "chapter1 images/ayaz mansuri.jpeg",
+        modalImg: "profile images/28.png",
+      },
+
+      {
+        name: "Zahid Choksi",
+        role: "Member", type: "member",
+        img: "chapter1 images/zahid choksi.jpeg",
+        modalImg: "profile images/29.png",
+      },
+
+      {
+        name: "Ammar Ghaswala",
+        role: "Member", type: "member",
+        img: "chapter1 images/ammar ghaswala.jpeg",
+        modalImg: "profile images/30.png",
+      },
+
+      {
+        name: "Abdullah Memon",
+        role: "Member", type: "member",
+        img: "chapter1 images/abdullah memon.jpg",
+        modalImg: "profile images/33.png",
+      },
+
+      {
+        name: "Ali Navsariwala",
+        role: "Member", type: "member",
+        img: "chapter1 images/ali navsariwala.jpg",
+        modalImg: "profile images/34.png",
+      },
+
+      {
+        name: "Mohammad Saiyed",
+        role: "Member", type: "member",
+        img: "chapter1 images/mohammad saiyed.jpeg",
+        modalImg: "profile images/35.png",
+      },
+
+      {
+        name: "Zakariya Lakhani",
+        role: "Member", type: "member",
+        img: "chapter1 images/Zakariya lakhani.jpg",
+        modalImg: "profile images/36.png",
+      },
+
+      {
+        name: "Ismail Hakeem",
+        role: "Member", type: "member",
+        img: "chapter1 images/Ismail Hakeem.jpg",
+        modalImg: "profile images/37.png",
+      },
+
+      {
+        name: "Uzair Kolsawala",
+        role: "Member", type: "member",
+        img: "chapter1 images/uzair kolsawala.jpeg",
+        modalImg: "profile images/38.png",
+      },
+
+      {
+        name: "Fahim Memon",
+        role: "Member", type: "member",
+        img: "chapter1 images/fahim memon.jpeg",
+        modalImg: "profile images/39.png",
+      },
+
+      {
+        name: "Mohsin Pathan",
+        role: "Member", type: "member",
+        img: "chapter1 images/mohsin pathan.jpg",
+        modalImg: "profile images/40.png",
+      },
+
+      {
+        name: "Fuzail Bharuchi",
+        role: "Member", type: "member",
+        img: "chapter1 images/fuzail bharuchi.jpg",
+        modalImg: "profile images/42.png",
+      },
+
+      {
+        name: "Muaaz Dalchawal",
+        role: "Member", type: "member",
+        img: "chapter1 images/muaaz dalchawal.jpg",
+        modalImg: "profile images/43.png",
+      },
+
+      {
+        name: "Abdullah Lakhani",
+        role: "Member", type: "member",
+        img: "chapter1 images/Lakhani Abdullah.jpg",
+        modalImg: "profile images/42.png",
+      },
+
+      {
+        name: "Talha Memon",
+        role: "Member", type: "member",
+        img: "chapter1 images/Talha Memon.png",
+        modalImg: "profile images/43.png",
+      },
+
+      {
+        name: "Wasim Memon",
+        role: "Member", type: "member",
+        img: "chapter1 images/Wasim Memon.jpeg",
+        modalImg: "profile images/47.png",
+      },
+
+      {
+        name: "Saad Gilitwala",
+        role: "Member", type: "member",
+        img: "chapter1 images/saad gilitwala.jpg",
+        modalImg: "profile images/48.png",
+      },
+
+      {
+        name: "Azim Shaikh",
+        role: "Member", type: "member",
+        img: "chapter1 images/azim shaikh.png",
+        modalImg: "profile images/49.png",
+      },
+    ];
+
+    let activeFilter = 'all', searchQuery = '';
+
+    function renderGrid() {
+      const grid = document.getElementById('members-grid');
+      const filtered = members.filter(m => {
+        const mf = activeFilter === 'all' || m.type === activeFilter;
+        const ms = !searchQuery || m.name.toLowerCase().includes(searchQuery) || (m.biz && m.biz.toLowerCase().includes(searchQuery));
+        return mf && ms;
+      });
+      grid.innerHTML = filtered.map(m => {
+        const ri = members.indexOf(m);
+        const isLeader = m.type === 'leadership';
+        return `<div class="member-card-dir" onclick="openModal(${ri})">
+      <div class="member-img-dir">
+        <img src="${m.img}" alt="${m.name}" onerror="this.src='logo.png'">
+        <div class="member-badge-dir ${isLeader ? 'leadership' : ''}">${isLeader ? '★ Leadership' : 'Member'}</div>
+      </div>
+      <div class="member-info-dir">
+        <div class="member-name-dir">${m.name}</div>
+        <div class="member-role-dir">${m.role.replace(' – Alif Chapter', '').replace('– Alif Chapter', '')}</div>
+        ${m.biz ? `<div class="member-biz-dir">${m.biz}</div>` : ''}
+      </div>
+      <div class="member-arrow-dir">→</div>
+    </div>`;
+      }).join('');
+      document.getElementById('visible-count').textContent = filtered.length;
+    }
+
+    function setFilter(f, el) {
+      activeFilter = f;
+      document.querySelectorAll('.filter-tag-dir').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      renderGrid();
+    }
+
+    function filterMembers() {
+      searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
+      renderGrid();
+    }
+
+    function openModal(idx) {
+      const m = members[idx];
+      const modal = document.getElementById('modal');
+
+      if (m.modalImg) {
+        // ── IMAGE-ONLY MODE ──
+        // Member has a profile card image → show just that image, no text panel
+        document.getElementById('modal-img').src = m.modalImg;
+        modal.classList.add('image-only');
+      } else {
+        // ── STANDARD MODE ──
+        // No profile image → show headshot + info panel as normal
+        document.getElementById('modal-img').src = m.img;
+        modal.classList.remove('image-only');
+        document.getElementById('modal-name').textContent = m.name;
+        document.getElementById('modal-role').textContent = m.role.replace(' – Alif Chapter', '').replace('– Alif Chapter', '');
+        document.getElementById('modal-biz').textContent = m.biz;
+        document.getElementById('modal-industry').textContent = m.industry;
+        document.getElementById('modal-about').textContent = m.about || '—';
+      }
+
+      document.getElementById('modal-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(e) {
+      if (!e || e.target === document.getElementById('modal-overlay')) {
+        document.getElementById('modal-overlay').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    renderGrid();
+  </script>
+</body>
+</html>

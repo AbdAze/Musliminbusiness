@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join MIB – Muslim in Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+      <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="benefits.html">Benefits</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="coming-soon.html">WE</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="join.html" target="_blank" class="nav-cta">Join Now</a>
+    <button class="hamburger" onclick="toggleMenu()" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="benefits.html">Benefits</a>
+    <a href="membership.html">Membership</a>
+    <a href="coming-soon.html">WE</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html">Join Now →</a>
+  </div>
+
+<div class="join-wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="join-sidebar">
+    <div class="sidebar-tag-j">Membership</div>
+    <h1>Join the <em>Network.</em></h1>
+    <p class="sidebar-desc-j">Become part of a growing community of Muslim entrepreneurs building ethical businesses together.</p>
+
+    <div class="progress-steps-j">
+      <div class="prog-step-j active" id="prog-1">
+        <div class="prog-num-j"><span>1</span></div>
+        <div class="prog-info-j">
+          <div class="prog-title-j">Personal Info</div>
+          <div class="prog-sub-j">Your details</div>
+        </div>
+      </div>
+      <div class="prog-step-j" id="prog-2">
+        <div class="prog-num-j"><span>2</span></div>
+        <div class="prog-info-j">
+          <div class="prog-title-j">Business Info</div>
+          <div class="prog-sub-j">Your company</div>
+        </div>
+      </div>
+      <div class="prog-step-j" id="prog-3">
+        <div class="prog-num-j"><span>3</span></div>
+        <div class="prog-info-j">
+          <div class="prog-title-j">Terms</div>
+          <div class="prog-sub-j">Review & agree</div>
+        </div>
+      </div>
+      <div class="prog-step-j" id="prog-4">
+        <div class="prog-num-j"><span>4</span></div>
+        <div class="prog-info-j">
+          <div class="prog-title-j">Payment</div>
+          <div class="prog-sub-j">Complete fee</div>
+        </div>
+      </div>
+      <div class="prog-step-j" id="prog-5">
+        <div class="prog-num-j"><span>5</span></div>
+        <div class="prog-info-j">
+          <div class="prog-title-j">Done</div>
+          <div class="prog-sub-j">Welcome!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-trust-j">
+      <div class="trust-items-j">
+        <div class="trust-item-j">Ethical business community</div>
+        <div class="trust-item-j">100+ members across India</div>
+        <div class="trust-item-j">Shariah-compliant principles</div>
+        <div class="trust-item-j">Weekly meetings & referrals</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- FORM AREA -->
+  <main class="join-form-area">
+
+    <!-- STEP 1: Personal Info -->
+    <div class="step-panel-j active" id="step-1">
+      <div class="step-hdr">
+        <h2>Personal <em>Information</em></h2>
+        <p>Tell us about yourself — all fields marked * are required.</p>
+      </div>
+      <div class="form-grid-j">
+        <div class="form-group-j">
+          <label>Full Name <span class="req">*</span></label>
+          <input type="text" id="full-name" placeholder="Your full name">
+        </div>
+        <div class="form-group-j">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" id="gmail-id" placeholder="example@gmail.com">
+        </div>
+        <div class="form-group-j">
+          <label>Date of Birth <span class="req">*</span></label>
+          <input type="date" id="dob">
+        </div>
+        <div class="form-group-j">
+          <label>Gender <span class="req">*</span></label>
+          <select id="gender">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group-j">
+          <label>Mobile Number <span class="req">*</span></label>
+          <input type="tel" id="mobile" placeholder="10-digit number" maxlength="10">
+        </div>
+        <div class="form-group-j">
+          <label>WhatsApp Number <span class="req">*</span></label>
+          <input type="tel" id="whatsapp" placeholder="10-digit number" maxlength="10">
+        </div>
+        <div class="form-group-j full">
+          <label>Residential Address <span class="req">*</span></label>
+          <textarea id="address" placeholder="Your full address"></textarea>
+        </div>
+        <div class="form-group-j full">
+          <label>Your Photo <span class="req">*</span></label>
+          <div class="file-drop-j">
+            <input type="file" accept="image/*" id="photo-upload" onchange="onFileSelect(this,'photo-name')">
+            <div class="file-drop-icon-j">↑</div>
+            <div class="file-drop-label-j">Click to upload or drag & drop</div>
+            <div class="file-drop-hint-j">PNG, JPG, GIF — max 5MB</div>
+            <div class="file-name-j" id="photo-name"></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-nav-j">
+        <span></span>
+        <button class="btn-next-j" onclick="goToStep(2)">Business Info →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Business Info -->
+    <div class="step-panel-j" id="step-2">
+      <div class="step-hdr">
+        <h2>Business <em>Information</em></h2>
+        <p>Tell us about your company or venture.</p>
+      </div>
+      <div class="form-grid-j">
+        <div class="form-group-j">
+          <label>Business Name <span class="req">*</span></label>
+          <input type="text" id="biz-name" placeholder="Your company name">
+        </div>
+        <div class="form-group-j">
+          <label>Type of Business <span class="req">*</span></label>
+          <select id="biz-type">
+            <option value="">Select Type</option>
+            <option>Sole Proprietorship</option>
+            <option>Partnership</option>
+            <option>LLP</option>
+            <option>Private Limited</option>
+            <option>Public Limited</option>
+            <option>One Person Company (OPC)</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group-j">
+          <label>Industry <span class="req">*</span></label>
+          <select id="industry-type">
+            <option value="">Select Industry</option>
+            <option>Information Technology</option>
+            <option>Manufacturing</option>
+            <option>Retail</option>
+            <option>Healthcare</option>
+            <option>Education</option>
+            <option>Real Estate</option>
+            <option>Finance / Banking</option>
+            <option>Food & Beverage</option>
+            <option>Marketing & Advertising</option>
+            <option>Construction</option>
+            <option>Logistics / Transportation</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group-j">
+          <label>Business Phone <span class="req">*</span></label>
+          <input type="tel" id="biz-phone" placeholder="Office number">
+        </div>
+        <div class="form-group-j full">
+          <label>Business Address <span class="req">*</span></label>
+          <textarea id="biz-address" placeholder="Office / business address"></textarea>
+        </div>
+        <div class="form-group-j">
+          <label>Business Email / Website <span class="req">*</span></label>
+          <input type="text" id="biz-email-web" placeholder="email@company.com or www.company.com">
+        </div>
+        <div class="form-group-j">
+          <label>Number of Employees <span class="req">*</span></label>
+          <input type="text" id="employees" placeholder="e.g. 10">
+        </div>
+        <div class="form-group-j">
+          <label>Years in Business <span class="req">*</span></label>
+          <input type="text" id="years-biz" placeholder="e.g. 5">
+        </div>
+        <div class="form-group-j full">
+          <label>Business Description <span class="req">*</span></label>
+          <textarea id="biz-desc" placeholder="Briefly describe what your business does..."></textarea>
+        </div>
+        <div class="form-group-j full">
+          <label>Business Logo <span class="req">*</span></label>
+          <div class="file-drop-j">
+            <input type="file" accept="image/*" id="logo-upload" onchange="onFileSelect(this,'logo-name')">
+            <div class="file-drop-icon-j">↑</div>
+            <div class="file-drop-label-j">Upload your business logo</div>
+            <div class="file-drop-hint-j">PNG, JPG, SVG — max 5MB</div>
+            <div class="file-name-j" id="logo-name"></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-nav-j">
+        <button class="btn-back-j" onclick="goToStep(1)">← Back</button>
+        <button class="btn-next-j" onclick="goToStep(3)">Review Terms →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Terms -->
+    <div class="step-panel-j" id="step-3">
+      <div class="step-hdr">
+        <h2>Terms &amp; <em>Conditions</em></h2>
+        <p>Please read and agree to our membership terms before proceeding.</p>
+      </div>
+      <div class="terms-box-j">
+        <p><strong>1. Membership Agreement</strong><br>By joining MIB (Muslim in Business), you agree to uphold the ethical values and principles of the community. Membership is subject to approval by chapter leadership.</p>
+        <p><strong>2. Code of Conduct</strong><br>All members are expected to conduct business with honesty, integrity, and transparency in accordance with Islamic business ethics. Any conduct found to be dishonest or harmful to the community may result in membership termination.</p>
+        <p><strong>3. Privacy Policy</strong><br>MIB respects your privacy. Your personal information will only be used for membership purposes and will not be sold or shared with third parties without consent, except as required by law.</p>
+        <p><strong>4. Fees and Payments</strong><br>The annual membership fee is ₹4,999. This fee is non-refundable once membership has been activated. Fees are subject to annual review and members will be notified 30 days in advance of any changes.</p>
+        <p><strong>5. Referral Ethics</strong><br>Members who provide referrals are responsible for ensuring the quality and integrity of those referrals. False or misleading referrals may result in membership suspension.</p>
+        <p><strong>6. Meeting Attendance</strong><br>Members are encouraged to attend weekly chapter meetings regularly. Consistent absence without notice may affect membership standing.</p>
+        <p><strong>7. Termination</strong><br>MIB reserves the right to terminate membership for violations of the Code of Conduct, non-payment, or other reasons at the discretion of chapter leadership, with or without refund.</p>
+      </div>
+      <div class="check-row-j">
+        <input type="checkbox" id="terms-check">
+        <label for="terms-check">I have read and agree to the <a href="#">Terms & Conditions</a> and <a href="privacy.html">Privacy Policy</a> of Muslims in Business (MIB).</label>
+      </div>
+      <div class="form-nav-j">
+        <button class="btn-back-j" onclick="goToStep(2)">← Back</button>
+        <button class="btn-next-j" onclick="goToStep(4)">Proceed to Payment →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Payment -->
+    <div class="step-panel-j" id="step-4">
+      <div class="step-hdr">
+        <h2>Complete <em>Payment</em></h2>
+        <p>Choose your payment method and enter your transaction details.</p>
+      </div>
+
+      <div class="pay-methods-j">
+        <div class="pay-tab-j selected" id="tab-bank" onclick="selectPay('bank')">
+          <div class="pay-tab-icon-j">🏦</div>
+          <div>
+            <div class="pay-tab-title-j">Bank Transfer</div>
+            <div class="pay-tab-sub-j">Transfer to our account</div>
+          </div>
+          <div class="pay-tab-check-j" id="check-bank">✓</div>
+        </div>
+        <div class="pay-tab-j" id="tab-qr" onclick="selectPay('qr')">
+          <div class="pay-tab-icon-j">📱</div>
+          <div>
+            <div class="pay-tab-title-j">QR / UPI Scan</div>
+            <div class="pay-tab-sub-j">Scan and pay instantly</div>
+          </div>
+          <div class="pay-tab-check-j" id="check-qr">✓</div>
+        </div>
+      </div>
+
+      <div id="view-bank">
+        <div class="bank-details-j">
+          <div class="bank-row-j"><span class="bank-label-j">Beneficiary Name</span><span class="bank-val-j">MIB India</span></div>
+          <div class="bank-row-j"><span class="bank-label-j">Account Number</span><span class="bank-val-j">925020037890919</span></div>
+          <div class="bank-row-j"><span class="bank-label-j">IFSC Code</span><span class="bank-val-j">UTIB0002640</span></div>
+          <div class="bank-row-j"><span class="bank-label-j">Bank Name</span><span class="bank-val-j">Axis Bank</span></div>
+          <div class="bank-row-j"><span class="bank-label-j">Branch</span><span class="bank-val-j">Surat</span></div>
+        </div>
+      </div>
+      <div id="view-qr" style="display:none;">
+        <div class="qr-wrap-j">
+          <img src="logo.png" alt="QR Code">
+          <p>Scan with any UPI app — Google Pay, PhonePe, Paytm</p>
+        </div>
+      </div>
+
+      <div class="amount-band-j">
+        <div class="amount-label-j">Annual Membership Fee</div>
+        <div class="amount-val-j">₹4,999</div>
+      </div>
+
+      <div class="form-grid-j">
+        <div class="form-group-j">
+          <label>Payment Date <span class="req">*</span></label>
+          <input type="date" id="txn-date">
+        </div>
+        <div class="form-group-j">
+          <label>Transaction / UTR ID <span class="req">*</span></label>
+          <input type="text" id="txn-id" placeholder="12-digit transaction ID">
+        </div>
+      </div>
+
+      <div class="check-row-j" style="margin-top:20px;">
+        <input type="checkbox" id="pay-confirm">
+        <label for="pay-confirm">I confirm that the payment details above are correct and agree to the Terms of Service of MIB.</label>
+      </div>
+
+      <div class="form-nav-j">
+        <button class="btn-back-j" onclick="goToStep(3)">← Back</button>
+        <button class="btn-next-j gold" id="btn-submit" onclick="submitForm()">Submit Registration →</button>
+      </div>
+    </div>
+
+    <!-- STEP 5: Success -->
+    <div class="step-panel-j" id="step-5">
+      <div class="success-wrap-j">
+        <div class="success-icon-j">✦</div>
+        <h2>Welcome to <em>MIB!</em></h2>
+        <p>Your registration has been submitted successfully. Our team will verify your payment and activate your membership within 2-3 business days. Check your email for confirmation.</p>
+        <div class="success-btns-j">
+          <a href="index.html" class="btn-home-j">Go to Homepage</a>
+          <a href="membership.html" class="btn-outline-j">View Membership</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx6l05XCeDZe7CCWbxZnmO92AaK0M9K0zM7yA0HbVk15ms25e1YGhia54Hf-IhnbzETfA/exec';
+let currentStep = 1;
+
+function onFileSelect(input, labelId) {
+  if (input.files && input.files[0]) {
+    const f = input.files[0];
+    if (f.size > 5 * 1024 * 1024) { alert('File must be under 5MB.'); input.value = ''; return; }
+    document.getElementById(labelId).textContent = f.name;
+  }
+}
+
+function setStep(n) {
+  document.querySelectorAll('.step-panel-j').forEach(p => p.classList.remove('active'));
+  document.getElementById('step-' + n).classList.add('active');
+  for (let i = 1; i <= 5; i++) {
+    const p = document.getElementById('prog-' + i);
+    if (!p) continue;
+    p.classList.remove('active', 'done');
+    if (i < n) p.classList.add('done');
+    if (i === n) p.classList.add('active');
+  }
+  currentStep = n;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function val(id) { return document.getElementById(id)?.value?.trim() || ''; }
+
+function checkFields(ids) {
+  let ok = true;
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (!el.value.trim()) { el.classList.add('error'); ok = false; }
+    else el.classList.remove('error');
+  });
+  return ok;
+}
+
+function goToStep(n) {
+  if (n === 2) {
+    if (!checkFields(['full-name','gmail-id','dob','gender','mobile','whatsapp','address'])) {
+      alert('Please fill all required personal information fields.'); return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('gmail-id'))) { alert('Please enter a valid email address.'); return; }
+    if (val('mobile').length !== 10) { alert('Please enter a valid 10-digit mobile number.'); return; }
+    if (!document.getElementById('photo-upload').files.length) { alert('Please upload your photo.'); return; }
+  }
+  if (n === 3) {
+    if (!checkFields(['biz-name','biz-type','industry-type','biz-phone','biz-address','biz-email-web','employees','years-biz','biz-desc'])) {
+      alert('Please fill all required business information fields.'); return;
+    }
+    if (!document.getElementById('logo-upload').files.length) { alert('Please upload your business logo.'); return; }
+  }
+  if (n === 4) {
+    if (!document.getElementById('terms-check').checked) { alert('Please agree to the Terms & Conditions to continue.'); return; }
+  }
+  setStep(n);
+  if (n === 4 && !val('txn-date')) {
+    document.getElementById('txn-date').value = new Date().toISOString().split('T')[0];
+  }
+}
+
+function selectPay(method) {
+  document.getElementById('tab-bank').classList.toggle('selected', method === 'bank');
+  document.getElementById('tab-qr').classList.toggle('selected', method === 'qr');
+  document.getElementById('check-bank').style.opacity = method === 'bank' ? '1' : '0';
+  document.getElementById('check-qr').style.opacity = method === 'qr' ? '1' : '0';
+  document.getElementById('view-bank').style.display = method === 'bank' ? 'block' : 'none';
+  document.getElementById('view-qr').style.display = method === 'qr' ? 'block' : 'none';
+}
+
+function fileToBase64(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+}
+
+async function submitForm() {
+  if (!val('txn-date')) { alert('Please enter the payment date.'); return; }
+  if (!val('txn-id')) { alert('Please enter the Transaction ID.'); return; }
+  if (!document.getElementById('pay-confirm').checked) { alert('Please confirm your payment details.'); return; }
+
+  const btn = document.getElementById('btn-submit');
+  btn.classList.add('loading');
+  btn.textContent = 'Submitting…';
+
+  try {
+    const photoFile = document.getElementById('photo-upload').files[0];
+    const logoFile = document.getElementById('logo-upload').files[0];
+    const payload = {
+      fullName: val('full-name'), email: val('gmail-id'), dob: val('dob'),
+      gender: val('gender'), mobile: val('mobile'), whatsapp: val('whatsapp'),
+      address: val('address'),
+      photoData: photoFile ? await fileToBase64(photoFile) : '',
+      photoName: photoFile?.name || '',
+      businessName: val('biz-name'), businessType: val('biz-type'),
+      industryType: val('industry-type'), businessPhone: val('biz-phone'),
+      businessAddress: val('biz-address'), businessEmailWeb: val('biz-email-web'),
+      employees: val('employees'), yearsInBusiness: val('years-biz'),
+      businessDescription: val('biz-desc'),
+      logoData: logoFile ? await fileToBase64(logoFile) : '',
+      logoName: logoFile?.name || '',
+      paymentDate: val('txn-date'), transactionId: val('txn-id'),
+      paymentAmount: '4999', status: 'Pending'
+    };
+    await fetch(SCRIPT_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload)
+    });
+    setTimeout(() => setStep(5), 800);
+  } catch (e) {
+    alert('Something went wrong. Please try again.');
+    btn.classList.remove('loading');
+    btn.textContent = 'Submit Registration →';
+  }
+}
+
+['mobile','whatsapp','biz-phone','employees','years-biz'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', () => el.value = el.value.replace(/[^0-9]/g, ''));
+});
+['full-name'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', () => el.value = el.value.replace(/[^a-zA-Z\s]/g, ''));
+});
+</script>
+</body>
+</html>

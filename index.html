@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIB – Muslim in Business</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+      <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="benefits.html">Benefits</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="coming-soon.html">WE</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="join.html" target="_blank" class="nav-cta">Join Now</a>
+    <button class="hamburger" onclick="toggleMenu()" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="benefits.html">Benefits</a>
+    <a href="membership.html">Membership</a>
+    <a href="coming-soon.html">WE</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html">Join Now →</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow anim-1">
+        <div class="hero-eyebrow-line"></div>
+        <span>Est. 2024 · Surat, India</span>
+      </div>
+      <h1 class="anim-2">Empowering<br><em>Muslim</em><br>Entrepreneurs</h1>
+      <p class="anim-3">Join the fastest-growing network connecting Muslim business professionals devoted to ethical
+        commerce and collective growth.</p>
+      <div class="hero-actions anim-4">
+        <a href="https://forms.gle/RgBo8s3K7zgRVEVAA" target="_blank" class="btn-primary">Join MIB Today</a>
+        <a href="about.html" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <img src="https://musliminbusiness.com/images/home main.png" alt="MIB Network"
+          onerror="this.src='https://musliminbusiness.com/images/B&W 01.jpg'">
+      </div>
+      <div class="hero-img-border"></div>
+      <div class="hero-stat-badge">
+        <div class="num">100+</div>
+        <div class="label">Active Members</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">100+</div>
+      <div class="stat-label">Members</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">States</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">52+</div>
+      <div class="stat-label">Events Yearly</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">₹10L+</div>
+      <div class="stat-label">Business Generated</div>
+    </div>
+  </div>
+
+  <!-- ABOUT OVERVIEW -->
+  <section>
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow">
+          <div class="section-eyebrow-line"></div>
+          <span>About MIB</span>
+        </div>
+        <h2 class="section-title">Built on Faith,<br>Driven by <em class="gold-text">Purpose</em></h2>
+        <p class="section-sub">MIB (Muslim in Business) is a global network of Muslim entrepreneurs and professionals
+          committed to ethical business practices, collective support, and community development.</p>
+        <div class="about-values">
+          <div class="value-card">
+            <div class="value-icon">↗</div>
+            <h4>Referrals</h4>
+            <p>Our members actively refer business to each other, creating a powerful ecosystem of trust.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">◎</div>
+            <h4>Collaboration</h4>
+            <p>Business as a force for good — creating positive change in communities and beyond.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">⬡</div>
+            <h4>Global Network</h4>
+            <p>Connect with Muslim entrepreneurs across multiple chapters and growing cities.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">◈</div>
+            <h4>Integrity</h4>
+            <p>All dealings conducted with honesty and transparency, upholding Islamic standards.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="about-imgs">
+          <img src="https://musliminbusiness.com/images/B&W 01.jpg" alt="MIB">
+          <img src="https://musliminbusiness.com/About Images/B&W%2002.jpg" alt="MIB">
+          <img src="https://musliminbusiness.com/About Images/B&W%2003.jpg" alt="MIB">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS OVERVIEW -->
+  <section class="benefits-section">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>Why Join MIB</span>
+    </div>
+    <h2 class="section-title">The Fastest-Growing<br>Muslim Business Network</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-num">01</div>
+        <h3>Exclusive Networking</h3>
+        <p>Access exclusive networking events, shops, and curated opportunities with like-minded professionals.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">02</div>
+        <h3>Business Referrals</h3>
+        <p>Gain referrals and increase your customer base through our structured referral ecosystem.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">03</div>
+        <h3>Mentorship & Coaching</h3>
+        <p>Engage in mentorship programs with seasoned entrepreneurs who share your values.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">04</div>
+        <h3>Social Media Promotion</h3>
+        <p>Get your brand promoted across MIB's social channels to a targeted Muslim business audience.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">05</div>
+        <h3>Halal Investment Access</h3>
+        <p>Access exclusive Sharia-compliant investment opportunities and financial advisory services.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">06</div>
+        <h3>Community Support</h3>
+        <p>Be part of a community that shares values and actively helps each other succeed and grow.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>Member Stories</span>
+    </div>
+    <h2 class="section-title">What Our Members Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>Joining MIB has transformed my business. The referrals alone have boosted my sales by 40%. The community is
+          unlike anything I have experienced before.</p>
+        <div class="testimonial-author">
+          <strong>A. Azeez Hakeem</strong>
+          <span>ARK Media House, India</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p>The faith-based approach helps me stay aligned with my values while growing my company. MIB is more than a
+          network — it's a brotherhood of purpose.</p>
+        <div class="testimonial-author">
+          <strong>A. Gafoor Maniar</strong>
+          <span>A.B. Khajoor, India</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p>The connections and support are unmatched. Every week I leave our meetings with new ideas, new opportunities,
+          and renewed motivation.</p>
+        <div class="testimonial-author">
+          <strong>Mehboob Malek</strong>
+          <span>Silicone Enterprise, China</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO JOIN -->
+  <section class="join-section">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>Getting Started</span>
+    </div>
+    <h2 class="section-title">How to Join MIB</h2>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-line"></div>
+        <h3>Sign Up Online</h3>
+        <p>Create your member profile with our easy online form. Takes less than 5 minutes to complete.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-line"></div>
+        <h3>Attend Exposure</h3>
+        <p>Join our virtual exposure session to understand our values, processes, and network firsthand.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-line"></div>
+        <h3>Connect &amp; Grow</h3>
+        <p>Start attending events, receive referrals, and watch your business grow within the community.</p>
+      </div>
+    </div>
+    <div class="join-cta">
+      <a href="join.html" target="_blank" class="btn-primary">Join Now — It's Free to
+        Apply</a>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <h2>Ready to Grow Your Business<br>with Faith-Driven Values?</h2>
+    <p>Become part of the fastest-growing Muslim business community and take your business to new heights.</p>
+    <a href="join.html" target="_blank" class="btn-primary">Join MIB Today</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+          <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+        </div>
+        <p>Empowering Muslim entrepreneurs worldwide through ethical business networking and community support.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="benefits.html">Benefits</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="coming-soon.html">WE</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+
+        </ul>
+      </div>
+      <div>
+        <h5>Chapters</h5>
+        <ul>
+          <li><a href="#">Surat Chapter</a></li>
+          <li><a href="#">Bharuch Chapter</a></li>
+          <li><a href="#">Bengaluru (Soon)</a></li>
+          <li><a href="#">Ahmedabad (Soon)</a></li>
+          <li><a href="#">Valsad (Soon)</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact Us</h5>
+        <p>G-52, Avadh Arena,<br>VIP Road, Vesu, Surat</p>
+        <p><a href="tel:+917777995799">+91 77 77 99 57 99</a></p>
+        <p><a href="mailto:mibindiaoffice@gmail.com">mibindiaoffice@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Muslims in Business (MIB). All rights reserved.</p>
+      <p style="font-size:12px; color:var(--text-muted);">
+        <a href="privacy.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.2s;"
+          onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Privacy &amp;
+          Policy</a>
+        &nbsp;·&nbsp; Ethical Commerce · Community · Growth
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    }
+  </script>
+</body>
+
+</html>

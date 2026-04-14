@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIB Events – Muslim in Business</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+      <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="benefits.html">Benefits</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="coming-soon.html">WE</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="join.html" target="_blank" class="nav-cta">Join Now</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="benefits.html">Benefits</a>
+    <a href="membership.html">Membership</a>
+    <a href="coming-soon.html">WE</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html">Join Now →</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-full">
+    <div class="hero-arc"></div>
+    <div class="hero-arc2"></div>
+    <div class="hero-tag-line anim-1">MIB Events 2025</div>
+    <h1 class="anim-2">Connect.<br><em>Learn.</em><br>Grow.</h1>
+    <p class="hero-sub anim-3">Exclusive gatherings for Muslim business professionals — where deals are made, ideas
+      flourish, and community strengthens.</p>
+    <div class="hero-scroll-row anim-4">
+      <div class="scroll-line"></div>
+      <span class="scroll-lbl">Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENTS -->
+  <section class="events-section">
+    <h2 class="section-title-ev">Upcoming <em>Events</em></h2>
+    <div class="upcoming-grid">
+      <!-- 
+      HOW TO USE AUTO-SHIFT FEATURE:
+      To make an event automatically move to "Past Events" after its date passes,
+      add the `data-date` attribute to the `<div class="ev-card">`.
+      Format: data-date="YYYY-MM-DD"
+      Example: <div class="ev-card" data-date="2024-04-29">
+    -->
+      <!-- Featured -->
+      <div class="ev-card featured">
+        <img
+          src="https://images.unsplash.com/photo-1659318006095-4d44845f3a1b?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGlja2xlYmFsbHxlbnwwfHwwfHx8MA%3D%3D"
+          alt="Sports Event" class="ev-img">
+        <div class="ev-content-wrapper">
+          <div class="ev-status">Registrations Deadline : Sunday , 26 April 2026 </div>
+          <div class="ev-title">MIB Pickleball<br>Tournament</div>
+          <div class="ev-meta">
+            <span>📅 1 May 2026 </span>
+            <span>📍 TBA</span>
+          </div>
+          <p class="ev-desc">Step onto the court to dink, drive, and connect—because just like in business, the best
+            partnerships are forged through speed, strategy, and staying in the game.</p>
+          <a href="https://forms.gle/EZwXRcM6wa7LbXLB6" class="ev-arrow">Register Now →</a>
+        </div>
+      </div>
+      <!-- Coming Soon -->
+      <div class="ev-card">
+        <img src="https://musliminbusiness.com/About Images/turf cricket.webp" alt="Sports Event" class="ev-img">
+        <div class="ev-status soon">Coming Soon</div>
+        <div class="ev-title"> MIB Cricket<br>Tournament</div>
+        <div class="ev-meta"><span>📅 Date To Be Declared</span>
+          <span>📍 Surat</span>
+        </div>
+        <p class="ev-desc">An exciting day of sports, connection and fun for Muslim business professionals and their
+          families. Play hard, network harder.</p>
+        <a href="events.html" class="ev-arrow">Stay Tuned →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="ev-divider">
+    <div class="ev-divider-line"></div>
+    <div class="ev-divider-icon">✦</div>
+    <div class="ev-divider-line"></div>
+  </div>
+
+  <!-- PAST EVENTS -->
+  <section class="past-section">
+    <div class="section-tag-ev">Gallery</div>
+    <h2 class="section-title-ev">Past <em>Events</em></h2>
+    <p style="color:var(--text-muted);font-size:15px;margin-top:8px;max-width:440px;line-height:1.75;">Relive the
+      moments that have defined our community's journey — every gathering a chapter in our story.</p>
+    <div class="past-grid">
+      <a href="maktab.html" class="past-card">
+        <img src="https://musliminbusiness.com/events images/Maktab 2025.png" alt="MIB Maktab 2025">
+        <div class="past-overlay">
+          <div class="past-date">August 15, 2025</div>
+          <div class="past-title-ev">MIB Maktab 2025</div>
+          <div class="past-link-ev">View Gallery →</div>
+        </div>
+      </a>
+      <a href="https://www.facebook.com/media/set/?set=a.122118591506964611&type=3" class="past-card" target="_blank">
+        <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80"
+          alt="OBT Training">
+        <div class="past-overlay">
+          <div class="past-date">September 6, 2025</div>
+          <div class="past-title-ev">OBT Training Program 2025</div>
+          <div class="past-link-ev">View on Facebook →</div>
+        </div>
+      </a>
+      <a href="events.html" class="past-card">
+        <img src="https://musliminbusiness.com/About Images/B&W 01.jpg" alt="MIB Networking">
+        <div class="past-overlay">
+          <div class="past-date">2024 – 2025</div>
+          <div class="past-title-ev">Weekly Chapter Meetings</div>
+          <div class="past-link-ev">Learn More →</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-section">
+    <div class="section-tag-ev">Member Voices</div>
+    <h2 class="section-title-ev">What They <em>Say</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The MIB events have transformed my business network. I've met incredible Muslim
+          professionals who have become both clients and friends.</p>
+        <div class="testi-author">
+          <img src="https://musliminbusiness.com/directory images/amin.jpeg" alt="Amin Chandiwala" class="testi-avatar">
+          <div>
+            <div class="testi-name">Amin Chandiwala</div>
+            <div class="testi-role">CEO, Western Seekh Paratha</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">As a female entrepreneur, the Women in Business events have provided me with invaluable
+          mentorship and support from like-minded professionals.</p>
+        <div class="testi-author">
+          <img src="https://musliminbusiness.com/directory images/Lubabah Maniar.jpeg" alt="Lubabah Maniar"
+            class="testi-avatar">
+          <div>
+            <div class="testi-name">Lubabah Maniar</div>
+            <div class="testi-role">Founder, Idigitalpreneur</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The quality of speakers at MIB events is exceptional. I always leave with actionable
+          insights that help grow my business in an Islamically compliant way.</p>
+        <div class="testi-author">
+          <img src="https://musliminbusiness.com/directory images/asif memon.png" alt="Asif Memon" class="testi-avatar">
+          <div>
+            <div class="testi-name">Asif Memon</div>
+            <div class="testi-role">Owner, MK Textile</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band-ev">
+    <h2>Become a member. <em>Attend every event.</em></h2>
+    <a href="join.html" target="_blank" class="btn-primary">Join MIB Today</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+          <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+        </div>
+        <p>Empowering Muslim entrepreneurs worldwide through ethical business networking.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="coming-soon.html">WE</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Chapters</h5>
+        <ul>
+          <li><a href="#">Surat Chapter</a></li>
+          <li><a href="#">Bharuch Chapter</a></li>
+          <li><a href="#">Bengaluru (Soon)</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact Us</h5>
+        <p>G-52, Avadh Arena, VIP Road, Vesu, Surat</p>
+        <p><a href="tel:+917777995799">+91 77 77 99 57 99</a></p>
+        <p><a href="mailto:mibindiaoffice@gmail.com">mibindiaoffice@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Muslims in Business (MIB). All rights reserved.</p>
+      <p style="font-size:12px; color:var(--text-muted);">
+        <a href="privacy.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.2s;"
+          onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Privacy &amp;
+          Policy</a>
+        &nbsp;·&nbsp; Ethical Commerce · Community · Growth
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    }
+
+    // Auto-shift Upcoming Events to Past Events when date has passed
+    document.addEventListener("DOMContentLoaded", function () {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Start of today
+
+      const pastGrid = document.querySelector('.past-grid');
+      const upcomingCards = document.querySelectorAll('.ev-card');
+
+      upcomingCards.forEach(card => {
+        const dateStr = card.getAttribute('data-date');
+        if (dateStr) {
+          const eventDate = new Date(dateStr);
+          // If event date is strictly before today (yesterday or older)
+          if (eventDate < today) {
+            // Extract information from the upcoming card
+            const imgEl = card.querySelector('img');
+            const titleEl = card.querySelector('.ev-title');
+            const linkEl = card.querySelector('a.ev-arrow');
+
+            const imgSrc = imgEl ? imgEl.src : ''; // fallback if no image
+            const title = titleEl ? titleEl.innerText.replace('\n', ' ') : 'Event';
+            const linkHref = linkEl ? linkEl.href : '#';
+
+            // Create the new Past Event Card HTML structure
+            const pastCard = document.createElement('a');
+            pastCard.href = linkHref;
+            pastCard.className = 'past-card';
+
+            const formattedDate = eventDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+
+            pastCard.innerHTML = `
+            ${imgSrc ? `<img src="${imgSrc}" alt="${title}">` : `<div style="width:100%; height:100%; background:var(--dark2);"></div>`}
+            <div class="past-overlay">
+              <div class="past-date">${formattedDate}</div>
+              <div class="past-title-ev">${title}</div>
+              <div class="past-link-ev">View Details →</div>
+            </div>
+          `;
+
+            // Move to the beginning of the Past Events list
+            if (pastGrid) {
+              pastGrid.insertBefore(pastCard, pastGrid.firstChild);
+            }
+
+            // Remove the card from Upcoming Events
+            card.remove();
+          }
+        }
+      });
+
+      // Optional: Hide Upcoming Events section if it's empty
+      const upcomingGrid = document.querySelector('.upcoming-grid');
+      if (upcomingGrid && upcomingGrid.children.length === 0) {
+        upcomingGrid.innerHTML = '<p style="color:var(--text-muted); padding:20px;">No upcoming events at the moment. Stay tuned!</p>';
+      }
+    });
+  </script>
+</body>
+
+</html>

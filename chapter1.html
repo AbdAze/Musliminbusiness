@@ -173,16 +173,31 @@
       display: flex;
     }
 
-    /* Standard two-column modal */
     .modal-dir {
       position: relative;
       background: var(--dark2);
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      max-width: 780px;
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
       width: 100%;
+      margin: auto;
       max-height: 90vh;
       overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .modal-img-col-dir {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--dark3);
+    }
+
+    .modal-img-col-dir img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* Image-only modal — single column, auto width */
@@ -190,7 +205,7 @@
       display: block;
       background: transparent;
       max-width: 480px;
-      width: auto;
+      width: 100%;
     }
 
     .modal-dir.image-only .modal-content-dir {
@@ -200,15 +215,19 @@
     .modal-dir.image-only .modal-img-col-dir {
       width: 100%;
       height: auto;
-      max-height: 88vh;
+      min-height: 300px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .modal-dir.image-only .modal-img-col-dir img {
       width: 100%;
       height: auto;
-      max-height: 88vh;
-      object-fit: contain;
       display: block;
+      max-height: 85vh;
+      object-fit: contain;
     }
 
     /* Close button — fixed top-right of screen, always on top */
@@ -242,6 +261,30 @@
       background: var(--gold-light);
       transform: scale(1.1);
     }
+
+    /* ── RESPONSIVE MOBILE FIX ── */
+    @media (max-width: 768px) {
+      .modal-dir {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-img-col-dir {
+        height: 240px;
+      }
+
+      .modal-dir.image-only .modal-img-col-dir {
+        height: auto;
+      }
+
+      /* Make sure the close button is reachable */
+      .modal-dir.image-only .modal-close-solo {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+    }
   </style>
 
   <div class="modal-overlay-dir" id="modal-overlay" onclick="closeModal(event)">
@@ -252,7 +295,7 @@
 
       <!-- Image column (used in both modes) -->
       <div class="modal-img-col-dir">
-        <img id="modal-img" src="" alt="">
+        <img id="modal-img" src="" alt="Member Profile" onerror="this.src='logo.png'">
       </div>
 
       <!-- Info panel (hidden in image-only mode) -->
@@ -318,322 +361,322 @@
         name: "Mehboob Malek",
         role: "P.P. – President", type: "leadership",
         img: "chapter1 images/Mehboob.jpeg",
-        imgProfile: "profile images/2.png",
+        imgProfile: "surat-profiles/2.png",
       },
 
       {
         name: "Afzal Malek",
         role: "Vice President", type: "leadership",
         img: "chapter1 images/afzal.png",
-        imgProfile: "profile images/3.png",
+        imgProfile: "surat-profiles/3.png",
       },
 
       {
         name: "Almas Shaikh",
         role: "F2F Co-ordinator", type: "leadership",
         img: "chapter1 images/almas.jpeg",
-        imgProfile: "profile images/7.png",
+        imgProfile: "surat-profiles/7.png",
       },
 
       {
         name: "A.Gafoor Maniar",
         role: "Secretary", type: "leadership",
         img: "chapter1 images/agm.jpeg",
-        imgProfile: "profile images/4.png",
+        imgProfile: "surat-profiles/4.png",
       },
 
       {
         name: "Abrar Sopariwala",
         role: "Business & F2F Co-ordinator", type: "leadership",
         img: "chapter1 images/Abrar Sopariwala.jpg",
-        imgProfile: "profile images/24.png",
+        imgProfile: "surat-profiles/24.png",
       },
 
       {
         name: "Burhan Kagzi",
         role: "Growth Co-ordinator", type: "leadership",
         img: "chapter1 images/Kagzi Burhan.jpeg",
-        imgProfile: "profile images/32.png",
+        imgProfile: "surat-profiles/32.png",
       },
 
       {
         name: "Inamulhasan Maniar",
         role: "Educational Co-ordinator", type: "leadership",
         img: "chapter1 images/inam.jpeg",
-        imgProfile: "profile images/6.png",
+        imgProfile: "surat-profiles/6.png",
       },
 
       {
         name: "Asif Memon",
         role: "Event Co-ordinator", type: "leadership",
         img: "chapter1 images/asif memon.png",
-        imgProfile: "profile images/11.png",
+        imgProfile: "surat-profiles/11.png",
       },
 
       {
         name: "Fazlur Rahman Mistry",
         role: "Digital Co-ordinator", type: "leadership",
         img: "chapter1 images/Fazlur Rehman Mistry.jpg",
-        imgProfile: "profile images/31.png",
+        imgProfile: "surat-profiles/31.png",
       },
 
       {
         name: "Suhel Memon",
         role: "Event Co-ordinator", type: "leadership",
         img: "chapter1 images/Suhel Memon.jpg",
-        modalImg: "profile images/41.png",
+        modalImg: "surat-profiles/41.png",
       },
 
       {
         name: "A.Raheman Khan",
         role: "Digital Co-ordinator", type: "leadership",
         img: "chapter1 images/raheman.jpg",
-        modalImg: "profile images/1.png",
+        modalImg: "surat-profiles/1.png",
       },
 
       {
         name: "A.Azeez Hakeem",
         role: "Member", type: "member",
         img: "chapter1 images/abd.jpeg",
-        modalImg: "profile images/18.png",
+        modalImg: "surat-profiles/18.png",
       },
 
       {
         name: "Tahir Hakeem",
         role: "Member", type: "member",
         img: "chapter1 images/tahir.png",
-        modalImg: "profile images/9.png",
+        modalImg: "surat-profiles/9.png",
       },
 
       {
         name: "Amin Chandiwala",
         role: "Growth Co-ordinator", type: "leadership",
         img: "chapter1 images/amin.jpeg",
-        modalImg: "profile images/5.png",
+        modalImg: "surat-profiles/5.png",
       },
 
       {
         name: "Faizan Patel",
         role: "Member", type: "member",
         img: "chapter1 images/faizan patel.jpg",
-        modalImg: "profile images/8.png",
+        modalImg: "surat-profiles/8.png",
       },
 
       {
         name: "Imran Merchant",
         role: "Member", type: "member",
         img: "chapter1 images/Imran Merchant.jpg",
-        modalImg: "profile images/10.png",
+        modalImg: "surat-profiles/10.png",
       },
 
       {
         name: "Huzefa Multani",
         role: "Member", type: "member",
         img: "chapter1 images/huzefa multani.jpeg",
-        modalImg: "",
+        modalImg: "surat-profiles/17.png",
       },
 
       {
         name: "Abid Choksi",
         role: "Member", type: "member",
-        img: "chapter1 images/Abid choksi.jpeg",
-        modalImg: "profile images/13.png",
+        img: "chapter1 images/abid choksi.jpeg",
+        modalImg: "surat-profiles/13.png",
       },
 
       {
         name: "Sohel Memon",
         role: "Member", type: "member",
         img: "chapter1 images/sohel memon.jpg",
-        modalImg: "profile images/14.png",
+        modalImg: "surat-profiles/14.png",
       },
 
       {
         name: "Talha Katlariwala",
         role: "Member", type: "member",
-        img: "chapter1 images/Talha Katlariwala.jpg",
-        modalImg: "profile images/15.png",
+        img: "chapter1 images/talha katlariwala.jpg",
+        modalImg: "surat-profiles/15.png",
       },
 
       {
         name: "A.Jabbar Shaikh",
         role: "Member", type: "member",
-        img: "chapter1 images/A.jabbar shaikh.jpg",
-        modalImg: "profile images/16.png",
+        img: "chapter1 images/a.jabbar shaikh.jpg",
+        modalImg: "surat-profiles/16.png",
       },
 
       {
         name: "Mohammad Ghadiyali",
         role: "Member", type: "member",
         img: "chapter1 images/mohammad ghadiyali.png",
-        modalImg: "profile images/17.png",
+        modalImg: "surat-profiles/17.png",
       },
 
       {
         name: "Abubakar Wadiwala",
         role: "Member", type: "member",
-        img: "chapter1 images/Abu Wadiwala.jpg",
-        modalImg: "profile images/21.png",
+        img: "chapter1 images/abu wadiwala.jpg",
+        modalImg: "surat-profiles/21.png",
       },
 
       {
         name: "Ali Choksi",
         role: "Member", type: "member",
         img: "chapter1 images/ali choksi.jpeg",
-        modalImg: "profile images/22.png",
+        modalImg: "surat-profiles/22.png",
       },
 
       {
         name: "Ahmed Tumbi",
         role: "Member", type: "member",
-        img: "chapter1 images/Ahmed Tumbi.jpg",
-        modalImg: "profile images/23.png",
+        img: "chapter1 images/ahmed tumbi.jpg",
+        modalImg: "surat-profiles/23.png",
       },
 
       {
         name: "Faizal Qureshi",
         role: "Member", type: "member",
         img: "chapter1 images/faizal qureshi.jpg",
-        modalImg: "profile images/25.png",
+        modalImg: "surat-profiles/25.png",
       },
 
       {
         name: "Javed Nirban",
         role: "Member", type: "member",
-        img: "chapter1 images/Javed Nirban.jpeg",
-        modalImg: "profile images/26.png",
+        img: "chapter1 images/javed nirban.jpeg",
+        modalImg: "surat-profiles/26.png",
       },
 
       {
         name: "Imran Maniar",
         role: "Member", type: "member",
         img: "chapter1 images/Imran Maniar.jpg",
-        modalImg: "profile images/27.png",
+        modalImg: "surat-profiles/27.png",
       },
 
       {
         name: "Ayazuddin Mansuri",
         role: "Member", type: "member",
-        img: "chapter1 images/Ayaz Mansuri.jpeg",
-        modalImg: "profile images/28.png",
+        img: "chapter1 images/ayaz mansuri.jpeg",
+        modalImg: "surat-profiles/28.png",
       },
 
       {
         name: "Zahid Choksi",
         role: "Member", type: "member",
         img: "chapter1 images/zahid choksi.jpeg",
-        modalImg: "profile images/29.png",
+        modalImg: "surat-profiles/29.png",
       },
 
       {
         name: "Ammar Ghaswala",
         role: "Member", type: "member",
-        img: "chapter1 images/Ammar Ghaswala.jpeg",
-        modalImg: "profile images/30.png",
+        img: "chapter1 images/ammar ghaswala.jpeg",
+        modalImg: "surat-profiles/30.png",
       },
 
       {
         name: "Abdullah Memon",
         role: "Member", type: "member",
-        img: "chapter1 images/Abdullah Memon.jpg",
-        modalImg: "profile images/33.png",
+        img: "chapter1 images/abdullah memon.jpg",
+        modalImg: "surat-profiles/33.png",
       },
 
       {
         name: "Ali Navsariwala",
         role: "Member", type: "member",
-        img: "chapter1 images/ALI NAVSARIWALA.jpg",
-        modalImg: "profile images/34.png",
+        img: "chapter1 images/ali navsariwala.jpg",
+        modalImg: "surat-profiles/34.png",
       },
 
       {
         name: "Mohammad Saiyed",
         role: "Member", type: "member",
-        img: "chapter1 images/Mohammad Saiyed.jpeg",
-        modalImg: "profile images/35.png",
+        img: "chapter1 images/mohammad saiyed.jpeg",
+        modalImg: "surat-profiles/35.png",
       },
 
       {
         name: "Zakariya Lakhani",
         role: "Member", type: "member",
-        img: "chapter1 images/Zakariya Lakhani.jpg",
-        modalImg: "profile images/36.png",
+        img: "chapter1 images/Zakariya lakhani.jpg",
+        modalImg: "surat-profiles/36.png",
       },
 
       {
         name: "Ismail Hakeem",
         role: "Member", type: "member",
         img: "chapter1 images/Ismail Hakeem.jpg",
-        modalImg: "profile images/37.png",
+        modalImg: "surat-profiles/37.png",
       },
 
       {
         name: "Uzair Kolsawala",
         role: "Member", type: "member",
-        img: "chapter1 images/Uzair Kolsawala.jpeg",
-        modalImg: "profile images/38.png",
+        img: "chapter1 images/uzair kolsawala.jpeg",
+        modalImg: "surat-profiles/38.png",
       },
 
       {
         name: "Fahim Memon",
         role: "Member", type: "member",
-        img: "chapter1 images/Fahim Memon.jpeg",
-        modalImg: "profile images/39.png",
+        img: "chapter1 images/fahim memon.jpeg",
+        modalImg: "surat-profiles/39.png",
       },
 
       {
         name: "Mohsin Pathan",
         role: "Member", type: "member",
-        img: "chapter1 images/Mohsin Pathan.jpg",
-        modalImg: "profile images/40.png",
+        img: "chapter1 images/mohsin pathan.jpg",
+        modalImg: "surat-profiles/40.png",
       },
 
       {
         name: "Fuzail Bharuchi",
         role: "Member", type: "member",
-        img: "chapter1 images/Fuzail Bharuchi.jpg",
-        modalImg: "profile images/42.png",
+        img: "chapter1 images/fuzail bharuchi.jpg",
+        modalImg: "surat-profiles/42.png",
       },
 
       {
         name: "Muaaz Dalchawal",
         role: "Member", type: "member",
-        img: "chapter1 images/Muaaz Dalchawal.jpg",
-        modalImg: "profile images/43.png",
+        img: "chapter1 images/muaaz dalchawal.jpg",
+        modalImg: "surat-profiles/43.png",
       },
 
       {
         name: "Abdullah Lakhani",
         role: "Member", type: "member",
         img: "chapter1 images/Lakhani Abdullah.jpg",
-        modalImg: "profile images/44.png",
+        modalImg: "surat-profiles/42.png",
       },
 
       {
         name: "Talha Memon",
         role: "Member", type: "member",
         img: "chapter1 images/Talha Memon.png",
-        modalImg: "profile images/45.png",
+        modalImg: "surat-profiles/43.png",
       },
 
       {
         name: "Wasim Memon",
         role: "Member", type: "member",
         img: "chapter1 images/Wasim Memon.jpeg",
-        modalImg: "profile images/47.png",
+        modalImg: "surat-profiles/47.png",
       },
 
       {
         name: "Saad Gilitwala",
         role: "Member", type: "member",
-        img: "chapter1 images/Saad Gilitwala.jpg",
-        modalImg: "profile images/48.png",
+        img: "chapter1 images/saad gilitwala.jpg",
+        modalImg: "surat-profiles/48.png",
       },
 
       {
         name: "Azim Shaikh",
         role: "Member", type: "member",
-        img: "chapter1 images/Azim Shaikh.png",
-        modalImg: "profile images/49.png",
+        img: "chapter1 images/azim shaikh.png",
+        modalImg: "surat-profiles/49.png",
       },
     ];
 
@@ -686,7 +729,8 @@
       if (profileImage) {
         // ── IMAGE-ONLY MODE ──
         // Member has a profile card image → show just that image, no text panel
-        document.getElementById('modal-img').src = profileImage;
+        const imgEl = document.getElementById('modal-img');
+        imgEl.src = profileImage;
         modal.classList.add('image-only');
       } else {
         // ── STANDARD MODE ──

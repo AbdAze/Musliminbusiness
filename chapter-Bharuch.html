@@ -80,8 +80,11 @@
 
 
     <!-- LEADERSHIP STRIP -->
-    <div class="leadership-strip-dir" style="text-align: center; color: var(--off-white); font-family: var(--serif); font-size: 48px; letter-spacing: 1px; font-weight: bold;">
-        If you want to Become "City Admin" <a href="contact.html" style="color: var(--gold); text-decoration: none; border-bottom: 2px solid rgba(158, 140, 103, 0.4); padding-bottom: 2px;">contact us</a>
+    <div class="leadership-strip-dir"
+        style="text-align: center; color: var(--off-white); font-family: var(--serif); font-size: 48px; letter-spacing: 1px; font-weight: bold;">
+        If you want to Become "City Admin" <a href="contact.html"
+            style="color: var(--gold); text-decoration: none; border-bottom: 2px solid rgba(158, 140, 103, 0.4); padding-bottom: 2px;">contact
+            us</a>
     </div>
 
     <!-- FILTER BAR -->
@@ -173,16 +176,31 @@
             display: flex;
         }
 
-        /* Standard two-column modal */
         .modal-dir {
             position: relative;
             background: var(--dark2);
-            display: grid;
-            grid-template-columns: 340px 1fr;
-            max-width: 780px;
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
             width: 100%;
+            margin: auto;
             max-height: 90vh;
             overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .modal-img-col-dir {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: var(--dark3);
+        }
+
+        .modal-img-col-dir img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* Image-only modal — single column, auto width */
@@ -190,7 +208,7 @@
             display: block;
             background: transparent;
             max-width: 480px;
-            width: auto;
+            width: 100%;
         }
 
         .modal-dir.image-only .modal-content-dir {
@@ -200,13 +218,17 @@
         .modal-dir.image-only .modal-img-col-dir {
             width: 100%;
             height: auto;
-            max-height: 88vh;
+            min-height: 300px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .modal-dir.image-only .modal-img-col-dir img {
             width: 100%;
             height: auto;
-            max-height: 88vh;
+            max-height: 85vh;
             object-fit: contain;
             display: block;
         }
@@ -242,6 +264,23 @@
             background: var(--gold-light);
             transform: scale(1.1);
         }
+
+        /* ── RESPONSIVE MOBILE FIX ── */
+        @media (max-width: 768px) {
+            .modal-dir {
+                grid-template-columns: 1fr;
+            }
+            .modal-img-col-dir {
+                height: 240px; 
+            }
+            .modal-dir.image-only .modal-img-col-dir {
+                height: auto;
+            }
+            /* Make sure the close button is reachable */
+            .modal-dir.image-only .modal-close-solo {
+                top: 10px; right: 10px; width: 40px; height: 40px; font-size: 18px;
+            }
+        }
     </style>
 
     <div class="modal-overlay-dir" id="modal-overlay" onclick="closeModal(event)">
@@ -252,7 +291,7 @@
 
             <!-- Image column (used in both modes) -->
             <div class="modal-img-col-dir">
-                <img id="modal-img" src="" alt="">
+                <img id="modal-img" src="" alt="Member Profile" onerror="this.src='logo.png'">
             </div>
 
             <!-- Info panel (hidden in image-only mode) -->
@@ -318,140 +357,140 @@
                 name: "Aslam Junani",
                 role: "Founder", type: "leadership",
                 img: "bharuch chapter images/Aslam Junani.jpeg",
-                imgProfile: "bharuch chapter images/1.png",
+                imgProfile: "bharuch-profiles/1.png",
             },
 
             {
                 name: "Talkin Zamindar",
                 role: "President", type: "leadership",
                 img: "bharuch chapter images/Talkin Zamindar.png",
-                imgProfile: "bharuch chapter images/21.png",
+                imgProfile: "bharuch-profiles/21.png",
             },
 
             {
                 name: "Shaifulla Patel",
                 role: "Vice President", type: "leadership",
                 img: "bharuch chapter images/saif patel.jpg",
-                imgProfile: "bharuch chapter images/6.png",
+                imgProfile: "bharuch-profiles/6.png",
             },
 
             {
                 name: "Ahmed Husain Rangrej",
                 role: "Member",
                 img: "bharuch chapter images/Ahmed Hussain Rangrej.jpg",
-                imgProfile: "bharuch chapter images/10.png",
+                imgProfile: "bharuch-profiles/10.png",
             },
 
             {
                 name: "Almas Junani",
                 role: "Member",
                 img: "bharuch chapter images/Almas Junani.jpg",
-                imgProfile: "bharuch chapter images/3.png",
+                imgProfile: "bharuch-profiles/3.png",
             },
 
             {
                 name: "Gulamvaris Khatri",
                 role: "Member",
                 img: "bharuch chapter images/Gulamvaris Khatri.jpg",
-                imgProfile: "bharuch chapter images/8.png",
+                imgProfile: "bharuch-profiles/8.png",
             },
 
             {
                 name: "Imran Malkani",
                 role: "Member",
                 img: "bharuch chapter images/Imran memon.jpg",
-                imgProfile: "bharuch chapter images/16.png",
+                imgProfile: "bharuch-profiles/16.png",
             },
 
             {
                 name: "Latif Multani",
                 role: "Member",
                 img: "bharuch chapter images/Latif Multani.jpeg",
-                imgProfile: "bharuch chapter images/19.png",
+                imgProfile: "bharuch-profiles/19.png",
             },
 
             {
                 name: "Mubin Nagdawala",
                 role: "Member",
                 img: "bharuch chapter images/Mubin Nagdawala.jpg",
-                imgProfile: "bharuch chapter images/11.png",
+                imgProfile: "bharuch-profiles/11.png",
             },
 
             {
                 name: "Parvez Lakdawala",
                 role: "Member",
                 img: "bharuch chapter images/Parvez Lakdawala.jpg",
-                imgProfile: "bharuch chapter images/13.png",
+                imgProfile: "bharuch-profiles/13.png",
             },
 
             {
                 name: "Imran Patel",
                 role: "Member",
                 img: "bharuch chapter images/Patel Imran (2).jpg",
-                imgProfile: "bharuch chapter images/12.png",
+                imgProfile: "bharuch-profiles/12.png",
             },
 
             {
                 name: "Sajid Rana",
                 role: "Member", type: "member",
                 img: "bharuch chapter images/SAJID RANA.jpg",
-                imgProfile: "bharuch chapter images/14.png",
+                imgProfile: "bharuch-profiles/14.png",
             },
 
             {
                 name: "Safwan Patel",
                 role: "Member", type: "member",
                 img: "bharuch chapter images/Safwan Patel.jpg",
-                imgProfile: "bharuch chapter images/5.png",
+                imgProfile: "bharuch-profiles/5.png",
             },
 
             {
                 name: "Samir Chauhan",
                 role: "Member", type: "member",
                 img: "bharuch chapter images/Samir Chauhan.jpeg",
-                imgProfile: "bharuch chapter images/17.png",
+                imgProfile: "bharuch-profiles/17.png",
             },
 
             {
                 name: "Sarfaraz Charva",
                 role: "Member", type: "member",
                 img: "bharuch chapter images/Sarfaraz Charva.png",
-                imgProfile: "bharuch chapter images/15.png",
+                imgProfile: "bharuch-profiles/15.png",
             },
 
             {
                 name: "Tahir Junani",
                 role: "Member", type: "member",
                 img: "bharuch chapter images/Tahir Junani.jpg",
-                imgProfile: "bharuch chapter images/2.png",
+                imgProfile: "bharuch-profiles/2.png",
             },
 
             {
                 name: "Usman Memon",
                 role: "Member", type: "member",
                 img: "bharuch chapter images/Usman Memon.jpg",
-                imgProfile: "bharuch chapter images/3.png",
+                imgProfile: "bharuch-profiles/3.png",
             },
 
             {
                 name: "Usman Patel",
                 role: "Member", type: "member",
                 img: "bharuch chapter images/Usman Patel.jpeg",
-                imgProfile: "bharuch chapter images/18.png",
+                imgProfile: "bharuch-profiles/18.png",
             },
 
             {
                 name: "Zaid Junani",
                 role: "Member", type: "member",
                 img: "bharuch chapter images/Zaid Junani.png",
-                imgProfile: "bharuch chapter images/7.png",
+                imgProfile: "bharuch-profiles/7.png",
             },
 
             {
                 name: "Zulfikar Ahmed Lakdawala",
                 role: "Member", type: "member",
                 img: "bharuch chapter images/Zulfikar Ahmed Lakdawala.png",
-                imgProfile: "bharuch chapter images/20.png",
+                imgProfile: "bharuch-profiles/20.png",
             },
 
             {
@@ -507,7 +546,7 @@
                 name: "Safdar Shaikh",
                 role: "Member", type: "member",
                 img: "logo.png",
-                imgProfile: "bharuch chapter images/9.png",
+                imgProfile: "bharuch-profiles/9.png",
             },
 
             {
@@ -528,7 +567,7 @@
                 name: "Sufiyan Sarigat",
                 role: "Member", type: "member",
                 img: "bharuch chapter images/Sufiyan Sarigat.jpeg",
-                imgProfile: "bharuch chapter images/22.png",
+                imgProfile: "bharuc-profiles/22.png",
             },
 
             {
@@ -560,12 +599,15 @@
             const grid = document.getElementById('members-grid');
             const filtered = members.filter(m => {
                 const mf = activeFilter === 'all' || m.type === activeFilter;
-                const ms = !searchQuery || m.name.toLowerCase().includes(searchQuery) || m.biz.toLowerCase().includes(searchQuery);
+                // Safely check biz
+                const safeBiz = m.biz ? m.biz.toLowerCase() : '';
+                const ms = !searchQuery || m.name.toLowerCase().includes(searchQuery) || safeBiz.includes(searchQuery);
                 return mf && ms;
             });
             grid.innerHTML = filtered.map(m => {
                 const ri = members.indexOf(m);
                 const isLeader = m.type === 'leadership';
+                const cleanRole = m.role ? m.role.replace(' – Alif Chapter', '').replace('– Alif Chapter', '') : '';
                 return `<div class="member-card-dir" onclick="openModal(${ri})">
       <div class="member-img-dir">
         <img src="${m.img}" alt="${m.name}" onerror="this.src='logo.png'">
@@ -573,8 +615,8 @@
       </div>
       <div class="member-info-dir">
         <div class="member-name-dir">${m.name}</div>
-        <div class="member-role-dir">${m.role.replace(' – Alif Chapter', '').replace('– Alif Chapter', '')}</div>
-        ${m.biz !== '—' ? `<div class="member-biz-dir">${m.biz}</div>` : ''}
+        <div class="member-role-dir">${cleanRole}</div>
+        ${m.biz && m.biz !== '—' ? `<div class="member-biz-dir">${m.biz}</div>` : ''}
       </div>
       <div class="member-arrow-dir">→</div>
     </div>`;
@@ -598,10 +640,13 @@
             const m = members[idx];
             const modal = document.getElementById('modal');
 
-            if (m.imgProfile) {
+            const profileImage = m.imgProfile || m.modalImg;
+
+            if (profileImage) {
                 // ── IMAGE-ONLY MODE ──
                 // Member has a profile card image → show just that image, no text panel
-                document.getElementById('modal-img').src = m.imgProfile;
+                const imgEl = document.getElementById('modal-img');
+                imgEl.src = profileImage;
                 modal.classList.add('image-only');
             } else {
                 // ── STANDARD MODE ──
@@ -609,9 +654,9 @@
                 document.getElementById('modal-img').src = m.img;
                 modal.classList.remove('image-only');
                 document.getElementById('modal-name').textContent = m.name;
-                document.getElementById('modal-role').textContent = m.role.replace(' – Alif Chapter', '').replace('– Alif Chapter', '');
-                document.getElementById('modal-biz').textContent = m.biz;
-                document.getElementById('modal-industry').textContent = m.industry;
+                document.getElementById('modal-role').textContent = m.role ? m.role.replace(' – Alif Chapter', '').replace('– Alif Chapter', '') : '';
+                document.getElementById('modal-biz').textContent = m.biz || '—';
+                document.getElementById('modal-industry').textContent = m.industry || '—';
                 document.getElementById('modal-about').textContent = m.about || '—';
             }
 

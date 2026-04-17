@@ -681,10 +681,12 @@
       const m = members[idx];
       const modal = document.getElementById('modal');
 
-      if (m.modalImg) {
+      const profileImage = m.modalImg || m.imgProfile;
+
+      if (profileImage) {
         // ── IMAGE-ONLY MODE ──
         // Member has a profile card image → show just that image, no text panel
-        document.getElementById('modal-img').src = m.modalImg;
+        document.getElementById('modal-img').src = profileImage;
         modal.classList.add('image-only');
       } else {
         // ── STANDARD MODE ──
@@ -716,4 +718,5 @@
     renderGrid();
   </script>
 </body>
+
 </html>

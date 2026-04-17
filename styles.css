@@ -3672,3 +3672,29 @@ footer ul a:hover {
     align-items: flex-start;
   }
 }
+
+/* ─── MOBILE NAVBAR FIX ─── */
+@media (max-width: 480px) {
+  nav {
+    padding: 0 4% !important;
+  }
+  
+  .logo-text {
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+  }
+  
+  .logo-text span {
+    font-size: 8px !important;
+    letter-spacing: 1px !important;
+  }
+  
+  .nav-logo {
+    gap: 8px !important;
+  }
+  
+  .hamburger {
+    padding: 4px !important;
+    margin-right: -4px;
+  }
+}

@@ -199,17 +199,31 @@
       object-fit: cover;
       display: block;
     }
-
     /* Image-only modal — single column, auto width */
     .modal-dir.image-only {
       display: block;
       background: transparent;
-      max-width: 480px;
-      width: 100%;
+      border: none;
+      box-shadow: none;
+      max-width: 500px;
+      width: 90%;
     }
 
     .modal-dir.image-only .modal-content-dir {
-      display: none;
+      display: none !important;
+    }
+
+    .modal-dir.image-only .modal-img-col-dir {
+      width: 100%;
+      height: auto;
+      background: transparent;
+    }
+
+    .modal-dir.image-only .modal-img-col-dir img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     }
 
     .modal-dir.image-only .modal-img-col-dir {
@@ -257,12 +271,12 @@
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
     }
 
+
+
     .modal-dir.image-only .modal-close-solo:hover {
       background: var(--gold-light);
       transform: scale(1.1);
-    }
-
-    /* ── RESPONSIVE MOBILE FIX ── */
+    }    /* ── RESPONSIVE MOBILE FIX ── */
     @media (max-width: 768px) {
       .modal-dir {
         grid-template-columns: 1fr;
@@ -272,18 +286,7 @@
         height: 240px;
       }
 
-      .modal-dir.image-only .modal-img-col-dir {
-        height: auto;
-      }
 
-      /* Make sure the close button is reachable */
-      .modal-dir.image-only .modal-close-solo {
-        top: 10px;
-        right: 10px;
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
     }
   </style>
 

@@ -439,7 +439,7 @@ section {
   border-bottom: 1px solid rgba(158, 140, 103, 0.2);
   padding: 40px 5%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
 }
 
@@ -3685,16 +3685,209 @@ footer ul a:hover {
   .nav-logo {
     display: flex !important;
     align-items: center !important;
-    flex-shrink: 1 !important; /* Allow logo to shrink if screen is tiny */
+    flex-shrink: 1 !important;
+    /* Allow logo to shrink if screen is tiny */
     overflow: hidden;
   }
 
   .hamburger {
     display: flex !important;
-    flex-shrink: 0 !important; /* Forces the menu symbol to NOT shrink or disappear */
+    flex-shrink: 0 !important;
+    /* Forces the menu symbol to NOT shrink or disappear */
     margin-left: 15px !important;
   }
 }
 
 @media (max-width: 480px) {
- 
+  .logo-text {
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .logo-text span {
+    font-size: 8px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .nav-logo img {
+    height: 36px !important;
+    /* Slightly smaller logo image on small phones */
+  }
+}
+
+/* ── Reference Given By Block ── */
+.ref-block-j {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
+
+.ref-label-j {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 14px;
+}
+
+.ref-toggle-j {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.ref-option-j {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+}
+
+.ref-option-j input[type="radio"] {
+  display: none;
+}
+
+.ref-option-j span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.ref-option-j input[type="radio"]:checked + span {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #1a1208;
+  font-weight: 600;
+}
+
+.ref-option-j span:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.ref-fields-j {
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .ref-toggle-j {
+    flex-direction: column;
+  }
+  .ref-option-j span {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Membership Plan Selector ── */
+.plan-label-j {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 14px;
+}
+
+.plan-cards-j {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.plan-card-j {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+}
+
+.plan-card-j:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.plan-card-j.selected {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.plan-check-j {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #1a1208;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.plan-card-j.selected .plan-check-j {
+  opacity: 1;
+}
+
+.plan-flag-j {
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.plan-info-j {
+  flex: 1;
+}
+
+.plan-name-j {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 3px;
+}
+
+.plan-sub-j {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.plan-price-j {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+@media (max-width: 500px) {
+  .plan-card-j {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .plan-price-j {
+    font-size: 18px;
+  }
+}

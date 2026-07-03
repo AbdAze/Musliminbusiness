@@ -62,12 +62,12 @@
     </div>
     <div class="hero-visual">
       <div class="hero-img-wrap">
-        <img src="about images/home main.png" alt="MIB Network"
+        <img src="About Images/home main.png" alt="MIB Network"
           onerror="this.src='https://musliminbusiness.com/images/B&W 01.jpg'">
       </div>
       <div class="hero-img-border"></div>
       <div class="hero-stat-badge">
-        <div class="num">100+</div>
+        <div class="num count-up" data-target="400" data-suffix="+">0</div>
         <div class="label">Active Members</div>
       </div>
     </div>
@@ -76,19 +76,23 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stat-item">
-      <div class="stat-num">100+</div>
+      <div class="stat-num count-up" data-target="400" data-suffix="+">0</div>
       <div class="stat-label">Members</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">3</div>
+      <div class="stat-num count-up" data-target="28" data-suffix="">0</div>
       <div class="stat-label">States</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">52+</div>
+      <div class="stat-num count-up" data-target="2" data-suffix="">0</div>
+      <div class="stat-label">Countries</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num count-up" data-target="52" data-suffix="+">0</div>
       <div class="stat-label">Events Yearly</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">₹10L+</div>
+      <div class="stat-num count-up" data-prefix="" data-target="1.5" data-suffix="Cr+" data-decimals="1">₹0</div>
       <div class="stat-label">Business Generated</div>
     </div>
   </div>
@@ -129,9 +133,9 @@
       </div>
       <div class="about-right">
         <div class="about-imgs">
-          <img src="about images/B&W 01.jpg" alt="MIB">
-          <img src="about images/B&W%2002.jpg" alt="MIB">
-          <img src="about images/B&W%2003.jpg" alt="MIB">
+          <img src="About Images/B&W 01.jpg" alt="MIB">
+          <img src="About Images/B&W%2002.jpg" alt="MIB">
+          <img src="About Images/B&W%2003.jpg" alt="MIB">
         </div>
       </div>
     </div>
@@ -309,6 +313,43 @@
     function toggleMenu() {
       document.getElementById('mobile-menu').classList.toggle('open');
     }
+
+    /* ── Count-Up Animation ── */
+    function animateCountUp(el) {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const prefix = el.dataset.prefix || '';
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      const duration = 1800;
+      const framerate = 1000 / 60;
+      const totalFrames = Math.round(duration / framerate);
+      let frame = 0;
+
+      const counter = setInterval(() => {
+        frame++;
+        const progress = 1 - Math.pow(1 - frame / totalFrames, 3); // ease-out cubic
+        const current = progress * target;
+        el.textContent = prefix + current.toFixed(decimals) + suffix;
+
+        if (frame === totalFrames) {
+          clearInterval(counter);
+          el.textContent = prefix + target.toFixed(decimals) + suffix;
+        }
+      }, framerate);
+    }
+
+    const observerOptions = { threshold: 0.3 };
+
+    const countObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCountUp(entry.target);
+          obs.unobserve(entry.target); // only fire once
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
   </script>
 </body>
 

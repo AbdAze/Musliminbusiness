@@ -438,14 +438,15 @@ section {
   border-top: 1px solid rgba(158, 140, 103, 0.2);
   border-bottom: 1px solid rgba(158, 140, 103, 0.2);
   padding: 40px 5%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .stat-item {
   text-align: center;
-  padding: 0 20px;
+  flex: 1;
+  padding: 0 10px;
   border-right: 1px solid rgba(252, 251, 251, 0.08);
 }
 
@@ -3418,7 +3419,19 @@ footer ul a:hover {
   }
 
   .stats-bar {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 40px 0;
+  }
+  .stat-item {
+    border-right: none;
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid rgba(252, 251, 251, 0.08);
+  }
+  .stat-item:last-child {
+    grid-column: 1 / -1;
+    border-right: none;
   }
 
   .stats-band-we {
@@ -3615,7 +3628,11 @@ footer ul a:hover {
 
 @media (max-width: 600px) {
   .stats-bar {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 40px 0;
+  }
+  .stat-item, .stat-item:nth-child(odd) {
+    border-right: none;
   }
 
   .stats-band-we {

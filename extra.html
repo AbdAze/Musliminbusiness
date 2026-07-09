@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse and filter 2,800+ verified trainers across 140+ specialisations on World Trainer Forum. Find your perfect expert by skill, category, price and rating.">
+  <title>Find Trainers — World Trainer Forum</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/trainer-modal.css">
+  <link rel="stylesheet" href="css/auth-modal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- ══════════ NEW: Membership Tier styles (ribbon + filter chips) ══════════ -->
+  <style>
+    /* --- Tier filter chips (browse bar + sidebar) --- */
+    .tier-chip-group{display:flex;gap:8px;flex-wrap:wrap}
+    .tier-chip{
+      cursor:pointer;user-select:none;
+      padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:600;
+      border:1.5px solid #ddd;background:#fff;color:#555;
+      transition:all .15s ease;
+    }
+    .tier-chip:hover{border-color:var(--gold,#c9a84c)}
+    .tier-chip.active{color:#fff;border-color:transparent}
+    .tier-chip[data-tier="free"].active{background:#8a9199}
+    .tier-chip[data-tier="professional"].active{background:#2a6cb0}
+    .tier-chip[data-tier="elite"].active{background:linear-gradient(135deg,#c9a84c,#8a6d1a);box-shadow:0 2px 8px rgba(201,168,76,.4)}
+
+    /* --- Ribbon badge shown on each trainer card --- */
+    .trainer-card{position:relative;overflow:hidden} /* overflow:hidden clips the ribbon corner cleanly */
+
+    .tier-ribbon{
+      position:absolute; top:14px; right:-34px;
+      transform:rotate(45deg);
+      width:150px; text-align:center;
+      padding:4px 0; font-size:.68rem; font-weight:700; letter-spacing:.04em;
+      text-transform:uppercase; color:#fff; z-index:5;
+      box-shadow:0 2px 6px rgba(0,0,0,.25);
+      pointer-events:none;
+    }
+    .tier-ribbon.tier-free{background:#8a9199}
+    .tier-ribbon.tier-professional{background:#2a6cb0}
+    .tier-ribbon.tier-elite{background:linear-gradient(135deg,#e6c866,#a5790f)}
+    .tier-ribbon.tier-elite::after{content:"★";margin-left:4px}
+
+    /* --- Compact ribbon/badge used inside the Trainer Profile modal header --- */
+    .tier-badge{
+      display:inline-flex;align-items:center;gap:5px;
+      padding:4px 12px;border-radius:999px;font-size:.75rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.03em;color:#fff;
+    }
+    .tier-badge.tier-free{background:#8a9199}
+    .tier-badge.tier-professional{background:#2a6cb0}
+    .tier-badge.tier-elite{background:linear-gradient(135deg,#e6c866,#a5790f)}
+    .tier-badge.tier-elite i{color:#fff}
+
+    /* --- Sample trainer card layout (used for the demo cards below; safe
+           to keep even after you wire up real app.js/data.js, since real
+           cards can use their own classes/markup instead) --- */
+    .trainer-card{
+      background:#fff;border:1px solid #eee;border-radius:14px;
+      padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.05);
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .tc-top{display:flex;gap:12px;align-items:center}
+    .tc-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0}
+    .tc-name{font-size:1.02rem;font-weight:700;color:#1c1c1c;margin:0}
+    .tc-cat{font-size:.78rem;color:var(--gold-dk,#a5790f);font-weight:600}
+    .tc-meta{display:flex;flex-wrap:wrap;gap:6px;font-size:.75rem;color:#777}
+    .tc-meta span{background:#f5f5f5;padding:3px 9px;border-radius:999px}
+    .tc-rating{font-size:.82rem;color:#e0a600;font-weight:700}
+    .tc-rating span{color:#888;font-weight:500;margin-left:4px}
+    .tc-price{font-size:.95rem;font-weight:700;color:#1c1c1c}
+    .tc-price span{font-size:.72rem;color:#888;font-weight:500}
+    .tc-actions{display:flex;gap:8px;margin-top:4px}
+    .tc-actions .btn{flex:1;text-align:center;font-size:.82rem;padding:8px 0}
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="nav">
+    <a class="logo" href="index.html">
+      <img src="img/logo.svg" alt="World Trainer Forum Logo" style="height:42px; margin-right:10px;">World Trainer <span class="g">Forum</span>
+    </a>
+    <ul class="nav-links">
+      <li><a id="nl-home" href="index.html">Home</a></li>
+      <li><a id="nl-about" href="about.html">About</a></li>
+      <li><a id="nl-browse" href="find-trainers.html" class="active">Find Trainers</a></li>
+      <li><a id="nl-cats" href="categories.html">Categories</a></li>
+      <li><a id="nl-pricing" href="pricing.html">Pricing</a></li>
+      <li><a id="nl-blog" href="under-construction.html">Blog</a></li>
+      <li><a id="nl-dash" href="dashboard.html" target="_blank" style="display:none;">Dashboard</a></li>
+    </ul>
+    <div class="nav-r">
+      <button class="notif-btn" id="notif-btn" onclick="toggleNotif()">🔔<span class="notif-dot"></span></button>
+      <button class="btn btn-ghost btn-sm" id="btn-signup" onclick="openModal('register')">Sign Up</button>
+      <button class="btn btn-gold btn-sm" id="btn-login" onclick="openModal('login')">Log In</button>
+      <button class="btn btn-dark btn-sm" id="btn-logout" onclick="handleLogout()" style="display:none;">Log Out</button>
+      <button class="ham-btn" id="ham-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div style="display:flex; justify-content:flex-end; margin-bottom: 20px;">
+      <button onclick="toggleMobileMenu()" style="background:none; border:none; color:#fff; font-size:2rem; cursor:pointer;" aria-label="Close Menu">&times;</button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="find-trainers.html">Find Trainers</a>
+    <a href="categories.html">Categories</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="under-construction.html">Blog</a>
+    <a href="dashboard.html" id="mn-dash" style="display:none; color:var(--gold);">Dashboard</a>
+
+    <div class="mn-actions" style="margin-top:30px; display:flex; flex-direction:column; gap:12px;">
+      <button class="btn btn-ghost" id="mn-btn-signup" onclick="toggleMobileMenu(); openModal('register')">Sign Up</button>
+      <button class="btn btn-gold" id="mn-btn-login" onclick="toggleMobileMenu(); openModal('login')">Log In</button>
+      <button class="btn btn-dark" id="mn-btn-logout" onclick="handleLogout()" style="display:none;">Log Out</button>
+    </div>
+  </div>
+
+  <!-- Notification Panel -->
+  <div class="notif-panel" id="notif-panel">
+    <div class="notif-header">
+      <h4>Notifications</h4><a href="#" style="font-size:.78rem;color:var(--gold-dk)">Mark all read</a>
+    </div>
+    <div class="notif-item unread">
+      <div class="notif-ico" style="background:rgba(201,168,76,.12)">📅</div>
+      <div class="notif-text"><p><strong>Rajesh Kumar</strong> accepted your booking for May 20.</p><span>2 hours ago</span></div>
+    </div>
+    <div class="notif-item">
+      <div class="notif-ico" style="background:rgba(42,108,176,.12)">💬</div>
+      <div class="notif-text"><p>New message from <strong>Arun Kapoor</strong>.</p><span>Yesterday</span></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Modal -->
+  <div class="modal-bg" id="modal-bg">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Trainer Profile Modal -->
+  <div id="trainer-modal" aria-modal="true" role="dialog" aria-label="Trainer Profile"></div>
+  <!-- Auth Modal -->
+  <div id="auth-modal" aria-modal="true" role="dialog" aria-label="Authentication"></div>
+  <!-- Booking Modal -->
+  <div id="booking-modal" aria-modal="true" role="dialog" aria-label="Book a Session"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FIND TRAINERS PAGE
+  ═══════════════════════════════════════════════════════ -->
+  <div id="p-browse" class="page active">
+    <div class="browse-hero">
+      <h1>Browse Expert Trainers</h1>
+      <p>2,800+ verified professionals across 140+ specialisations</p>
+      <div class="browse-bar">
+        <span style="color:#999">🔍</span>
+        <input type="text" id="browse-search" placeholder="Search name, skill, topic…" oninput="applyFilters()">
+        <div class="h-sep"></div>
+        <select id="f-cat" onchange="applyFilters()">
+          <option value="">All Categories</option>
+          <option>Business Coaching</option>
+          <option>AI &amp; Technology</option>
+          <option>Fitness &amp; Health</option>
+          <option>Cybersecurity</option>
+          <option>Soft Skills</option>
+          <option>Language Training</option>
+          <option>Music &amp; Dance</option>
+          <option>Career Mentoring</option>
+          <option>Sports Coaching</option>
+          <option>Finance</option>
+          <option>Motivational</option>
+          <option>Personal Dev.</option>
+        </select>
+        <div class="h-sep"></div>
+        <select onchange="document.getElementById('f-mode').value=this.value;applyFilters()">
+          <option value="">Anywhere</option>
+          <option value="Online">Online</option>
+          <option value="In-Person">In-Person</option>
+          <option value="Hybrid">Hybrid</option>
+        </select>
+        <button class="btn btn-gold btn-sm" onclick="applyFilters()">Search</button>
+      </div>
+
+      <!-- ══════════ NEW: Membership Tier quick filter (Free / Professional / Elite) ══════════ -->
+      <div class="tier-chip-group" id="tier-chip-group" style="margin-top:14px;justify-content:center">
+        <span class="tier-chip active" data-tier="" onclick="setTierFilter('', this)">All Tiers</span>
+        <span class="tier-chip" data-tier="free" onclick="setTierFilter('free', this)">Free</span>
+        <span class="tier-chip" data-tier="professional" onclick="setTierFilter('professional', this)">Professional</span>
+        <span class="tier-chip" data-tier="elite" onclick="setTierFilter('elite', this)">Elite</span>
+      </div>
+    </div>
+    <div class="browse-layout">
+      <div class="filters-panel">
+        <h3>Filters</h3>
+        <div class="fg"><label>Category</label>
+          <select onchange="document.getElementById('f-cat').value=this.value;applyFilters()">
+            <option value="">All Categories</option>
+            <option>Business Coaching</option>
+            <option>AI &amp; Technology</option>
+            <option>Fitness &amp; Health</option>
+            <option>Cybersecurity</option>
+            <option>Soft Skills</option>
+            <option>Language Training</option>
+            <option>Music &amp; Dance</option>
+            <option>Career Mentoring</option>
+            <option>Sports Coaching</option>
+            <option>Finance</option>
+            <option>Motivational</option>
+            <option>Personal Dev.</option>
+          </select>
+        </div>
+
+        <!-- ══════════ NEW: Membership Tier filter (sidebar version) ══════════ -->
+        <div class="fg"><label>Membership Tier</label>
+          <select id="f-tier" onchange="applyFilters()">
+            <option value="">All Tiers</option>
+            <option value="free">Free</option>
+            <option value="professional">Professional</option>
+            <option value="elite">Elite</option>
+          </select>
+        </div>
+
+        <div class="fg"><label>Price / hour</label>
+          <input type="range" id="f-price" min="500" max="100000" value="100000" oninput="updatePriceDisplay(this.value);applyFilters()">
+          <div style="font-size:.78rem;color:var(--tm);margin-top:4px">Up to <span id="price-out">₹1,00,000</span></div>
+        </div>
+        <div class="fg"><label>Minimum Rating</label>
+          <select id="f-rating" onchange="applyFilters()">
+            <option value="0">Any Rating</option>
+            <option value="4.5">4.5+ Stars</option>
+            <option value="4.0">4.0+ Stars</option>
+            <option value="3.5">3.5+ Stars</option>
+          </select>
+        </div>
+        <div class="fg"><label>Delivery Mode</label>
+          <select id="f-mode" onchange="applyFilters()">
+            <option value="">Any Mode</option>
+            <option value="Online">Online / Virtual</option>
+            <option value="In-Person">In-Person</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </div>
+        <div class="fg"><label>Experience</label>
+          <select id="f-exp" onchange="applyFilters()">
+            <option value="">Any</option>
+            <option>1–3 years</option>
+            <option>3–5 years</option>
+            <option>5–10 years</option>
+            <option>10+ years</option>
+          </select>
+        </div>
+        <div class="fg"><label>Language</label>
+          <div class="check-group">
+            <label class="chk"><input type="checkbox" checked> English</label>
+            <label class="chk"><input type="checkbox"> Hindi</label>
+            <label class="chk"><input type="checkbox"> Gujarati</label>
+            <label class="chk"><input type="checkbox"> Tamil</label>
+            <label class="chk"><input type="checkbox"> Telugu</label>
+          </div>
+        </div>
+        <div class="fg"><label>Options</label>
+          <div class="check-group">
+            <label class="chk"><input type="checkbox" checked> Verified trainers only</label>
+            <label class="chk"><input type="checkbox"> Featured trainers</label>
+            <label class="chk"><input type="checkbox"> Available this week</label>
+          </div>
+        </div>
+        <button class="btn btn-gold btn-full" style="margin-top:4px" onclick="applyFilters()">Apply Filters</button>
+        <button class="btn btn-dark btn-full" style="margin-top:8px"
+          onclick="document.getElementById('f-cat').value='';document.getElementById('f-price').value=100000;updatePriceDisplay(100000);document.getElementById('f-rating').value=0;document.getElementById('f-mode').value='';document.getElementById('f-tier').value='';setTierFilter('', document.querySelector('.tier-chip[data-tier=&quot;&quot;]'));applyFilters()">Reset All</button>
+      </div>
+      <div class="browse-results">
+        <div class="results-bar">
+          <div class="results-count">Showing <strong id="results-count">0</strong> trainers</div>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <select class="sort-sel" onchange="sortResults(this.value)">
+              <option value="default">Recommended</option>
+              <option value="rating">Top Rated</option>
+              <option value="price-asc">Price: Low → High</option>
+              <option value="price-desc">Price: High → Low</option>
+              <option value="sessions">Most Booked</option>
+            </select>
+          </div>
+        </div>
+        <div class="trainers-grid" id="browse-grid"></div>
+        <div style="display:flex;justify-content:center;gap:8px;margin-top:32px;flex-wrap:wrap">
+          <button class="btn btn-dark btn-sm">← Prev</button>
+          <button class="btn btn-gold btn-sm">1</button>
+          <button class="btn btn-dark btn-sm">2</button>
+          <button class="btn btn-dark btn-sm">3</button>
+          <button class="btn btn-dark btn-sm">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="site-footer">
+
+      <!-- ── MAIN FOOTER BODY ── -->
+      <div class="footer-main">
+
+        <!-- ROW 1: Brand + 4 link columns + Newsletter -->
+        <div class="footer-top-grid">
+
+          <!-- SECTION 1: Brand + Trust -->
+          <div class="footer-brand-col">
+            <a class="footer-logo" href="index.html">
+              <img src="img/logo.svg" alt="World Trainer Forum Logo">
+              <span>World Trainer <span class="g">Forum</span></span>
+            </a>
+            <p class="footer-tagline">Connecting organizations with world-class trainers, coaches, mentors, and speakers worldwide.</p>
+
+            <!-- Trust Indicators -->
+            <ul class="footer-trust-list">
+              <li><i class="fa-solid fa-circle-check"></i> Verified Trainers</li>
+              <li><i class="fa-solid fa-globe"></i> Global Community</li>
+              <li><i class="fa-solid fa-lock"></i> Secure Payments</li>
+              <li><i class="fa-solid fa-building"></i> Corporate Solutions</li>
+              <li><i class="fa-solid fa-headset"></i> 24/7 Support</li>
+            </ul>
+
+            <!-- Stats Row -->
+            <div class="footer-stats">
+              <div class="footer-stat-card">
+                <i class="fa-solid fa-users"></i>
+                <span class="fsc-num">50K+</span>
+                <span class="fsc-lbl">Trainers</span>
+              </div>
+              <div class="footer-stat-card">
+                <i class="fa-solid fa-earth-asia"></i>
+                <span class="fsc-num">120+</span>
+                <span class="fsc-lbl">Countries</span>
+              </div>
+              <div class="footer-stat-card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span class="fsc-num">1M+</span>
+                <span class="fsc-lbl">Learners</span>
+              </div>
+              <div class="footer-stat-card">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span class="fsc-num">10K+</span>
+                <span class="fsc-lbl">Sessions</span>
+              </div>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="footer-social">
+              <a href="#" class="fsoc-btn" aria-label="LinkedIn" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="fsoc-btn" aria-label="Facebook" title="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#" class="fsoc-btn" aria-label="Instagram" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#" class="fsoc-btn" aria-label="YouTube" title="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="#" class="fsoc-btn" aria-label="X / Twitter" title="X / Twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- SECTION 2: For Clients -->
+          <div class="footer-col">
+            <h4 class="footer-col-hd">For Clients</h4>
+            <ul class="footer-links">
+              <li><a href="find-trainers.html">Browse Trainers</a></li>
+              <li><a href="categories.html">All Categories</a></li>
+              <li><a href="corporate-training.html">Corporate Training</a></li>
+              <li><a href="gift-a-session.html">Gift a Session</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="leadership-training.html">Leadership Training</a></li>
+              <li><a href="sales-training.html">Sales Training</a></li>
+              <li><a href="soft-skills-training.html">Soft Skills Training</a></li>
+              <li><a href="technology-training.html">Technology Training</a></li>
+              <li><a href="executive-coaching.html">Executive Coaching</a></li>
+              <li><a href="team-building.html">Team Building Programs</a></li>
+              <li><a href="request-custom-training.html">Request Custom Training</a></li>
+            </ul>
+          </div>
+
+          <!-- SECTION 3: For Trainers -->
+          <div class="footer-col">
+            <h4 class="footer-col-hd">For Trainers</h4>
+            <ul class="footer-links">
+              <li><a href="dashboard.html">List Your Profile</a></li>
+              <li><a href="trainer-resources.html">Trainer Resources</a></li>
+              <li><a href="community-forum.html">Community Forum</a></li>
+              <li><a href="success-stories.html">Success Stories</a></li>
+              <li><a href="verification-process.html">Verification Process</a></li>
+              <li><a href="dashboard.html">Trainer Dashboard</a></li>
+              <li><a href="become-verified.html">Become Verified</a></li>
+              <li><a href="trainer-academy.html">Trainer Academy</a></li>
+              <li><a href="learning-center.html">Learning Center</a></li>
+              <li><a href="certification-support.html">Certification Support</a></li>
+              <li><a href="events-workshops.html">Events &amp; Workshops</a></li>
+              <li><a href="earnings-program.html">Earnings Program</a></li>
+              <li><a href="partner-program.html">Partner Program</a></li>
+            </ul>
+          </div>
+
+          <!-- SECTION 5: Company -->
+          <div class="footer-col">
+            <h4 class="footer-col-hd">Company</h4>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="press.html">Press</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+              <li><a href="faqs.html">FAQs</a></li>
+              <li><a href="help-center.html">Help Center</a></li>
+              <li><a href="affiliate-program.html">Affiliate Program</a></li>
+              <li><a href="partners.html">Partners</a></li>
+              <li><a href="media-kit.html">Media Kit</a></li>
+            </ul>
+          </div>
+
+          <!-- SECTION 6: Newsletter -->
+          <div class="footer-newsletter-col">
+            <div class="footer-newsletter-card">
+              <div class="fnl-icon"><i class="fa-solid fa-paper-plane"></i></div>
+              <h4 class="fnl-title">Stay Updated</h4>
+              <p class="fnl-sub">Get training insights, industry trends, and expert resources.</p>
+              <form class="fnl-form" onsubmit="return false;">
+                <div class="fnl-input-wrap">
+                  <i class="fa-regular fa-envelope fnl-input-ico"></i>
+                  <input type="email" class="fnl-input" placeholder="Your email address" aria-label="Email for newsletter">
+                  <button type="submit" class="fnl-btn">Subscribe</button>
+                </div>
+              </form>
+              <ul class="fnl-features">
+                <li><i class="fa-solid fa-circle-check"></i> Weekly insights</li>
+                <li><i class="fa-solid fa-circle-check"></i> Trainer resources</li>
+                <li><i class="fa-solid fa-circle-check"></i> Event updates</li>
+              </ul>
+            </div>
+          </div>
+
+        </div><!-- /footer-top-grid -->
+
+        <!-- SECTION 4: Popular Training Topics (Chips) -->
+        <div class="footer-topics">
+          <h4 class="footer-topics-hd">Popular Training Topics</h4>
+          <div class="footer-chips">
+            <a href="#" class="footer-chip">Leadership</a>
+            <a href="#" class="footer-chip">Communication Skills</a>
+            <a href="#" class="footer-chip">AI &amp; Technology</a>
+            <a href="#" class="footer-chip">Sales &amp; Marketing</a>
+            <a href="#" class="footer-chip">HR Training</a>
+            <a href="#" class="footer-chip">Public Speaking</a>
+            <a href="#" class="footer-chip">Personal Development</a>
+            <a href="#" class="footer-chip">Business Strategy</a>
+            <a href="#" class="footer-chip">Finance</a>
+            <a href="#" class="footer-chip">Health &amp; Wellness</a>
+            <a href="#" class="footer-chip">Executive Coaching</a>
+            <a href="#" class="footer-chip">Team Building</a>
+          </div>
+        </div>
+
+        <!-- SECTION 7: Trust & Security Strip -->
+        <div class="footer-trust-strip">
+          <div class="fts-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>SSL Secure</span>
+          </div>
+          <div class="fts-divider"></div>
+          <div class="fts-item">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <span>GDPR Compliant</span>
+          </div>
+          <div class="fts-divider"></div>
+          <div class="fts-item">
+            <i class="fa-solid fa-user-check"></i>
+            <span>Verified Profiles</span>
+          </div>
+          <div class="fts-divider"></div>
+          <div class="fts-item">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Safe Payments</span>
+          </div>
+          <div class="fts-divider"></div>
+          <div class="fts-item">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>Trusted Worldwide</span>
+          </div>
+        </div>
+
+      </div><!-- /footer-main -->
+
+      <!-- SECTION 8: Bottom Legal Bar -->
+      <div class="footer-legal">
+        <div class="footer-legal-inner">
+          <span class="fl-copy">© 2026 World Trainer Forum Technologies Pvt. Ltd. All rights reserved.</span>
+          <nav class="fl-links" aria-label="Legal links">
+            <a href="#">Privacy Policy</a>
+            <span class="fl-dot">·</span>
+            <a href="#">Terms</a>
+            <span class="fl-dot">·</span>
+            <a href="#">Cookies</a>
+            <span class="fl-dot">·</span>
+            <a href="#">Accessibility</a>
+            <span class="fl-dot">·</span>
+            <a href="#">Sitemap</a>
+          </nav>
+          <span class="fl-tagline">Made for Global Learning &amp; Growth 🌍</span>
+        </div>
+      </div>
+
+    </footer>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/trainer-modal.js?v=4"></script>
+  <script src="js/auth-modal.js"></script>
+  <script src="js/page-nav.js"></script>
+  <script>
+    applyTheme();
+    // Read URL params to pre-fill filters (from category/hero search links)
+    document.addEventListener('DOMContentLoaded', function () {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('cat');
+      const q = params.get('q');
+      const tier = params.get('tier');
+      if (cat) {
+        const sel = document.getElementById('f-cat');
+        if (sel) sel.value = cat;
+      }
+      if (q) {
+        const inp = document.getElementById('browse-search');
+        if (inp) inp.value = q;
+      }
+      if (tier) {
+        const sel = document.getElementById('f-tier');
+        if (sel) sel.value = tier;
+        const chip = document.querySelector('.tier-chip[data-tier="' + tier + '"]');
+        if (chip) setTierFilter(tier, chip);
+      }
+    });
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       NEW: Sample trainer profiles (demo data)
+       ------------------------------------------------------------
+       Stand-in for your real js/data.js. Each entry has a `tier`
+       field ("free" | "professional" | "elite") which drives the
+       ribbon on the card and the sidebar/chip filter. Swap this
+       array out for your real trainer list whenever it's ready —
+       everything below just needs objects shaped like these.
+  ══════════════════════════════════════════════════════════════ -->
+  <script>
+    const sampleTrainers = [
+      { id: 1,  name: "Rajesh Kumar",  category: "Business Coaching",  tier: "elite",        rating: 4.9, sessions: 312, price: 15000, city: "Mumbai",     mode: "Online",     exp: "10+ years"  },
+      { id: 2,  name: "Arun Kapoor",   category: "AI & Technology",    tier: "professional",  rating: 4.7, sessions: 208, price: 8000,  city: "Bengaluru",  mode: "Hybrid",     exp: "5–10 years" },
+      { id: 3,  name: "Priya Sharma",  category: "Fitness & Health",   tier: "free",           rating: 4.5, sessions: 96,  price: 1500,  city: "Pune",       mode: "In-Person",  exp: "1–3 years"  },
+      { id: 4,  name: "Fatima Sheikh", category: "Cybersecurity",      tier: "elite",          rating: 4.8, sessions: 267, price: 20000, city: "Delhi",      mode: "Online",     exp: "10+ years"  },
+      { id: 5,  name: "Vikram Singh",  category: "Soft Skills",        tier: "professional",  rating: 4.6, sessions: 154, price: 6000,  city: "Surat",      mode: "Online",     exp: "5–10 years" },
+      { id: 6,  name: "Ayesha Khan",   category: "Language Training",  tier: "free",           rating: 4.3, sessions: 61,  price: 1200,  city: "Ahmedabad",  mode: "Online",     exp: "1–3 years"  },
+      { id: 7,  name: "Karan Mehta",   category: "Career Mentoring",   tier: "professional",  rating: 4.7, sessions: 173, price: 5000,  city: "Surat",      mode: "Hybrid",     exp: "3–5 years"  },
+      { id: 8,  name: "Neha Joshi",    category: "Music & Dance",      tier: "free",           rating: 4.4, sessions: 84,  price: 1000,  city: "Jaipur",     mode: "In-Person",  exp: "1–3 years"  },
+      { id: 9,  name: "Suresh Iyer",   category: "Sports Coaching",    tier: "professional",  rating: 4.6, sessions: 140, price: 4500,  city: "Chennai",    mode: "In-Person",  exp: "5–10 years" },
+      { id: 10, name: "Meera Nair",    category: "Finance",            tier: "elite",          rating: 4.9, sessions: 289, price: 18000, city: "Kochi",      mode: "Online",     exp: "10+ years"  },
+      { id: 11, name: "Rohan Desai",   category: "Motivational",       tier: "free",           rating: 4.2, sessions: 45,  price: 1000,  city: "Rajkot",     mode: "Online",     exp: "1–3 years"  },
+      { id: 12, name: "Sana Ali",      category: "Personal Dev.",      tier: "professional",  rating: 4.5, sessions: 119, price: 5500,  city: "Surat",      mode: "Hybrid",     exp: "3–5 years"  }
+    ];
+
+    function tierRank(t){ return t === 'elite' ? 3 : t === 'professional' ? 2 : 1; }
+
+    function buildTrainerCard(t) {
+      const initials = encodeURIComponent(t.name);
+      const avatar = `https://ui-avatars.com/api/?name=${initials}&background=random&size=128&font-size=0.4&bold=true`;
+      return `
+        <div class="trainer-card" data-tier="${t.tier}" data-id="${t.id}"
+             data-name="${t.name.toLowerCase()}" data-cat="${t.category}"
+             data-mode="${t.mode}" data-price="${t.price}" data-rating="${t.rating}"
+             data-sessions="${t.sessions}">
+          ${renderTierRibbon(t.tier)}
+          <div class="tc-top">
+            <img class="tc-avatar" src="${avatar}" alt="${t.name}">
+            <div>
+              <p class="tc-name">${t.name}</p>
+              <div class="tc-cat">${t.category}</div>
+            </div>
+          </div>
+          <div class="tc-meta">
+            <span>📍 ${t.city}</span>
+            <span>${t.mode}</span>
+            <span>${t.exp}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div class="tc-rating">★ ${t.rating.toFixed(1)} <span>(${t.sessions} sessions)</span></div>
+            <div class="tc-price">₹${t.price.toLocaleString('en-IN')}<span>/hr</span></div>
+          </div>
+          <div class="tc-actions">
+            <button class="btn btn-dark btn-sm" onclick="sendPromptSafe('Show me more about ${t.name}')">View Profile</button>
+            <button class="btn btn-gold btn-sm" onclick="sendPromptSafe('Book a session with ${t.name}')">Book Now</button>
+          </div>
+        </div>`;
+    }
+
+    function sendPromptSafe(msg){
+      if (typeof sendPrompt === 'function') { sendPrompt(msg); return; }
+      console.log('Action:', msg);
+    }
+
+    function renderSampleTrainers() {
+      const grid = document.getElementById('browse-grid');
+      if (!grid) return;
+      grid.innerHTML = sampleTrainers.map(buildTrainerCard).join('');
+      const countEl = document.getElementById('results-count');
+      if (countEl) countEl.textContent = sampleTrainers.length;
+    }
+
+    // Only take over filtering/sorting if your real app.js hasn't already
+    // defined these — so this demo never overrides your production code.
+    if (typeof window.applyFilters !== 'function') {
+      window.applyFilters = function () {
+        const q = (document.getElementById('browse-search')?.value || '').toLowerCase();
+        const cat = document.getElementById('f-cat')?.value || '';
+        const mode = document.getElementById('f-mode')?.value || '';
+        const tier = document.getElementById('f-tier')?.value || '';
+        const maxPrice = Number(document.getElementById('f-price')?.value || 100000);
+        const minRating = Number(document.getElementById('f-rating')?.value || 0);
+
+        document.querySelectorAll('#browse-grid .trainer-card').forEach(card => {
+          const matches =
+            (!q || card.dataset.name.includes(q) || card.dataset.cat.toLowerCase().includes(q)) &&
+            (!cat || card.dataset.cat === cat) &&
+            (!mode || card.dataset.mode === mode) &&
+            (!tier || card.dataset.tier === tier) &&
+            (Number(card.dataset.price) <= maxPrice) &&
+            (Number(card.dataset.rating) >= minRating);
+          card.style.display = matches ? '' : 'none';
+        });
+
+        const visible = document.querySelectorAll('#browse-grid .trainer-card:not([style*="display: none"])').length;
+        const countEl = document.getElementById('results-count');
+        if (countEl) countEl.textContent = visible;
+      };
+    }
+
+    if (typeof window.updatePriceDisplay !== 'function') {
+      window.updatePriceDisplay = function (val) {
+        const out = document.getElementById('price-out');
+        if (out) out.textContent = '₹' + Number(val).toLocaleString('en-IN');
+      };
+    }
+
+    if (typeof window.sortResults !== 'function') {
+      window.sortResults = function (mode) {
+        const grid = document.getElementById('browse-grid');
+        if (!grid) return;
+        const cards = Array.from(grid.querySelectorAll('.trainer-card'));
+        const sorted = cards.sort((a, b) => {
+          if (mode === 'rating') return Number(b.dataset.rating) - Number(a.dataset.rating);
+          if (mode === 'price-asc') return Number(a.dataset.price) - Number(b.dataset.price);
+          if (mode === 'price-desc') return Number(b.dataset.price) - Number(a.dataset.price);
+          if (mode === 'sessions') return Number(b.dataset.sessions) - Number(a.dataset.sessions);
+          return Number(a.dataset.id) - Number(b.dataset.id);
+        });
+        sorted.forEach(c => grid.appendChild(c));
+      };
+    }
+
+    document.addEventListener('DOMContentLoaded', renderSampleTrainers);
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       NEW: Membership Tier filter logic + ribbon renderer
+       ------------------------------------------------------------
+       This block is self-contained so it works whether or not you've
+       touched app.js yet. See the integration notes below (also sent
+       separately) for the two small edits app.js/data.js need so the
+       ribbon actually reflects each trainer's real plan.
+  ══════════════════════════════════════════════════════════════ -->
+  <script>
+    // Keep the sidebar <select> and the pill/chip row in sync, then re-filter.
+    function setTierFilter(tier, chipEl) {
+      document.querySelectorAll('.tier-chip').forEach(c => c.classList.remove('active'));
+      if (chipEl) chipEl.classList.add('active');
+      const sel = document.getElementById('f-tier');
+      if (sel) sel.value = tier;
+      if (typeof applyFilters === 'function') applyFilters();
+    }
+
+    // Returns the ribbon HTML for a given tier value ("free" | "professional" | "elite").
+    function renderTierRibbon(tier) {
+      const t = (tier || 'free').toLowerCase();
+      const label = t === 'elite' ? 'Elite' : t === 'professional' ? 'Professional' : 'Free';
+      return `<div class="tier-ribbon tier-${t}">${label}</div>`;
+    }
+
+    // Returns a compact badge (for the trainer profile modal header) for a given tier.
+    function renderTierBadge(tier) {
+      const t = (tier || 'free').toLowerCase();
+      const label = t === 'elite' ? 'Elite Member' : t === 'professional' ? 'Professional Member' : 'Free Member';
+      const icon = t === 'elite' ? '<i class="fa-solid fa-star"></i>' : t === 'professional' ? '<i class="fa-solid fa-briefcase"></i>' : '<i class="fa-solid fa-user"></i>';
+      return `<span class="tier-badge tier-${t}">${icon} ${label}</span>`;
+    }
+
+    // Runs after every render of #browse-grid: stamps a ribbon on each card
+    // and hides any card that doesn't match the selected tier filter.
+    // Relies on each card root having data-tier="free|professional|elite".
+    // (See integration note #1 below for the one-line change app.js needs.)
+    function applyTierRibbonsAndFilter() {
+      const grid = document.getElementById('browse-grid');
+      if (!grid) return;
+      const selectedTier = (document.getElementById('f-tier') || {}).value || '';
+
+      grid.querySelectorAll('.trainer-card').forEach(card => {
+        const tier = (card.getAttribute('data-tier') || 'free').toLowerCase();
+
+        // Inject ribbon once
+        if (!card.querySelector('.tier-ribbon')) {
+          card.insertAdjacentHTML('afterbegin', renderTierRibbon(tier));
+        }
+
+        // Apply tier filter on top of whatever app.js already filtered
+        if (selectedTier && tier !== selectedTier) {
+          card.style.display = 'none';
+        } else if (card.style.display === 'none') {
+          card.style.display = '';
+        }
+      });
+
+      // Keep the visible results count honest after our extra filtering pass
+      const countEl = document.getElementById('results-count');
+      if (countEl) {
+        const visible = grid.querySelectorAll('.trainer-card:not([style*="display: none"])').length;
+        countEl.textContent = visible;
+      }
+    }
+
+    // Observe #browse-grid so this works no matter how/when app.js re-renders it
+    // (initial load, filter change, sort change, pagination, etc.)
+    document.addEventListener('DOMContentLoaded', function () {
+      const grid = document.getElementById('browse-grid');
+      if (!grid) return;
+      const obs = new MutationObserver(() => applyTierRibbonsAndFilter());
+      obs.observe(grid, { childList: true });
+      applyTierRibbonsAndFilter();
+    });
+  </script>
+
+<script src="js/mobile-nav.js"></script>
+</body>
+
+</html>

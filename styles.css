@@ -247,6 +247,7 @@ nav {
   text-decoration: none;
   font-family: var(--sans);
   transition: all 0.2s;
+   white-space: nowrap;
 }
 
 .btn-sm:hover {
@@ -1133,7 +1134,7 @@ footer ul a:hover {
 /* ─── MEMBERSHIP PAGE ────────────────────────────── */
 .chapters-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin-top: 60px;
 }

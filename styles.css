@@ -3652,6 +3652,36 @@ footer ul a:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
+   
+   .chapter-info {
+    padding: 14px 10px;
+  }
+
+  .chapter-info h3 {
+    font-size: 13px;
+  }
+
+  .chapter-info .city {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+
+  .chapter-meta {
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+
+  .chapter-meta span {
+    font-size: 11px;
+  }
+
+  .cs-badge {
+    top: 8px;
+    right: 8px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    padding: 3px 6px;
+  }
 
   .steps-list {
     grid-template-columns: 1fr;

@@ -247,7 +247,7 @@ nav {
   text-decoration: none;
   font-family: var(--sans);
   transition: all 0.2s;
-   white-space: nowrap;
+  white-space: nowrap;
 }
 
 .btn-sm:hover {
@@ -3424,12 +3424,15 @@ footer ul a:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px 0;
   }
+
   .stat-item {
     border-right: none;
   }
+
   .stat-item:nth-child(odd) {
     border-right: 1px solid rgba(252, 251, 251, 0.08);
   }
+
   .stat-item:last-child {
     grid-column: 1 / -1;
     border-right: none;
@@ -3632,7 +3635,9 @@ footer ul a:hover {
     grid-template-columns: 1fr;
     gap: 40px 0;
   }
-  .stat-item, .stat-item:nth-child(odd) {
+
+  .stat-item,
+  .stat-item:nth-child(odd) {
     border-right: none;
   }
 
@@ -3650,11 +3655,11 @@ footer ul a:hover {
 
   .chapters-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 10px;
   }
-   
-   .chapter-info {
-    padding: 14px 10px;
+
+  .chapter-info {
+    padding: 12px 10px;
   }
 
   .chapter-info h3 {
@@ -3662,25 +3667,43 @@ footer ul a:hover {
   }
 
   .chapter-info .city {
-    font-size: 10px;
-    margin-bottom: 10px;
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
   }
 
   .chapter-meta {
     gap: 4px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   .chapter-meta span {
-    font-size: 11px;
+    font-size: 10.5px;
+    line-height: 1.3;
+    word-break: keep-all;
+    overflow-wrap: normal;
   }
 
   .cs-badge {
-    top: 8px;
-    right: 8px;
-    font-size: 8px;
+    top: 6px;
+    right: 6px;
+    font-size: 7.5px;
     letter-spacing: 1px;
-    padding: 3px 6px;
+    padding: 2px 5px;
+  }
+
+  .chapter-info .btn-sm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 8px 4px;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    text-align: center;
   }
 
   .steps-list {
@@ -3816,7 +3839,7 @@ footer ul a:hover {
   user-select: none;
 }
 
-.ref-option-j input[type="radio"]:checked + span {
+.ref-option-j input[type="radio"]:checked+span {
   background: var(--gold);
   border-color: var(--gold);
   color: #1a1208;
@@ -3836,6 +3859,7 @@ footer ul a:hover {
   .ref-toggle-j {
     flex-direction: column;
   }
+
   .ref-option-j span {
     width: 100%;
     justify-content: center;
@@ -3936,6 +3960,7 @@ footer ul a:hover {
     flex-wrap: wrap;
     gap: 10px;
   }
+
   .plan-price-j {
     font-size: 18px;
   }

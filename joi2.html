@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join MIB – Muslim in Business</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+      <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="benefits.html">Benefits</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="coming-soon.html">WE</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="join.html" target="_blank" class="nav-cta">Join Now</a>
+    <button class="hamburger" onclick="toggleMenu()" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="benefits.html">Benefits</a>
+    <a href="membership.html">Membership</a>
+    <a href="coming-soon.html">WE</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html">Join Now →</a>
+  </div>
+
+  <div class="join-wrap">
+
+    <!-- SIDEBAR -->
+    <aside class="join-sidebar">
+      <div class="sidebar-tag-j">Membership</div>
+      <h1>Join the <em>Network.</em></h1>
+      <p class="sidebar-desc-j">Become part of a growing community of Muslim entrepreneurs building ethical businesses
+        together.</p>
+
+      <div class="progress-steps-j">
+        <div class="prog-step-j active" id="prog-1">
+          <div class="prog-num-j"><span>1</span></div>
+          <div class="prog-info-j">
+            <div class="prog-title-j">Personal Info</div>
+            <div class="prog-sub-j">Your details</div>
+          </div>
+        </div>
+        <div class="prog-step-j" id="prog-2">
+          <div class="prog-num-j"><span>2</span></div>
+          <div class="prog-info-j">
+            <div class="prog-title-j">Business Info</div>
+            <div class="prog-sub-j">Your company</div>
+          </div>
+        </div>
+        <div class="prog-step-j" id="prog-3">
+          <div class="prog-num-j"><span>3</span></div>
+          <div class="prog-info-j">
+            <div class="prog-title-j">Terms</div>
+            <div class="prog-sub-j">Review & agree</div>
+          </div>
+        </div>
+        <div class="prog-step-j" id="prog-4">
+          <div class="prog-num-j"><span>4</span></div>
+          <div class="prog-info-j">
+            <div class="prog-title-j">Payment</div>
+            <div class="prog-sub-j">Complete fee</div>
+          </div>
+        </div>
+        <div class="prog-step-j" id="prog-5">
+          <div class="prog-num-j"><span>5</span></div>
+          <div class="prog-info-j">
+            <div class="prog-title-j">Done</div>
+            <div class="prog-sub-j">Welcome!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-trust-j">
+        <div class="trust-items-j">
+          <div class="trust-item-j">Ethical business community</div>
+          <div class="trust-item-j">100+ members across India</div>
+          <div class="trust-item-j">Shariah-compliant principles</div>
+          <div class="trust-item-j">Weekly meetings & referrals</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- FORM AREA -->
+    <main class="join-form-area">
+
+      <!-- STEP 1: Personal Info -->
+      <div class="step-panel-j active" id="step-1">
+        <div class="step-hdr">
+          <h2>Personal <em>Information</em></h2>
+          <p>Tell us about yourself — all fields marked * are required.</p>
+        </div>
+        <!-- Reference Given By -->
+        <div class="ref-block-j">
+          <div class="ref-label-j">Reference Given By <span class="req">*</span></div>
+          <div class="ref-toggle-j">
+            <label class="ref-option-j">
+              <input type="radio" name="ref-type" id="ref-person" value="person" checked onchange="toggleRef()">
+              <span>By Person</span>
+            </label>
+            <label class="ref-option-j">
+              <input type="radio" name="ref-type" id="ref-social-radio" value="social" onchange="toggleRef()">
+              <span>By Social Media</span>
+            </label>
+          </div>
+          <div id="ref-person-fields" class="ref-fields-j">
+            <div class="form-grid-j" style="margin:0;">
+              <div class="form-group-j">
+                <label>Referrer's Name <span class="req">*</span></label>
+                <input type="text" id="ref-name" placeholder="Full name of the person">
+              </div>
+              <div class="form-group-j">
+                <label>Referrer's Number <span class="req">*</span></label>
+                <input type="tel" id="ref-number" placeholder="10-digit mobile number" maxlength="10">
+              </div>
+            </div>
+          </div>
+          <div id="ref-social-fields" class="ref-fields-j" style="display:none;">
+            <div class="form-group-j" style="max-width:100%;">
+              <label>Platform <span class="req">*</span></label>
+              <select id="ref-platform">
+                <option value="">Select Platform</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Facebook">Facebook</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="YouTube">YouTube</option>
+                <option value="Website">Website</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid-j">
+          <div class="form-group-j">
+            <label>Full Name <span class="req">*</span></label>
+            <input type="text" id="full-name" placeholder="Your full name">
+          </div>
+          <div class="form-group-j">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" id="gmail-id" placeholder="example@gmail.com">
+          </div>
+          <div class="form-group-j">
+            <label>Date of Birth <span class="req">*</span></label>
+            <input type="date" id="dob">
+          </div>
+          <div class="form-group-j">
+            <label>Gender <span class="req">*</span></label>
+            <select id="gender">
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group-j">
+            <label>Mobile Number <span class="req">*</span></label>
+            <input type="tel" id="mobile" placeholder="10-digit number" maxlength="10">
+          </div>
+          <div class="form-group-j">
+            <label>WhatsApp Number <span class="req">*</span></label>
+            <input type="tel" id="whatsapp" placeholder="10-digit number" maxlength="10">
+          </div>
+          <div class="form-group-j full">
+            <label>Residential Address <span class="req">*</span></label>
+            <textarea id="address" placeholder="Your full address"></textarea>
+          </div>
+          <div class="form-group-j">
+            <label>Country <span class="req">*</span></label>
+            <input type="text" id="country" placeholder="e.g. India, UAE, USA">
+          </div>
+          <div class="form-group-j">
+            <label>City <span class="req">*</span></label>
+            <input type="text" id="city" placeholder="e.g. Surat, Dubai, London">
+          </div>
+          <div class="form-group-j full">
+            <label>Your Photo <span class="req">*</span></label>
+            <div class="file-drop-j">
+              <input type="file" accept="image/*" id="photo-upload" onchange="onFileSelect(this,'photo-name')">
+              <div class="file-drop-icon-j">↑</div>
+              <div class="file-drop-label-j">Click to upload or drag & drop</div>
+              <div class="file-drop-hint-j">PNG, JPG, GIF — max 5MB</div>
+              <div class="file-name-j" id="photo-name"></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-nav-j">
+          <span></span>
+          <button class="btn-next-j" onclick="goToStep(2)">Business Info →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Business Info -->
+      <div class="step-panel-j" id="step-2">
+        <div class="step-hdr">
+          <h2>Business <em>Information</em></h2>
+          <p>Tell us about your company or venture.</p>
+        </div>
+        <div class="form-grid-j">
+          <div class="form-group-j">
+            <label>Business Name <span class="req">*</span></label>
+            <input type="text" id="biz-name" placeholder="Your company name">
+          </div>
+          <div class="form-group-j">
+            <label>Type of Business <span class="req">*</span></label>
+            <select id="biz-type">
+              <option value="">Select Type</option>
+              <option>Sole Proprietorship</option>
+              <option>Partnership</option>
+              <option>LLP</option>
+              <option>Private Limited</option>
+              <option>Public Limited</option>
+              <option>One Person Company (OPC)</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group-j">
+            <label>Industry <span class="req">*</span></label>
+            <select id="industry-type">
+              <option value="">Select Industry</option>
+              <option>Information Technology</option>
+              <option>Manufacturing</option>
+              <option>Retail</option>
+              <option>Healthcare</option>
+              <option>Education</option>
+              <option>Real Estate</option>
+              <option>Finance / Banking</option>
+              <option>Food & Beverage</option>
+              <option>Marketing & Advertising</option>
+              <option>Construction</option>
+              <option>Logistics / Transportation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group-j">
+            <label>Business Phone <span class="req">*</span></label>
+            <input type="tel" id="biz-phone" placeholder="Office number">
+          </div>
+          <div class="form-group-j full">
+            <label>Business Address <span class="req">*</span></label>
+            <textarea id="biz-address" placeholder="Office / business address"></textarea>
+          </div>
+          <div class="form-group-j">
+            <label>Business Email / Website <span class="req">*</span></label>
+            <input type="text" id="biz-email-web" placeholder="email@company.com or www.company.com">
+          </div>
+          <div class="form-group-j">
+            <label>Number of Employees <span class="req">*</span></label>
+            <input type="text" id="employees" placeholder="e.g. 10">
+          </div>
+          <div class="form-group-j">
+            <label>Years in Business <span class="req">*</span></label>
+            <input type="text" id="years-biz" placeholder="e.g. 5">
+          </div>
+          <div class="form-group-j full">
+            <label>Business Description <span class="req">*</span></label>
+            <textarea id="biz-desc" placeholder="Briefly describe what your business does..."></textarea>
+          </div>
+          <div class="form-group-j full">
+            <label>Business Logo <span class="req">*</span></label>
+            <div class="file-drop-j">
+              <input type="file" accept="image/*" id="logo-upload" onchange="onFileSelect(this,'logo-name')">
+              <div class="file-drop-icon-j">↑</div>
+              <div class="file-drop-label-j">Upload your business logo</div>
+              <div class="file-drop-hint-j">PNG, JPG, SVG — max 5MB</div>
+              <div class="file-name-j" id="logo-name"></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-nav-j">
+          <button class="btn-back-j" onclick="goToStep(1)">← Back</button>
+          <button class="btn-next-j" onclick="goToStep(3)">Review Terms →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Terms -->
+      <div class="step-panel-j" id="step-3">
+        <div class="step-hdr">
+          <h2>Terms &amp; <em>Conditions</em></h2>
+          <p>Please read and agree to our membership terms before proceeding.</p>
+        </div>
+        <div class="terms-box-j">
+          <p><strong>1. Membership Agreement</strong><br>By joining MIB (Muslim in Business), you agree to uphold the
+            ethical values and principles of the community. Membership is subject to approval by chapter leadership.</p>
+          <p><strong>2. Code of Conduct</strong><br>All members are expected to conduct business with honesty,
+            integrity, and transparency in accordance with Islamic business ethics. Any conduct found to be dishonest or
+            harmful to the community may result in membership termination.</p>
+          <p><strong>3. Privacy Policy</strong><br>MIB respects your privacy. Your personal information will only be
+            used for membership purposes and will not be sold or shared with third parties without consent, except as
+            required by law.</p>
+          <p><strong>4. Fees and Payments</strong><br>The annual membership fee is ₹5,000 for India membership and $100 for International membership. This fee is non-refundable
+            once membership has been activated. Fees are subject to annual review and members will be notified 30 days
+            in advance of any changes.</p>
+          <p><strong>5. Referral Ethics</strong><br>Members who provide referrals are responsible for ensuring the
+            quality and integrity of those referrals. False or misleading referrals may result in membership suspension.
+          </p>
+          <p><strong>6. Meeting Attendance</strong><br>Members are encouraged to attend weekly chapter meetings
+            regularly. Consistent absence without notice may affect membership standing.</p>
+          <p><strong>7. Termination</strong><br>MIB reserves the right to terminate membership for violations of the
+            Code of Conduct, non-payment, or other reasons at the discretion of chapter leadership, with or without
+            refund.</p>
+        </div>
+        <div class="check-row-j">
+          <input type="checkbox" id="terms-check">
+          <label for="terms-check">I have read and agree to the <a href="#">Terms & Conditions</a> and <a
+              href="privacy.html">Privacy Policy</a> of Muslims in Business (MIB).</label>
+        </div>
+        <div class="form-nav-j">
+          <button class="btn-back-j" onclick="goToStep(2)">← Back</button>
+          <button class="btn-next-j" onclick="goToStep(4)">Proceed to Payment →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Razorpay Payment -->
+      <div class="step-panel-j" id="step-4">
+        <div class="step-hdr">
+          <h2>Complete <em>Payment</em></h2>
+          <p>Securely pay your annual MIB membership fee through Razorpay.</p>
+        </div>
+
+        <!-- Membership Plan Selector -->
+        <div class="plan-label-j">Select Your Membership Plan <span class="req">*</span></div>
+        <div class="plan-cards-j">
+          <div class="plan-card-j selected" id="plan-india" onclick="selectPlan('india')">
+            <div class="plan-check-j" id="pcheck-india">✓</div>
+            <div class="plan-info-j">
+              <div class="plan-name-j">India Membership</div>
+              <div class="plan-sub-j">Annual fee · India chapters</div>
+            </div>
+            <div class="plan-price-j">₹5,000</div>
+          </div>
+          <div class="plan-card-j" id="plan-intl" onclick="selectPlan('intl')">
+            <div class="plan-check-j" id="pcheck-intl" style="opacity:0;">✓</div>
+            <div class="plan-info-j">
+              <div class="plan-name-j">International Membership</div>
+              <div class="plan-sub-j">Annual fee · Global chapters</div>
+            </div>
+            <div class="plan-price-j">$100</div>
+          </div>
+        </div>
+
+        <div id="payment-summary-j" style="margin:24px 0;padding:20px;border:1px solid rgba(0,0,0,.10);border-radius:14px;background:#faf9f5;">
+          <div style="font-size:12px;text-transform:uppercase;letter-spacing:.12em;opacity:.65;margin-bottom:8px;">Amount to Pay</div>
+          <div id="payment-amount-j" style="font-size:32px;font-weight:700;">₹5,000</div>
+          <div id="payment-plan-text-j" style="margin-top:5px;opacity:.7;">India Membership · Annual membership</div>
+        </div>
+
+        <div id="payment-status-j" style="display:none;margin:18px 0;padding:14px 16px;border-radius:10px;font-size:14px;"></div>
+
+        <div style="margin:24px 0;padding:24px;border:1px solid rgba(0,0,0,.10);border-radius:14px;text-align:center;">
+          <div style="font-size:30px;margin-bottom:10px;">🔒</div>
+          <h3 style="margin:0 0 8px;">Secure Razorpay Checkout</h3>
+          <p style="margin:0 auto 20px;max-width:520px;opacity:.7;line-height:1.6;">
+            Click the button below to open Razorpay's secure payment window. Your registration will only be saved after the payment is successfully verified.
+          </p>
+          <button class="btn-next-j gold" type="button" id="rzp-pay-button" onclick="startRazorpayPayment()">Pay ₹5,000 Securely →</button>
+          <div style="margin-top:12px;font-size:12px;opacity:.6;">Secure payment powered by Razorpay</div>
+        </div>
+
+        <div class="form-nav-j">
+          <button class="btn-back-j" type="button" onclick="goToStep(3)">← Back</button>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- STEP 5: Success -->
+      <div class="step-panel-j" id="step-5">
+        <div class="success-wrap-j">
+          <div class="success-icon-j">✦</div>
+          <h2>Welcome to <em>MIB!</em></h2>
+          <p>Your registration has been submitted successfully. Our team will verify your payment and activate your
+            membership within 2-3 business days. Check your email for confirmation.</p>
+          <div class="success-btns-j">
+            <a href="index.html" class="btn-home-j">Go to Homepage</a>
+            <a href="membership.html" class="btn-outline-j">View Membership</a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    /*
+     * MIB MEMBERSHIP CHECKOUT
+     * Flow:
+     * Personal Info -> Business Info -> Terms -> Razorpay Payment
+     * -> Server-side Payment Verification -> Registration Saved -> Done
+     *
+     * IMPORTANT:
+     * - RAZORPAY_KEY_ID below is the PUBLIC Key ID only.
+     * - NEVER put the Razorpay Key Secret in this file.
+     * - SCRIPT_URL must point to your deployed Google Apps Script web app.
+     */
+
+    const SCRIPT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+    const RAZORPAY_KEY_ID = 'PASTE_YOUR_RAZORPAY_KEY_ID_HERE';
+
+    let currentStep = 1;
+
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    }
+
+    function onFileSelect(input, labelId) {
+      if (input.files && input.files[0]) {
+        const f = input.files[0];
+        if (f.size > 5 * 1024 * 1024) {
+          alert('File must be under 5MB.');
+          input.value = '';
+          return;
+        }
+        document.getElementById(labelId).textContent = f.name;
+      }
+    }
+
+    function setStep(n) {
+      document.querySelectorAll('.step-panel-j').forEach(p => p.classList.remove('active'));
+      document.getElementById('step-' + n).classList.add('active');
+
+      for (let i = 1; i <= 5; i++) {
+        const p = document.getElementById('prog-' + i);
+        if (!p) continue;
+        p.classList.remove('active', 'done');
+        if (i < n) p.classList.add('done');
+        if (i === n) p.classList.add('active');
+      }
+
+      currentStep = n;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function val(id) {
+      return document.getElementById(id)?.value?.trim() || '';
+    }
+
+    function checkFields(ids) {
+      let ok = true;
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (!el.value.trim()) {
+          el.classList.add('error');
+          ok = false;
+        } else {
+          el.classList.remove('error');
+        }
+      });
+      return ok;
+    }
+
+    function goToStep(n) {
+      if (n === 2) {
+        const refType = document.querySelector('input[name="ref-type"]:checked').value;
+
+        if (refType === 'person') {
+          if (!val('ref-name')) {
+            alert('Please enter the referrer\'s name.');
+            return;
+          }
+          if (val('ref-number').length !== 10) {
+            alert('Please enter a valid 10-digit referrer number.');
+            return;
+          }
+        } else {
+          if (!val('ref-platform')) {
+            alert('Please select a social media platform.');
+            return;
+          }
+        }
+
+        if (!checkFields(['full-name', 'gmail-id', 'dob', 'gender', 'mobile', 'whatsapp', 'address', 'country', 'city'])) {
+          alert('Please fill all required personal information fields.');
+          return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('gmail-id'))) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+
+        if (val('mobile').length !== 10) {
+          alert('Please enter a valid 10-digit mobile number.');
+          return;
+        }
+
+        if (val('whatsapp').length !== 10) {
+          alert('Please enter a valid 10-digit WhatsApp number.');
+          return;
+        }
+
+        if (!document.getElementById('photo-upload').files.length) {
+          alert('Please upload your photo.');
+          return;
+        }
+      }
+
+      if (n === 3) {
+        if (!checkFields(['biz-name', 'biz-type', 'industry-type', 'biz-phone', 'biz-address', 'biz-email-web', 'employees', 'years-biz', 'biz-desc'])) {
+          alert('Please fill all required business information fields.');
+          return;
+        }
+
+        if (!document.getElementById('logo-upload').files.length) {
+          alert('Please upload your business logo.');
+          return;
+        }
+      }
+
+      if (n === 4) {
+        if (!document.getElementById('terms-check').checked) {
+          alert('Please agree to the Terms & Conditions to continue.');
+          return;
+        }
+        updatePaymentUI();
+      }
+
+      setStep(n);
+    }
+
+    function toggleRef() {
+      const isPerson = document.getElementById('ref-person').checked;
+      document.getElementById('ref-person-fields').style.display = isPerson ? 'block' : 'none';
+      document.getElementById('ref-social-fields').style.display = isPerson ? 'none' : 'block';
+    }
+
+    function selectPlan(plan) {
+      const isIndia = plan === 'india';
+
+      document.getElementById('plan-india').classList.toggle('selected', isIndia);
+      document.getElementById('plan-intl').classList.toggle('selected', !isIndia);
+      document.getElementById('pcheck-india').style.opacity = isIndia ? '1' : '0';
+      document.getElementById('pcheck-intl').style.opacity = isIndia ? '0' : '1';
+
+      updatePaymentUI();
+    }
+
+    function getSelectedPlan() {
+      return document.getElementById('plan-india').classList.contains('selected')
+        ? 'india'
+        : 'intl';
+    }
+
+    function updatePaymentUI() {
+      const india = getSelectedPlan() === 'india';
+      document.getElementById('payment-amount-j').textContent = india ? '₹5,000' : '$100';
+      document.getElementById('payment-plan-text-j').textContent = india
+        ? 'India Membership · Annual membership'
+        : 'International Membership · Annual membership';
+      document.getElementById('rzp-pay-button').textContent = india
+        ? 'Pay ₹5,000 Securely →'
+        : 'Pay $100 Securely →';
+    }
+
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function postToBackend(payload) {
+      const response = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        throw new Error('Server returned HTTP ' + response.status);
+      }
+
+      const text = await response.text();
+      let result;
+
+      try {
+        result = JSON.parse(text);
+      } catch (e) {
+        throw new Error('Invalid response from the payment server. Make sure the Apps Script Web App is deployed correctly.');
+      }
+
+      if (!result.success) {
+        throw new Error(result.message || 'Server request failed.');
+      }
+
+      return result;
+    }
+
+    async function startRazorpayPayment() {
+      if (!SCRIPT_URL || SCRIPT_URL.includes('PASTE_YOUR')) {
+        alert('Please configure your Google Apps Script Web App URL first.');
+        return;
+      }
+
+      if (!RAZORPAY_KEY_ID || RAZORPAY_KEY_ID.includes('PASTE_YOUR')) {
+        alert('Please configure your Razorpay Key ID first.');
+        return;
+      }
+
+      if (typeof Razorpay === 'undefined') {
+        alert('Razorpay Checkout could not be loaded. Please refresh the page and try again.');
+        return;
+      }
+
+      const button = document.getElementById('rzp-pay-button');
+      const status = document.getElementById('payment-status-j');
+      const plan = getSelectedPlan();
+
+      button.disabled = true;
+      button.textContent = 'Creating secure payment…';
+      status.style.display = 'none';
+
+      try {
+        const order = await postToBackend({
+          action: 'createRazorpayOrder',
+          membershipPlan: plan,
+          customerName: val('full-name'),
+          customerEmail: val('gmail-id'),
+          customerPhone: val('mobile')
+        });
+
+        const displayAmount = plan === 'india' ? '₹5,000' : '$100';
+
+        const options = {
+          key: RAZORPAY_KEY_ID,
+          amount: order.amount,
+          currency: order.currency,
+          name: 'Muslim In Business',
+          description: plan === 'india' ? 'India Annual Membership' : 'International Annual Membership',
+          order_id: order.orderId,
+          prefill: {
+            name: val('full-name'),
+            email: val('gmail-id'),
+            contact: '+91' + val('mobile')
+          },
+          notes: {
+            membership_plan: plan === 'india' ? 'India Membership' : 'International Membership'
+          },
+          theme: { color: '#C9A227' },
+          retry: { enabled: true, max_count: 2 },
+          modal: {
+            confirm_close: true,
+            escape: true,
+            backdropclose: false
+          },
+          handler: async function (paymentResponse) {
+            await verifyPaymentAndSave(paymentResponse, order.orderId, plan);
+          }
+        };
+
+        const rzp = new Razorpay(options);
+
+        rzp.on('payment.failed', function (response) {
+          console.error('Razorpay payment failed:', response.error);
+          status.style.display = 'block';
+          status.style.background = '#fff1f1';
+          status.style.color = '#a33';
+          status.textContent = 'Payment failed or was cancelled. Please try again.';
+          button.disabled = false;
+          button.textContent = 'Pay ' + displayAmount + ' Securely →';
+        });
+
+        rzp.open();
+
+        button.disabled = false;
+        button.textContent = 'Payment Window Opened';
+
+      } catch (error) {
+        console.error(error);
+        alert(error.message || 'Unable to start payment. Please try again.');
+        button.disabled = false;
+        button.textContent = plan === 'india' ? 'Pay ₹5,000 Securely →' : 'Pay $100 Securely →';
+      }
+    }
+
+    async function verifyPaymentAndSave(paymentResponse, orderId, plan) {
+      const button = document.getElementById('rzp-pay-button');
+      const status = document.getElementById('payment-status-j');
+
+      button.disabled = true;
+      button.textContent = 'Verifying payment…';
+      status.style.display = 'block';
+      status.style.background = '#fff9e6';
+      status.style.color = '#7a5b00';
+      status.textContent = 'Payment received. Verifying your payment securely…';
+
+      try {
+        const photoFile = document.getElementById('photo-upload').files[0];
+        const logoFile = document.getElementById('logo-upload').files[0];
+
+        const photoData = photoFile ? await fileToBase64(photoFile) : '';
+        const logoData = logoFile ? await fileToBase64(logoFile) : '';
+        const refType = document.querySelector('input[name="ref-type"]:checked').value;
+
+        status.textContent = 'Payment verified. Saving your registration…';
+
+        const result = await postToBackend({
+          action: 'verifyPaymentAndSave',
+
+          razorpayPaymentId: paymentResponse.razorpay_payment_id,
+          razorpayOrderId: paymentResponse.razorpay_order_id,
+          razorpaySignature: paymentResponse.razorpay_signature,
+
+          // Registration data
+          referenceType: refType === 'person' ? 'By Person' : 'By Social Media',
+          referenceName: refType === 'person' ? val('ref-name') : '',
+          referenceNumber: refType === 'person' ? val('ref-number') : '',
+          referencePlatform: refType === 'social' ? val('ref-platform') : '',
+          fullName: val('full-name'),
+          email: val('gmail-id'),
+          dob: val('dob'),
+          gender: val('gender'),
+          mobile: val('mobile'),
+          whatsapp: val('whatsapp'),
+          address: val('address'),
+          country: val('country'),
+          city: val('city'),
+          photoData: photoData,
+          photoName: photoFile?.name || '',
+          businessName: val('biz-name'),
+          businessType: val('biz-type'),
+          industryType: val('industry-type'),
+          businessPhone: val('biz-phone'),
+          businessAddress: val('biz-address'),
+          businessEmailWeb: val('biz-email-web'),
+          employees: val('employees'),
+          yearsInBusiness: val('years-biz'),
+          businessDescription: val('biz-desc'),
+          logoData: logoData,
+          logoName: logoFile?.name || '',
+          membershipPlan: plan
+        });
+
+        if (!result.registrationSaved) {
+          throw new Error('Payment was verified, but the registration could not be saved. Please contact MIB support with Payment ID: ' + paymentResponse.razorpay_payment_id);
+        }
+
+        status.style.background = '#edf9f0';
+        status.style.color = '#216b35';
+        status.textContent = 'Payment verified and registration saved successfully.';
+
+        setTimeout(() => setStep(5), 700);
+
+      } catch (error) {
+        console.error(error);
+        status.style.background = '#fff1f1';
+        status.style.color = '#a33';
+        status.textContent = error.message || 'Payment verification failed. Please contact MIB support.';
+        button.disabled = false;
+        button.textContent = getSelectedPlan() === 'india' ? 'Try Payment Again' : 'Try Payment Again';
+      }
+    }
+
+    ['mobile', 'whatsapp', 'biz-phone', 'employees', 'years-biz', 'ref-number'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', () => {
+          el.value = el.value.replace(/[^0-9]/g, '');
+        });
+      }
+    });
+
+    ['full-name', 'ref-name'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', () => {
+          el.value = el.value.replace(/[^a-zA-Z\s]/g, '');
+        });
+      }
+    });
+
+    updatePaymentUI();
+  </script>
+</body>
+
+</html>

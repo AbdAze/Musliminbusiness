@@ -417,7 +417,7 @@
      */
 
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXI5P_J76kCG5dz2t34xJbD4I-Y8Vy-zxLWyF-px6XVQpwV9kLuvCnX7cdCAdGqh45mQ...';
-    const RAZORPAY_KEY_ID = 'rzp_test_TNbAF4a4kJ0Giu';
+    const RAZORPAY_KEY_ID = 'rzp_live_TNgUciqlYWwZKI';
 
     let currentStep = 1;
 
@@ -612,12 +612,12 @@
     }
 
     async function startRazorpayPayment() {
-      if (!SCRIPT_URL || SCRIPT_URL.includes('PASTE_YOUR')) {
+      if (!SCRIPT_URL || SCRIPT_URL.includes('https://script.google.com/macros/s/AKfycbzXI5P_J76kCG5dz2t34xJbD4I-Y8Vy-zxLWyF-px6XVQpwV9kLuvCnX7cdCAdGqh45mQ...')) {
         alert('Please configure your Google Apps Script Web App URL first.');
         return;
       }
 
-      if (!RAZORPAY_KEY_ID || RAZORPAY_KEY_ID.includes('PASTE_YOUR')) {
+      if (!RAZORPAY_KEY_ID || RAZORPAY_KEY_ID.includes('rzp_live_TNgUciqlYWwZKI')) {
         alert('Please configure your Razorpay Key ID first.');
         return;
       }

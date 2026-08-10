@@ -362,7 +362,7 @@
           </div>
         </div>
 
-        <div id="payment-summary-j" style="margin:24px 0;padding:20px;border:1px solid rgba(0,0,0,.10);border-radius:14px;">
+        <div id="payment-summary-j" style="margin:24px 0;padding:20px;border:1px solid rgba(0,0,0,.10);border-radius:14px;background:#faf9f5;">
           <div style="font-size:12px;text-transform:uppercase;letter-spacing:.12em;opacity:.65;margin-bottom:8px;">Amount to Pay</div>
           <div id="payment-amount-j" style="font-size:32px;font-weight:700;">₹5,000</div>
           <div id="payment-plan-text-j" style="margin-top:5px;opacity:.7;">India Membership · Annual membership</div>
@@ -375,7 +375,7 @@
           <h3 style="margin:0 0 8px;">Secure Razorpay Checkout</h3>
           <p style="margin:0 auto 20px;max-width:520px;opacity:.7;line-height:1.6;">
             Click the button below to open Razorpay's secure payment window. Your registration will only be saved after the payment is successfully verified.
-          </p>
+          </p> 
           <button id="rzp-button1">Pay ₹5,000 Securely →</button>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
@@ -385,7 +385,7 @@ var options = {
     "currency": "<currency>",
     "name": "MIB INDIA PVT LTD", //your business name
     "description": "Test Transaction",
-    "image": "https://example.com/your_logo",
+    "image": "logo.png",
     "order_id": "order_9A33XWu170gUtm", // This is a sample Order ID. Pass the `id` obtained in the response of Step 1
     "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
     "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
@@ -394,7 +394,7 @@ var options = {
         "contact": "<phone>" //Provide the customer's phone number for better conversion rates 
     },
     "notes": {
-        "address": "Razorpay Corporate Office"
+        "address": "Surat, India"
     },
     "theme": {
         "color": "#3399cc"
@@ -430,6 +430,399 @@ document.getElementById('rzp-button1').onclick = function(e){
     </main>
   </div>
 
+  <script>
+    /*
+     * MIB MEMBERSHIP CHECKOUT
+     * Flow:
+     * Personal Info -> Business Info -> Terms -> Razorpay Payment
+     * -> Server-side Payment Verification -> Registration Saved -> Done
+     *
+     * IMPORTANT:
+     * - RAZORPAY_KEY_ID below is the PUBLIC Key ID only.
+     * - NEVER put the Razorpay Key Secret in this file.
+     * - SCRIPT_URL must point to your deployed Google Apps Script web app.
+     */
+
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXI5P_J76kCG5dz2t34xJbD4I-Y8Vy-zxlWyF-px6XVQpwV9kLuvCnX7cdCAdGqh45mQ/exec';
+    const RAZORPAY_KEY_ID = 'rzp_live_TNgUciqlYWwZKI';
+
+    let currentStep = 1;
+
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    }
+
+    function onFileSelect(input, labelId) {
+      if (input.files && input.files[0]) {
+        const f = input.files[0];
+        if (f.size > 5 * 1024 * 1024) {
+          alert('File must be under 5MB.');
+          input.value = '';
+          return;
+        }
+        document.getElementById(labelId).textContent = f.name;
+      }
+    }
+
+    function setStep(n) {
+      document.querySelectorAll('.step-panel-j').forEach(p => p.classList.remove('active'));
+      document.getElementById('step-' + n).classList.add('active');
+
+      for (let i = 1; i <= 5; i++) {
+        const p = document.getElementById('prog-' + i);
+        if (!p) continue;
+        p.classList.remove('active', 'done');
+        if (i < n) p.classList.add('done');
+        if (i === n) p.classList.add('active');
+      }
+
+      currentStep = n;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function val(id) {
+      return document.getElementById(id)?.value?.trim() || '';
+    }
+
+    function checkFields(ids) {
+      let ok = true;
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (!el.value.trim()) {
+          el.classList.add('error');
+          ok = false;
+        } else {
+          el.classList.remove('error');
+        }
+      });
+      return ok;
+    }
+
+    function goToStep(n) {
+      if (n === 2) {
+        const refType = document.querySelector('input[name="ref-type"]:checked').value;
+
+        if (refType === 'person') {
+          if (!val('ref-name')) {
+            alert('Please enter the referrer\'s name.');
+            return;
+          }
+          if (val('ref-number').length !== 10) {
+            alert('Please enter a valid 10-digit referrer number.');
+            return;
+          }
+        } else {
+          if (!val('ref-platform')) {
+            alert('Please select a social media platform.');
+            return;
+          }
+        }
+
+        if (!checkFields(['full-name', 'gmail-id', 'dob', 'gender', 'mobile', 'whatsapp', 'address', 'country', 'city'])) {
+          alert('Please fill all required personal information fields.');
+          return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('gmail-id'))) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+
+        if (val('mobile').length !== 10) {
+          alert('Please enter a valid 10-digit mobile number.');
+          return;
+        }
+
+        if (val('whatsapp').length !== 10) {
+          alert('Please enter a valid 10-digit WhatsApp number.');
+          return;
+        }
+
+        if (!document.getElementById('photo-upload').files.length) {
+          alert('Please upload your photo.');
+          return;
+        }
+      }
+
+      if (n === 3) {
+        if (!checkFields(['biz-name', 'biz-type', 'industry-type', 'biz-phone', 'biz-address', 'biz-email-web', 'employees', 'years-biz', 'biz-desc'])) {
+          alert('Please fill all required business information fields.');
+          return;
+        }
+
+        if (!document.getElementById('logo-upload').files.length) {
+          alert('Please upload your business logo.');
+          return;
+        }
+      }
+
+      if (n === 4) {
+        if (!document.getElementById('terms-check').checked) {
+          alert('Please agree to the Terms & Conditions to continue.');
+          return;
+        }
+        updatePaymentUI();
+      }
+
+      setStep(n);
+    }
+
+    function toggleRef() {
+      const isPerson = document.getElementById('ref-person').checked;
+      document.getElementById('ref-person-fields').style.display = isPerson ? 'block' : 'none';
+      document.getElementById('ref-social-fields').style.display = isPerson ? 'none' : 'block';
+    }
+
+    function selectPlan(plan) {
+      const isIndia = plan === 'india';
+
+      document.getElementById('plan-india').classList.toggle('selected', isIndia);
+      document.getElementById('plan-intl').classList.toggle('selected', !isIndia);
+      document.getElementById('pcheck-india').style.opacity = isIndia ? '1' : '0';
+      document.getElementById('pcheck-intl').style.opacity = isIndia ? '0' : '1';
+
+      updatePaymentUI();
+    }
+
+    function getSelectedPlan() {
+      return document.getElementById('plan-india').classList.contains('selected')
+        ? 'india'
+        : 'intl';
+    }
+
+    function updatePaymentUI() {
+      const india = getSelectedPlan() === 'india';
+      document.getElementById('payment-amount-j').textContent = india ? '₹5,000' : '$100';
+      document.getElementById('payment-plan-text-j').textContent = india
+        ? 'India Membership · Annual membership'
+        : 'International Membership · Annual membership';
+      document.getElementById('rzp-pay-button').textContent = india
+        ? 'Pay ₹5,000 Securely →'
+        : 'Pay $100 Securely →';
+    }
+
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function postToBackend(payload) {
+      const response = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        throw new Error('Server returned HTTP ' + response.status);
+      }
+
+      const text = await response.text();
+      let result;
+
+      try {
+        result = JSON.parse(text);
+      } catch (e) {
+        throw new Error('Invalid response from the payment server. Make sure the Apps Script Web App is deployed correctly.');
+      }
+
+      if (!result.success) {
+        throw new Error(result.message || 'Server request failed.');
+      }
+
+      return result;
+    }
+
+    async function startRazorpayPayment() {
+      if (!SCRIPT_URL || SCRIPT_URL.includes('https://script.google.com/macros/s/AKfycbzXI5P_J76kCG5dz2t34xJbD4I-Y8Vy-zxlWyF-px6XVQpwV9kLuvCnX7cdCAdGqh45mQ/exec')) {
+        alert('Please configure your Google Apps Script Web App URL first.');
+        return;
+      }
+
+      if (!RAZORPAY_KEY_ID || RAZORPAY_KEY_ID.includes('rzp_live_TNgUciqlYWwZKI')) {
+        alert('Please configure your Razorpay Key ID first.');
+        return;
+      }
+
+      if (typeof Razorpay === 'undefined') {
+        alert('Razorpay Checkout could not be loaded. Please refresh the page and try again.');
+        return;
+      }
+
+      const button = document.getElementById('rzp-pay-button');
+      const status = document.getElementById('payment-status-j');
+      const plan = getSelectedPlan();
+
+      button.disabled = true;
+      button.textContent = 'Creating secure payment…';
+      status.style.display = 'none';
+
+      try {
+        const order = await postToBackend({
+          action: 'createRazorpayOrder',
+          membershipPlan: plan,
+          customerName: val('full-name'),
+          customerEmail: val('gmail-id'),
+          customerPhone: val('mobile')
+        });
+
+        const displayAmount = plan === 'india' ? '₹5,000' : '$100';
+
+        const options = {
+          key: RAZORPAY_KEY_ID,
+          amount: order.amount,
+          currency: order.currency,
+          name: 'Muslim In Business',
+          description: plan === 'india' ? 'India Annual Membership' : 'International Annual Membership',
+          order_id: order.orderId,
+          prefill: {
+            name: val('full-name'),
+            email: val('gmail-id'),
+            contact: '+91' + val('mobile')
+          },
+          notes: {
+            membership_plan: plan === 'india' ? 'India Membership' : 'International Membership'
+          },
+          theme: { color: '#C9A227' },
+          retry: { enabled: true, max_count: 2 },
+          modal: {
+            confirm_close: true,
+            escape: true,
+            backdropclose: false
+          },
+          handler: async function (paymentResponse) {
+            await verifyPaymentAndSave(paymentResponse, order.orderId, plan);
+          }
+        };
+
+        const rzp = new Razorpay(options);
+
+        rzp.on('payment.failed', function (response) {
+          console.error('Razorpay payment failed:', response.error);
+          status.style.display = 'block';
+          status.style.background = '#fff1f1';
+          status.style.color = '#a33';
+          status.textContent = 'Payment failed or was cancelled. Please try again.';
+          button.disabled = false;
+          button.textContent = 'Pay ' + displayAmount + ' Securely →';
+        });
+
+        rzp.open();
+
+        button.disabled = false;
+        button.textContent = 'Payment Window Opened';
+
+      } catch (error) {
+        console.error(error);
+        alert(error.message || 'Unable to start payment. Please try again.');
+        button.disabled = false;
+        button.textContent = plan === 'india' ? 'Pay ₹5,000 Securely →' : 'Pay $100 Securely →';
+      }
+    }
+
+    async function verifyPaymentAndSave(paymentResponse, orderId, plan) {
+      const button = document.getElementById('rzp-pay-button');
+      const status = document.getElementById('payment-status-j');
+
+      button.disabled = true;
+      button.textContent = 'Verifying payment…';
+      status.style.display = 'block';
+      status.style.background = '#fff9e6';
+      status.style.color = '#7a5b00';
+      status.textContent = 'Payment received. Verifying your payment securely…';
+
+      try {
+        const photoFile = document.getElementById('photo-upload').files[0];
+        const logoFile = document.getElementById('logo-upload').files[0];
+
+        const photoData = photoFile ? await fileToBase64(photoFile) : '';
+        const logoData = logoFile ? await fileToBase64(logoFile) : '';
+        const refType = document.querySelector('input[name="ref-type"]:checked').value;
+
+        status.textContent = 'Payment verified. Saving your registration…';
+
+        const result = await postToBackend({
+          action: 'verifyPaymentAndSave',
+
+          razorpayPaymentId: paymentResponse.razorpay_payment_id,
+          razorpayOrderId: paymentResponse.razorpay_order_id,
+          razorpaySignature: paymentResponse.razorpay_signature,
+
+          // Registration data
+          referenceType: refType === 'person' ? 'By Person' : 'By Social Media',
+          referenceName: refType === 'person' ? val('ref-name') : '',
+          referenceNumber: refType === 'person' ? val('ref-number') : '',
+          referencePlatform: refType === 'social' ? val('ref-platform') : '',
+          fullName: val('full-name'),
+          email: val('gmail-id'),
+          dob: val('dob'),
+          gender: val('gender'),
+          mobile: val('mobile'),
+          whatsapp: val('whatsapp'),
+          address: val('address'),
+          country: val('country'),
+          city: val('city'),
+          photoData: photoData,
+          photoName: photoFile?.name || '',
+          businessName: val('biz-name'),
+          businessType: val('biz-type'),
+          industryType: val('industry-type'),
+          businessPhone: val('biz-phone'),
+          businessAddress: val('biz-address'),
+          businessEmailWeb: val('biz-email-web'),
+          employees: val('employees'),
+          yearsInBusiness: val('years-biz'),
+          businessDescription: val('biz-desc'),
+          logoData: logoData,
+          logoName: logoFile?.name || '',
+          membershipPlan: plan
+        });
+
+        if (!result.registrationSaved) {
+          throw new Error('Payment was verified, but the registration could not be saved. Please contact MIB support with Payment ID: ' + paymentResponse.razorpay_payment_id);
+        }
+
+        status.style.background = '#edf9f0';
+        status.style.color = '#216b35';
+        status.textContent = 'Payment verified and registration saved successfully.';
+
+        setTimeout(() => setStep(5), 700);
+
+      } catch (error) {
+        console.error(error);
+        status.style.background = '#fff1f1';
+        status.style.color = '#a33';
+        status.textContent = error.message || 'Payment verification failed. Please contact MIB support.';
+        button.disabled = false;
+        button.textContent = getSelectedPlan() === 'india' ? 'Try Payment Again' : 'Try Payment Again';
+      }
+    }
+
+    ['mobile', 'whatsapp', 'biz-phone', 'employees', 'years-biz', 'ref-number'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', () => {
+          el.value = el.value.replace(/[^0-9]/g, '');
+        });
+      }
+    });
+
+    ['full-name', 'ref-name'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', () => {
+          el.value = el.value.replace(/[^a-zA-Z\s]/g, '');
+        });
+      }
+    });
+
+    updatePaymentUI();
+  </script>
 </body>
 
 </html>

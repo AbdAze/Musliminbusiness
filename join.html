@@ -329,7 +329,9 @@
         </div>
         <div class="form-nav-j">
           <button class="btn-back-j" onclick="goToStep(2)">← Back</button>
-          <button class="btn-next-j" onclick="goToStep(4)">Proceed to Payment →</button>
+          <button class="btn-next-j" onclick="goToStep(5)"><form>
+          <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TNzDSKu9j24z5N" async> </script> </form>
+          </button>
         </div>
       </div>
 
@@ -357,6 +359,14 @@
             </div>
             <div class="pay-tab-check-j" id="check-qr">✓</div>
           </div>
+          <div class="pay-tab-j" id="tab-razorpay" onclick="selectPay('razorpay')">
+            <div class="pay-tab-icon-j">💳</div>
+            <div>
+              <div class="pay-tab-title-j">Pay Online</div>
+              <div class="pay-tab-sub-j">Card / UPI / Netbanking via Razorpay</div>
+            </div>
+            <div class="pay-tab-check-j" id="check-razorpay">✓</div>
+          </div>
         </div>
 
         <div id="view-bank">
@@ -376,6 +386,20 @@
           <div class="qr-wrap-j">
             <img src="QR.jpeg" alt="QR Code">
             <p>Scan with any UPI app — Google Pay, PhonePe, Paytm</p>
+          </div>
+        </div>
+        <div id="view-razorpay" style="display:none;">
+          <div class="qr-wrap-j">
+            <p style="margin-bottom:16px;">Click below to pay securely via Razorpay (Card, UPI, Netbanking, Wallets).</p>
+            <form>
+              <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                data-payment_button_id="pl_TNzDSKu9j24z5N" async>
+              </script>
+            </form>
+            <p style="margin-top:16px; font-size:14px; opacity:0.8;">
+              After payment, copy the Payment ID from your confirmation email/screen and paste it into the
+              "Transaction / UTR ID" field below.
+            </p>
           </div>
         </div>
 
@@ -406,7 +430,7 @@
             <input type="date" id="txn-date">
           </div>
           <div class="form-group-j">
-            <label>Transaction / UTR ID <span class="req">*</span></label>
+            <label id="txn-id-label">Transaction / UTR ID <span class="req">*</span></label>
             <input type="text" id="txn-id" placeholder="12-digit transaction ID">
           </div>
         </div>
@@ -445,6 +469,7 @@
 
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx6l05XCeDZe7CCWbxZnmO92AaK0M9K0zM7yA0HbVk15ms25e1YGhia54Hf-IhnbzETfA/exec';
     let currentStep = 1;
+    let selectedPayMethod = 'bank';
 
     function onFileSelect(input, labelId) {
       if (input.files && input.files[0]) {
@@ -514,12 +539,28 @@
     }
 
     function selectPay(method) {
+      selectedPayMethod = method;
       document.getElementById('tab-bank').classList.toggle('selected', method === 'bank');
       document.getElementById('tab-qr').classList.toggle('selected', method === 'qr');
+      document.getElementById('tab-razorpay').classList.toggle('selected', method === 'razorpay');
+
       document.getElementById('check-bank').style.opacity = method === 'bank' ? '1' : '0';
       document.getElementById('check-qr').style.opacity = method === 'qr' ? '1' : '0';
+      document.getElementById('check-razorpay').style.opacity = method === 'razorpay' ? '1' : '0';
+
       document.getElementById('view-bank').style.display = method === 'bank' ? 'block' : 'none';
       document.getElementById('view-qr').style.display = method === 'qr' ? 'block' : 'none';
+      document.getElementById('view-razorpay').style.display = method === 'razorpay' ? 'block' : 'none';
+
+      const txnLabel = document.getElementById('txn-id-label');
+      const txnInput = document.getElementById('txn-id');
+      if (method === 'razorpay') {
+        txnLabel.innerHTML = 'Razorpay Payment ID <span class="req">*</span>';
+        txnInput.placeholder = 'e.g. pay_XXXXXXXXXXXXXX';
+      } else {
+        txnLabel.innerHTML = 'Transaction / UTR ID <span class="req">*</span>';
+        txnInput.placeholder = '12-digit transaction ID';
+      }
     }
 
     function fileToBase64(file) {
@@ -547,6 +588,9 @@
         const isIndia = document.getElementById('plan-india').classList.contains('selected');
         const membershipPlan = isIndia ? 'India (₹5,000)' : 'International ($100)';
         const paymentAmount = isIndia ? '₹5,000' : '$100';
+        const payMethodLabel = selectedPayMethod === 'bank' ? 'Bank Transfer'
+          : selectedPayMethod === 'qr' ? 'QR / UPI Scan'
+          : 'Razorpay Online Payment';
         const payload = {
           referenceType: refType === 'person' ? 'By Person' : 'By Social Media',
           referenceName: refType === 'person' ? val('ref-name') : '',
@@ -565,6 +609,7 @@
           logoData: logoFile ? await fileToBase64(logoFile) : '',
           logoName: logoFile?.name || '',
           membershipPlan: membershipPlan,
+          paymentMethod: payMethodLabel,
           paymentDate: val('txn-date'), transactionId: val('txn-id'),
           paymentAmount: paymentAmount, status: 'Pending'
         };

@@ -375,37 +375,10 @@
           <h3 style="margin:0 0 8px;">Secure Razorpay Checkout</h3>
           <p style="margin:0 auto 20px;max-width:520px;opacity:.7;line-height:1.6;">
             Click the button below to open Razorpay's secure payment window. Your registration will only be saved after the payment is successfully verified.
-          </p> 
-          <button id="rzp-button1">Pay ₹5,000 Securely →</button>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-var options = {
-    "key": "rzp_live_TNgUciqlYWwZKI", // Enter the Key ID generated from the Dashboard
-    "amount": "50000", // Amount is in currency subunits. 
-    "currency": "<currency>",
-    "name": "MIB INDIA PVT LTD", //your business name
-    "description": "Test Transaction",
-    "image": "logo.png",
-    "order_id": "order_9A33XWu170gUtm", // This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
-    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-        "name": "<name>", //your customer's name
-        "email": "<email>",
-        "contact": "<phone>" //Provide the customer's phone number for better conversion rates 
-    },
-    "notes": {
-        "address": "Surat, India"
-    },
-    "theme": {
-        "color": "#3399cc"
-    }
-};
-var rzp1 = new Razorpay(options);
-document.getElementById('rzp-button1').onclick = function(e){
-    rzp1.open();
-    e.preventDefault();
-}
-</script>
+          </p>
+          <button class="btn-next-j gold" type="button" id="rzp-pay-button" onclick="startRazorpayPayment()">Pay ₹5,000 Securely →</button>
+          <div style="margin-top:12px;font-size:12px;opacity:.6;">Secure payment powered by Razorpay</div>
+        </div>
 
         <div class="form-nav-j">
           <button class="btn-back-j" type="button" onclick="goToStep(3)">← Back</button>
@@ -639,12 +612,12 @@ document.getElementById('rzp-button1').onclick = function(e){
     }
 
     async function startRazorpayPayment() {
-      if (!SCRIPT_URL || SCRIPT_URL.includes('https://script.google.com/macros/s/AKfycbzXI5P_J76kCG5dz2t34xJbD4I-Y8Vy-zxlWyF-px6XVQpwV9kLuvCnX7cdCAdGqh45mQ/exec')) {
+      if (!SCRIPT_URL) {
         alert('Please configure your Google Apps Script Web App URL first.');
         return;
       }
 
-      if (!RAZORPAY_KEY_ID || RAZORPAY_KEY_ID.includes('rzp_live_TNgUciqlYWwZKI')) {
+      if (!RAZORPAY_KEY_ID) {
         alert('Please configure your Razorpay Key ID first.');
         return;
       }

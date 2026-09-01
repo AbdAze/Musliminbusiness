@@ -50,53 +50,323 @@
   <section class="hero-full">
     <div class="hero-arc"></div>
     <div class="hero-arc2"></div>
-    <div class="hero-tag-line anim-1">MIB Events 2025</div>
-    <h1 class="anim-2">Connect.<br><em>Learn.</em><br>Grow.</h1>
-    <p class="hero-sub anim-3">Exclusive gatherings for Muslim business professionals — where deals are made, ideas
-      flourish, and community strengthens.</p>
-    <div class="hero-scroll-row anim-4">
-      <div class="scroll-line"></div>
-      <span class="scroll-lbl">Scroll to explore</span>
+    <div class="hero-text">
+      <div class="hero-tag-line anim-1">MIB Events 2025</div>
+      <h1 class="anim-2">Connect.<br><em>Learn.</em><br>Grow.</h1>
+      <p class="hero-sub anim-3">Exclusive gatherings for Muslim business professionals — where deals are made, ideas
+        flourish, and community strengthens.</p>
+      <div class="hero-scroll-row anim-4">
+        <div class="scroll-line"></div>
+        <span class="scroll-lbl">Scroll to explore</span>
+      </div>
     </div>
+
+    <!--
+      NEXT EVENT/MEETING SPOTLIGHT — auto-rotates between the
+      heroSpotlights entries defined in the script at the bottom of
+      this file (every 10s). Edit that array to change what shows here;
+      you don't need to touch this markup.
+    -->
+    <a href="#upcoming-events" class="hero-next-event anim-4" id="hero-next-event" onclick="goToUpcomingFromHero()">
+      <div class="hne-eyebrow">
+        <span class="hne-dot"></span>
+        <span id="hne-label">Next Event</span>
+      </div>
+      <img src="About Images/conclave.jpeg" alt="Next event" class="hne-img" id="hne-img">
+      <div class="hne-title" id="hne-title">MIB Annual Conclave 2026</div>
+      <div class="hne-view">View in Upcoming Events →</div>
+    </a>
   </section>
 
-  <!-- UPCOMING EVENTS -->
-  <section class="events-section">
-    <h2 class="section-title-ev">Upcoming <em>Events</em></h2>
-    <div class="upcoming-grid">
-      <!-- 
-      HOW TO USE AUTO-SHIFT FEATURE:
-      To make an event automatically move to "Past Events" after its date passes,
-      add the `data-date` attribute to the `<div class="ev-card">`.
-      Format: data-date="YYYY-MM-DD"
-      Example: <div class="ev-card" data-date="2024-04-29">
-    -->
-      <!-- Featured -->
-      <div class="ev-card featured">
-        <img src="about images/pickleball.jpg" alt="Sports Event" class="ev-img">
-        <div class="ev-content-wrapper">
-          <div class="ev-status">Registrations Deadline : Sunday , 26 April 2026 </div>
-          <div class="ev-title">MIB Pickleball<br>Tournament</div>
+  <!-- UPCOMING EVENTS / MEETINGS -->
+  <section class="events-section" id="upcoming-events">
+    <div class="ev-tabs">
+      <button class="ev-tab active" data-tab="events" onclick="switchEvTab('events')">Upcoming <em>Events</em></button>
+      <button class="ev-tab" data-tab="meetings" onclick="switchEvTab('meetings')">Upcoming <em>Meetings</em></button>
+    </div>
+
+    <!-- EVENTS PANEL -->
+    <div class="ev-tab-panel" id="panel-events">
+      <div class="upcoming-grid">
+        <!-- 
+        HOW TO USE AUTO-SHIFT FEATURE:
+        To make an event automatically move to "Past Events" after its date passes,
+        add the `data-date` attribute to the `<div class="ev-card">`.
+        Format: data-date="YYYY-MM-DD"
+        Example: <div class="ev-card" data-date="2024-04-29">
+      -->
+        <!-- Placeholder third slot — replace with your next confirmed event -->
+        <div class="ev-card">
+          <img src="events images/conclave.jpeg" alt="Conclave Event" class="ev-img">
+          <div class="ev-status">Registrations Open </div>
+          <div class="ev-title">MIB Conclave 2026<br>Surat</div>
           <div class="ev-meta">
-            <span>📅 1 May 2026 </span>
-            <span>🏓 Starting from 7 PM on towrads...</span>
+            <span>📅 7th September 2026 | Monday </span>
+            <span>📍 Sigdi Restaurant, Lajpore, Surat</span>
           </div>
-          <p class="ev-desc">Step onto the court to dink, drive, and connect—because just like in business, the best
-            partnerships are forged through speed, strategy, and staying in the game.</p>
-          <a href="https://maps.app.goo.gl/MMKA1Ny6g1odPFwZ7" class="ev-arrow">📍 Old Choowpatty, inside Jahawarlal Nehru Garden, Chopati, Athwalines, Athwa, Surat, Gujarat 395001</a>
+          <div class="ev-desc">
+            <p>A powerful opportunity to:</p>
+            <ul class="ev-points">
+              <li>Build meaningful business connections</li>
+              <li>Discover new collaborations</li>
+              <li>Learn from fellow entrepreneurs</li>
+              <li>Expand your business network</li>
+              <li>Be part of a growing business community</li>
+            </ul>
+            <p class="ev-seats">🔥 Seats are limited!</p>
+          </div>
+          <a href="https://forms.gle/B94YM8otYtHDNXv89" class="ev-arrow">Register Now →</a>
+        </div>
+
+        <div class="ev-card">
+          <img src="events images/ahm.jpeg" alt="Meeting" class="ev-img">
+          <div class="ev-status">Registrations Open </div>
+          <div class="ev-title"> MIB AHMEDABAD – BUSINESS NETWORKING MEET </div>
+          <div class="ev-meta">
+            <span>📅 Thursday, 3rd September 2026</span>
+            <span>⏰ 6:00 PM onwards | With Dinner</span>
+            <span>📍 Sufra Banquet, Ahmedabad</span>
+          </div>
+          <p class="ev-desc">Come, connect with like-minded entrepreneurs, build valuable relationships, explore
+            collaborations, and grow together. 🚀</p>
+          <p class="ev-desc">For Quiery contact: 📞 95861 18775 | 80005 10580 | 99988 22092</p>
+          <a href="https://docs.google.com/forms/d/1ekSauOh0hbJ92XtjnXGw3WsXDjsW7ycYuh4Tm0bclok/viewform"
+            class="ev-arrow">Register Now →</a>
+        </div>
+
+        <div class="ev-card">
+          <img src="About Images/turf cricket.webp" alt="Sports Event" class="ev-img">
+          <div class="ev-status soon">Coming Soon</div>
+          <div class="ev-title"> MIB Cricket<br>Tournament</div>
+          <div class="ev-meta"><span>📅 Date To Be Declared</span>
+            <span>📍 Surat</span>
+          </div>
+          <p class="ev-desc">An exciting day of sports, connection and fun for Muslim business professionals and
+            their families. Play hard, network harder.</p>
+          <a href="events.html" class="ev-arrow">Stay Tuned →</a>
         </div>
       </div>
-      <!-- Coming Soon -->
-      <div class="ev-card">
-        <img src="about images/turf cricket.webp" alt="Sports Event" class="ev-img">
-        <div class="ev-status soon">Coming Soon</div>
-        <div class="ev-title"> MIB Cricket<br>Tournament</div>
-        <div class="ev-meta"><span>📅 Date To Be Declared</span>
-          <span>📍 Surat</span>
+    </div>
+
+    <!-- MEETINGS PANEL -->
+    <div class="ev-tab-panel" id="panel-meetings" style="display:none;">
+      <!--
+        QUICK JUMP: each button's data-city must exactly match the
+        data-city on a .mtg-city card below. Clicking scrolls the
+        slider to that city's card. "All" resets the slider to the start.
+      -->
+      <div class="city-filter">
+        <button class="city-btn active" data-city="all" onclick="jumpToCity('all', this)">All</button>
+        <button class="city-btn" data-city="Surat" onclick="jumpToCity('Surat', this)">Surat</button>
+        <button class="city-btn" data-city="Bharuch" onclick="jumpToCity('Bharuch', this)">Bharuch</button>
+        <button class="city-btn" data-city="Vadodara" onclick="jumpToCity('Vadodara', this)">Vadodara</button>
+        <button class="city-btn" data-city="Ahmedabad" onclick="jumpToCity('Ahmedabad', this)">Ahmedabad</button>
+        <button class="city-btn" data-city="Bengaluru" onclick="jumpToCity('Bengaluru', this)">Bengaluru</button>
+      </div>
+
+      <div class="meetings-layout">
+        <!--
+          ONLINE MEETING CARD — stays fixed on the left, same for every
+          city. Add a new <tr data-date="YYYY-MM-DD"> row per session;
+          rows automatically turn grey the day after their date passes.
+        -->
+        <div class="mtg-table-card mtg-online">
+          <div class="mtg-card-head">
+            <span class="mtg-badge online">Online</span>
+            <span class="mtg-city-name">Online Meeting</span>
+          </div>
+          <div class="mtg-table-wrap">
+            <table class="mtg-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Day</th>
+                  <th>Time</th>
+                  <th>Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-date="2026-09-09">
+                  <td>09 Sep 2026</td>
+                  <td>Wednesday</td>
+                  <td>8:00 PM</td>
+                  <td><a href="https://meet.google.com/" target="_blank" rel="noopener">Join →</a></td>
+                </tr>
+                <tr data-date="2026-09-16">
+                  <td>16 Sep 2026</td>
+                  <td>Wednesday</td>
+                  <td>8:00 PM</td>
+                  <td><a href="https://meet.google.com/" target="_blank" rel="noopener">Join →</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <p class="ev-desc">An exciting day of sports, connection and fun for Muslim business professionals and their
-          families. Play hard, network harder.</p>
-        <a href="events.html" class="ev-arrow">Stay Tuned →</a>
+
+        <!--
+          OFFLINE CITY CARDS — scroll horizontally as a slider, so
+          adding more cities never widens the page. Copy a .mtg-city
+          block to add a new city; give it a matching quick-jump
+          button above.
+        -->
+        <div class="mtg-slider-wrap">
+          <button class="mtg-slide-btn prev" onclick="scrollMtgSlider(-1)" aria-label="Scroll left">‹</button>
+          <div class="mtg-slider" id="mtg-slider">
+            <div class="mtg-table-card mtg-city" data-city="Surat">
+              <div class="mtg-card-head">
+                <span class="mtg-badge">Offline</span>
+                <span class="mtg-city-name">Surat</span>
+              </div>
+              <div class="mtg-table-wrap">
+                <table class="mtg-table">
+                  <colgroup>
+                    <col style="width:18%">
+                    <col style="width:14%">
+                    <col style="width:16%">
+                    <col style="width:25%">
+                    <col style="width:16%">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Day</th>
+                      <th>Time</th>
+                      <th>Venue</th>
+                      <th>Register</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-date="2026-09-05">
+                      <td>05 Sep</td>
+                      <td>Sat</td>
+                      <td>7:30 PM</td>
+                      <td>Venue TBA</td>
+                      <td><a href="contact.html">RSVP →</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="mtg-table-card mtg-city" data-city="Bharuch">
+              <div class="mtg-card-head">
+                <span class="mtg-badge">Offline</span>
+                <span class="mtg-city-name">Bharuch</span>
+              </div>
+              <div class="mtg-table-wrap">
+                <table class="mtg-table">
+                  <colgroup>
+                    <col style="width:18%">
+                    <col style="width:14%">
+                    <col style="width:16%">
+                    <col style="width:36%">
+                    <col style="width:16%">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Day</th>
+                      <th>Time</th>
+                      <th>Venue</th>
+                      <th>Register</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-date="2026-09-05">
+                      <td>05 Sep</td>
+                      <td>Sat</td>
+                      <td>7:30 PM</td>
+                      <td>Venue TBA</td>
+                      <td><a href="contact.html">RSVP →</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="mtg-table-card mtg-city" data-city="Vadodara">
+              <div class="mtg-card-head">
+                <span class="mtg-badge">Offline</span>
+                <span class="mtg-city-name">Vadodara</span>
+              </div>
+              <div class="mtg-table-wrap">
+                <table class="mtg-table">
+                  <colgroup>
+                    <col style="width:18%">
+                    <col style="width:14%">
+                    <col style="width:16%">
+                    <col style="width:36%">
+                    <col style="width:16%">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Day</th>
+                      <th>Time</th>
+                      <th>Venue</th>
+                      <th>Register</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-date="2026-09-12">
+                      <td>12 Sep</td>
+                      <td>Sat</td>
+                      <td>7:00 PM</td>
+                      <td>Venue TBA</td>
+                      <td><a href="contact.html">RSVP →</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="mtg-table-card mtg-city" data-city="Ahmedabad">
+              <div class="mtg-card-head">
+                <span class="mtg-badge">Offline</span>
+                <span class="mtg-city-name">Ahmedabad</span>
+              </div>
+              <div class="mtg-table-wrap">
+                <table class="mtg-table">
+                  <colgroup>
+                    <col style="width:18%">
+                    <col style="width:14%">
+                    <col style="width:16%">
+                    <col style="width:36%">
+                    <col style="width:16%">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Day</th>
+                      <th>Time</th>
+                      <th>Venue</th>
+                      <th>Register</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-date="2026-09-20">
+                      <td>20 Sep</td>
+                      <td>Sun</td>
+                      <td>7:00 PM</td>
+                      <td>Venue TBA</td>
+                      <td><a href="contact.html">RSVP →</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="mtg-table-card mtg-city mtg-soon" data-city="Bengaluru">
+              <div class="mtg-card-head">
+                <span class="mtg-badge soon">Coming Soon</span>
+                <span class="mtg-city-name">Bengaluru</span>
+              </div>
+              <p class="mtg-soon-text">Launching soon — get in touch to be notified.</p>
+              <a href="contact.html" class="ev-arrow">Get Notified →</a>
+            </div>
+          </div>
+          <button class="mtg-slide-btn next" onclick="scrollMtgSlider(1)" aria-label="Scroll right">›</button>
+        </div>
       </div>
     </div>
   </section>
@@ -133,7 +403,7 @@
         </div>
       </a>
       <a href="events.html" class="past-card">
-        <img src="about images/B&W 01.jpg" alt="MIB Networking">
+        <img src="About Images/B&W 01.jpg" alt="MIB Networking">
         <div class="past-overlay">
           <div class="past-date">2024 – 2025</div>
           <div class="past-title-ev">Weekly Chapter Meetings</div>
@@ -143,7 +413,7 @@
     </div>
   </section>
 
-<!-- TESTIMONIALS -->
+  <!-- TESTIMONIALS -->
   <section class="testi-section">
     <div class="section-tag-ev">Member Voices</div>
     <h2 class="section-title-ev">What They <em>Say</em></h2>
@@ -183,7 +453,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- CTA -->
   <div class="cta-band-ev">
@@ -243,6 +512,127 @@
     function toggleMenu() {
       document.getElementById('mobile-menu').classList.toggle('open');
     }
+
+    // Switch between the "Upcoming Events" and "Upcoming Meetings" tabs
+    function switchEvTab(tab) {
+      document.querySelectorAll('.ev-tab').forEach(function (btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-tab') === tab);
+      });
+      document.getElementById('panel-events').style.display = (tab === 'events') ? '' : 'none';
+      document.getElementById('panel-meetings').style.display = (tab === 'meetings') ? '' : 'none';
+      if (tab === 'meetings') {
+        markPastMeetingRows();
+      }
+    }
+
+    // Quick-jump: scroll the meetings slider to a given city's card ("all" resets to the start)
+    function jumpToCity(city, btn) {
+      document.querySelectorAll('.city-btn').forEach(function (b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+
+      var slider = document.getElementById('mtg-slider');
+      if (!slider) return;
+
+      if (city === 'all') {
+        slider.scrollTo({ left: 0, behavior: 'smooth' });
+        return;
+      }
+      var target = slider.querySelector('.mtg-city[data-city="' + city + '"]');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      }
+    }
+
+    // Scroll the meetings slider with the prev/next arrows
+    function scrollMtgSlider(direction) {
+      var slider = document.getElementById('mtg-slider');
+      if (!slider) return;
+      var cardWidth = slider.querySelector('.mtg-city') ? slider.querySelector('.mtg-city').offsetWidth + 20 : 300;
+      slider.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    }
+
+    // Click-and-drag scrolling for the meetings slider (desktop mouse users)
+    (function () {
+      var slider = document.getElementById('mtg-slider');
+      if (!slider) return;
+      var isDown = false;
+      var startX, startScroll;
+
+      slider.addEventListener('mousedown', function (e) {
+        isDown = true;
+        slider.classList.add('dragging');
+        startX = e.pageX;
+        startScroll = slider.scrollLeft;
+      });
+
+      window.addEventListener('mouseup', function () {
+        isDown = false;
+        slider.classList.remove('dragging');
+      });
+
+      window.addEventListener('mousemove', function (e) {
+        if (!isDown) return;
+        e.preventDefault();
+        slider.scrollLeft = startScroll - (e.pageX - startX);
+      });
+    })();
+
+    // Grey out any meeting-table row whose date has passed (checked the day after the date)
+    function markPastMeetingRows() {
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      document.querySelectorAll('.mtg-table tr[data-date]').forEach(function (row) {
+        var rowDate = new Date(row.getAttribute('data-date'));
+        row.classList.toggle('past-row', rowDate < today);
+      });
+    }
+
+    // ── HERO SPOTLIGHT: rotates between an upcoming event and an upcoming
+    // meeting every 10s. Edit this array to change what appears —
+    // "tab" must be "events" or "meetings" so the click lands on the
+    // right tab below.
+    var heroSpotlights = [
+      { tab: 'events', label: 'Next Event', img: 'events images/conclave.jpeg', title: 'MIB Annual Conclave' },
+      { tab: 'events', label: 'Next Meeting', img: 'events images/ahm.jpeg', title: 'Ahmedabad Meetup' }
+    ];
+    var heroSpotlightIndex = 0;
+
+    function renderHeroSpotlight(i) {
+      var item = heroSpotlights[i];
+      var card = document.getElementById('hero-next-event');
+      var label = document.getElementById('hne-label');
+      var img = document.getElementById('hne-img');
+      var title = document.getElementById('hne-title');
+      if (!card || !item) return;
+
+      card.style.opacity = '0';
+      setTimeout(function () {
+        label.textContent = item.label;
+        img.src = item.img;
+        img.alt = item.title;
+        title.textContent = item.title;
+        card.setAttribute('data-target-tab', item.tab);
+        card.style.opacity = '1';
+      }, 280);
+    }
+
+    function goToUpcomingFromHero() {
+      var card = document.getElementById('hero-next-event');
+      var tab = card ? (card.getAttribute('data-target-tab') || 'events') : 'events';
+      switchEvTab(tab);
+      // anchor's default #upcoming-events jump still runs after this
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      renderHeroSpotlight(0);
+      markPastMeetingRows();
+      setInterval(function () {
+        heroSpotlightIndex = (heroSpotlightIndex + 1) % heroSpotlights.length;
+        renderHeroSpotlight(heroSpotlightIndex);
+      }, 10000);
+    });
 
     // Auto-shift Upcoming Events to Past Events when date has passed
     document.addEventListener("DOMContentLoaded", function () {

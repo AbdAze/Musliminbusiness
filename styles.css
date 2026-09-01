@@ -1356,11 +1356,18 @@ footer ul a:hover {
 .hero-full {
   min-height: 100vh;
   padding: 140px 5% 80px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
 }
 
 .hero-arc {
@@ -1435,6 +1442,74 @@ footer ul a:hover {
   color: var(--text-muted);
 }
 
+/* Hero: Next Event spotlight (right side) */
+.hero-next-event {
+  position: relative;
+  background: var(--dark2);
+  border: 1px solid rgba(158, 140, 103, 0.25);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+
+.hero-next-event:hover {
+  border-color: rgba(158, 140, 103, 0.5);
+  transform: translateY(-3px);
+}
+
+.hne-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.hne-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: inline-block;
+}
+
+.hne-img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  margin-bottom: 16px;
+  filter: grayscale(15%) contrast(1.05);
+}
+
+.hne-title {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--off-white);
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.hne-view {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold);
+  transition: gap 0.2s;
+}
+
+.hero-next-event:hover .hne-view {
+  color: var(--gold-light);
+}
+
 /* Events: section tag */
 .section-tag-ev {
   font-size: 11px;
@@ -1470,19 +1545,313 @@ footer ul a:hover {
   color: var(--dark);
 }
 
+/* Events/Meetings tab switcher */
+.ev-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.ev-tab {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 700;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  padding: 0 0 14px;
+  color: rgba(0, 0, 0, 0.28);
+  transition: color 0.25s;
+}
+
+.ev-tab em {
+  font-style: italic;
+  color: inherit;
+}
+
+.ev-tab:hover:not(.active) {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.ev-tab.active {
+  color: var(--dark);
+  border-bottom-color: var(--gold);
+}
+
+.ev-tab.active em {
+  color: var(--gold);
+}
+
+.ev-tab-panel {
+  animation: fadeUp 0.5s both;
+}
+
+/* Meetings: city filter */
+.city-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 40px 0 8px;
+}
+
+.city-btn {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.55);
+  background: transparent;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50px;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.city-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.city-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--dark);
+}
+
+.meetings-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin: 40px auto 0;
+  max-width: 1200px;
+}
+
+.mtg-table-card {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 24px;
+}
+
+.mtg-online {
+  flex: 0 0 320px;
+  position: sticky;
+  top: 120px;
+}
+
+.mtg-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.mtg-badge {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--dark);
+  background: rgba(0, 0, 0, 0.06);
+  padding: 5px 12px;
+}
+
+.mtg-badge.online {
+  background: var(--gold);
+}
+
+.mtg-badge.soon {
+  background: rgba(0, 0, 0, 0.06);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.mtg-city-name {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.mtg-table-wrap {
+  overflow: hidden;
+}
+
+.mtg-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 12.5px;
+}
+
+.mtg-table th {
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  padding: 0 8px 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mtg-table td {
+  padding: 12px 8px 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: rgba(0, 0, 0, 0.65);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.mtg-table td a {
+  color: var(--dark);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+
+.mtg-table td a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.mtg-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Past meeting rows grey out automatically the day after their date */
+.mtg-table tr.past-row {
+  opacity: 0.4;
+}
+
+.mtg-table tr.past-row td a {
+  pointer-events: none;
+  border-color: transparent;
+}
+
+.mtg-soon {
+  background: transparent;
+  border-style: dashed;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.mtg-soon:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.mtg-soon-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 16px 0 20px;
+}
+
+.mtg-slider-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mtg-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  padding-bottom: 2px;
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mtg-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.mtg-slider.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.mtg-city {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+}
+
+/* Alternate city cards in dark green / white, matching the Events cards */
+.mtg-city:nth-child(odd):not(.mtg-soon) {
+  background: var(--dark);
+  border-color: var(--dark);
+}
+
+.mtg-city:nth-child(odd):not(.mtg-soon) .mtg-city-name {
+  color: var(--off-white);
+}
+
+.mtg-city:nth-child(odd):not(.mtg-soon) .mtg-badge {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--off-white);
+}
+
+.mtg-city:nth-child(odd):not(.mtg-soon) .mtg-table th {
+  color: var(--text-muted);
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+.mtg-city:nth-child(odd):not(.mtg-soon) .mtg-table td {
+  color: var(--text-muted);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.mtg-city:nth-child(odd):not(.mtg-soon) .mtg-table td a {
+  color: var(--off-white);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.mtg-city:nth-child(odd):not(.mtg-soon) .mtg-table td a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+.mtg-slide-btn {
+  flex: 0 0 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: var(--off-white);
+  color: var(--dark);
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mtg-slide-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
 .upcoming-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0px;
-  margin: 20px auto 0;
-  max-width: 1050px;
-  background: rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin: 48px auto 0;
+  max-width: 1200px;
+  align-items: stretch;
 }
 
 .ev-card {
-  background: transparent;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -1491,101 +1860,98 @@ footer ul a:hover {
   cursor: pointer;
   transition: all 0.3s;
   align-items: flex-start;
+  height: 100%;
 }
 
 .ev-card:hover {
   background: #FDFAF4;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
-  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
   z-index: 2;
 }
 
-/* Sub-cards styling */
-.ev-card:not(.featured) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+/* Alternate 1st and 3rd cards in dark green, matching the site's --dark */
+.ev-card:nth-child(odd) {
+  background: var(--dark);
+  border: 1px solid var(--dark);
 }
 
-.ev-card:not(.featured):nth-child(2) {
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+.ev-card:nth-child(odd):hover {
+  background: var(--dark3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
-.ev-card:not(.featured) .ev-title {
+.ev-card:nth-child(odd) .ev-title {
+  color: var(--off-white);
+}
+
+.ev-card:nth-child(odd) .ev-desc {
+  color: var(--text-muted);
+}
+
+.ev-card:nth-child(odd) .ev-meta span {
+  color: var(--text-muted);
+}
+
+.ev-card:nth-child(odd) .ev-status {
+  color: #ffffff;
+}
+
+.ev-card:nth-child(odd) .ev-status.soon {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+}
+
+.ev-card:nth-child(odd) .ev-arrow {
+  color: var(--off-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ev-card:nth-child(odd) .ev-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ev-card-placeholder {
+  border-style: dashed;
+}
+
+.ev-card-placeholder:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.ev-card-placeholder:not(:nth-child(odd)) {
+  background: transparent;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.ev-card-placeholder:not(:nth-child(odd)):hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.ev-card-placeholder:nth-child(odd) {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ev-card .ev-title {
   color: var(--dark);
 }
 
-.ev-card:not(.featured) .ev-desc {
+.ev-card .ev-desc {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.ev-card:not(.featured) .ev-arrow {
+.ev-card .ev-arrow {
   color: var(--dark);
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 12px 24px;
   display: inline-block;
   text-align: center;
-  margin-top: 24px;
+  margin-top: auto;
 }
 
-.ev-card:not(.featured) .ev-arrow:hover {
+.ev-card .ev-arrow:hover {
   background: rgba(0, 0, 0, 0.05);
-}
-
-.ev-card.featured {
-  background: var(--dark);
-  border: none;
-  padding: 0;
-}
-
-.ev-card.featured .ev-img {
-  width: 100%;
-  aspect-ratio: 21/9;
-  margin-bottom: 0px;
-  padding: 0;
-}
-
-.ev-card.featured .ev-content-wrapper {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.ev-card.featured .ev-title {
-  color: var(--off-white);
-  margin-bottom: 16px;
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.ev-card.featured .ev-desc {
-  color: var(--text-muted);
-  text-align: left;
-  max-width: none;
-  margin-bottom: 24px;
-}
-
-.ev-card.featured .ev-status {
-  background: var(--gold);
-  color: var(--dark);
-  padding: 8px 16px;
-  display: inline-block;
-  margin-bottom: 24px;
-  align-self: flex-start;
-}
-
-.ev-card.featured .ev-arrow {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--off-white);
-  padding: 12px 24px;
-  display: inline-block;
-  margin-top: 12px;
-  align-self: flex-start;
-}
-
-.ev-card.featured .ev-arrow:hover {
-  background: rgba(255, 255, 255, 0.1);
 }
 
 .ev-status {
@@ -1626,17 +1992,33 @@ footer ul a:hover {
 
 .ev-meta span {
   font-size: 12px;
-  color: var(--text-muted);
-}
-
-.ev-card:not(.featured) .ev-meta span {
   color: rgba(0, 0, 0, 0.4);
 }
 
 .ev-desc {
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 1.6;
   flex: 1;
+}
+
+.ev-desc p {
+  margin: 0 0 6px 0;
+}
+
+.ev-desc ul.ev-points {
+  margin: 6px 0 10px 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.ev-desc ul.ev-points li {
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.ev-desc .ev-seats {
+  margin-top: 8px;
+  font-weight: 500;
 }
 
 .ev-arrow {
@@ -3391,6 +3773,18 @@ footer ul a:hover {
   .join-wrap {
     grid-template-columns: 300px 1fr;
   }
+
+  .upcoming-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mtg-online {
+    flex-basis: 260px;
+  }
+
+  .mtg-city {
+    flex-basis: 240px;
+  }
 }
 
 @media (max-width: 960px) {
@@ -3413,6 +3807,17 @@ footer ul a:hover {
 
   .hero-visual {
     display: block;
+  }
+
+  .hero-full {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    min-height: auto;
+    padding: 130px 5% 60px;
+  }
+
+  .hero-next-event {
+    max-width: 420px;
   }
 
   .hero-img-wrap {
@@ -3578,6 +3983,32 @@ footer ul a:hover {
     grid-template-columns: 1fr;
   }
 
+  .meetings-layout {
+    flex-direction: column;
+  }
+
+  .mtg-online {
+    position: static;
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .mtg-slider-wrap {
+    width: 100%;
+  }
+
+  .mtg-slide-btn {
+    display: none;
+  }
+
+  .mtg-city {
+    flex-basis: 78vw;
+  }
+
+  .ev-tabs {
+    gap: 28px;
+  }
+
   .past-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -3631,6 +4062,11 @@ footer ul a:hover {
 }
 
 @media (max-width: 600px) {
+  .hero-next-event {
+    max-width: 100%;
+    padding: 20px;
+  }
+
   .stats-bar {
     grid-template-columns: 1fr;
     gap: 40px 0;

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIB Account Deletion Request — MuslimInBusiness</title>
+    <meta name="description"
+        content="Submit your MIB account and data deletion request securely. Our team will process your request within 7–14 business days." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="logo.png" />
+
+    <style>
+        /* ── DELETION PAGE STYLES ── */
+
+        .del-hero {
+            padding: 160px 5% 80px;
+            background: var(--dark2);
+            border-bottom: 1px solid rgba(158, 140, 103, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .del-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 100% at 0% 0%, rgba(158, 140, 103, 0.07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .del-hero-inner {
+            max-width: 700px;
+        }
+
+        .del-warning-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(158, 140, 103, 0.1);
+            border: 1px solid rgba(158, 140, 103, 0.3);
+            padding: 6px 16px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        /* ── MAIN LAYOUT ── */
+        .del-layout {
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            gap: 60px;
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        /* ── INFO PANEL (Left) ── */
+        .del-info h2 {
+            font-family: var(--serif);
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--off-white);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .del-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.95;
+            margin-bottom: 16px;
+        }
+
+        .del-steps {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .del-step {
+            display: flex;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(252, 251, 251, 0.06);
+        }
+
+        .del-step:last-child {
+            border-bottom: none;
+        }
+
+        .del-step-num {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(158, 140, 103, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--serif);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-top: 2px;
+        }
+
+        .del-step-body h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--off-white);
+            margin-bottom: 6px;
+        }
+
+        .del-step-body p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .del-notice-box {
+            background: rgba(158, 140, 103, 0.06);
+            border: 1px solid rgba(158, 140, 103, 0.2);
+            border-left: 3px solid var(--gold);
+            padding: 20px 24px;
+            margin-top: 32px;
+        }
+
+        .del-notice-box p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* ── FORM CARD (Right) ── */
+        .del-form-card {
+            background: var(--dark2);
+            border: 1px solid rgba(158, 140, 103, 0.2);
+            padding: 40px;
+            position: sticky;
+            top: 90px;
+        }
+
+        .del-form-card-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(252, 251, 251, 0.07);
+        }
+
+        .del-form-icon {
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(158, 140, 103, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .del-form-card-head-text h3 {
+            font-family: var(--serif);
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--off-white);
+            line-height: 1.2;
+        }
+
+        .del-form-card-head-text p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        /* ── FORM FIELDS ── */
+        .del-field {
+            margin-bottom: 20px;
+        }
+
+        .del-field label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold-dim);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .del-field label .req {
+            color: var(--gold);
+            margin-left: 2px;
+        }
+
+        .del-field input,
+        .del-field select,
+        .del-field textarea {
+            width: 100%;
+            background: rgba(36, 57, 35, 0.5);
+            border: 1px solid rgba(158, 140, 103, 0.2);
+            color: var(--off-white);
+            font-family: var(--sans);
+            font-size: 14px;
+            padding: 12px 16px;
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .del-field input::placeholder,
+        .del-field textarea::placeholder {
+            color: rgba(168, 184, 167, 0.45);
+            font-size: 13px;
+        }
+
+        .del-field input:focus,
+        .del-field select:focus,
+        .del-field textarea:focus {
+            border-color: rgba(158, 140, 103, 0.6);
+            background: rgba(36, 57, 35, 0.8);
+        }
+
+        .del-field textarea {
+            resize: vertical;
+            min-height: 100px;
+            line-height: 1.7;
+        }
+
+        .del-field select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239E8C67' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .del-field select option {
+            background: var(--dark2);
+            color: var(--off-white);
+        }
+
+        /* Checkbox consent */
+        .del-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 24px 0;
+            padding: 16px;
+            background: rgba(158, 140, 103, 0.04);
+            border: 1px solid rgba(158, 140, 103, 0.15);
+        }
+
+        .del-consent input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            accent-color: var(--gold);
+            cursor: pointer;
+        }
+
+        .del-consent label {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            cursor: pointer;
+        }
+
+        .del-consent label strong {
+            color: var(--off-white);
+        }
+
+        /* Submit button */
+        .del-submit-btn {
+            width: 100%;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 16px 24px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            font-family: var(--sans);
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .del-submit-btn:hover:not(:disabled) {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .del-submit-btn:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ── SUCCESS STATE ── */
+        .del-success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .del-success-icon {
+            font-size: 52px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .del-success h3 {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--off-white);
+            margin-bottom: 12px;
+        }
+
+        .del-success p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .del-success a {
+            display: inline-block;
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(158, 140, 103, 0.3);
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
+        }
+
+        .del-success a:hover {
+            border-color: var(--gold);
+        }
+
+        /* ── SPINNER ── */
+        .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(36, 57, 35, 0.4);
+            border-top-color: var(--dark);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .del-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .del-form-card {
+                position: static;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .del-form-card {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── NAVIGATION ── -->
+    <nav>
+        <a class="nav-logo" href="index.html">
+            <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+            <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="benefits.html">Benefits</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="coming-soon.html">WE</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="join.html" target="_blank" class="nav-cta">Join Now</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="benefits.html">Benefits</a>
+        <a href="membership.html">Membership</a>
+        <a href="coming-soon.html">WE</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+        <a href="join.html">Join Now →</a>
+    </div>
+
+    <!-- ── HERO ── -->
+    <div class="del-hero anim-1">
+        <div class="del-hero-inner">
+            <div class="del-warning-pill">⚠️ &nbsp;Permanent Action</div>
+            <div class="section-eyebrow">
+                <div class="section-eyebrow-line"></div>
+                <span>Account Management</span>
+            </div>
+            <h1 class="section-title">MIB Account <em class="gold-text">Deletion Request</em></h1>
+            <p style="font-size:16px; color:var(--text-muted); line-height:1.8; max-width:600px; margin-top:12px;">
+                Use this form to permanently delete your MIB account and all associated personal data. Please read
+                the information on this page carefully before proceeding.
+            </p>
+        </div>
+    </div>
+
+    <!-- ── MAIN LAYOUT ── -->
+    <div class="del-layout">
+
+        <!-- Left: Info Panel -->
+        <div class="del-info anim-2">
+            <h2>What Happens When You Delete Your Account?</h2>
+            <p>
+                Submitting this form initiates a formal account and data deletion request under the
+                <strong style="color:var(--off-white);">Digital Personal Data Protection Act, 2023</strong>.
+                Our team will verify your identity and process the request within 7–14 business days.
+            </p>
+            <p>
+                Once deleted, your MIB membership, business profile, connections, conversation history, and all
+                associated data will be permanently erased from our servers. This action <strong
+                    style="color:var(--off-white);">cannot be undone.</strong>
+            </p>
+
+            <div class="del-steps">
+                <div class="del-step">
+                    <div class="del-step-num">1</div>
+                    <div class="del-step-body">
+                        <h4>Submit the Deletion Form</h4>
+                        <p>Fill in your registered details accurately so our team can verify your identity and locate
+                            your account.</p>
+                    </div>
+                </div>
+                <div class="del-step">
+                    <div class="del-step-num">2</div>
+                    <div class="del-step-body">
+                        <h4>Identity Verification</h4>
+                        <p>Our privacy team will cross-verify your submitted details with the account on record within
+                            1–3 business days.</p>
+                    </div>
+                </div>
+                <div class="del-step">
+                    <div class="del-step-num">3</div>
+                    <div class="del-step-body">
+                        <h4>Account & Data Erasure</h4>
+                        <p>Upon successful verification, your account and all personal data will be permanently deleted
+                            within 7–14 business days.</p>
+                    </div>
+                </div>
+                <div class="del-step">
+                    <div class="del-step-num">4</div>
+                    <div class="del-step-body">
+                        <h4>Email Confirmation</h4>
+                        <p>You will receive a confirmation email to your registered address once the deletion is
+                            complete.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="del-notice-box">
+                <p>📌 Certain records such as transaction history may be retained for up to 7 years as required by
+                    Indian financial regulations, even after account deletion. For any queries, contact
+                    <a href="mailto:mibindiaoffice@gmail.com"
+                        style="color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(158,140,103,0.3);">mibindiaoffice@gmail.com</a>.
+                </p>
+            </div>
+
+            <p style="margin-top: 24px; font-size: 13px; color: var(--text-muted);">
+                ← <a href="privacy.html"
+                    style="color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(158,140,103,0.3);">Back
+                    to Privacy Policy</a>
+            </p>
+        </div>
+
+        <!-- Right: Form Card -->
+        <div class="del-form-card anim-3">
+            <div class="del-form-card-head">
+                <div class="del-form-icon">🗑️</div>
+                <div class="del-form-card-head-text">
+                    <h3>Deletion Request Form</h3>
+                    <p>All fields marked * are required</p>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form id="deletionForm" novalidate>
+
+                <div class="del-field">
+                    <label for="Name">Name <span class="req">*</span></label>
+                    <input type="text" id="Name" name="Name" placeholder="As registered on MIB" required />
+                </div>
+
+                <div class="del-field">
+                    <label for="phone">Phone Number <span class="req">*</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required />
+                </div>
+
+                <div class="del-field">
+                    <label for="email">Registered Email <span class="req">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required />
+                </div>
+
+                <div class="del-field">
+                    <label for="city">City <span class="req">*</span></label>
+                    <input type="text" id="city" name="city" placeholder="Your city" required />
+                </div>
+
+                <div class="del-field">
+                    <label for="reason">Reason for Deletion <span
+                            style="color:var(--text-muted); font-size:9px; letter-spacing:1px;">(Optional)</span></label>
+                    <textarea id="reason" name="reason"
+                        placeholder="e.g. No longer using the app, privacy concerns, switching platforms..."></textarea>
+                </div>
+
+                <div class="del-consent">
+                    <input type="checkbox" id="consent" name="consent" required />
+                    <label for="consent">
+                        I understand that this action is <strong>permanent and irreversible</strong>. I confirm that
+                        I am the rightful owner of this account and consent to the deletion of all my data from the MIB
+                        platform.
+                    </label>
+                </div>
+
+                <button type="submit" class="del-submit-btn" id="submitBtn">
+                    <span id="btnText">Submit Deletion Request</span>
+                    <div class="spinner" id="spinner"></div>
+                </button>
+
+            </form>
+
+            <!-- Success State -->
+            <div class="del-success" id="successState">
+                <span class="del-success-icon">✅</span>
+                <h3>Request Submitted Successfully</h3>
+                <p>
+                    Your account deletion request has been received. Our privacy team will verify your identity and
+                    process it within <strong style="color:var(--off-white);">7–14 business days</strong>. A
+                    confirmation will be sent to your registered email address.
+                </p>
+                <a href="index.html">← Return to Home</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo" style="cursor:default">
+                    <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
+                    <div class="logo-text">Muslim In Business<span>Global Network</span></div>
+                </div>
+                <p>Empowering Muslim entrepreneurs worldwide through ethical business networking and community support.
+                </p>
+            </div>
+            <div>
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="benefits.html">Benefits</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="coming-soon.html">WE</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Chapters</h5>
+                <ul>
+                    <li><a href="#">Surat Chapter</a></li>
+                    <li><a href="#">Bharuch Chapter</a></li>
+                    <li><a href="#">Bengaluru (Soon)</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h5>Contact Us</h5>
+                <p>G-52, Avadh Arena, VIP Road, Vesu, Surat</p>
+                <p><a href="tel:+917777995799">+91 77 77 99 57 99</a></p>
+                <p><a href="mailto:mibindiaoffice@gmail.com">mibindiaoffice@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Muslims in Business (MIB). All rights reserved.</p>
+            <p style="font-size:12px; color:var(--text-muted);">
+                <a href="privacy.html" style="color:var(--text-muted); text-decoration:none; transition:color 0.2s;"
+                    onmouseover="this.style.color='var(--gold)'"
+                    onmouseout="this.style.color='var(--text-muted)'">Privacy &amp;
+                    Policy</a>
+                &nbsp;·&nbsp; Ethical Commerce · Community · Growth
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        /* ── Mobile Menu ── */
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+
+        /* ── Form Submission → Google Apps Script → Spreadsheet ── */
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw6sKZvLTdR5YMC4wG6_1vdJyryVMuTGC9iconZ2Xvr9j-xhpCHAmu40AdVSGuJOeOI/exec';
+
+        document.getElementById('deletionForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+
+            // Basic validation
+            const name = form.Name.value.trim();
+            const phone = form.phone.value.trim();
+            const email = form.email.value.trim();
+            const city = form.city.value.trim();
+            const reason = form.reason.value.trim();
+            const consent = form.consent.checked;
+
+            if (!name || !phone || !email || !city) {
+                alert('Please fill in all required fields before submitting.');
+                return;
+            }
+
+            if (!consent) {
+                alert('You must confirm your understanding of the permanent deletion before submitting.');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // UI → Loading state
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const spinner = document.getElementById('spinner');
+
+            btn.disabled = true;
+            btnText.textContent = 'Submitting…';
+            spinner.style.display = 'block';
+
+            // Build payload
+            const payload = {
+                name,
+                phone,
+                email,
+                city,
+                reason: reason || 'Not provided',
+                submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+            };
+
+            try {
+                // Google Apps Script requires no-cors for simple POST from browser
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                // Show success (no-cors means we can't read response, so assume success)
+                form.style.display = 'none';
+                document.getElementById('successState').style.display = 'block';
+
+            } catch (err) {
+                btn.disabled = false;
+                btnText.textContent = 'Submit Deletion Request';
+                spinner.style.display = 'none';
+                alert('Something went wrong. Please try again or email us at privacy@muslimInbusiness.com');
+                console.error(err);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

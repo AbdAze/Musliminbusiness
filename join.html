@@ -349,7 +349,6 @@
             </div>
             <div class="pay-tab-check-j" id="check-qr">✓</div>
           </div>
-
         </div>
 
         <div id="view-bank">
@@ -435,9 +434,10 @@
   <script>
     function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
 
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxwkX-gDOteppnJhhmZYgWvz5JX3mX9KejnOd4w7vTqyx3GHNWWquJG9aU0Ifprv8WV5w/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwJjUj6ej2reVXdOQoEDKuA44IqCtmUYYrH8QMF7D3hPjQ7WZkKY11mMEFnp7nJiaRl/exec';
     let currentStep = 1;
     let selectedPayMethod = 'bank';
+    let initialSaved = false;
 
     function onFileSelect(input, labelId) {
       if (input.files && input.files[0]) {
@@ -503,6 +503,10 @@
       if (n === 4 && !val('txn-date')) {
         document.getElementById('txn-date').value = new Date().toISOString().split('T')[0];
       }
+      if (n === 4 && !initialSaved) {
+        initialSaved = true;
+        saveInitialData();
+      }
     }
 
     function selectPay(method) {
@@ -515,11 +519,6 @@
 
       document.getElementById('view-bank').style.display = method === 'bank' ? 'block' : 'none';
       document.getElementById('view-qr').style.display = method === 'qr' ? 'block' : 'none';
-
-      const txnLabel = document.getElementById('txn-id-label');
-      const txnInput = document.getElementById('txn-id');
-      txnLabel.innerHTML = 'Transaction / UTR ID <span class="req">*</span>';
-      txnInput.placeholder = '12-digit transaction ID';
     }
 
     function fileToBase64(file) {
@@ -531,24 +530,13 @@
       });
     }
 
-    async function submitForm() {
-      if (!val('txn-date')) { alert('Please enter the payment date.'); return; }
-      if (!val('txn-id')) { alert('Please enter the Transaction ID.'); return; }
-      if (!document.getElementById('pay-confirm').checked) { alert('Please confirm your payment details.'); return; }
-
-      const btn = document.getElementById('btn-submit');
-      btn.classList.add('loading');
-      btn.textContent = 'Submitting…';
-
+    async function saveInitialData() {
       try {
+        const refType = document.querySelector('input[name="ref-type"]:checked').value;
         const photoFile = document.getElementById('photo-upload').files[0];
         const logoFile = document.getElementById('logo-upload').files[0];
-        const refType = document.querySelector('input[name="ref-type"]:checked').value;
-        const isIndia = document.getElementById('plan-india').classList.contains('selected');
-        const membershipPlan = isIndia ? 'India (₹5,000)' : 'International ($100)';
-        const paymentAmount = isIndia ? '₹5,000' : '$100';
-        const payMethodLabel = selectedPayMethod === 'bank' ? 'Bank Transfer' : 'QR / UPI Scan';
         const payload = {
+          action: 'saveInitial',
           referenceType: refType === 'person' ? 'By Person' : 'By Social Media',
           referenceName: refType === 'person' ? val('ref-name') : '',
           referenceNumber: refType === 'person' ? val('ref-number') : '',
@@ -564,11 +552,40 @@
           employees: val('employees'), yearsInBusiness: val('years-biz'),
           businessDescription: val('biz-desc'),
           logoData: logoFile ? await fileToBase64(logoFile) : '',
-          logoName: logoFile?.name || '',
+          logoName: logoFile?.name || ''
+        };
+        await fetch(SCRIPT_URL, {
+          method: 'POST', mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload)
+        });
+      } catch (e) {
+        console.error('Initial save failed:', e);
+      }
+    }
+
+    async function submitForm() {
+      if (!val('txn-date')) { alert('Please enter the payment date.'); return; }
+      if (!val('txn-id')) { alert('Please enter the Transaction ID.'); return; }
+      if (!document.getElementById('pay-confirm').checked) { alert('Please confirm your payment details.'); return; }
+
+      const btn = document.getElementById('btn-submit');
+      btn.classList.add('loading');
+      btn.textContent = 'Submitting…';
+
+      try {
+        const isIndia = document.getElementById('plan-india').classList.contains('selected');
+        const membershipPlan = isIndia ? 'India (₹5,000)' : 'International ($100)';
+        const paymentAmount = isIndia ? '₹5,000' : '$100';
+        const payMethodLabel = selectedPayMethod === 'bank' ? 'Bank Transfer' : 'QR / UPI Scan';
+        const payload = {
+          action: 'savePayment',
+          email: val('gmail-id'),
           membershipPlan: membershipPlan,
           paymentMethod: payMethodLabel,
-          paymentDate: val('txn-date'), transactionId: val('txn-id'),
-          paymentAmount: paymentAmount, status: 'Pending'
+          paymentDate: val('txn-date'),
+          transactionId: val('txn-id'),
+          paymentAmount: paymentAmount
         };
         await fetch(SCRIPT_URL, {
           method: 'POST', mode: 'no-cors',

@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join MIB – Muslim in Business</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
   <nav>
     <a class="nav-logo" href="index.html">
       <img src="logo.png" alt="MIB Logo" style="height: 42px; width: auto; border-radius: 4px;">
@@ -46,11 +47,11 @@
 
   <div class="join-wrap">
 
-    <!-- SIDEBAR -->
     <aside class="join-sidebar">
       <div class="sidebar-tag-j">Membership</div>
       <h1>Join the <em>Network.</em></h1>
-      <p class="sidebar-desc-j">Become part of a growing community of Muslim entrepreneurs building ethical businesses together.</p>
+      <p class="sidebar-desc-j">Become part of a growing community of Muslim entrepreneurs building ethical businesses
+        together.</p>
 
       <div class="progress-steps-j">
         <div class="prog-step-j active" id="prog-1">
@@ -100,10 +101,8 @@
       </div>
     </aside>
 
-    <!-- FORM AREA -->
     <main class="join-form-area">
 
-      <!-- STEP 1: Personal Info -->
       <div class="step-panel-j active" id="step-1">
         <div class="step-hdr">
           <h2>Personal <em>Information</em></h2>
@@ -208,7 +207,6 @@
         </div>
       </div>
 
-      <!-- STEP 2: Business Info -->
       <div class="step-panel-j" id="step-2">
         <div class="step-hdr">
           <h2>Business <em>Information</em></h2>
@@ -291,32 +289,43 @@
         </div>
       </div>
 
-      <!-- STEP 3: Terms -->
       <div class="step-panel-j" id="step-3">
         <div class="step-hdr">
           <h2>Terms &amp; <em>Conditions</em></h2>
           <p>Please read and agree to our membership terms before proceeding.</p>
         </div>
         <div class="terms-box-j">
-          <p><strong>1. Membership Agreement</strong><br>By joining MIB (Muslim in Business), you agree to uphold the ethical values and principles of the community. Membership is subject to approval by chapter leadership.</p>
-          <p><strong>2. Code of Conduct</strong><br>All members are expected to conduct business with honesty, integrity, and transparency in accordance with Islamic business ethics. Any conduct found to be dishonest or harmful to the community may result in membership termination.</p>
-          <p><strong>3. Privacy Policy</strong><br>MIB respects your privacy. Your personal information will only be used for membership purposes and will not be sold or shared with third parties without consent, except as required by law.</p>
-          <p><strong>4. Fees and Payments</strong><br>The annual membership fee is ₹5,000. This fee is non-refundable once membership has been activated. Fees are subject to annual review and members will be notified 30 days in advance of any changes.</p>
-          <p><strong>5. Referral Ethics</strong><br>Members who provide referrals are responsible for ensuring the quality and integrity of those referrals. False or misleading referrals may result in membership suspension.</p>
-          <p><strong>6. Meeting Attendance</strong><br>Members are encouraged to attend weekly chapter meetings regularly. Consistent absence without notice may affect membership standing.</p>
-          <p><strong>7. Termination</strong><br>MIB reserves the right to terminate membership for violations of the Code of Conduct, non-payment, or other reasons at the discretion of chapter leadership, with or without refund.</p>
+          <p><strong>1. Membership Agreement</strong><br>By joining MIB (Muslim in Business), you agree to uphold the
+            ethical values and principles of the community. Membership is subject to approval by chapter leadership.</p>
+          <p><strong>2. Code of Conduct</strong><br>All members are expected to conduct business with honesty,
+            integrity, and transparency in accordance with Islamic business ethics. Any conduct found to be dishonest or
+            harmful to the community may result in membership termination.</p>
+          <p><strong>3. Privacy Policy</strong><br>MIB respects your privacy. Your personal information will only be
+            used for membership purposes and will not be sold or shared with third parties without consent, except as
+            required by law.</p>
+          <p><strong>4. Fees and Payments</strong><br>The annual membership fee is ₹4,999. This fee is non-refundable
+            once membership has been activated. Fees are subject to annual review and members will be notified 30 days
+            in advance of any changes.</p>
+          <p><strong>5. Referral Ethics</strong><br>Members who provide referrals are responsible for ensuring the
+            quality and integrity of those referrals. False or misleading referrals may result in membership suspension.
+          </p>
+          <p><strong>6. Meeting Attendance</strong><br>Members are encouraged to attend weekly chapter meetings
+            regularly. Consistent absence without notice may affect membership standing.</p>
+          <p><strong>7. Termination</strong><br>MIB reserves the right to terminate membership for violations of the
+            Code of Conduct, non-payment, or other reasons at the discretion of chapter leadership, with or without
+            refund.</p>
         </div>
         <div class="check-row-j">
           <input type="checkbox" id="terms-check">
-          <label for="terms-check">I have read and agree to the <a href="#">Terms & Conditions</a> and <a href="privacy.html">Privacy Policy</a> of Muslims in Business (MIB).</label>
+          <label for="terms-check">I have read and agree to the <a href="#">Terms & Conditions</a> and <a
+              href="privacy.html">Privacy Policy</a> of Muslims in Business (MIB).</label>
         </div>
         <div class="form-nav-j">
           <button class="btn-back-j" onclick="goToStep(2)">← Back</button>
-          <button class="btn-next-j" id="btn-step3" onclick="submitInitialData()">Proceed to Payment →</button>
+          <button class="btn-next-j" onclick="goToStep(4)">Proceed to Payment →</button>
         </div>
       </div>
 
-      <!-- STEP 4: Payment -->
       <div class="step-panel-j" id="step-4">
         <div class="step-hdr">
           <h2>Complete <em>Payment</em></h2>
@@ -340,22 +349,19 @@
             </div>
             <div class="pay-tab-check-j" id="check-qr">✓</div>
           </div>
-          <div class="pay-tab-j" id="tab-razorpay" onclick="selectPay('razorpay')">
-            <div class="pay-tab-icon-j">💳</div>
-            <div>
-              <div class="pay-tab-title-j">Pay Online</div>
-              <div class="pay-tab-sub-j">Card / UPI / Netbanking via Razorpay</div>
-            </div>
-            <div class="pay-tab-check-j" id="check-razorpay">✓</div>
-          </div>
+
         </div>
 
         <div id="view-bank">
           <div class="bank-details-j">
-            <div class="bank-row-j"><span class="bank-label-j">Beneficiary Name</span><span class="bank-val-j">MIB India</span></div>
-            <div class="bank-row-j"><span class="bank-label-j">Account Number</span><span class="bank-val-j">925020037890919</span></div>
-            <div class="bank-row-j"><span class="bank-label-j">IFSC Code</span><span class="bank-val-j">UTIB0002640</span></div>
-            <div class="bank-row-j"><span class="bank-label-j">Bank Name</span><span class="bank-val-j">Axis Bank</span></div>
+            <div class="bank-row-j"><span class="bank-label-j">Beneficiary Name</span><span class="bank-val-j">MIB
+                India</span></div>
+            <div class="bank-row-j"><span class="bank-label-j">Account Number</span><span
+                class="bank-val-j">925020037890919</span></div>
+            <div class="bank-row-j"><span class="bank-label-j">IFSC Code</span><span
+                class="bank-val-j">UTIB0002640</span></div>
+            <div class="bank-row-j"><span class="bank-label-j">Bank Name</span><span class="bank-val-j">Axis Bank</span>
+            </div>
             <div class="bank-row-j"><span class="bank-label-j">Branch</span><span class="bank-val-j">Surat</span></div>
           </div>
         </div>
@@ -365,19 +371,8 @@
             <p>Scan with any UPI app — Google Pay, PhonePe, Paytm</p>
           </div>
         </div>
-        <div id="view-razorpay" style="display:none;">
-          <div class="qr-wrap-j">
-            <p style="margin-bottom:16px;">Click below to pay securely via Razorpay (Card, UPI, Netbanking, Wallets).</p>
-            <form>
-              <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TNzDSKu9j24z5N" async></script>
-            </form>
-            <p style="margin-top:16px; font-size:14px; opacity:0.8;">
-              After payment, copy the Payment ID from your confirmation email/screen and paste it into the "Transaction / UTR ID" field below.
-            </p>
-          </div>
-        </div>
 
-        <!-- Membership Plan Selector -->
+
         <div class="plan-label-j">Select Your Membership Plan <span class="req">*</span></div>
         <div class="plan-cards-j">
           <div class="plan-card-j selected" id="plan-india" onclick="selectPlan('india')">
@@ -411,21 +406,22 @@
 
         <div class="check-row-j" style="margin-top:20px;">
           <input type="checkbox" id="pay-confirm">
-          <label for="pay-confirm">I confirm that the payment details above are correct and agree to the Terms of Service of MIB.</label>
+          <label for="pay-confirm">I confirm that the payment details above are correct and agree to the Terms of
+            Service of MIB.</label>
         </div>
 
         <div class="form-nav-j">
           <button class="btn-back-j" onclick="goToStep(3)">← Back</button>
-          <button class="btn-next-j gold" id="btn-submit" onclick="submitPaymentData()">Submit Registration →</button>
+          <button class="btn-next-j gold" id="btn-submit" onclick="submitForm()">Submit Registration →</button>
         </div>
       </div>
 
-      <!-- STEP 5: Success -->
       <div class="step-panel-j" id="step-5">
         <div class="success-wrap-j">
           <div class="success-icon-j">✦</div>
           <h2>Welcome to <em>MIB!</em></h2>
-          <p>Your registration has been submitted successfully. Our team will verify your payment and activate your membership within 2-3 business days. Check your email for confirmation.</p>
+          <p>Your registration has been submitted successfully. Our team will verify your payment and activate your
+            membership within 2-3 business days. Check your email for confirmation.</p>
           <div class="success-btns-j">
             <a href="index.html" class="btn-home-j">Go to Homepage</a>
             <a href="membership.html" class="btn-outline-j">View Membership</a>
@@ -439,25 +435,9 @@
   <script>
     function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
 
-    function removeAmountFromRazorpayButton() {
-      const rzpContainer = document.getElementById('view-razorpay');
-      if (!rzpContainer) return;
-      const updateText = () => {
-        const textNode = rzpContainer.querySelector('.PaymentButton-text');
-        if (textNode && (textNode.textContent.includes('5000') || textNode.textContent.includes('₹') || textNode.textContent.startsWith('Pay'))) {
-          textNode.textContent = 'Razorpay';
-        }
-      };
-      const observer = new MutationObserver(updateText);
-      observer.observe(rzpContainer, { childList: true, subtree: true });
-      setInterval(updateText, 200);
-    }
-    document.addEventListener('DOMContentLoaded', removeAmountFromRazorpayButton);
-
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxwkX-gDOteppnJhhmZYgWvz5JX3mX9KejnOd4w7vTqyx3GHNWWquJG9aU0Ifprv8WV5w/exec';
     let currentStep = 1;
     let selectedPayMethod = 'bank';
-    let savedRowId = null;
 
     function onFileSelect(input, labelId) {
       if (input.files && input.files[0]) {
@@ -516,170 +496,12 @@
         }
         if (!document.getElementById('logo-upload').files.length) { alert('Please upload your business logo.'); return; }
       }
+      if (n === 4) {
+        if (!document.getElementById('terms-check').checked) { alert('Please agree to the Terms & Conditions to continue.'); return; }
+      }
       setStep(n);
       if (n === 4 && !val('txn-date')) {
         document.getElementById('txn-date').value = new Date().toISOString().split('T')[0];
-      }
-    }
-
-    function compressImage(file, maxWidth = 1000, maxHeight = 1000, quality = 0.8) {
-      return new Promise((resolve) => {
-        if (!file || !file.type || !file.type.startsWith('image/')) {
-          resolve('');
-          return;
-        }
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          const img = new Image();
-          img.onload = () => {
-            let w = img.width;
-            let h = img.height;
-            if (w > maxWidth || h > maxHeight) {
-              if (w / h > maxWidth / maxHeight) {
-                h = Math.round((h * maxWidth) / w);
-                w = maxWidth;
-              } else {
-                w = Math.round((w * maxHeight) / h);
-                h = maxHeight;
-              }
-            }
-            const canvas = document.createElement('canvas');
-            canvas.width = w;
-            canvas.height = h;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0, w, h);
-            resolve(canvas.toDataURL('image/jpeg', quality));
-          };
-          img.onerror = () => resolve(e.target.result || '');
-          img.src = e.target.result;
-        };
-        reader.onerror = () => resolve('');
-        reader.readAsDataURL(file);
-      });
-    }
-
-    // STAGE 1: Submit Steps 1 & 2 on Step 3 Button Click
-    async function submitInitialData() {
-      if (!document.getElementById('terms-check').checked) {
-        alert('Please agree to the Terms & Conditions to continue.');
-        return;
-      }
-
-      const btn = document.getElementById('btn-step3');
-      btn.disabled = true;
-      btn.textContent = 'Processing…';
-
-      try {
-        const photoFile = document.getElementById('photo-upload').files[0];
-        const logoFile = document.getElementById('logo-upload').files[0];
-        const refType = document.querySelector('input[name="ref-type"]:checked').value;
-
-        // Compress images quickly in parallel
-        const [photoData, logoData] = await Promise.all([
-          compressImage(photoFile, 1000, 1000, 0.8),
-          compressImage(logoFile, 1000, 1000, 0.8)
-        ]);
-
-        const payload = {
-          action: 'saveInitial',
-          referenceType: refType === 'person' ? 'By Person' : 'By Social Media',
-          referenceName: refType === 'person' ? val('ref-name') : '',
-          referenceNumber: refType === 'person' ? val('ref-number') : '',
-          referencePlatform: refType === 'social' ? val('ref-platform') : '',
-          fullName: val('full-name'),
-          email: val('gmail-id'),
-          dob: val('dob'),
-          gender: val('gender'),
-          mobile: val('mobile'),
-          whatsapp: val('whatsapp'),
-          address: val('address'),
-          country: val('country'),
-          city: val('city'),
-          photoData: photoData,
-          photoName: photoFile?.name || '',
-          businessName: val('biz-name'),
-          businessType: val('biz-type'),
-          industryType: val('industry-type'),
-          businessPhone: val('biz-phone'),
-          businessAddress: val('biz-address'),
-          businessEmailWeb: val('biz-email-web'),
-          employees: val('employees'),
-          yearsInBusiness: val('years-biz'),
-          businessDescription: val('biz-desc'),
-          logoData: logoData,
-          logoName: logoFile?.name || ''
-        };
-
-        // Fire request asynchronously in background
-        fetch(SCRIPT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(payload)
-        }).then(res => res.json())
-          .then(result => { if (result && result.rowId) savedRowId = result.rowId; })
-          .catch(() => {});
-
-        // Instantly transition to Step 4
-        setTimeout(() => {
-          btn.disabled = false;
-          btn.textContent = 'Proceed to Payment →';
-          goToStep(4);
-        }, 150);
-      } catch (e) {
-        btn.disabled = false;
-        btn.textContent = 'Proceed to Payment →';
-        goToStep(4);
-      }
-    }
-
-    // STAGE 2: Submit Payment Details on Same Row
-    async function submitPaymentData() {
-      if (!val('txn-date')) { alert('Please enter the payment date.'); return; }
-      if (!val('txn-id')) { alert('Please enter the Transaction ID.'); return; }
-      if (!document.getElementById('pay-confirm').checked) { alert('Please confirm your payment details.'); return; }
-
-      const btn = document.getElementById('btn-submit');
-      btn.classList.add('loading');
-      btn.disabled = true;
-      btn.textContent = 'Submitting…';
-
-      try {
-        const isIndia = document.getElementById('plan-india').classList.contains('selected');
-        const membershipPlan = isIndia ? 'India Membership' : 'International Membership';
-        const paymentAmount = isIndia ? '₹5,000' : '$100';
-        const payMethodLabel = selectedPayMethod === 'bank' ? 'Bank Transfer'
-          : selectedPayMethod === 'qr' ? 'QR / UPI Scan'
-          : 'Razorpay Online Payment';
-
-        const payload = {
-          action: 'savePayment',
-          rowId: savedRowId,
-          email: val('gmail-id'),
-          paymentMethod: payMethodLabel,
-          membershipPlan: membershipPlan,
-          paymentDate: val('txn-date'),
-          transactionId: val('txn-id'),
-          paymentAmount: paymentAmount
-        };
-
-        fetch(SCRIPT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(payload)
-        }).catch(() => {});
-
-        // Smooth instant transition to Step 5 (Success)
-        setTimeout(() => {
-          btn.disabled = false;
-          btn.classList.remove('loading');
-          btn.textContent = 'Submit Registration →';
-          setStep(5);
-        }, 400);
-      } catch (e) {
-        alert('Something went wrong. Please try again.');
-        btn.disabled = false;
-        btn.classList.remove('loading');
-        btn.textContent = 'Submit Registration →';
       }
     }
 
@@ -687,24 +509,77 @@
       selectedPayMethod = method;
       document.getElementById('tab-bank').classList.toggle('selected', method === 'bank');
       document.getElementById('tab-qr').classList.toggle('selected', method === 'qr');
-      document.getElementById('tab-razorpay').classList.toggle('selected', method === 'razorpay');
 
       document.getElementById('check-bank').style.opacity = method === 'bank' ? '1' : '0';
       document.getElementById('check-qr').style.opacity = method === 'qr' ? '1' : '0';
-      document.getElementById('check-razorpay').style.opacity = method === 'razorpay' ? '1' : '0';
 
       document.getElementById('view-bank').style.display = method === 'bank' ? 'block' : 'none';
       document.getElementById('view-qr').style.display = method === 'qr' ? 'block' : 'none';
-      document.getElementById('view-razorpay').style.display = method === 'razorpay' ? 'block' : 'none';
 
       const txnLabel = document.getElementById('txn-id-label');
       const txnInput = document.getElementById('txn-id');
-      if (method === 'razorpay') {
-        txnLabel.innerHTML = 'Razorpay Payment ID <span class="req">*</span>';
-        txnInput.placeholder = 'e.g. pay_XXXXXXXXXXXXXX';
-      } else {
-        txnLabel.innerHTML = 'Transaction / UTR ID <span class="req">*</span>';
-        txnInput.placeholder = '12-digit transaction ID';
+      txnLabel.innerHTML = 'Transaction / UTR ID <span class="req">*</span>';
+      txnInput.placeholder = '12-digit transaction ID';
+    }
+
+    function fileToBase64(file) {
+      return new Promise((res, rej) => {
+        const r = new FileReader();
+        r.onload = () => res(r.result);
+        r.onerror = rej;
+        r.readAsDataURL(file);
+      });
+    }
+
+    async function submitForm() {
+      if (!val('txn-date')) { alert('Please enter the payment date.'); return; }
+      if (!val('txn-id')) { alert('Please enter the Transaction ID.'); return; }
+      if (!document.getElementById('pay-confirm').checked) { alert('Please confirm your payment details.'); return; }
+
+      const btn = document.getElementById('btn-submit');
+      btn.classList.add('loading');
+      btn.textContent = 'Submitting…';
+
+      try {
+        const photoFile = document.getElementById('photo-upload').files[0];
+        const logoFile = document.getElementById('logo-upload').files[0];
+        const refType = document.querySelector('input[name="ref-type"]:checked').value;
+        const isIndia = document.getElementById('plan-india').classList.contains('selected');
+        const membershipPlan = isIndia ? 'India (₹5,000)' : 'International ($100)';
+        const paymentAmount = isIndia ? '₹5,000' : '$100';
+        const payMethodLabel = selectedPayMethod === 'bank' ? 'Bank Transfer' : 'QR / UPI Scan';
+        const payload = {
+          referenceType: refType === 'person' ? 'By Person' : 'By Social Media',
+          referenceName: refType === 'person' ? val('ref-name') : '',
+          referenceNumber: refType === 'person' ? val('ref-number') : '',
+          referencePlatform: refType === 'social' ? val('ref-platform') : '',
+          fullName: val('full-name'), email: val('gmail-id'), dob: val('dob'),
+          gender: val('gender'), mobile: val('mobile'), whatsapp: val('whatsapp'),
+          address: val('address'), country: val('country'), city: val('city'),
+          photoData: photoFile ? await fileToBase64(photoFile) : '',
+          photoName: photoFile?.name || '',
+          businessName: val('biz-name'), businessType: val('biz-type'),
+          industryType: val('industry-type'), businessPhone: val('biz-phone'),
+          businessAddress: val('biz-address'), businessEmailWeb: val('biz-email-web'),
+          employees: val('employees'), yearsInBusiness: val('years-biz'),
+          businessDescription: val('biz-desc'),
+          logoData: logoFile ? await fileToBase64(logoFile) : '',
+          logoName: logoFile?.name || '',
+          membershipPlan: membershipPlan,
+          paymentMethod: payMethodLabel,
+          paymentDate: val('txn-date'), transactionId: val('txn-id'),
+          paymentAmount: paymentAmount, status: 'Pending'
+        };
+        await fetch(SCRIPT_URL, {
+          method: 'POST', mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload)
+        });
+        setTimeout(() => setStep(5), 800);
+      } catch (e) {
+        alert('Something went wrong. Please try again.');
+        btn.classList.remove('loading');
+        btn.textContent = 'Submit Registration →';
       }
     }
 
